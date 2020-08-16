@@ -90,6 +90,9 @@
     <ClCompile Include="Primzahl.cc">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="UsingNamespaceExample.cc">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Spiel.h">

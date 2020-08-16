@@ -164,6 +164,7 @@
     <ClCompile Include="Schleifen2.cc" />
     <ClCompile Include="Spiel.cc" />
     <ClCompile Include="Switch.cc" />
+    <ClCompile Include="UsingNamespaceExample.cc" />
     <ClCompile Include="WhileSchleife.cc" />
   </ItemGroup>
   <ItemGroup>
