@@ -2,9 +2,11 @@
 ########### FOLDERS ############
 ################################
 # directories
-.vs/
-.vscode/
+build/
+html/
+latex/
 Slides/
+.vs/
 
 ################################
 ############ C/C++ #############
@@ -76,13 +78,9 @@ Slides/
 ################################
 ########### VS CODE ############
 ################################
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
 *.code-workspace
 .history/
+*.zip
 
 ################################
 ######## VISUAL STUDIO #########

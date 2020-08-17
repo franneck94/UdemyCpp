@@ -1,0 +1,62 @@
+{
+    "version": "0.2.0",
+    "configurations": 
+    [
+        { 
+            "name": "Cpp: Debug (Single File)", 
+            "type": "cppdbg", 
+            "request": "launch",  
+            "args": [], 
+            "stopAtEntry": false, 
+            "externalConsole": false,
+            "cwd": "${fileDirname}", 
+            "environment": [], 
+            "program": "${fileDirname}/${fileBasenameNoExtension}Debug",
+            "internalConsoleOptions": "openOnSessionStart",
+            "preLaunchTask": "Cpp: Debug (Single File)",
+            "linux": 
+            {
+                "MIMode": "gdb",
+                "miDebuggerPath": "/usr/bin/gdb",
+            },
+            "osx": 
+            {
+                "MIMode": "lldb",
+            },
+            "windows": 
+            {
+                "program": "${fileDirname}/${fileBasenameNoExtension}Debug.exe",
+                "MIMode": "gdb",
+                "miDebuggerPath": "C:\\cygwin64\\bin\\gdb.exe",
+            }
+        },
+        { 
+            "name": "Cpp: Debug (Folder)", 
+            "type": "cppdbg", 
+            "request": "launch",  
+            "args": [], 
+            "stopAtEntry": false, 
+            "externalConsole": false,
+            "cwd": "${fileDirname}", 
+            "environment": [], 
+            "program": "${fileDirname}/${fileBasenameNoExtension}Debug",
+            "internalConsoleOptions": "openOnSessionStart",
+            "preLaunchTask": "Cpp: Debug (Folder)",
+            "linux": 
+            {
+                "MIMode": "gdb",
+                "miDebuggerPath": "/usr/bin/gdb",
+            },
+            "osx": 
+            {
+                "MIMode": "lldb",
+            },
+            "windows": 
+            {
+                "program": "${fileDirname}/${fileBasenameNoExtension}Debug.exe",
+                "MIMode": "gdb",
+                "miDebuggerPath": "C:\\cygwin64\\bin\\gdb.exe",
+            }
+        }
+    ]
+}
