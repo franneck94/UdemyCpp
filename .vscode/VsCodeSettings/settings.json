@@ -1,0 +1,12 @@
+{
+    // Windows, Linux
+    "compilerC": "gcc",
+    "compilerCpp": "g++",
+    "debuggerCpp": "gdb",
+    // MacOS
+    // "compilerC": "clang",
+    // "compilerCpp": "clang++",
+    // "debuggerCpp": "lldb",
+    // For all OS
+    "make": "make",
+}
