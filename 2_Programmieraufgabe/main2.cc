@@ -1,50 +1,50 @@
- #include <iostream>
- #include "exercise2.h"
+#include <iostream>
+#include "exercise2.h"
 
- using std::cout;
- using std::endl;
- using std::cin;
+using std::cin;
+using std::cout;
+using std::endl;
 
- // int main()
- int main()
- {
- 	int *my_data = nullptr;
- 	int size = 3;
- 	my_data = new int[size];
+// int main()
+int main()
+{
+    int* my_data = nullptr;
+    unsigned int size = 3;
+    my_data = new int[size];
 
- 	my_data[0] = 0;
- 	my_data[1] = 1;
- 	my_data[2] = 2;// int main()
+    my_data[0] = 0;
+    my_data[1] = 1;
+    my_data[2] = 2; // int main()
 
     std::cout << "Start-values of the array: " << std::endl;
-    for (int i = 0; i < size; i++)
+    for (unsigned int i = 0; i < size; i++)
     {
         cout << my_data[i] << endl;
     }
 
- 	// Aufgabe 1
+    // Aufgabe 1
     // 0 1 2 12
- 	push_back(my_data, size, 12);
- 	size++;
+    push_back(my_data, size, 12);
+    size++;
 
     std::cout << "Append value 12 at the end: " << std::endl;
- 	for (int i = 0; i < size; i++)
- 	{
-        cout << my_data[i] << endl;
- 	}
-
- 	// Aufgabe 2
- 	pop_back(my_data, size);
- 	size--;
-
- 	std::cout << "Remove the last value: " << std::endl;
-    for (int i = 0; i < size; i++)
+    for (unsigned int i = 0; i < size; i++)
     {
         cout << my_data[i] << endl;
     }
 
- 	delete[] my_data;
- 	my_data = nullptr;
+    // Aufgabe 2
+    pop_back(my_data, size);
+    size--;
 
- 	return 0;
- }
+    std::cout << "Remove the last value: " << std::endl;
+    for (unsigned int i = 0; i < size; i++)
+    {
+        cout << my_data[i] << endl;
+    }
+
+    delete[] my_data;
+    my_data = nullptr;
+
+    return 0;
+}

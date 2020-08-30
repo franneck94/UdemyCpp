@@ -1,36 +1,30 @@
 #include <iostream>
+
 #include "exercise2.h"
 
-using std::cout;
-using std::endl;
-using std::cin;
 
 // Aufgabe 1
-void push_back(int*& input_array, const int& size, const int& value)
+void push_back(int* &input_array, const unsigned int &size, const int &value)
 {
-	int* temp;
+	int* temp = nullptr;
 	temp = new int[size + 1];
 	
-	for (int i = 0; i < size; i++)
+	for (unsigned int i = 0; i < size; i++)
 	{
 		temp[i] = input_array[i];
 	}
+
 	temp[size] = value;
 	
 	delete[] input_array;
-	input_array = new int[size + 1];
- 
-	for (int i = 0; i < size + 1; i++)
-	{
-		input_array[i] = temp[i];
-	}
-	delete[] temp;
+
+	input_array = temp;
 }
 
 // Aufgabe 2
-void pop_back(int *&input_array, const int &size)
+void pop_back(int* &input_array, const unsigned int &size)
 {
-	int *temp;
+	int* temp = nullptr;
 	temp = new int[size - 1];
 
 	for (int i = 0; i < size - 1; i++)
@@ -40,12 +34,5 @@ void pop_back(int *&input_array, const int &size)
 
 	delete[] input_array;
 
-	input_array = new int[size - 1];
-
-	for (int i = 0; i < size - 1; i++)
-	{
-		input_array[i] = temp[i];
-	}
-
-	delete[] temp;
+	input_array = temp;
 }
