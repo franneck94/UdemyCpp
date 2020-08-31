@@ -1,42 +1,36 @@
 #include <iostream>
-#include <string>
+#include <cstddef>
 
 #include "DynArray.h"
 #include "AlgoArray.h"
 
-using std::cout;
-using std::endl;
-using std::cin;
-using std::string;
 
 int main()
 {
 	DynamicArray<double> a(1, 3);
 
-	for (int i = 0; i != a.get_length(); i++)
+	for (std::size_t i = 0; i != a.get_length(); ++i)
+	{
 		a[i] = i + 1;
+	}
 
-	for (int i = 0; i != a.get_length(); i++)
-		cout << endl << a[i];
+	for (std::size_t i = 0; i != a.get_length(); ++i)
+	{
+		std::cout << a[i] << std::endl;
+	}
+	std::cout << std::endl;
 
-	// 1, 2, 3, 4
-	// Sum: 10
-	// Mean: 2,5
-	// Median: 2,5
-	// Variance: 5
-	// Stddev: sqrt(5)
+	double mean_a = mean(a);
+	double sum_a = sum(a);
+	double median_a = median(a);
+	double var_a = variance(a);
+	double stddev_a = stddev(a);
 
-	double sum_value = sum(a);
-	double mean_value = mean(a);
-	double median_value = median(a);
-	double var_value = variance(a);
-	double stddev_value = stddev(a);
-
-	cout << endl << "Sum: " << sum_value;
-	cout << endl << "Mean: " << mean_value;
-	cout << endl << "Median: " << median_value;
-	cout << endl << "Var: " << var_value;
-	cout << endl << "Stddev: " << stddev_value;
+	std::cout << "Sum: " << sum_a << std::endl;
+	std::cout << "Mean: " << mean_a << std::endl;
+	std::cout << "Median: " << median_a << std::endl;
+	std::cout << "Var: " << var_a << std::endl;
+	std::cout << "Stddev: " << stddev_a << std::endl;
 
 	return 0;
 }

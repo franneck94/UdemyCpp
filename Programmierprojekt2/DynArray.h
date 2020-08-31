@@ -1,94 +1,108 @@
 #pragma once
 
-template<typename T>
+#include <cstddef>
+
+/**
+ * @brief DynamicArray class.
+ * 
+ * @tparam T 
+ */
+template <typename T>
 class DynamicArray
 {
 private:
-	T *m_data;
-	unsigned int m_length;
-	unsigned int m_capacity;
+	std::size_t m_length;
+	std::size_t m_capacity;
+	T* m_data;
 
 public:
 	DynamicArray<T>();
-	DynamicArray<T>(const T &value, const unsigned int &length);
+	DynamicArray<T>(const T &value, const std::size_t &length);
 
-	unsigned int get_length();
-	unsigned int get_capacity();
+	std::size_t get_length();
+	std::size_t get_capacity();
 
 	void push_back(const T &value);
 	void pop_back();
 
-	T& operator[](const unsigned int &i);
+	T &operator[](const std::size_t &i);
 };
 
-//#include "DynArray.h"
-
 /**
-Create empty dynamic array.
-*/
-template<typename T>
-DynamicArray<T>::DynamicArray() :
-	m_data(nullptr), m_length(0), m_capacity(0)
+ * @brief Construct a new Dynamic Array< T>:: Dynamic Array object
+ * 
+ * @tparam T 
+ */
+template <typename T>
+DynamicArray<T>::DynamicArray(): 
+	m_length(0), 
+	m_capacity(0),
+	m_data(nullptr)
 {
-
 }
 
 /**
-Create a dynamic array with given m_length and constant value to fill in.
-
-@param value: Constant value to fill in
-@param m_length: Length of the array
-*/
-template<typename T>
-DynamicArray<T>::DynamicArray(const T &value, const unsigned int &length) :
-	m_data(new T[m_capacity]), m_length(length), m_capacity(length)
+ * @brief Construct a new Dynamic Array< T>:: Dynamic Array object
+ * 
+ * @tparam T 
+ * @param value 
+ * @param length 
+ */
+template <typename T>
+DynamicArray<T>::DynamicArray(const T &value, const std::size_t &length): 
+	m_length(length), 
+	m_capacity(length),
+	m_data(nullptr)
 {
-	std::cout << m_data << std::endl;
+	m_data = new T[m_capacity];
 
-	for (int i = 0; i < m_length; ++i)
+	for (std::size_t i = 0; i < m_length; ++i)
 	{
 		m_data[i] = value;
 	}
 }
 
 /**
-Get the current m_length of the dynamic array.
-
-@return uint: Dynamic array m_length.
-*/
-template<typename T>
-unsigned int DynamicArray<T>::get_length()
+ * @brief Get the length of the dynamic array.
+ * 
+ * @tparam T 
+ * @return std::size_t 
+ */
+template <typename T>
+std::size_t DynamicArray<T>::get_length()
 {
 	return m_length;
 }
 
 /**
-Get the current m_length of the dynamic array.
-
-@return uint: Dynamic array m_length.
-*/
-template<typename T>
-unsigned int DynamicArray<T>::get_capacity()
+ * @brief Get the length of the capacity array.
+ * 
+ * @tparam T 
+ * @return std::size_t 
+ */
+template <typename T>
+std::size_t DynamicArray<T>::get_capacity()
 {
 	return m_capacity;
 }
 
 /**
-Append given Value at the end of the Dynamic Array
-
-@param array: Value to append
-*/
-template<typename T>
+ * @brief Push back the value at the end of the dynamic array.
+ * 
+ * @tparam T 
+ * @param value 
+ */
+template <typename T>
 void DynamicArray<T>::push_back(const T &value)
 {
 	if (m_length == m_capacity)
 	{
 		m_capacity *= 2;
 
-		T *temp;
+		T* temp = nullptr;
 		temp = new T[m_capacity];
 
-		for (int i = 0; i < m_length; i++)
+		for (std::size_t i = 0; i < m_length; i++)
 		{
 			temp[i] = m_data[i];
 		}
@@ -102,9 +116,11 @@ void DynamicArray<T>::push_back(const T &value)
 }
 
 /**
-Delete last value in the dynamic array
-*/
-template<typename T>
+ * @brief Pop back the value at the end of the dynamic array.
+ * 
+ * @tparam T 
+ */
+template <typename T>
 void DynamicArray<T>::pop_back()
 {
 	if (m_length > 0)
@@ -115,10 +131,10 @@ void DynamicArray<T>::pop_back()
 		{
 			m_capacity /= 2;
 
-			T *temp;
+			T* temp = nullptr;
 			temp = new T[m_capacity];
 
-			for (int i = 0; i < m_length; i++)
+			for (std::size_t i = 0; i < m_length; i++)
 			{
 				temp[i] = m_data[i];
 			}
@@ -129,8 +145,15 @@ void DynamicArray<T>::pop_back()
 	}
 }
 
-template<typename T>
-T& DynamicArray<T>::operator[](const unsigned int &i)
+/**
+ * @brief Get the i-th element of the dynamic array.
+ * 
+ * @tparam T 
+ * @param i 
+ * @return T& 
+ */
+template <typename T>
+T& DynamicArray<T>::operator[](const std::size_t &i)
 {
 	return m_data[i];
 }
