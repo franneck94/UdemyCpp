@@ -3,37 +3,38 @@
 #include <cstddef>
 
 /**
- * @brief DynamicArray struct
+ * @brief DynamicArray Structure.
  * 
  * @param double* m_data
  * @param std::size_t m_length
  */
-struct DynamicArray
+struct DyanmicArray
 {
-	double* m_data;
-	std::size_t m_length;
+    double* m_data;
+    std::size_t m_length;
 };
 
 /**
  * @brief Create a dynamic array object
  * 
- * @param value 
- * @param length 
- * @return DynamicArray 
+ * @param value The fill value for the array.
+ * @param length The length of the array.
+ * @return DyanmicArray 
  */
-DynamicArray create_dynamic_array(const double &value, const std::size_t &length);
+DyanmicArray create_dynamic_array(const double &value, const std::size_t &length);
 
 /**
- * @brief Append given Value at the end of the Dynamic Array
+ * @brief Push backs the *value* at the end of the array.
  * 
- * @param dynamic_array 
- * @param value 
+ * @param dynmaic_array The dynamic array.
+ * @param value The value to append to the array.
  */
-void push_back(DynamicArray &dynamic_array, const double &value);
+void push_back(DyanmicArray &dynmaic_array, const int &value);
 
 /**
- * @brief Delete last value in the dynamic array
+ * @brief Pop backs the value at the end of the vector.
  * 
- * @param dynamic_array 
+ * @param input_array The dynamic array.
+ * @param size The size of the array.
  */
-void pop_back(DynamicArray &dynamic_array);
+void pop_back(DyanmicArray &dynmaic_array);
