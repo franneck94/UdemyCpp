@@ -4,9 +4,9 @@
 #include "DynArray.h"
 
 
-DyanmicArray create_dynamic_array(const double &value, const std::size_t &length)
+DynamicArray create_dynamic_array(const double &value, const std::size_t &length)
 {
-	DyanmicArray dynamic_array = { nullptr, 0 };
+	DynamicArray dynamic_array = { nullptr, 0 };
 	dynamic_array.m_length = length;
 	dynamic_array.m_data = new double[length];
 
@@ -18,7 +18,7 @@ DyanmicArray create_dynamic_array(const double &value, const std::size_t &length
 	return dynamic_array;
 }
 
-void push_back(DyanmicArray &dynmaic_array, const int &value)
+void push_back(DynamicArray &dynmaic_array, const int &value)
 {
 	double* temp = nullptr;
 	temp = new double[dynmaic_array.m_length + 1];
@@ -36,7 +36,7 @@ void push_back(DyanmicArray &dynmaic_array, const int &value)
 	dynmaic_array.m_length++;
 }
 
-void pop_back(DyanmicArray &dynmaic_array)
+void pop_back(DynamicArray &dynmaic_array)
 {
 	double* temp = nullptr;
 	temp = new double[dynmaic_array.m_length - 1];

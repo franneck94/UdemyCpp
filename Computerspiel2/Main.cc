@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 
-#include "Game2.hpp"
+#include "Game2.h"
 
 using std::cout;
 using std::cin;

@@ -8,7 +8,7 @@
  * @param dynamic_array 
  * @return double 
  */
-double sum(DyanmicArray &dynamic_array);
+double sum(DynamicArray &dynamic_array);
 
 /**
  * @brief 
@@ -16,7 +16,7 @@ double sum(DyanmicArray &dynamic_array);
  * @param dynamic_array 
  * @return double 
  */
-double mean(DyanmicArray &dynamic_array);
+double mean(DynamicArray &dynamic_array);
 
 /**
  * @brief 
@@ -24,7 +24,7 @@ double mean(DyanmicArray &dynamic_array);
  * @param dynamic_array 
  * @return double 
  */
-double median(DyanmicArray &dynamic_array);
+double median(DynamicArray &dynamic_array);
 
 /**
  * @brief 
@@ -32,7 +32,7 @@ double median(DyanmicArray &dynamic_array);
  * @param dynamic_array 
  * @return double 
  */
-double variance(DyanmicArray &dynamic_array);
+double variance(DynamicArray &dynamic_array);
 
 /**
  * @brief 
@@ -40,4 +40,4 @@ double variance(DyanmicArray &dynamic_array);
  * @param dynamic_array 
  * @return double 
  */
-double stddev(DyanmicArray &dynamic_array);
+double stddev(DynamicArray &dynamic_array);

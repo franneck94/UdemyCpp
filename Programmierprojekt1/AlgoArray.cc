@@ -4,7 +4,7 @@
 #include "DynArray.h"
 #include "AlgoArray.h"
 
-double sum(DyanmicArray &dynamic_array)
+double sum(DynamicArray &dynamic_array)
 {
     double sum_value = 0.0;
 
@@ -16,12 +16,12 @@ double sum(DyanmicArray &dynamic_array)
     return sum_value;
 }
 
-double mean(DyanmicArray &dynamic_array)
+double mean(DynamicArray &dynamic_array)
 {
     return sum(dynamic_array) / dynamic_array.m_length;
 }
 
-double median(DyanmicArray &dynamic_array)
+double median(DynamicArray &dynamic_array)
 {
     double median_value = 0.0;
     bool has_odd_length = dynamic_array.m_length % 2;
@@ -42,7 +42,7 @@ double median(DyanmicArray &dynamic_array)
     return median_value;
 }
 
-double variance(DyanmicArray &dynamic_array)
+double variance(DynamicArray &dynamic_array)
 {
     double mean_value = mean(dynamic_array);
     double variance_value = 0.0;
@@ -57,7 +57,7 @@ double variance(DyanmicArray &dynamic_array)
     return variance_value;
 }
 
-double stddev(DyanmicArray &dynamic_array)
+double stddev(DynamicArray &dynamic_array)
 {
     double variance_value = variance(dynamic_array);
     double stddev_value = sqrt(variance_value);
