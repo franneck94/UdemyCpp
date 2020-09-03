@@ -5,9 +5,6 @@
 
 #include "exercise.h"
 
-using std::cin;
-using std::cout;
-using std::endl;
 using std::ifstream;
 using std::ofstream;
 using std::string;
@@ -20,7 +17,7 @@ int main()
 	std::string content;
 	iffile >> content;
 	iffile.close();
-	cout << "Content: " << content << endl;
+	std::cout << "Content: " << content << std::endl;
 
 	ByteArray plain_text(content.begin(), content.end());
 	ByteArray key(8, 0xff);
@@ -28,17 +25,17 @@ int main()
 
 	for (int i = 0; i != cipher_text.size(); ++i)
 	{
-		cout << "Cipher[" << i << "] = " << cipher_text[i] << endl;
+		std::cout << "Cipher[" << i << "] = " << cipher_text[i] << std::endl;
 	}
-	cout << endl;
+	std::cout << std::endl;
 
 	ByteArray message = hex_vector_xor(cipher_text, key);
 
 	for (int i = 0; i != message.size(); ++i)
 	{
-		cout << "Message[" << i << "] = " << message[i] << endl;
+		std::cout << "Message[" << i << "] = " << message[i] << std::endl;
 	}
-	cout << endl;
+	std::cout << std::endl;
 
 	return 0;
 }

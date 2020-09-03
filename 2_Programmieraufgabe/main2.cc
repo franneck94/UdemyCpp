@@ -1,9 +1,6 @@
 #include <iostream>
-#include "exercise2.h"
 
-using std::cin;
-using std::cout;
-using std::endl;
+#include "exercise2.h"
 
 // int main()
 int main()
@@ -19,7 +16,7 @@ int main()
     std::cout << "Start-values of the array: " << std::endl;
     for (unsigned int i = 0; i < size; i++)
     {
-        cout << my_data[i] << endl;
+        std::cout << my_data[i] << std::endl;
     }
 
     // Aufgabe 1
@@ -30,7 +27,7 @@ int main()
     std::cout << "Append value 12 at the end: " << std::endl;
     for (unsigned int i = 0; i < size; i++)
     {
-        cout << my_data[i] << endl;
+        std::cout << my_data[i] << std::endl;
     }
 
     // Aufgabe 2
@@ -40,7 +37,7 @@ int main()
     std::cout << "Remove the last value: " << std::endl;
     for (unsigned int i = 0; i < size; i++)
     {
-        cout << my_data[i] << endl;
+        std::cout << my_data[i] << std::endl;
     }
 
     delete[] my_data;

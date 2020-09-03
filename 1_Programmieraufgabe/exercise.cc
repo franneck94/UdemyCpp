@@ -3,10 +3,6 @@
 
 #include "exercise.h"
 
-using std::cin;
-using std::cout;
-using std::endl;
-
 // Hier die Definition der Funktion
 void mod_cross_sum(int I, int J)
 {
@@ -17,12 +13,12 @@ void mod_cross_sum(int I, int J)
 			// Ungerader Fall
 			if ((i + j) % 2)
 			{
-				cout << "i: " << i << " , j: " << j << " := Ungerade!" << endl;
+				std::cout << "i: " << i << " , j: " << j << " := Ungerade!" << std::endl;
 			}
 			// Gerader Fall
 			else
 			{
-				cout << "i: " << i << " , j: " << j << " := Gerade!" << endl;
+				std::cout << "i: " << i << " , j: " << j << " := Gerade!" << std::endl;
 			}
 		}
 	}

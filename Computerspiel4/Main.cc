@@ -3,10 +3,6 @@
 
 #include "Game.h"
 
-using std::cin;
-using std::cout;
-using std::endl;
-
 int main()
 {
 	bool repeat = true;
@@ -15,8 +11,8 @@ int main()
 	{
 		game();
 
-		cout << "Play again? (0=N, 1=Y)" << endl;
-		cin >> repeat;
+		std::cout << "Play again? (0=N, 1=Y)" << std::endl;
+		std::cin >> repeat;
 
 		if (repeat == 0)
 			break;

@@ -1,30 +1,31 @@
-// #include <iostream>
+#include <iostream>
 
-// using std::cout;
-// using std::endl;
-// using std::cin;
+int main(int argc, char **argv)
+{
+	if (argc > 1)
+	{
+		std::cout << std::endl
+				  << "Argc: <<<<<" << argc;
 
-// int main(int argc, char** argv)
-// {
-// 	if (argc > 1)
-// 	{
-// 		cout << endl << "Argc: <<<<<" << argc;
+		for (int i = 0; i < argc; i++)
+		{
+			std::cout << std::endl
+					  << argv[i];
+		}
 
-// 		for (int i = 0; i < argc; i++)
-// 		{
-// 			cout << endl << argv[i];
-// 		}
+		char input1 = *argv[1];
+		int input2 = atoi(argv[2]);
+		bool input3 = atoi(argv[3]);
 
-// 		char input1 = *argv[1];
-// 		int input2 = atoi(argv[2]);
-// 		bool input3 = atoi(argv[3]);
+		std::cout << std::endl;
 
-// 		cout << endl;
+		std::cout << std::endl
+				  << input1;
+		std::cout << std::endl
+				  << input2;
+		std::cout << std::endl
+				  << input3;
+	}
 
-// 		cout << endl << input1;
-// 		cout << endl << input2;
-// 		cout << endl << input3;
-// 	}
-
-// 	return 0;
-// }
+	return 0;
+}

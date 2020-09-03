@@ -1,9 +1,6 @@
 #include <iostream>
-#include "exercise.h"
 
-using std::cin;
-using std::cout;
-using std::endl;
+#include "exercise.h"
 
 // Aufgabe 1
 double array_sum(double *p_array, const unsigned int &length)

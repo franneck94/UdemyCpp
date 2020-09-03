@@ -5,10 +5,6 @@
 #define LEFT 'a'
 #define RIGHT 'd'
 
-using std::cin;
-using std::cout;
-using std::endl;
-
 int main()
 {
 	bool repeat = true;
@@ -31,14 +27,14 @@ int main()
 			for (int i = 0; i < LEN_X; i++)
 			{
 				if (i != player_pos && i != goal && i != start)
-					cout << '.';
+					std::cout << '.';
 				else if (i == player_pos)
-					cout << 'P';
+					std::cout << 'P';
 				else if (i == goal || i == start)
-					cout << '|';
+					std::cout << '|';
 			}
 
-			cin >> move;
+			std::cin >> move;
 			system("clear");
 
 			// Fuehre den eingegebenen move aus
@@ -47,11 +43,11 @@ int main()
 				if (player_pos > 0)
 				{
 					player_pos--;
-					cout << "You moved left!" << endl;
+					std::cout << "You moved left!" << std::endl;
 				}
 				else
 				{
-					cout << "You bounced!" << endl;
+					std::cout << "You bounced!" << std::endl;
 				}
 			}
 			else if (move == RIGHT)
@@ -60,22 +56,22 @@ int main()
 				if (player_pos < LEN_X - 1)
 				{
 					player_pos++;
-					cout << "You moved right!" << endl;
+					std::cout << "You moved right!" << std::endl;
 				}
 				else
 				{
-					cout << "You bounced!" << endl;
+					std::cout << "You bounced!" << std::endl;
 				}
 			}
 			else
 			{
-				cout << "Unrecognized move!" << endl;
+				std::cout << "Unrecognized move!" << std::endl;
 			}
 
 			// Ueberpreufe ob das Spiel gewonnen ist
 			if (player_pos == goal)
 			{
-				cout << "You won the game!" << endl;
+				std::cout << "You won the game!" << std::endl;
 				finished = true;
 			}
 			else
@@ -84,8 +80,8 @@ int main()
 			}
 		}
 
-		cout << "Play again? (0=N, 1=Y)" << endl;
-		cin >> repeat;
+		std::cout << "Play again? (0=N, 1=Y)" << std::endl;
+		std::cin >> repeat;
 
 		if (repeat == 0)
 			break;

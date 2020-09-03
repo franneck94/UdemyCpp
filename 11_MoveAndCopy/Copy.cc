@@ -3,38 +3,35 @@
 
 #include "DynArrayCopy.h"
 
-using std::cin;
-using std::cout;
-using std::endl;
 using std::string;
 
 int main()
 {
 	DynamicArray<double> a(1, 3);
-	cout << "Adresse a: " << &a << endl;
+	std::cout << "Adresse a: " << &a << std::endl;
 	for (int i = 0; i != 3; ++i)
 	{
-		cout << a[i];
+		std::cout << a[i];
 	}
-	cout << endl;
+	std::cout << std::endl;
 
 	// Copy Constructor
 	DynamicArray<double> b(a);
-	cout << "Adresse b: " << &b << endl;
+	std::cout << "Adresse b: " << &b << std::endl;
 	for (int i = 0; i != 3; ++i)
 	{
-		cout << b[i];
+		std::cout << b[i];
 	}
-	cout << endl;
+	std::cout << std::endl;
 
 	// Copy Assignment Operator
 	DynamicArray<double> c = a;
-	cout << "Adresse c: " << &c << endl;
+	std::cout << "Adresse c: " << &c << std::endl;
 	for (int i = 0; i != 3; ++i)
 	{
-		cout << c[i];
+		std::cout << c[i];
 	}
-	cout << endl;
+	std::cout << std::endl;
 
 	return 0;
 }

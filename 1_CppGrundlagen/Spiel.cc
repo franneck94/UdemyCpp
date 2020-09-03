@@ -2,42 +2,38 @@
 
 #include "Spiel.h"
 
-using std::cin;
-using std::cout;
-using std::endl;
-
 // Definition
 void game()
 {
 	// b_gewonnen
 	bool b_gewonnen = false;
-	cout << "Willkommen bei meinem Gluecks-Spiel!" << endl;
+	std::cout << "Willkommen bei meinem Gluecks-Spiel!" << std::endl;
 
 	while (b_gewonnen == false)
 	{
 		int zahl;
-		cout << "Bitte gebe eine Zahl aus dem Intervall [1, 10] ein: ";
-		cin >> zahl;
+		std::cout << "Bitte gebe eine Zahl aus dem Intervall [1, 10] ein: ";
+		std::cin >> zahl;
 
 		if (zahl >= 1 && zahl <= 10)
 		{
 			if (zahl == 4)
 			{
-				cout << "Du hast den Haupt-Preis gewonnen!" << endl;
+				std::cout << "Du hast den Haupt-Preis gewonnen!" << std::endl;
 				b_gewonnen = true;
 			}
 			else if (zahl % 2 == 0)
 			{
-				cout << "Du hast einen Trost-Preis gewonnen!" << endl;
+				std::cout << "Du hast einen Trost-Preis gewonnen!" << std::endl;
 			}
 			else
 			{
-				cout << "Du hast verloren!" << endl;
+				std::cout << "Du hast verloren!" << std::endl;
 			}
 		}
 		else
 		{
-			cout << "Du hast leider eine Zahl eingegeben, die nicht aus dem Intervall [1, 10] stammt!" << endl;
+			std::cout << "Du hast leider eine Zahl eingegeben, die nicht aus dem Intervall [1, 10] stammt!" << std::endl;
 		}
 	}
 }

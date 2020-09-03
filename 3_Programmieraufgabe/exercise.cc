@@ -1,9 +1,6 @@
 #include <iostream>
-#include "exercise.h"
 
-using std::cin;
-using std::cout;
-using std::endl;
+#include "exercise.h"
 
 namespace computation
 {

@@ -1,10 +1,6 @@
 #include <iostream>
 #include "exercise.h"
 
-using std::cin;
-using std::cout;
-using std::endl;
-
 int main()
 {
 	// Aufgabe 1
@@ -15,8 +11,8 @@ int main()
 	double mean_array_a = computation::mean_array_value(array_a, array_elements);
 	double mean_array_b = computation::mean_array_value(array_b, array_elements);
 
-	cout << "Mean Array A: " << mean_array_a << endl;
-	cout << "Mean Array B: " << mean_array_b << endl;
+	std::cout << "Mean Array A: " << mean_array_a << std::endl;
+	std::cout << "Mean Array B: " << mean_array_b << std::endl;
 
 	// Aufgabe 2
 	computation::Dataset data{mean_array_a, mean_array_b};

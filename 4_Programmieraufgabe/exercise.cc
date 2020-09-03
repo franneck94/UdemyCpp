@@ -4,9 +4,6 @@
 
 #include "exercise.h"
 
-using std::cin;
-using std::cout;
-using std::endl;
 using std::fill;
 using std::sort;
 using std::vector;

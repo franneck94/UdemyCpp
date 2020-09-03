@@ -2,10 +2,6 @@
 
 #include "exercise.h"
 
-using std::cin;
-using std::cout;
-using std::endl;
-
 int main()
 {
 	int I = 5;

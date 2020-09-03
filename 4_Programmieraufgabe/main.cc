@@ -4,9 +4,6 @@
 
 #include "exercise.h"
 
-using std::cin;
-using std::cout;
-using std::endl;
 using std::fill;
 using std::sort;
 using std::vector;
@@ -28,18 +25,18 @@ int main()
 	{
 		for (int j = 0; j != matrix[i].size(); ++j)
 		{
-			cout << endl
-				 << "i = " << i << " , j = " << j << ", matrix = " << matrix[i][j];
+			std::cout << std::endl
+					  << "i = " << i << " , j = " << j << ", matrix = " << matrix[i][j];
 		}
 	}
-	cout << endl;
+	std::cout << std::endl;
 
 	// Aufgabe 2
 	vector<double> row_max_vec = max_row_values(matrix);
 
 	for (int i = 0; i != row_max_vec.size(); ++i)
 	{
-		cout << "Maximum of row " << i << " = " << row_max_vec[i] << endl;
+		std::cout << "Maximum of row " << i << " = " << row_max_vec[i] << std::endl;
 	}
 
 	// Aufgabe 3
@@ -49,17 +46,17 @@ int main()
 
 	for (int i = 0; i != row_max_vec.size(); ++i)
 	{
-		cout << "Vector[" << i << "] = " << row_max_vec[i] << endl;
+		std::cout << "Vector[" << i << "] = " << row_max_vec[i] << std::endl;
 	}
 
 	double max = sort_and_max(row_max_vec);
 
 	for (int i = 0; i != row_max_vec.size(); ++i)
 	{
-		cout << "Sorted vector[" << i << "] = " << row_max_vec[i] << endl;
+		std::cout << "Sorted vector[" << i << "] = " << row_max_vec[i] << std::endl;
 	}
 
-	cout << "Vector max: " << max << endl;
+	std::cout << "Vector max: " << max << std::endl;
 
 	return 0;
 }

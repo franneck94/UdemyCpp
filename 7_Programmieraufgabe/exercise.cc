@@ -9,9 +9,6 @@
 
 #include "exercise.h"
 
-using std::cin;
-using std::cout;
-using std::endl;
 using std::string;
 using std::vector;
 
@@ -24,8 +21,8 @@ vector<bool> shuffle_till_equal(const BinaryArray &target, BinaryArray input)
 	while (!equal)
 	{
 		if (iteration % 100'000 == 0)
-			cout << endl
-				 << "Iteration: " << iteration;
+			std::cout << std::endl
+					  << "Iteration: " << iteration;
 		++iteration;
 
 		auto timestamp = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now()).time_since_epoch().count();
@@ -49,8 +46,8 @@ vector<bool> smart_shuffle_till_equal(const BinaryArray &target, BinaryArray inp
 	while (!equal)
 	{
 		if (iteration % 100000 == 0)
-			cout << endl
-				 << "Iteration: " << iteration;
+			std::cout << std::endl
+					  << "Iteration: " << iteration;
 		++iteration;
 
 		auto timestamp = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now()).time_since_epoch().count();

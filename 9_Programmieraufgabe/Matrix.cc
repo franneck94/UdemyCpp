@@ -2,9 +2,6 @@
 
 #include "Matrix.h"
 
-using std::cout;
-using std::endl;
-
 Matrix::Matrix()
 {
 	m_A = 0.0;
@@ -27,10 +24,10 @@ Matrix::Matrix(const double A, const double B, const double C, const double D)
 
 void Matrix::print_matrix() const
 {
-	cout << "Matrix values: " << endl;
-	cout << m_A << "\t" << m_B << endl;
-	cout << m_C << "\t" << m_D << endl;
-	cout << endl;
+	std::cout << "Matrix values: " << std::endl;
+	std::cout << m_A << "\t" << m_B << std::endl;
+	std::cout << m_C << "\t" << m_D << std::endl;
+	std::cout << std::endl;
 }
 
 Matrix Matrix::operator+(const Matrix &matrixB)
