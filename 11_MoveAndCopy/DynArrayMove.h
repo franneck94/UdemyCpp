@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 // & := Lvalue Reference
 // && := Rvalue Reference
 // Rvalue: Temp. Speicher
@@ -68,7 +70,7 @@ DynamicArray<T>::~DynamicArray()
 
 // Copy constructor
 template <typename T>
-DynamicArray<T>::DynamicArray<T>(const DynamicArray<T> &x) : m_length(x.m_length), m_data(new T[m_length])
+DynamicArray<T>::DynamicArray(const DynamicArray<T> &x) : m_length(x.m_length), m_data(new T[m_length])
 {
 	for (int i = 0; i != m_length; ++i)
 	{
@@ -88,7 +90,7 @@ DynamicArray<T>::DynamicArray<T>(const DynamicArray<T> &x) : m_length(x.m_length
 
 // Move constructor
 template <typename T>
-DynamicArray<T>::DynamicArray<T>(DynamicArray<T> &&x) : m_length(std::move(x.m_length)), m_data(std::move(x.m_data))
+DynamicArray<T>::DynamicArray(DynamicArray<T> &&x) : m_length(std::move(x.m_length)), m_data(std::move(x.m_data))
 {
 	x.m_length = 0;
 	x.m_data = nullptr;
