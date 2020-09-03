@@ -3,9 +3,8 @@
 
 #include <math.h>
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
+                                          ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
@@ -32,7 +31,7 @@ bool is_prime(int val)
     if (val % 2 == 0)
         return false;
 
-    for (int i = 3; i <= sqrt(val); i+=2)
+    for (int i = 3; i <= sqrt(val); i += 2)
     {
         if (val % i == 0)
             return false;

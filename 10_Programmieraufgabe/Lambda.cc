@@ -20,9 +20,9 @@ int main()
 
 	// Aufgabe 1
 	bool has_no_even = std::none_of(my_vector.begin(), my_vector.end(),
-		[](int val) {return (val % 2 == 0); });
+									[](int val) { return (val % 2 == 0); });
 
-	if(has_no_even)
+	if (has_no_even)
 	{
 		std::cout << "None of the vector values are even" << std::endl;
 	}
@@ -33,7 +33,7 @@ int main()
 
 	// Aufgabe 2
 	std::transform(my_vector.begin(), my_vector.end(), my_result.begin(),
-		[](int val) -> int {return pow(val, 2); });
+				   [](int val) -> int { return pow(val, 2); });
 
 	for (const auto &val : my_result)
 	{

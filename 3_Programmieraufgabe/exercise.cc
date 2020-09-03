@@ -1,9 +1,9 @@
 #include <iostream>
 #include "exercise.h"
 
+using std::cin;
 using std::cout;
 using std::endl;
-using std::cin;
 
 namespace computation
 {
@@ -35,4 +35,4 @@ namespace computation
 
 		return mean_value;
 	}
-}
+} // namespace computation

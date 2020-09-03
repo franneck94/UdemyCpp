@@ -9,7 +9,7 @@
 //	std::vector<int> my_vector(5, 0);
 //	std::iota(my_vector.begin(), my_vector.end(), 5);
 //	std::list<int> my_list(my_vector.begin(), my_vector.end());
-//	
+//
 //	auto it = my_list.begin();
 //	std::advance(it, 2);
 //

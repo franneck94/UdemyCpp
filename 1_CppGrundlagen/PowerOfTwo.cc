@@ -10,7 +10,7 @@
 //	bool is_power = false;
 //
 //	while (number > 1)
-//	{	
+//	{
 //		if (number % 2 == 1)
 //		{
 //			is_power = false;
@@ -35,7 +35,7 @@
 //
 //	Input : 32 (2^5)
 //	Output : true
-//	
+//
 //	Input: 218
 //	Output: false
 //	*/

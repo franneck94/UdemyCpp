@@ -10,7 +10,7 @@
  */
 struct DynamicArray
 {
-    double* m_data;
+    double *m_data;
     std::size_t m_length;
 };
 

@@ -1,11 +1,11 @@
 #include <iostream>
 #include <string>
 
-#include "DynArray Copy.h"
+#include "DynArrayCopy.h"
 
+using std::cin;
 using std::cout;
 using std::endl;
-using std::cin;
 using std::string;
 
 int main()

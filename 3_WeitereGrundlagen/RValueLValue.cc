@@ -6,7 +6,7 @@
 //}
 //
 //// LValue (Left): Variable mit einer bestimmten Speicher-Adresse
-//// RValue (Right): "Variable" ohne eine bestimmte Speicher-Adresse 
+//// RValue (Right): "Variable" ohne eine bestimmte Speicher-Adresse
 //int main()
 //{
 //	int a = 3; // LValue
@@ -17,6 +17,6 @@
 //	f(b); // const LValue
 //	f(c); // LValue reference
 //	f(3); // RValue
-//	
+//
 //	return 0;
 //}

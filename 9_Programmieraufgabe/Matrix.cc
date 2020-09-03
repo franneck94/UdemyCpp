@@ -15,7 +15,6 @@ Matrix::Matrix()
 
 Matrix::~Matrix()
 {
-
 }
 
 Matrix::Matrix(const double A, const double B, const double C, const double D)
@@ -58,7 +57,7 @@ Matrix Matrix::operator-(const Matrix &matrixB)
 	return result;
 }
 
-Matrix& Matrix::operator+=(const Matrix &matrixB)
+Matrix &Matrix::operator+=(const Matrix &matrixB)
 {
 	set_A(get_A() + matrixB.get_A());
 	set_B(get_B() + matrixB.get_B());
@@ -68,7 +67,7 @@ Matrix& Matrix::operator+=(const Matrix &matrixB)
 	return *this;
 }
 
-Matrix& Matrix::operator-=(const Matrix &matrixB)
+Matrix &Matrix::operator-=(const Matrix &matrixB)
 {
 	set_A(get_A() - matrixB.get_A());
 	set_B(get_B() - matrixB.get_B());
@@ -91,7 +90,7 @@ Matrix Matrix::operator*(const double &scalar)
 	return result;
 }
 
-Matrix& Matrix::operator*=(const double &scalar)
+Matrix &Matrix::operator*=(const double &scalar)
 {
 	set_A(get_A() * scalar);
 	set_B(get_B() * scalar);
@@ -114,7 +113,7 @@ Matrix Matrix::operator/(const double &scalar)
 	return result;
 }
 
-Matrix& Matrix::operator/=(const double &scalar)
+Matrix &Matrix::operator/=(const double &scalar)
 {
 	set_A(get_A() / scalar);
 	set_B(get_B() / scalar);
@@ -137,7 +136,7 @@ Matrix Matrix::operator*(const Matrix &rhs)
 	return result;
 }
 
-Matrix& Matrix::operator*=(const Matrix &rhs)
+Matrix &Matrix::operator*=(const Matrix &rhs)
 {
 	return *this = (*this) * rhs;
 }

@@ -24,6 +24,6 @@
 //		else if (i == goal || i == start)
 //			cout << '|';
 //	}
-//	
+//
 //	return 0;
 //}

@@ -18,7 +18,7 @@
 //	float zahl3 = (float)(zahl); // (NEW_DTYPE)(VARIABLE_NAME)
 //	std::cout << zahl3 << std::endl;
 //
-//	// C++ casting (static_cast) 
+//	// C++ casting (static_cast)
 //	short zahl4 = static_cast<short>(zahl); // static_cast<NEW_DTYPE>(VARIABLE_NAME)
 //	std::cout << zahl4 << std::endl;
 //

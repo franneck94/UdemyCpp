@@ -12,7 +12,7 @@ int main()
 
     DynamicArray my_array = create_dynamic_array(fill_value, length);
 
-    for(std::size_t i = 0; i < length; i++)
+    for (std::size_t i = 0; i < length; i++)
     {
         my_array.m_data[i] = i;
     }

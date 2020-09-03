@@ -9,9 +9,9 @@
 
 #include "Matrix.h"
 
+using std::cin;
 using std::cout;
 using std::endl;
-using std::cin;
 using std::string;
 using std::vector;
 

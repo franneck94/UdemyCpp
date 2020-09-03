@@ -29,7 +29,7 @@
 //}
 //
 //unsigned int execute_move(
-//	unsigned int player_pos, 
+//	unsigned int player_pos,
 //	char move)
 //{
 //	// Fuehre den eingegebenen move aus
@@ -99,7 +99,7 @@
 //	{
 //		print_game_state(player_pos, goal, start);
 //		cin >> move;
-//		system("CLS");
+//		system("clear");
 //		player_pos = execute_move(player_pos, move);
 //		finished = is_finished(player_pos, goal);
 //	}

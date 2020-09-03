@@ -1,11 +1,11 @@
-// Hier die benötigten Includes und using Befehle
+// Hier die benï¿½tigten Includes und using Befehle
 #include <iostream>
 
 #include "exercise.h"
 
+using std::cin;
 using std::cout;
 using std::endl;
-using std::cin;
 
 // Hier die Definition der Funktion
 void mod_cross_sum(int I, int J)

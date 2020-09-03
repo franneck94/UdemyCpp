@@ -30,6 +30,6 @@
 //	{
 //		std::cout << vec[i] << " " << &vec[i] << std::endl;
 //	}
-//	
+//
 //	return 0;
 //}

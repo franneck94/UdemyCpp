@@ -23,7 +23,7 @@
 //
 //	std::cout << std::endl;
 //	/////////////////
-//	
+//
 //	my_vector.push_back(9);
 //	std::cout << "Vector capacity: " << my_vector.capacity() << std::endl;
 //	for (int i = 0; i < my_vector.size(); i++)

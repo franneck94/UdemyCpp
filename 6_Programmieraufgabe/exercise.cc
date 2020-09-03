@@ -10,13 +10,13 @@
 
 #include "exercise.h"
 
+using std::cin;
 using std::cout;
 using std::endl;
-using std::cin;
-using std::string;
-using std::vector;
 using std::map;
 using std::pair;
+using std::string;
+using std::vector;
 
 // Aufgabe 2
 string get_oldest_friend(const Friends &friends)
@@ -27,7 +27,7 @@ string get_oldest_friend(const Friends &friends)
 	for (const auto &val : friends)
 	{
 		pair<int, int> p = val.second;
-		
+
 		if (p.first > oldest_age)
 		{
 			oldest_age = p.first;

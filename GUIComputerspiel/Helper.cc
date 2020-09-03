@@ -7,8 +7,8 @@ UInt random_uint(
 	const UInt &lbound,
 	const UInt &ubound)
 {
-    unsigned int ms = static_cast<unsigned int>(QDateTime::currentMSecsSinceEpoch());
-    std::mt19937 gen(ms);
+	unsigned int ms = static_cast<unsigned int>(QDateTime::currentMSecsSinceEpoch());
+	std::mt19937 gen(ms);
 	std::uniform_int_distribution<UInt> dist(lbound, ubound);
 	return dist(gen);
 }

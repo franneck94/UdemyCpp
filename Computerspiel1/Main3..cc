@@ -5,8 +5,8 @@
 #define LEFT 'a'
 #define RIGHT 'd'
 
-using std::cout;
 using std::cin;
+using std::cout;
 using std::endl;
 
 int main()
@@ -39,7 +39,7 @@ int main()
 			}
 
 			cin >> move;
-			system("CLS");
+			system("clear");
 
 			// Fuehre den eingegebenen move aus
 			if (move == LEFT)
@@ -53,7 +53,6 @@ int main()
 				{
 					cout << "You bounced!" << endl;
 				}
-
 			}
 			else if (move == RIGHT)
 			{
@@ -91,7 +90,7 @@ int main()
 		if (repeat == 0)
 			break;
 
-		system("CLS");
+		system("clear");
 	}
 
 	return 0;

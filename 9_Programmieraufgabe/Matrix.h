@@ -10,18 +10,18 @@ public:
 
 	Matrix operator+(const Matrix &matrixB);
 	Matrix operator-(const Matrix &matrixB);
-	Matrix& operator+=(const Matrix &matrixB);
-	Matrix& operator-=(const Matrix &matrixB);
+	Matrix &operator+=(const Matrix &matrixB);
+	Matrix &operator-=(const Matrix &matrixB);
 
 	// Aufgabe 1
 	Matrix operator*(const double &scalar);
-	Matrix& operator*=(const double &scalar);
+	Matrix &operator*=(const double &scalar);
 	// Aufgabe 2
 	Matrix operator/(const double &scalar);
-	Matrix& operator/=(const double &scalar);
+	Matrix &operator/=(const double &scalar);
 	// Aufgabe 3
 	Matrix operator*(const Matrix &rhs);
-	Matrix& operator*=(const Matrix &rhs);
+	Matrix &operator*=(const Matrix &rhs);
 
 	const double get_A() const;
 	const double get_B() const;

@@ -41,6 +41,6 @@
 //	std::cout << my_vector2.size() << std::endl;
 //	std::cout << my_vector2.capacity() << std::endl;
 //	std::cout << my_vector2.empty() << std::endl;
-//	
+//
 //	return 0;
 //}

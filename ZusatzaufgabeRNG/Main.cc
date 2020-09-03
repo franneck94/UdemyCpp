@@ -22,7 +22,8 @@ int main()
 		std::cout << "i = " << i << " number = " << random_number1 << std::endl;
 
 		random_number2 = r2.randomNumberGeneratorRange(lb, ub);
-		std::cout << "i = " << i << " number = " << random_number2 << std::endl << std::endl;
+		std::cout << "i = " << i << " number = " << random_number2 << std::endl
+				  << std::endl;
 	}
 
 	return 0;

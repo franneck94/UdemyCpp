@@ -14,8 +14,8 @@ public:
     void pop_back();
 
     // Operator overloading
-    T& operator[](const std::size_t index);
-    const T& operator[](const std::size_t index) const;
+    T &operator[](const std::size_t index);
+    const T &operator[](const std::size_t index) const;
 
     // Helper methods
     std::size_t get_length() const;
@@ -23,7 +23,7 @@ public:
 private:
     std::size_t m_length;
     std::size_t m_capacity;
-    T* m_data;
+    T *m_data;
 };
 
 /**
@@ -34,15 +34,14 @@ private:
  * @return  
  */
 template <typename T>
-DynamicArray<T>::DynamicArray(const T &value, const std::size_t length):
-    m_length(length),
-    m_capacity(length),
-    m_data(new double[length])
+DynamicArray<T>::DynamicArray(const T &value, const std::size_t length) : m_length(length),
+                                                                          m_capacity(length),
+                                                                          m_data(new double[length])
 {
-	for (std::size_t i = 0; i < length; i++)
-	{
-		m_data[i] = value;
-	}
+    for (std::size_t i = 0; i < length; i++)
+    {
+        m_data[i] = value;
+    }
 }
 
 /**
@@ -54,24 +53,24 @@ DynamicArray<T>::DynamicArray(const T &value, const std::size_t length):
 template <typename T>
 void DynamicArray<T>::push_back(const T &value)
 {
-    if(m_length == m_capacity)
+    if (m_length == m_capacity)
     {
         m_capacity *= 2;
 
-        T* temp = nullptr;
+        T *temp = nullptr;
         temp = new T[m_capacity];
-        
+
         for (std::size_t i = 0; i < m_length; i++)
         {
             temp[i] = m_data[i];
         }
-        
+
         delete[] m_data;
         m_data = temp;
     }
 
     m_data[m_length] = value;
-	m_length++;
+    m_length++;
 }
 
 /**
@@ -83,15 +82,15 @@ void DynamicArray<T>::push_back(const T &value)
 template <typename T>
 void DynamicArray<T>::pop_back()
 {
-    if(m_length > 0)
+    if (m_length > 0)
     {
         m_length--;
 
-        if(m_length < (m_capacity / 2))
+        if (m_length < (m_capacity / 2))
         {
             m_capacity /= 2;
 
-            T* temp = nullptr;
+            T *temp = nullptr;
             temp = new T[m_capacity];
 
             for (std::size_t i = 0; i < m_length; i++)
@@ -105,19 +104,19 @@ void DynamicArray<T>::pop_back()
     }
 }
 
-template<typename T>
-T& DynamicArray<T>::operator[](const std::size_t index)
+template <typename T>
+T &DynamicArray<T>::operator[](const std::size_t index)
 {
     return m_data[index];
 }
 
-template<typename T>
-const T& DynamicArray<T>::operator[](const std::size_t index) const
+template <typename T>
+const T &DynamicArray<T>::operator[](const std::size_t index) const
 {
     return m_data[index];
 }
 
-template<typename T>
+template <typename T>
 std::size_t DynamicArray<T>::get_length() const
 {
     return m_length;

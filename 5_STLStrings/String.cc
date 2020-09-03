@@ -22,7 +22,7 @@
 //	{
 //		cout << endl << "Nicht enthalten!";
 //	}
-//	
+//
 //	cout << endl << s;
 //
 //	return 0;

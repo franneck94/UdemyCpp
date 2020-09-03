@@ -2,10 +2,10 @@
 #include <string>
 #include "exercise.h"
 
+using std::cin;
 using std::cout;
 using std::endl;
-using std::cin;
-using std::string;	
+using std::string;
 
 // Aufgabe 1
 uchar hex_xor(uchar &hex1, uchar &hex2)

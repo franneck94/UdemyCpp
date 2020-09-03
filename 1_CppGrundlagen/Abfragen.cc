@@ -26,7 +26,7 @@
 //	//// Gleichheit (==), Kleiner Gleich (<=), Groesser Gleich (>=)
 //	//// Un-Gleichheit (!=), Kleiner (<), Groesser (>)
 //	//
-//	//// Logische Verknüfungen:
+//	//// Logische Verknï¿½fungen:
 //	//// Und (&&), Oder (||)
 //
 //	//if (zahl >= 1 && zahl <= 10)

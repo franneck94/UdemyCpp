@@ -10,8 +10,8 @@ class GrayImage
 {
 public:
 	GrayImage(
-		int input_width, 
-		int input_height, 
+		int input_width,
+		int input_height,
 		int input_value);
 
 	void save_image(
@@ -19,15 +19,15 @@ public:
 	int get_width() const;
 	int get_height() const;
 	void set_pixel(
-		const int &x, 
-		const int &y, 
+		const int &x,
+		const int &y,
 		const uchar &value);
 
 	// Aufgabe 1
 	void clear_image();
-	// Aufgabe 2 
+	// Aufgabe 2
 	void resize_image(
-		const int &new_width, 
+		const int &new_width,
 		const int &new_height);
 	// Aufgabe 3
 	void fill_image(

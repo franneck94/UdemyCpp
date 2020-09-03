@@ -23,7 +23,7 @@
 //
 //	print_map(my_map1);
 //
-//	auto it = my_map1.find("Jann"); 
+//	auto it = my_map1.find("Jann");
 //	bool is_in = it != my_map1.end();
 //	std::cout << "Liegt Jan im Datensatz vor? " << is_in << std::endl;
 //

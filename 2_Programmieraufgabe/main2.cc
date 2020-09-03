@@ -8,7 +8,7 @@ using std::endl;
 // int main()
 int main()
 {
-    int* my_data = nullptr;
+    int *my_data = nullptr;
     unsigned int size = 3;
     my_data = new int[size];
 

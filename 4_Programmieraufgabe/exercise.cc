@@ -4,12 +4,12 @@
 
 #include "exercise.h"
 
+using std::cin;
 using std::cout;
 using std::endl;
-using std::cin;
-using std::vector;
 using std::fill;
 using std::sort;
+using std::vector;
 
 // Aufgabe 2
 vector<double> max_row_values(Matrix &matrix)

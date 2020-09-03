@@ -4,7 +4,7 @@
 
 void image_code()
 {
-	//				  w,   h,  v 
+	//				  w,   h,  v
 	GrayImage image1(100, 400, 0);
 	image1.save_image("image1.bmp");
 

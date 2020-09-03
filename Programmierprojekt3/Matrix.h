@@ -1,6 +1,6 @@
 #pragma once
 
-template<typename T>
+template <typename T>
 class Matrix
 {
 public:
@@ -9,23 +9,23 @@ public:
 	~Matrix<T>();
 
 	void print_matrix() const;
-	Matrix<T>& operator=(const Matrix<T> &matrixB);
+	Matrix<T> &operator=(const Matrix<T> &matrixB);
 	Matrix<T> transpose();
 
 	Matrix operator+(const Matrix &matrixB);
-	Matrix& operator+=(const Matrix &matrixB);
+	Matrix &operator+=(const Matrix &matrixB);
 
 	Matrix operator-(const Matrix &matrixB);
-	Matrix& operator-=(const Matrix &matrixB);
+	Matrix &operator-=(const Matrix &matrixB);
 
 	Matrix operator*(const Matrix &matrixB);
-	Matrix& operator*=(const Matrix &matrixB);
+	Matrix &operator*=(const Matrix &matrixB);
 
 	Matrix operator*(const double &scalar);
-	Matrix& operator*=(const double &scalar);
+	Matrix &operator*=(const double &scalar);
 
 	Matrix operator/(const double &scalar);
-	Matrix& operator/=(const double &scalar);
+	Matrix &operator/=(const double &scalar);
 
 	unsigned int num_rows();
 	unsigned int num_cols();

@@ -11,9 +11,9 @@
 //int main()
 //{
 //	// Compile-Time bekannt:
-//	// Runtime bekannt: 
+//	// Runtime bekannt:
 //
 //	int a[fac(3)] = {};
-//	
+//
 //	return 0;
 //}

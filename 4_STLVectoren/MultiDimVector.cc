@@ -10,7 +10,7 @@
 //
 //	// 2d-array (3x2 matrix)
 //	int arr[num_rows][num_cols] = { {0, 1},
-//									{2, 3}, 
+//									{2, 3},
 //									{4, 5} };
 //
 //	// 2d-vector (3x2 matrix) => 3 Rows, 2 Columns

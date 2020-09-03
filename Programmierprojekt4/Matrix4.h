@@ -10,42 +10,42 @@
 
 #include "Vec.h"
 
-template<typename T>
+template <typename T>
 class Matrix
 {
 public:
-	template<typename T>
+	template <typename T>
 	friend class Vec;
 
-	Matrix<T>(); // Default Constructor
+	Matrix<T>();																   // Default Constructor
 	Matrix<T>(const unsigned int &rows, const unsigned int &cols, const T &value); // User defined Constructor
-	Matrix<T>(const std::vector<std::vector<T>> &data); // // User defined Constructor
-	Matrix<T>(const unsigned int &rows, const unsigned int &cols); // User defined Constructor
-	~Matrix<T>(); // User defined Destructor
+	Matrix<T>(const std::vector<std::vector<T>> &data);							   // // User defined Constructor
+	Matrix<T>(const unsigned int &rows, const unsigned int &cols);				   // User defined Constructor
+	~Matrix<T>();																   // User defined Destructor
 
-	Matrix<T>(const Matrix<T> &matrixB); // Copy Constructor
-	Matrix<T>& operator=(Matrix<T> matrixB); // Copy Assignment Operator
+	Matrix<T>(const Matrix<T> &matrixB);	 // Copy Constructor
+	Matrix<T> &operator=(Matrix<T> matrixB); // Copy Assignment Operator
 
 	void print_matrix() const;
 	Matrix<T> transpose();
 
 	Matrix<T> operator+(const Matrix<T> &matrixB);
-	Matrix<T>& operator+=(const Matrix<T> &matrixB);
+	Matrix<T> &operator+=(const Matrix<T> &matrixB);
 
 	Matrix<T> operator-(const Matrix<T> &matrixB);
-	Matrix<T>& operator-=(const Matrix<T> &matrixB);
+	Matrix<T> &operator-=(const Matrix<T> &matrixB);
 
 	Matrix<T> operator*(const Matrix<T> &matrixB);
-	Matrix<T>& operator*=(const Matrix<T> &matrixB);
+	Matrix<T> &operator*=(const Matrix<T> &matrixB);
 
 	void parallel_dot(const Matrix<T> &matrixA, const Matrix<T> &matrixB, Matrix<T> &result);
 	void dot(const Matrix<T> &matrixA, const Matrix<T> &matrixB, Matrix<T> &result);
 
 	Matrix<T> operator*(const T &scalar);
-	Matrix<T>& operator*=(const T &scalar);
+	Matrix<T> &operator*=(const T &scalar);
 
 	Matrix<T> operator/(const T &scalar);
-	Matrix<T>& operator/=(const T &scalar);
+	Matrix<T> &operator/=(const T &scalar);
 
 	Vec<T> operator*(const Vec<T> &vecB);
 
@@ -59,64 +59,53 @@ private:
 	std::vector<std::vector<T>> m_data;
 };
 
-template<typename T>
-Matrix<T>::Matrix() :
-	m_rows(0),
-	m_cols(0),
-	m_data(m_rows, std::vector<T>(m_cols, 0))
+template <typename T>
+Matrix<T>::Matrix() : m_rows(0),
+					  m_cols(0),
+					  m_data(m_rows, std::vector<T>(m_cols, 0))
 {
-
 }
 
-template<typename T>
+template <typename T>
 Matrix<T>::Matrix(
 	const unsigned int &rows,
 	const unsigned int &cols,
-	const T &value) :
-	m_rows(rows),
-	m_cols(cols),
-	m_data(m_rows, std::vector<T>(m_cols, value))
+	const T &value) : m_rows(rows),
+					  m_cols(cols),
+					  m_data(m_rows, std::vector<T>(m_cols, value))
 {
-
 }
 
-template<typename T>
-Matrix<T>::Matrix<T>(const std::vector<std::vector<T>> &data) :
-	m_rows(data.size()),
-	m_cols(m_rows ? data[0].size() : 0),
-	m_data(data)
+template <typename T>
+Matrix<T>::Matrix<T>(const std::vector<std::vector<T>> &data) : m_rows(data.size()),
+																m_cols(m_rows ? data[0].size() : 0),
+																m_data(data)
 {
-
 }
 
-template<typename T>
-Matrix<T>::Matrix(const unsigned int &rows, const unsigned int &cols) :
-	m_rows(rows),
-	m_cols(cols),
-	m_data(m_rows, std::vector<T>(m_cols, 0))
+template <typename T>
+Matrix<T>::Matrix(const unsigned int &rows, const unsigned int &cols) : m_rows(rows),
+																		m_cols(cols),
+																		m_data(m_rows, std::vector<T>(m_cols, 0))
 {
-
 }
 
-template<typename T>
+template <typename T>
 Matrix<T>::~Matrix()
 {
-
 }
 
 // Copy Constructor
-template<typename T>
-Matrix<T>::Matrix<T>(const Matrix<T> &matrixB) :
-	m_rows(matrixB.m_rows),
-	m_cols(matrixB.m_cols),
-	m_data(matrixB.m_data)
+template <typename T>
+Matrix<T>::Matrix<T>(const Matrix<T> &matrixB) : m_rows(matrixB.m_rows),
+												 m_cols(matrixB.m_cols),
+												 m_data(matrixB.m_data)
 {
-
 }
 
 // Copy Assignment Operator
-template<typename T>
-Matrix<T>& Matrix<T>::operator=(Matrix<T> matrixB)
+template <typename T>
+Matrix<T> &Matrix<T>::operator=(Matrix<T> matrixB)
 {
 	std::swap(this->m_rows, matrixB.m_rows);
 	std::swap(this->m_cols, matrixB.m_cols);
@@ -125,7 +114,7 @@ Matrix<T>& Matrix<T>::operator=(Matrix<T> matrixB)
 	return *this;
 }
 
-template<typename T>
+template <typename T>
 void Matrix<T>::print_matrix() const
 {
 	for (int i = 0; i != m_rows; ++i)
@@ -141,7 +130,7 @@ void Matrix<T>::print_matrix() const
 	std::cout << std::endl;
 }
 
-template<typename T>
+template <typename T>
 Matrix<T> Matrix<T>::transpose()
 {
 	Matrix<T> result(m_cols, m_rows);
@@ -156,7 +145,7 @@ Matrix<T> Matrix<T>::transpose()
 
 	return result;
 }
-template<typename T>
+template <typename T>
 Matrix<T> Matrix<T>::operator+(const Matrix &matrixB)
 {
 	try
@@ -186,8 +175,8 @@ Matrix<T> Matrix<T>::operator+(const Matrix &matrixB)
 	}
 }
 
-template<typename T>
-Matrix<T>& Matrix<T>::operator+=(const Matrix &matrixB)
+template <typename T>
+Matrix<T> &Matrix<T>::operator+=(const Matrix &matrixB)
 {
 	try
 	{
@@ -214,7 +203,7 @@ Matrix<T>& Matrix<T>::operator+=(const Matrix &matrixB)
 	}
 }
 
-template<typename T>
+template <typename T>
 Matrix<T> Matrix<T>::operator-(const Matrix &matrixB)
 {
 	try
@@ -244,8 +233,8 @@ Matrix<T> Matrix<T>::operator-(const Matrix &matrixB)
 	}
 }
 
-template<typename T>
-Matrix<T>& Matrix<T>::operator-=(const Matrix &matrixB)
+template <typename T>
+Matrix<T> &Matrix<T>::operator-=(const Matrix &matrixB)
 {
 	try
 	{
@@ -272,7 +261,7 @@ Matrix<T>& Matrix<T>::operator-=(const Matrix &matrixB)
 	}
 }
 
-template<typename T>
+template <typename T>
 Matrix<T> Matrix<T>::operator*(const Matrix &matrixB)
 {
 	try
@@ -295,13 +284,13 @@ Matrix<T> Matrix<T>::operator*(const Matrix &matrixB)
 	}
 }
 
-template<typename T>
-Matrix<T>& Matrix<T>::operator*=(const Matrix &matrixB)
+template <typename T>
+Matrix<T> &Matrix<T>::operator*=(const Matrix &matrixB)
 {
 	return *this = (*this) * matrixB;
 }
 
-template<typename T>
+template <typename T>
 void Matrix<T>::parallel_dot(const Matrix<T> &matrixA, const Matrix<T> &matrixB, Matrix<T> &result)
 {
 	int i, j, k;
@@ -319,7 +308,7 @@ void Matrix<T>::parallel_dot(const Matrix<T> &matrixA, const Matrix<T> &matrixB,
 	}
 }
 
-template<typename T>
+template <typename T>
 void Matrix<T>::dot(const Matrix<T> &matrixA, const Matrix<T> &matrixB, Matrix<T> &result)
 {
 	int i, j, k;
@@ -336,8 +325,7 @@ void Matrix<T>::dot(const Matrix<T> &matrixA, const Matrix<T> &matrixB, Matrix<T
 	}
 }
 
-
-template<typename T>
+template <typename T>
 Matrix<T> Matrix<T>::operator*(const T &scalar)
 {
 	Matrix<T> result(m_rows, m_cols);
@@ -348,14 +336,14 @@ Matrix<T> Matrix<T>::operator*(const T &scalar)
 			this->m_data[i].begin(),
 			this->m_data[i].end(),
 			result.m_data[i].begin(),
-			[scalar](T val) {return val * scalar; });
+			[scalar](T val) { return val * scalar; });
 	}
 
 	return result;
 }
 
-template<typename T>
-Matrix<T>& Matrix<T>::operator*=(const T &scalar)
+template <typename T>
+Matrix<T> &Matrix<T>::operator*=(const T &scalar)
 {
 	for (int i = 0; i != m_rows; ++i)
 	{
@@ -363,13 +351,13 @@ Matrix<T>& Matrix<T>::operator*=(const T &scalar)
 			this->m_data[i].begin(),
 			this->m_data[i].end(),
 			this->m_data[i].begin(),
-			[scalar](T val) {return val * scalar; });
+			[scalar](T val) { return val * scalar; });
 	}
 
 	return *this;
 }
 
-template<typename T>
+template <typename T>
 Matrix<T> Matrix<T>::operator/(const T &scalar)
 {
 	Matrix<T> result(m_rows, m_cols);
@@ -380,14 +368,14 @@ Matrix<T> Matrix<T>::operator/(const T &scalar)
 			this->m_data[i].begin(),
 			this->m_data[i].end(),
 			result.m_data[i].begin(),
-			[scalar, this](T val) {return val / (scalar + this->m_epsilon); });
+			[scalar, this](T val) { return val / (scalar + this->m_epsilon); });
 	}
 
 	return result;
 }
 
-template<typename T>
-Matrix<T>& Matrix<T>::operator/=(const T &scalar)
+template <typename T>
+Matrix<T> &Matrix<T>::operator/=(const T &scalar)
 {
 	for (int i = 0; i != m_rows; ++i)
 	{
@@ -395,13 +383,13 @@ Matrix<T>& Matrix<T>::operator/=(const T &scalar)
 			this->m_data[i].begin(),
 			this->m_data[i].end(),
 			this->m_data[i].begin(),
-			[scalar, this](T val) {return val / (scalar + this->m_epsilon); });
+			[scalar, this](T val) { return val / (scalar + this->m_epsilon); });
 	}
 
 	return *this;
 }
 
-template<typename T>
+template <typename T>
 Vec<T> Matrix<T>::operator*(const Vec<T> &vecB)
 {
 	try
@@ -428,13 +416,13 @@ Vec<T> Matrix<T>::operator*(const Vec<T> &vecB)
 	}
 }
 
-template<typename T>
+template <typename T>
 unsigned int Matrix<T>::num_rows()
 {
 	return m_rows;
 }
 
-template<typename T>
+template <typename T>
 unsigned int Matrix<T>::num_cols()
 {
 	return m_cols;

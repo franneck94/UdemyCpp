@@ -10,7 +10,7 @@
  * @param dynamic_array 
  * @return T 
  */
-template<typename T>
+template <typename T>
 T sum(DynamicArray<T> &dynamic_array)
 {
     T sum_value = 0.0;
@@ -29,7 +29,7 @@ T sum(DynamicArray<T> &dynamic_array)
  * @param dynamic_array 
  * @return double 
  */
-template<typename T>
+template <typename T>
 double mean(DynamicArray<T> &dynamic_array)
 {
     return sum(dynamic_array) / dynamic_array.get_length();
@@ -41,7 +41,7 @@ double mean(DynamicArray<T> &dynamic_array)
  * @param dynamic_array 
  * @return double 
  */
-template<typename T>
+template <typename T>
 double median(DynamicArray<T> &dynamic_array)
 {
     double median_value = 0.0;
@@ -58,7 +58,6 @@ double median(DynamicArray<T> &dynamic_array)
         std::size_t index2 = index1 - 1;
         median_value = (dynamic_array[index1] + dynamic_array[index2]) / 2.0;
     }
-    
 
     return median_value;
 }
@@ -69,7 +68,7 @@ double median(DynamicArray<T> &dynamic_array)
  * @param dynamic_array 
  * @return double 
  */
-template<typename T>
+template <typename T>
 double variance(DynamicArray<T> &dynamic_array)
 {
     double mean_value = mean(dynamic_array);
@@ -91,7 +90,7 @@ double variance(DynamicArray<T> &dynamic_array)
  * @param dynamic_array 
  * @return double 
  */
-template<typename T>
+template <typename T>
 double stddev(DynamicArray<T> &dynamic_array)
 {
     double variance_value = variance(dynamic_array);

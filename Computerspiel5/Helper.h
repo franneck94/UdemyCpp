@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Game3.h"
+#include "Game.h"
 
 UInt random_uint(
 	const UInt &lbound,

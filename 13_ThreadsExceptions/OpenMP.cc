@@ -18,7 +18,6 @@ long long serial_sum(std::vector<int> &vec)
 	return sum;
 }
 
-
 /*
   Serial time in ms:  4.0918
 2: OpenMP time in ms: 2.93575
@@ -34,12 +33,13 @@ long long parallel_sum_omp(std::vector<int> &vec)
 	int n = vec.size();
 
 	const int NUM_THREADS = 2;
-	#pragma omp parallel for reduction(+:sum) num_threads(NUM_THREADS)
-	for (i = 0; i < n; ++i) 
+#pragma omp parallel for reduction(+ \
+								   : sum) num_threads(NUM_THREADS)
+	for (i = 0; i < n; ++i)
 	{
-    	sum = sum + vec[i];
+		sum = sum + vec[i];
 	}
-	#pragma omp critical
+#pragma omp critical
 	{
 		final_sum += sum;
 	}
@@ -66,8 +66,10 @@ int main()
 	}
 	auto end = std::chrono::high_resolution_clock::now();
 	std::chrono::duration<double, std::milli> ms = end - start;
-	std::cout << std::endl << "Serial time in ms: " << ms.count() / NUM_RUNS;
-	std::cout << std::endl << "Serial Sum: " << sum_vector << std::endl;
+	std::cout << std::endl
+			  << "Serial time in ms: " << ms.count() / NUM_RUNS;
+	std::cout << std::endl
+			  << "Serial Sum: " << sum_vector << std::endl;
 
 	// OPENMP
 	start = std::chrono::high_resolution_clock::now();
@@ -77,8 +79,10 @@ int main()
 	}
 	end = std::chrono::high_resolution_clock::now();
 	ms = end - start;
-	std::cout << std::endl << "OpenMP time in ms: " << ms.count() / NUM_RUNS;
-	std::cout << std::endl << "OpenMP Sum: " << sum_vector << std::endl;
+	std::cout << std::endl
+			  << "OpenMP time in ms: " << ms.count() / NUM_RUNS;
+	std::cout << std::endl
+			  << "OpenMP Sum: " << sum_vector << std::endl;
 
 	return 0;
 }

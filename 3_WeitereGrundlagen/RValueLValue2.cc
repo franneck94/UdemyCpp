@@ -27,7 +27,7 @@
 ////}
 //
 //// LValue (Left): Variable mit einer bestimmten Speicher-Adresse
-//// RValue (Right): Variable ohne eine bestimmte Speicher-Adresse 
+//// RValue (Right): Variable ohne eine bestimmte Speicher-Adresse
 //int main()
 //{
 //	int a = 3; // LValue

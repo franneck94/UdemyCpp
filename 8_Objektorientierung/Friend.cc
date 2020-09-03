@@ -14,8 +14,8 @@
 //using std::vector;
 //
 //// Friendships are not symmetric
-//// Friendships are not transitive 
-//// Friendships are not inherited 
+//// Friendships are not transitive
+//// Friendships are not inherited
 //class Stack
 //{
 //public:
@@ -28,10 +28,10 @@
 //	friend void print_elements(Stack);
 //};
 //
-//void print_elements(Stack s) 
-//{ 
-//	for (auto elem : s.m_elements) 
-//		cout << endl << elem; 
+//void print_elements(Stack s)
+//{
+//	for (auto elem : s.m_elements)
+//		cout << endl << elem;
 //}
 //
 //class Graph

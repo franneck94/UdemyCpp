@@ -6,7 +6,7 @@
 
 namespace Ui
 {
-class MainWindow;
+    class MainWindow;
 }
 
 class MainWindow : public QMainWindow
@@ -26,4 +26,3 @@ private:
     QLineEdit *m_input_edit;
     QLineEdit *m_output_edit;
 };
-

@@ -6,7 +6,7 @@
 //
 //int main()
 //{
-//	// All years which are perfectly divisible by 4 are leap years except for century years 
+//	// All years which are perfectly divisible by 4 are leap years except for century years
 //	// (years ending with 00) which is leap year only it is perfectly divisible by 400.
 //
 //	unsigned int year;

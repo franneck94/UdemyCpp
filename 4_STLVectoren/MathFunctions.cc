@@ -39,12 +39,12 @@
 //int main()
 //{
 //	// Aufgabe:
-//	// 1.) Schreibe eine Funktion, die einen double-Vector mit aufsteigenden double-Werten befüllt
-//	// => z.b. [0.0, 1.0, 2.0, 3.0, 4.0, 5.0] bei einem Input Vector der Länge 6
+//	// 1.) Schreibe eine Funktion, die einen double-Vector mit aufsteigenden double-Werten befï¿½llt
+//	// => z.b. [0.0, 1.0, 2.0, 3.0, 4.0, 5.0] bei einem Input Vector der Lï¿½nge 6
 //	// void fill_double_vector(std::vector<double> &vec)
 //	// 2.) Schreibe eine Funktion, die die Werte eines double-Vectors in der Konsole ausgibt
 //	// void print_double_vector(const std::vector<double> &vec)
-//	// 3.) Schreibe Funktionen, die die: 
+//	// 3.) Schreibe Funktionen, die die:
 //	// - Exponential
 //	// - Natural Logarithm
 //	// Werte von einem double-Vector berechnet

@@ -37,7 +37,7 @@
 //
 //	std::vector<int> data = { 10, 23, 42 };
 //	std::priority_queue<int, std::vector<int>, std::greater<int>> my_pq2(data.begin(), data.end());
-//	
+//
 //	execute(my_pq1);
 //	execute(my_pq2);
 //

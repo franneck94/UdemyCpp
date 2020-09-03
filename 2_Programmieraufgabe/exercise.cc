@@ -1,9 +1,9 @@
 #include <iostream>
 #include "exercise.h"
 
+using std::cin;
 using std::cout;
 using std::endl;
-using std::cin;
 
 // Aufgabe 1
 double array_sum(double *p_array, const unsigned int &length)
@@ -19,7 +19,7 @@ double array_sum(double *p_array, const unsigned int &length)
 }
 
 // Aufgabe 2
-int* array_constructor(const int &value, const unsigned int &length)
+int *array_constructor(const int &value, const unsigned int &length)
 {
 	int *constructed_array;
 	constructed_array = new int[length];

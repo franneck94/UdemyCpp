@@ -9,7 +9,7 @@ public:
 	T randomNumberGenerator()
 	{
 		m_state ^= m_state >> 1; // m_state = 110 >= 110 ^ 011 = 101
-		m_state <<= 1; // 101 >= 010
+		m_state <<= 1;			 // 101 >= 010
 
 		return m_state;
 	}

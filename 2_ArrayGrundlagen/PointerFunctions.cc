@@ -36,7 +36,7 @@
 //	int normal_number = 7;
 //	cout << "Adress of normal_number (inside):" << &normal_number << endl; // 008FF9A0
 //	g(normal_number);
-//	
+//
 //	delete p_number;
 //
 //	return 0;

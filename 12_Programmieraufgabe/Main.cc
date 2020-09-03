@@ -22,7 +22,7 @@ int main()
 	std::shared_ptr<IntNode> n3 = std::make_shared<IntNode>();
 	std::shared_ptr<IntNode> n4 = std::make_shared<IntNode>();
 	std::shared_ptr<IntNode> n5 = std::make_shared<IntNode>();
-	
+
 	// Werte , next/prev f�r die Nodes
 	n1->value = 6;
 	n1->prev = nullptr;
@@ -47,8 +47,9 @@ int main()
 	// Aufgabe 3
 	std::shared_ptr<IntNode> n = n1;
 
-	std::cout << std::endl << "Head to Tail" << std::endl;
-	while(n != nullptr)
+	std::cout << std::endl
+			  << "Head to Tail" << std::endl;
+	while (n != nullptr)
 	{
 		std::cout << "Node Value: " << n->value << std::endl;
 		n = n->next;
@@ -57,7 +58,8 @@ int main()
 	// Aufgabe 4
 	n = n5;
 
-	std::cout << std::endl  << "Tail to Head" << std::endl;
+	std::cout << std::endl
+			  << "Tail to Head" << std::endl;
 	std::cout << "Node Value: " << n->value << std::endl;
 	while (n != nullptr)
 	{

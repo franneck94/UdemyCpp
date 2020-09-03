@@ -1,10 +1,10 @@
 #include <iostream>
 #include <stdlib.h>
 
-#include "Game2.hpp"
+#include "Game.h"
 
-using std::cout;
 using std::cin;
+using std::cout;
 using std::endl;
 
 int main()
@@ -21,7 +21,7 @@ int main()
 		if (repeat == 0)
 			break;
 
-		system("CLS");
+		system("clear");
 	}
 
 	return 0;

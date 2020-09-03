@@ -51,7 +51,7 @@
 //	{
 //		std::cout << "Equal" << std::endl;
 //	}
-//	
+//
 //	enum class Colors3 c3 = Colors3::RED;
 //	enum class Colors3 c4 = Colors3::RED;
 //
@@ -62,6 +62,6 @@
 //		std::cout << "Equal" << std::endl;
 //	}
 //
-//	
+//
 //	return 0;
 //}

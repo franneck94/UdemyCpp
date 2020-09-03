@@ -18,16 +18,16 @@ int main()
     my_array.push_back(3);
     my_array.push_back(4);
 
-    for(std::size_t i = 0; i < my_array.get_length(); ++i)
+    for (std::size_t i = 0; i < my_array.get_length(); ++i)
     {
         std::cout << my_array[i] << std::endl;
     }
     std::cout << std::endl;
 
-    my_array.pop_back(); 
+    my_array.pop_back();
     my_array.pop_back();
 
-    for(std::size_t i = 0; i < my_array.get_length(); ++i)
+    for (std::size_t i = 0; i < my_array.get_length(); ++i)
     {
         std::cout << my_array[i] << std::endl;
     }

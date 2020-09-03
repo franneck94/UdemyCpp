@@ -4,13 +4,12 @@
 #include <malloc.h>
 #include <memory.h>
 
-#pragma warning(disable:4996)
+#pragma warning(disable : 4996)
 #include "Image.h"
 
 // Konstruktor
-Image::Image(const unsigned int &width, const unsigned int &height, const uchar &value) :
-	m_value(value), m_width(width), m_height(height), 
-	m_matrix(m_width, std::vector<uchar>(m_height, value))
+Image::Image(const unsigned int &width, const unsigned int &height, const uchar &value) : m_value(value), m_width(width), m_height(height),
+																						  m_matrix(m_width, std::vector<uchar>(m_height, value))
 {
 	std::cout << "Image created with width: " << m_width << " height: " << m_height << std::endl;
 }
@@ -40,9 +39,9 @@ void Image::save_image(
 		}
 	}
 
-	uchar bmpfileheader[14] = { 'B','M', 0,0,0,0, 0,0, 0,0, 54,0,0,0 };
-	uchar bmpinfoheader[40] = { 40,0,0,0, 0,0,0,0, 0,0,0,0, 1,0, 24,0 };
-	uchar bmppad[3] = { 0,0,0 };
+	uchar bmpfileheader[14] = {'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0};
+	uchar bmpinfoheader[40] = {40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0};
+	uchar bmppad[3] = {0, 0, 0};
 
 	bmpfileheader[2] = (uchar)(filesize);
 	bmpfileheader[3] = (uchar)(filesize >> 8);
@@ -62,9 +61,9 @@ void Image::save_image(
 	fwrite(bmpfileheader, 1, 14, f);
 	fwrite(bmpinfoheader, 1, 40, f);
 
-	for (int i = 0; i<m_height; i++)
+	for (int i = 0; i < m_height; i++)
 	{
-		fwrite(img + (m_width*(m_height - i - 1) * 3), 3, m_width, f);
+		fwrite(img + (m_width * (m_height - i - 1) * 3), 3, m_width, f);
 		fwrite(bmppad, 1, (4 - (m_width * 3) % 4) % 4, f);
 	}
 

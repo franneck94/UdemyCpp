@@ -4,12 +4,12 @@
 
 #include "exercise.h"
 
+using std::cin;
 using std::cout;
 using std::endl;
-using std::cin;
-using std::vector;
 using std::fill;
 using std::sort;
+using std::vector;
 
 int main()
 {
@@ -28,13 +28,14 @@ int main()
 	{
 		for (int j = 0; j != matrix[i].size(); ++j)
 		{
-			cout << endl << "i = " << i << " , j = " << j << ", matrix = " << matrix[i][j];
+			cout << endl
+				 << "i = " << i << " , j = " << j << ", matrix = " << matrix[i][j];
 		}
 	}
 	cout << endl;
 
 	// Aufgabe 2
-	vector <double> row_max_vec = max_row_values(matrix);
+	vector<double> row_max_vec = max_row_values(matrix);
 
 	for (int i = 0; i != row_max_vec.size(); ++i)
 	{

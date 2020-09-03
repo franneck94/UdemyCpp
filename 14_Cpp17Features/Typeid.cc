@@ -17,7 +17,7 @@
 //	// 12638217985327228012
 //	if (typeid(c).hash_code() == typeid(d).hash_code())
 //	{
-//		std::cout << typeid(c).hash_code() << " " 
+//		std::cout << typeid(c).hash_code() << " "
 //			<< typeid(c).name()<< std::endl;
 //	}
 //	else

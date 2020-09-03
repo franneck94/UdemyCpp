@@ -1,11 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 
-#include "Game3.h"
-
-using std::cout;
-using std::cin;
-using std::endl;
+#include "Game.h"
 
 int main()
 {
@@ -16,13 +12,13 @@ int main()
 	{
 		game.start_game();
 
-		cout << "Play again? (0=N, 1=Y)" << endl;
-		cin >> repeat;
+		std::cout << "Play again? (0=N, 1=Y)" << std::endl;
+		std::cin >> repeat;
 
 		if (repeat == 0)
 			break;
 
-		system("CLS");
+		system("clear");
 	}
 
 	return 0;

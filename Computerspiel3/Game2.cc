@@ -10,8 +10,8 @@
 #define UP 'w'
 #define DOWN 's'
 
-using std::cout;
 using std::cin;
+using std::cout;
 using std::endl;
 
 void print_game_state(
@@ -37,7 +37,7 @@ void print_game_state(
 }
 
 Position execute_move(
-	Position player_pos, 
+	Position player_pos,
 	ConsoleInput move)
 {
 	// Fuehre den eingegebenen move aus
@@ -121,7 +121,7 @@ void game()
 	// Pos 0: Start, Pos 9: Ziel
 	Position player_pos(0, 0);
 	Position start(0, 0);
-	Position goal(LEN_X-1, LEN_Y-1);
+	Position goal(LEN_X - 1, LEN_Y - 1);
 
 	ConsoleInput move;
 	bool finished = false;
@@ -130,7 +130,7 @@ void game()
 	{
 		print_game_state(player_pos, goal, start);
 		cin >> move;
-		system("CLS");
+		system("clear");
 		player_pos = execute_move(player_pos, move);
 		finished = is_finished(player_pos, goal);
 	}

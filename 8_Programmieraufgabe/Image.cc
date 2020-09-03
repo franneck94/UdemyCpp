@@ -6,16 +6,15 @@
 #include <malloc.h>
 #include <memory.h>
 
-#pragma warning(disable:4996)
+#pragma warning(disable : 4996)
 #include "Image.h"
 
 GrayImage::GrayImage(
-	int input_width, 
-	int input_height, 
-	int input_value) :
-		m_width(input_width),
-		m_height(input_height),
-		m_matrix(m_width, std::vector<uchar>(m_height, input_value))
+	int input_width,
+	int input_height,
+	int input_value) : m_width(input_width),
+					   m_height(input_height),
+					   m_matrix(m_width, std::vector<uchar>(m_height, input_value))
 {
 	std::cout << "Width of GrayImage: " << m_width << std::endl;
 	std::cout << "Height of GrayImage: " << m_height << std::endl;
@@ -50,9 +49,9 @@ void GrayImage::save_image(
 		}
 	}
 
-	uchar bmpfileheader[14] = { 'B','M', 0,0,0,0, 0,0, 0,0, 54,0,0,0 };
-	uchar bmpinfoheader[40] = { 40,0,0,0, 0,0,0,0, 0,0,0,0, 1,0, 24,0 };
-	uchar bmppad[3] = { 0,0,0 };
+	uchar bmpfileheader[14] = {'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0};
+	uchar bmpinfoheader[40] = {40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0};
+	uchar bmppad[3] = {0, 0, 0};
 
 	bmpfileheader[2] = (uchar)(filesize);
 	bmpfileheader[3] = (uchar)(filesize >> 8);
@@ -72,9 +71,9 @@ void GrayImage::save_image(
 	fwrite(bmpfileheader, 1, 14, f);
 	fwrite(bmpinfoheader, 1, 40, f);
 
-	for (int i = 0; i<m_height; i++)
+	for (int i = 0; i < m_height; i++)
 	{
-		fwrite(img + (m_width*(m_height - i - 1) * 3), 3, m_width, f);
+		fwrite(img + (m_width * (m_height - i - 1) * 3), 3, m_width, f);
 		fwrite(bmppad, 1, (4 - (m_width * 3) % 4) % 4, f);
 	}
 
@@ -82,8 +81,8 @@ void GrayImage::save_image(
 }
 
 void GrayImage::set_pixel(
-	const int &x, 
-	const int &y, 
+	const int &x,
+	const int &y,
 	const uchar &value)
 {
 	m_matrix[y][x] = value;
@@ -99,7 +98,7 @@ void GrayImage::clear_image()
 
 // Aufgabe 2
 void GrayImage::resize_image(
-	const int &new_width, 
+	const int &new_width,
 	const int &new_height)
 {
 	// New width
@@ -112,7 +111,7 @@ void GrayImage::resize_image(
 	// New height
 	if (new_height != m_height)
 	{
-		for (auto &col: m_matrix)
+		for (auto &col : m_matrix)
 		{
 			col.resize(new_height);
 		}
@@ -133,19 +132,20 @@ void GrayImage::fill_image(
 
 // Aufgabe 4
 void GrayImage::draw_line(
-	const int &x1, 
-	const int &y1, 							
+	const int &x1,
+	const int &y1,
 	const int &x2,
-	const int &y2, 							
+	const int &y2,
 	const uchar &value)
 {
 	int length = 0;
 
 	if (x1 < m_width && x1 >= 0 &&
-		x2 < m_width && x2 >= 0 &&
-		y1 < m_height && y1 >= 0 &&
-		y2 < m_height && y2 >= 0 &&
-		(x1 == x2) || (y1 == y2))
+			x2 < m_width && x2 >= 0 &&
+			y1 < m_height && y1 >= 0 &&
+			y2 < m_height && y2 >= 0 &&
+			(x1 == x2) ||
+		(y1 == y2))
 	{
 		std::cout << "Draw line!" << std::endl;
 		std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << std::endl;
@@ -158,7 +158,8 @@ void GrayImage::draw_line(
 			if (y1 < y2)
 			{
 				length = y2 - y1;
-				std::cout << "With length: " << length + 1 << std::endl;;
+				std::cout << "With length: " << length + 1 << std::endl;
+				;
 
 				for (int i = 0; i != length; ++i)
 				{
@@ -168,7 +169,8 @@ void GrayImage::draw_line(
 			else
 			{
 				length = y1 - y2;
-				std::cout << "With length: " << length + 1 << std::endl;;
+				std::cout << "With length: " << length + 1 << std::endl;
+				;
 
 				for (int i = 0; i != length; ++i)
 				{
@@ -184,7 +186,8 @@ void GrayImage::draw_line(
 			if (x1 < x2)
 			{
 				length = x2 - x1;
-				std::cout << "With length: " << length + 1 << std::endl;;
+				std::cout << "With length: " << length + 1 << std::endl;
+				;
 
 				for (int i = 0; i != length; ++i)
 				{
@@ -194,14 +197,15 @@ void GrayImage::draw_line(
 			else
 			{
 				length = x1 - x2;
-				std::cout << "With length: " << length + 1 << std::endl;;
+				std::cout << "With length: " << length + 1 << std::endl;
+				;
 
 				for (int i = 0; i != length; ++i)
 				{
 					set_pixel(x2 + i, y1, value);
 				}
 			}
-		}	
+		}
 	}
 	else
 	{

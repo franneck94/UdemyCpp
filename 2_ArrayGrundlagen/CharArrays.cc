@@ -6,7 +6,7 @@
 //
 //int main()
 //{
-//	// C-style char arrays: \0 (null-terminating character) 
+//	// C-style char arrays: \0 (null-terminating character)
 //	cout << "Hello World!" << endl;
 //
 //	char str[] = "Jan Schaffranek";

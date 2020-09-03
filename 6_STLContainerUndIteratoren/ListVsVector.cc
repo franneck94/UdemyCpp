@@ -33,7 +33,7 @@
 //int main()
 //{
 //	std::cout << "START" << std::endl;
-//	vec_time(); // 1951ms, 1757ms, 1979ms => 1895ms 
+//	vec_time(); // 1951ms, 1757ms, 1979ms => 1895ms
 //	//list_time(); // 15ms, 18ms, 16ms => 16ms
 //	std::cout << "DONE" << std::endl;
 //

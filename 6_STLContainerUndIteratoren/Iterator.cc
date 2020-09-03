@@ -43,7 +43,7 @@
 //	std::vector<int>::const_reverse_iterator const_reverse_it_begin = my_vector2.crbegin();
 //	std::vector<int>::const_reverse_iterator const_reverse_it_end = my_vector2.crend();
 //
-//	for (std::vector<int>::const_reverse_iterator it = const_reverse_it_begin; 
+//	for (std::vector<int>::const_reverse_iterator it = const_reverse_it_begin;
 //		it != const_reverse_it_end; ++it)
 //	{
 //		std::cout << *it << " " << &*it << " " << &it << std::endl;

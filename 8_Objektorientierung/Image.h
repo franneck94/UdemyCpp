@@ -7,7 +7,7 @@ class Image
 {
 public:
 	// Konstruktor
-	Image() { };
+	Image(){};
 	Image(const unsigned int &width, const unsigned int &height, const uchar &value);
 	// Destruktor
 	~Image();

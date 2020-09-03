@@ -15,7 +15,7 @@
 //	// WICHTIG: L�scht den Wert bei return true!
 //	my_vector.erase(
 //		std::remove_if(my_vector.begin(), my_vector.end(),
-//			[](int val) -> int {if (val > 5) return true; else return false; }), 
+//			[](int val) -> int {if (val > 5) return true; else return false; }),
 //		my_vector.end());
 //	for (const auto & val : my_vector)
 //	{
