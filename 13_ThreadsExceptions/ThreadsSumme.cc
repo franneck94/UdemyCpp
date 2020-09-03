@@ -1,21 +1,20 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <iterator>
 #include <algorithm>
-#include <functional>
-#include <random>
 #include <chrono>
-#include <thread>
+#include <functional>
+#include <iostream>
+#include <iterator>
 #include <numeric>
+#include <random>
+#include <string>
+#include <thread>
+#include <vector>
 
 #include "omp.h"
 
 using std::string;
 using std::vector;
 
-template <typename T>
-long long serial_sum(vector<T> &vec)
+template <typename T> long long serial_sum(vector<T> &vec)
 {
     long long sum = 0;
 
@@ -27,8 +26,7 @@ long long serial_sum(vector<T> &vec)
     return sum;
 }
 
-template <typename T>
-long long adder(vector<T> vec, size_t begin, size_t end)
+template <typename T> long long adder(vector<T> vec, size_t begin, size_t end)
 {
     long long sum = 0;
 
@@ -54,10 +52,7 @@ long long parallel_sum(vector<int> &vec)
 
     for (int i = 0; i != threads.size(); ++i)
     {
-        threads[i] = std::thread([&](long long sum) {
-            sum = adder(vec, begin, end);
-        },
-                                 std::ref(sums[i]));
+        threads[i] = std::thread([&](long long sum) { sum = adder(vec, begin, end); }, std::ref(sums[i]));
 
         begin = end;
         end = end + elements_per_thread;
@@ -87,40 +82,32 @@ int main()
     long long sum_vector = serial_sum(vector_a);
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::milli> ms = end - start;
-    std::cout << std::endl
-              << "Serial time in ms: " << ms.count();
-    std::cout << std::endl
-              << "Serial Sum: " << sum_vector << std::endl;
+    std::cout << std::endl << "Serial time in ms: " << ms.count();
+    std::cout << std::endl << "Serial Sum: " << sum_vector << std::endl;
 
     // PARALLEL
     start = std::chrono::high_resolution_clock::now();
     sum_vector = parallel_sum(vector_a);
     end = std::chrono::high_resolution_clock::now();
     ms = end - start;
-    std::cout << std::endl
-              << "Parallel time in ms: " << ms.count();
-    std::cout << std::endl
-              << "Parallel Sum: " << sum_vector << std::endl;
+    std::cout << std::endl << "Parallel time in ms: " << ms.count();
+    std::cout << std::endl << "Parallel Sum: " << sum_vector << std::endl;
 
     // REDUCE
     start = std::chrono::high_resolution_clock::now();
     sum_vector = std::reduce(vector_a.begin(), vector_a.end());
     end = std::chrono::high_resolution_clock::now();
     ms = end - start;
-    std::cout << std::endl
-              << "Reduce time in ms: " << ms.count();
-    std::cout << std::endl
-              << "Reduce Sum: " << sum_vector << std::endl;
+    std::cout << std::endl << "Reduce time in ms: " << ms.count();
+    std::cout << std::endl << "Reduce Sum: " << sum_vector << std::endl;
 
     // ACCUMULATE
     start = std::chrono::high_resolution_clock::now();
     sum_vector = std::accumulate(vector_a.begin(), vector_a.end(), 0, std::plus<int>());
     end = std::chrono::high_resolution_clock::now();
     ms = end - start;
-    std::cout << std::endl
-              << "Accumulate time in ms: " << ms.count();
-    std::cout << std::endl
-              << "Accumulate Sum: " << sum_vector << std::endl;
+    std::cout << std::endl << "Accumulate time in ms: " << ms.count();
+    std::cout << std::endl << "Accumulate Sum: " << sum_vector << std::endl;
 
     return 0;
 }

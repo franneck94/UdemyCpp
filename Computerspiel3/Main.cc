@@ -5,20 +5,20 @@
 
 int main()
 {
-	bool repeat = true;
+    bool repeat = true;
 
-	while (true)
-	{
-		game();
+    while (true)
+    {
+        game();
 
-		std::cout << "Play again? (0=N, 1=Y)" << std::endl;
-		std::cin >> repeat;
+        std::cout << "Play again? (0=N, 1=Y)" << std::endl;
+        std::cin >> repeat;
 
-		if (repeat == 0)
-			break;
+        if (repeat == 0)
+            break;
 
-		system("clear");
-	}
+        system("clear");
+    }
 
-	return 0;
+    return 0;
 }

@@ -1,14 +1,12 @@
 #include <iostream>
 
+#include "Helper.h"
 #include "gamewindow.h"
 #include "ui_gamewindow.h"
-#include "Helper.h"
 
-GameWindow::GameWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::GameWindow),
-    LEN_X(5), LEN_Y(5),
-    m_max_num_obstacles(3)
+
+GameWindow::GameWindow(QWidget *parent)
+    : QMainWindow(parent), ui(new Ui::GameWindow), LEN_X(5), LEN_Y(5), m_max_num_obstacles(3)
 {
     ui->setupUi(this);
 
@@ -17,7 +15,7 @@ GameWindow::GameWindow(QWidget *parent) :
     m_points_label = ui->pointsLabel;
     m_obstacles_combo_box = ui->obstaclesComboBox;
 
-    for(unsigned int i = m_max_num_obstacles; i > 0; --i)
+    for (unsigned int i = m_max_num_obstacles; i > 0; --i)
     {
         m_obstacles_combo_box->addItem(QString::number(i));
     }
@@ -51,7 +49,7 @@ void GameWindow::start_game()
     {
         for (unsigned int j = 0; j < LEN_Y; ++j)
         {
-            QString field_name = "Field" + QString::number(i) + "_" +  QString::number(j);
+            QString field_name = "Field" + QString::number(i) + "_" + QString::number(j);
             m_game_state[i][j] = GameWindow::findChild<QLabel *>(field_name);
         }
     }
@@ -65,37 +63,32 @@ void GameWindow::keyPressEvent(QKeyEvent *event)
     {
         KeyboardInput move;
 
-        switch(event->key())
+        switch (event->key())
         {
-            case Qt::Key_W:
-            {
-                std::cout << "W" << std::endl;
-                move = UP;
-                break;
-            }
-            case Qt::Key_A:
-            {
-                std::cout << "A" << std::endl;
-                move = LEFT;
-                break;
-            }
-            case Qt::Key_S:
-            {
-                std::cout << "S" << std::endl;
-                move = DOWN;
-                break;
-            }
-            case Qt::Key_D:
-            {
-                std::cout << "D" << std::endl;
-                move = RIGHT;
-                break;
-            }
-            default:
-            {
-                std::cout << "Unrecognized move!" << std::endl;
-                return;
-            }
+        case Qt::Key_W: {
+            std::cout << "W" << std::endl;
+            move = UP;
+            break;
+        }
+        case Qt::Key_A: {
+            std::cout << "A" << std::endl;
+            move = LEFT;
+            break;
+        }
+        case Qt::Key_S: {
+            std::cout << "S" << std::endl;
+            move = DOWN;
+            break;
+        }
+        case Qt::Key_D: {
+            std::cout << "D" << std::endl;
+            move = RIGHT;
+            break;
+        }
+        default: {
+            std::cout << "Unrecognized move!" << std::endl;
+            return;
+        }
         }
 
         move_player(move);
@@ -128,8 +121,7 @@ void GameWindow::update_game_state()
     m_points_label->setText(QString::number(m_points));
 }
 
-void GameWindow::move_player(
-    KeyboardInput &move)
+void GameWindow::move_player(KeyboardInput &move)
 {
     Position new_pos;
 
@@ -170,7 +162,7 @@ void GameWindow::move_player(
 
 void GameWindow::move_obstacles()
 {
-    std::vector<char> move_set = { LEFT, UP, RIGHT, DOWN };
+    std::vector<char> move_set = {LEFT, UP, RIGHT, DOWN};
 
     for (auto &obs : m_obstacles)
     {
@@ -195,18 +187,14 @@ void GameWindow::move_obstacles()
             new_pos = Position(obs.first + 1, obs.second);
         }
 
-        if (is_inbounds(new_pos)
-            && !is_occupied(new_pos)
-            && new_pos != m_player
-            && new_pos != m_goal)
+        if (is_inbounds(new_pos) && !is_occupied(new_pos) && new_pos != m_player && new_pos != m_goal)
         {
             obs = new_pos;
         }
     }
 }
 
-void GameWindow::generate_random_obstacles(
-        UInt &num_obstacles)
+void GameWindow::generate_random_obstacles(UInt &num_obstacles)
 {
     m_obstacles = Obstacles(num_obstacles, Position(0, 0));
 
@@ -221,8 +209,7 @@ void GameWindow::generate_random_obstacles(
 /*      GAME LOGIC FUNCTIONS     */
 /*********************************/
 
-bool GameWindow::is_killed(
-    Position &pos)
+bool GameWindow::is_killed(Position &pos)
 {
     for (auto &obs : m_obstacles)
     {
@@ -233,8 +220,7 @@ bool GameWindow::is_killed(
     return false;
 }
 
-bool GameWindow::is_inbounds(
-    Position &pos)
+bool GameWindow::is_inbounds(Position &pos)
 {
     if (pos.first < LEN_X && pos.second < LEN_Y)
         return true;
@@ -254,8 +240,7 @@ bool GameWindow::is_finished()
     }
 }
 
-bool GameWindow::is_occupied(
-    Position &pos)
+bool GameWindow::is_occupied(Position &pos)
 {
     for (auto &obs : m_obstacles)
     {

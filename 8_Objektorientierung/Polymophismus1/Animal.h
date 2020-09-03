@@ -5,10 +5,13 @@
 class Animal
 {
 public:
-	Animal(std::string &name);
-	~Animal() {}
-	void type();
-	std::string get_name() const;
+  Animal(std::string &name);
+  ~Animal()
+  {
+  }
+  void type();
+  std::string get_name() const;
+
 private:
-	std::string m_name;
+  std::string m_name;
 };

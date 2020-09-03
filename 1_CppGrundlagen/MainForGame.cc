@@ -8,8 +8,8 @@
 
 int main()
 {
-	// Aufruf
-	game();
+    // Aufruf
+    game();
 
-	return 0;
+    return 0;
 }

@@ -1,8 +1,10 @@
-#include <iostream>
 #include <cstddef>
+#include <iostream>
 
-#include "DynArray.h"
+
 #include "AlgoArray.h"
+#include "DynArray.h"
+
 
 // int main()
 int main()

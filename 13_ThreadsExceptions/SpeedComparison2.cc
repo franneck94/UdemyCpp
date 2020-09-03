@@ -1,17 +1,17 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <iterator>
 #include <algorithm>
-#include <functional>
-#include <random>
 #include <chrono>
-#include <thread>
+#include <functional>
+#include <iostream>
+#include <iterator>
 #include <numeric>
+#include <random>
+#include <string>
+#include <thread>
+#include <vector>
 
-#include "omp.h"
 #include "Matrix.h"
 #include "Timer.h"
+#include "omp.h"
 
 using std::string;
 using std::vector;
@@ -29,32 +29,28 @@ int main()
     {
         Timer t;
         sum_vector = serial_sum(vector_a);
-        std::cout << std::endl
-                  << "Serial Sum: " << sum_vector << std::endl;
+        std::cout << std::endl << "Serial Sum: " << sum_vector << std::endl;
     }
 
     // PARALLEL
     {
         Timer t;
         sum_vector = parallel_sum(vector_a);
-        std::cout << std::endl
-                  << "Parallel Sum: " << sum_vector << std::endl;
+        std::cout << std::endl << "Parallel Sum: " << sum_vector << std::endl;
     }
 
     // REDUCE
     {
         Timer t;
         sum_vector = std::reduce(vector_a.begin(), vector_a.end());
-        std::cout << std::endl
-                  << "Reduce Sum: " << sum_vector << std::endl;
+        std::cout << std::endl << "Reduce Sum: " << sum_vector << std::endl;
     }
 
     // ACCUMULATE
     {
         Timer t;
         sum_vector = std::accumulate(vector_a.begin(), vector_a.end(), 0, std::plus<int>());
-        std::cout << std::endl
-                  << "Accumulate Sum: " << sum_vector << std::endl;
+        std::cout << std::endl << "Accumulate Sum: " << sum_vector << std::endl;
     }
 
     return 0;

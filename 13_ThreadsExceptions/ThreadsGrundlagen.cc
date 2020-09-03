@@ -1,12 +1,12 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <iterator>
 #include <algorithm>
-#include <numeric>
-#include <random>
 #include <chrono>
 #include <functional>
+#include <iostream>
+#include <iterator>
+#include <numeric>
+#include <random>
+#include <string>
+#include <vector>
 
 #include <thread>
 
@@ -43,8 +43,8 @@ int main()
         t2.join();
 
     // Detach
-    //t1.detach();
-    //t2.detach();
+    // t1.detach();
+    // t2.detach();
 
     // Funktionen �bergeben
     int n1 = 12;
@@ -58,10 +58,8 @@ int main()
     if (t4.joinable())
         t4.join();
 
-    std::cout << std::endl
-              << "n1: " << n1 << "\n";
-    std::cout << std::endl
-              << "n2: " << n2 << "\n";
+    std::cout << std::endl << "n1: " << n1 << "\n";
+    std::cout << std::endl << "n2: " << n2 << "\n";
 
     // Referenzen �bergeben
     int n1 = 12;
@@ -75,20 +73,16 @@ int main()
     if (t4.joinable())
         t4.join();
 
-    std::cout << std::endl
-              << "n1: " << n1 << "\n";
-    std::cout << std::endl
-              << "n2: " << n2 << "\n";
+    std::cout << std::endl << "n1: " << n1 << "\n";
+    std::cout << std::endl << "n2: " << n2 << "\n";
 
     // Anzahl an Threads bestimmen
     unsigned int possible_threads = std::thread::hardware_concurrency();
-    std::cout << std::endl
-              << "Poss. Threads: " << possible_threads;
+    std::cout << std::endl << "Poss. Threads: " << possible_threads;
 
     // Thread ID
     std::thread::id main_thread_id = std::this_thread::get_id();
-    std::cout << std::endl
-              << "Thread ID of main: " << main_thread_id;
+    std::cout << std::endl << "Thread ID of main: " << main_thread_id;
 
     return 0;
 }

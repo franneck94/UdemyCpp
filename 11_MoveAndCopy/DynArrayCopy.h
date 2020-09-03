@@ -1,5 +1,7 @@
 #pragma once
 
+#include <utility>
+
 template <typename T>
 class DynamicArray
 {
@@ -60,7 +62,7 @@ DynamicArray<T>::~DynamicArray()
 
 // Copy constructor
 template <typename T>
-DynamicArray<T>::DynamicArray<T>(const DynamicArray<T> &x) : m_length(x.m_length), m_data(new T[m_length])
+DynamicArray<T>::DynamicArray(const DynamicArray<T> &x) : m_length(x.m_length), m_data(new T[m_length])
 {
 	for (int i = 0; i != m_length; ++i)
 	{

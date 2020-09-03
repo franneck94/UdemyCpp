@@ -1,8 +1,9 @@
 #include <cstddef>
 #include <math.h>
 
-#include "DynArray.h"
 #include "AlgoArray.h"
+#include "DynArray.h"
+
 
 double sum(DynamicArray &dynamic_array)
 {

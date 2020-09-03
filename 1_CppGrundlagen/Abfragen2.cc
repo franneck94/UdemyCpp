@@ -2,21 +2,21 @@
 
 int main()
 {
-	int number;
-	int abs; // absolute
+    int number;
+    int abs; // absolute
 
-	std::cin >> number;
+    std::cin >> number;
 
-	if (number < 0)
-	{
-		abs = number * (-1);
-	}
-	else // (number >= 0)
-	{
-		abs = number;
-	}
+    if (number < 0)
+    {
+        abs = number * (-1);
+    }
+    else // (number >= 0)
+    {
+        abs = number;
+    }
 
-	std::cout << "Der Betrag von: " << number << " ist: " << abs << std::endl;
+    std::cout << "Der Betrag von: " << number << " ist: " << abs << std::endl;
 
-	return 0;
+    return 0;
 }

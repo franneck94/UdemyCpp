@@ -1,15 +1,17 @@
 #pragma once
 
-#include <QMainWindow>
-#include <QLabel>
-#include <QPushButton>
 #include <QComboBox>
 #include <QGridLayout>
 #include <QKeyEvent>
+#include <QLabel>
+#include <QMainWindow>
+#include <QPushButton>
+
 
 #include <string>
-#include <vector>
 #include <utility>
+#include <vector>
+
 
 typedef unsigned int UInt;
 typedef char KeyboardInput;
@@ -34,7 +36,7 @@ class GameWindow : public QMainWindow
 {
     Q_OBJECT
 
-public:
+  public:
     /*********************************/
     /*   CONSTRUCTOR / DESTRUCTOR    */
     /*********************************/
@@ -46,37 +48,32 @@ public:
     /*********************************/
     void update_game_state();
 
-    void move_player(
-        KeyboardInput &move);
+    void move_player(KeyboardInput &move);
 
     void move_obstacles();
 
-    void generate_random_obstacles(
-            UInt &num_obstacles);
+    void generate_random_obstacles(UInt &num_obstacles);
 
     /*********************************/
     /*      GAME LOGIC FUNCTIONS     */
     /*********************************/
 
-    bool is_killed(
-        Position &pos);
+    bool is_killed(Position &pos);
 
-    bool is_inbounds(
-        Position &pos);
+    bool is_inbounds(Position &pos);
 
     bool is_finished();
 
-    bool is_occupied(
-        Position &pos);
+    bool is_occupied(Position &pos);
 
-private slots:
+  private slots:
     /*********************************/
     /*      WIDGET FUNCTIONS         */
     /*********************************/
     void start_game();
     void keyPressEvent(QKeyEvent *event);
 
-private:
+  private:
     /*********************************/
     /*         MEMBER VARS           */
     /*********************************/
@@ -104,4 +101,3 @@ private:
     QString m_obstacle_icon_path = m_path + "ObstacleIcon.png";
     QString m_goal_icon_path = m_path + "GoalIcon.png";
 };
-

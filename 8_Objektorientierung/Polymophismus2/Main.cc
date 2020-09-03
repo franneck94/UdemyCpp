@@ -6,23 +6,23 @@
 
 void eatingPoly(Animal &animal)
 {
-	animal.eating();
+    animal.eating();
 }
 
 int main()
 {
-	Animal animal1("Tatze");
-	animal1.type();
+    Animal animal1("Tatze");
+    animal1.type();
 
-	std::cout << std::endl;
+    std::cout << std::endl;
 
-	Dog dog1("Bello", true);
-	dog1.type();
+    Dog dog1("Bello", true);
+    dog1.type();
 
-	std::cout << std::endl;
+    std::cout << std::endl;
 
-	eatingPoly(animal1);
-	eatingPoly(dog1);
+    eatingPoly(animal1);
+    eatingPoly(dog1);
 
-	return 0;
+    return 0;
 }

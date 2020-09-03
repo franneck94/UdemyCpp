@@ -2,18 +2,17 @@
 
 #include "Animal.h"
 
-Animal::Animal(std::string &name) :
-	m_name(name)
+Animal::Animal(std::string &name) : m_name(name)
 {
-	std::cout << "Animal Constructor!" << std::endl;
+    std::cout << "Animal Constructor!" << std::endl;
 }
 
 void Animal::type()
 {
-	std::cout << "Animal!" << std::endl;
+    std::cout << "Animal!" << std::endl;
 }
 
 std::string Animal::get_name() const
 {
-	return m_name;
+    return m_name;
 }

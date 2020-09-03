@@ -93,7 +93,7 @@ namespace cppmath
 	}
 
 	template <typename T>
-	Matrix<T>::Matrix<T>(
+	Matrix<T>::Matrix(
 		const std::vector<std::vector<T>> &data) : m_rows(data.size()),
 												   m_cols(m_rows ? data[0].size() : 0),
 												   m_data(data)

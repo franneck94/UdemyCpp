@@ -68,7 +68,7 @@ Matrix<T>::Matrix(
 }
 
 template <typename T>
-Matrix<T>::Matrix<T>(const std::vector<std::vector<T>> &data) : m_rows(data.size()),
+Matrix<T>::Matrix(const std::vector<std::vector<T>> &data) : m_rows(data.size()),
 																m_cols(m_rows ? data[0].size() : 0),
 																m_data(data)
 {
@@ -88,7 +88,7 @@ Matrix<T>::~Matrix()
 
 // Copy Constructor
 template <typename T>
-Matrix<T>::Matrix<T>(const Matrix<T> &matrixB) : m_rows(matrixB.m_rows),
+Matrix<T>::Matrix(const Matrix<T> &matrixB) : m_rows(matrixB.m_rows),
 												 m_cols(matrixB.m_cols),
 												 m_data(matrixB.m_data)
 {
