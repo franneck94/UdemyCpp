@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+
 #include "Exercise.h"
 
 int main()
