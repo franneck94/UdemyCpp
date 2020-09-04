@@ -13,7 +13,7 @@ template <typename T>
 class Matrix
 {
 public:
-	template <typename T>
+	template <typename U>
 	friend class Vec;
 
 	Matrix<T>();																   // Default Constructor

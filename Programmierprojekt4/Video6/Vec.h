@@ -8,6 +8,8 @@
 
 #include "Matrix.h"
 
+namespace cppmath
+{
 template <typename T>
 class Vec
 {
@@ -69,7 +71,10 @@ private:
 	double m_epsilon = 1e-6;
 	std::vector<T> m_data;
 };
+}
 
+namespace cppmath
+{
 /***********************/
 /****  CONSTRUCTORS  ***/
 /***********************/
@@ -248,4 +253,5 @@ template <typename T>
 std::size_t Vec<T>::length() const
 {
 	return m_length;
+}
 }

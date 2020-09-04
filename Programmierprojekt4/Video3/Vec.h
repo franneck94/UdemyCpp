@@ -15,7 +15,7 @@ class Vec
 					"An specialization of the vector class has to be of a floating type!");
 
 public:
-	template <typename T>
+	template <typename U>
 	friend class Matrix;
 
 	/***********************/
@@ -45,11 +45,11 @@ public:
 	/***********************/
 	/*** MATH. OPERATORS ***/
 	/***********************/
-	Vec<T> operator+(const Vector &vectorB);
-	Vec<T> &operator+=(const Vector &vectorB);
-	Vec<T> operator-(const Vector &vectorB);
-	Vec<T> &operator-=(const Vector &vectorB);
-	T operator*(const Vector &vectorB);
+	Vec<T> operator+(const Vec &vectorB);
+	Vec<T> &operator+=(const Vec &vectorB);
+	Vec<T> operator-(const Vec &vectorB);
+	Vec<T> &operator-=(const Vec &vectorB);
+	T operator*(const Vec &vectorB);
 	Vec<T> operator*(const T &scalar);
 	Vec<T> &operator*=(const T &scalar);
 	Vec<T> operator/(const T &scalar);
@@ -59,7 +59,7 @@ public:
 	/*** HELPER FUNCTIONS **/
 	/***********************/
 	void print_vector() const;
-	const std::size_t length() const;
+	std::size_t length() const;
 
 private:
 	/***********************/
@@ -69,15 +69,12 @@ private:
 	double m_epsilon = 1e-6;
 	std::vector<T> m_data;
 };
-} // end namespace cppmath
 
-namespace cppmath
-{
 /***********************/
 /****  CONSTRUCTORS  ***/
 /***********************/
 template <typename T>
-Vec<T>::Vector(
+Vec<T>::Vec(
 	const std::size_t &length,
 	const T &value) : m_length(length),
 						m_data(std::vector<T>(m_length, value))
@@ -85,14 +82,14 @@ Vec<T>::Vector(
 }
 
 template <typename T>
-Vec<T>::Vector(
+Vec<T>::Vec(
 	const std::vector<T> &data) : m_length(data.size()),
 									m_data(data)
 {
 }
 
 template <typename T>
-Vec<T>::Vector(
+Vec<T>::Vec(
 	const std::size_t &length) : m_length(length),
 									m_data(std::vector<T>(length, 0))
 {
@@ -104,7 +101,7 @@ Vec<T>::Vector(
 
 template <typename T>
 Vec<T> Vec<T>::operator+(
-	const Vector &vectorB)
+	const Vec &vectorB)
 {
 	Vec<T> result(m_length);
 
@@ -120,7 +117,7 @@ Vec<T> Vec<T>::operator+(
 
 template <typename T>
 Vec<T> &Vec<T>::operator+=(
-	const Vector &vectorB)
+	const Vec &vectorB)
 {
 	std::transform(
 		this->m_data.begin(),
@@ -134,7 +131,7 @@ Vec<T> &Vec<T>::operator+=(
 
 template <typename T>
 Vec<T> Vec<T>::operator-(
-	const Vector &vectorB)
+	const Vec &vectorB)
 {
 	Vec<T> result(m_length);
 
@@ -150,7 +147,7 @@ Vec<T> Vec<T>::operator-(
 
 template <typename T>
 Vec<T> &Vec<T>::operator-=(
-	const Vector &vectorB)
+	const Vec &vectorB)
 {
 	std::transform(
 		this->m_data.begin(),
@@ -164,7 +161,7 @@ Vec<T> &Vec<T>::operator-=(
 
 template <typename T>
 T Vec<T>::operator*(
-	const Vector &vectorB)
+	const Vec &vectorB)
 {
 	T sum = 0;
 
@@ -248,7 +245,7 @@ void Vec<T>::print_vector() const
 }
 
 template <typename T>
-const std::size_t Vec<T>::length() const
+std::size_t Vec<T>::length() const
 {
 	return m_length;
 }

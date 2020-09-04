@@ -6,7 +6,7 @@
 #include <limits>
 #include <exception>
 
-#include "Matrix7.h"
+#include "Matrix.h"
 
 namespace cppmath
 {
@@ -17,7 +17,7 @@ namespace cppmath
 					  "An specialization of the vector class has to be of a floating type!");
 
 	public:
-		template <typename T>
+		template <typename U>
 		friend class Matrix;
 
 		/***********************/
@@ -47,11 +47,11 @@ namespace cppmath
 		/***********************/
 		/*** MATH. OPERATORS ***/
 		/***********************/
-		Vec<T> operator+(const Vector &vectorB);
-		Vec<T> &operator+=(const Vector &vectorB);
-		Vec<T> operator-(const Vector &vectorB);
-		Vec<T> &operator-=(const Vector &vectorB);
-		T operator*(const Vector &vectorB);
+		Vec<T> operator+(const Vec &vectorB);
+		Vec<T> &operator+=(const Vec &vectorB);
+		Vec<T> operator-(const Vec &vectorB);
+		Vec<T> &operator-=(const Vec &vectorB);
+		T operator*(const Vec &vectorB);
 		Vec<T> operator*(const T &scalar);
 		Vec<T> &operator*=(const T &scalar);
 		Vec<T> operator/(const T &scalar);
@@ -61,7 +61,7 @@ namespace cppmath
 		/*** HELPER FUNCTIONS **/
 		/***********************/
 		void print_vector() const;
-		const std::size_t length() const;
+		std::size_t length() const;
 
 	private:
 		/***********************/
@@ -79,7 +79,7 @@ namespace cppmath
 	/****  CONSTRUCTORS  ***/
 	/***********************/
 	template <typename T>
-	Vec<T>::Vector(
+	Vec<T>::Vec(
 		const std::size_t &length,
 		const T &value) : m_length(length),
 						  m_data(std::vector<T>(m_length, value))
@@ -87,14 +87,14 @@ namespace cppmath
 	}
 
 	template <typename T>
-	Vec<T>::Vector(
+	Vec<T>::Vec(
 		const std::vector<T> &data) : m_length(data.size()),
 									  m_data(data)
 	{
 	}
 
 	template <typename T>
-	Vec<T>::Vector(
+	Vec<T>::Vec(
 		const std::size_t &length) : m_length(length),
 									 m_data(std::vector<T>(length, 0))
 	{
@@ -106,7 +106,7 @@ namespace cppmath
 
 	template <typename T>
 	Vec<T> Vec<T>::operator+(
-		const Vector &vectorB)
+		const Vec &vectorB)
 	{
 		Vec<T> result(m_length);
 
@@ -122,7 +122,7 @@ namespace cppmath
 
 	template <typename T>
 	Vec<T> &Vec<T>::operator+=(
-		const Vector &vectorB)
+		const Vec &vectorB)
 	{
 		std::transform(
 			this->m_data.begin(),
@@ -136,7 +136,7 @@ namespace cppmath
 
 	template <typename T>
 	Vec<T> Vec<T>::operator-(
-		const Vector &vectorB)
+		const Vec &vectorB)
 	{
 		Vec<T> result(m_length);
 
@@ -152,7 +152,7 @@ namespace cppmath
 
 	template <typename T>
 	Vec<T> &Vec<T>::operator-=(
-		const Vector &vectorB)
+		const Vec &vectorB)
 	{
 		std::transform(
 			this->m_data.begin(),
@@ -166,7 +166,7 @@ namespace cppmath
 
 	template <typename T>
 	T Vec<T>::operator*(
-		const Vector &vectorB)
+		const Vec &vectorB)
 	{
 		T sum = 0;
 
@@ -250,7 +250,7 @@ namespace cppmath
 	}
 
 	template <typename T>
-	const std::size_t Vec<T>::length() const
+	std::size_t Vec<T>::length() const
 	{
 		return m_length;
 	}
