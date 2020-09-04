@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <vector>
 #include <iterator>
 #include <algorithm>
@@ -8,9 +7,6 @@
 #include <functional>
 
 #include "exercise.h"
-
-using std::string;
-using std::vector;
 
 int main()
 {

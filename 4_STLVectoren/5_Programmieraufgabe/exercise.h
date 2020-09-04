@@ -2,10 +2,9 @@
 #define EXERCISE_H
 
 #include <vector>
-using std::vector;
 
 typedef unsigned char uchar;
-typedef vector<uchar> ByteArray;
+typedef std::vector<uchar> ByteArray;
 
 // Aufgabe 1
 uchar hex_xor(uchar &hex1, uchar &hex2);

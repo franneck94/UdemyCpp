@@ -4,14 +4,10 @@
 
 #include "exercise.h"
 
-using std::fill;
-using std::sort;
-using std::vector;
-
 // Aufgabe 2
-vector<double> max_row_values(Matrix &matrix)
+std::vector<double> max_row_values(Matrix &matrix)
 {
-	vector<double> row_max_vec(matrix.size(), 0.0);
+	std::vector<double> row_max_vec(matrix.size(), 0.0);
 
 	for (int i = 0; i != matrix.size(); ++i)
 	{
@@ -32,9 +28,9 @@ vector<double> max_row_values(Matrix &matrix)
 }
 
 // Aufgabe 3
-double sort_and_max(vector<double> &vec)
+double sort_and_max(std::vector<double> &vec)
 {
-	sort(vec.begin(), vec.end());
+	std::sort(vec.begin(), vec.end());
 
 	return vec.back();
 }

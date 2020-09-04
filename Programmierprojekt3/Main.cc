@@ -1,16 +1,6 @@
-#include <algorithm>
-#include <chrono>
-#include <functional>
 #include <iostream>
-#include <iterator>
-#include <random>
-#include <string>
-#include <vector>
 
-#include "Matrix6.h"
-
-using std::string;
-using std::vector;
+#include "Matrix.h"
 
 int main()
 {

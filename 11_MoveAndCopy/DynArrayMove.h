@@ -33,8 +33,6 @@ public:
 	T &operator[](const unsigned int &i);
 };
 
-//#include "DynArray.h"
-
 /**
 Create empty dynamic array.
 */

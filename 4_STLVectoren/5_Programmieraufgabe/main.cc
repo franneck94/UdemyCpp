@@ -5,14 +5,9 @@
 
 #include "exercise.h"
 
-using std::ifstream;
-using std::ofstream;
-using std::string;
-using std::vector;
-
 int main()
 {
-	ifstream iffile;
+	std::ifstream iffile;
 	iffile.open("text.txt", std::ios::in);
 	std::string content;
 	iffile >> content;

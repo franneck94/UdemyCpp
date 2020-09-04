@@ -4,14 +4,10 @@
 
 #include "exercise.h"
 
-using std::fill;
-using std::sort;
-using std::vector;
-
 int main()
 {
 	// Aufgabe 1
-	Matrix matrix(3, vector<double>(3, 0.0));
+	Matrix matrix(3, std::vector<double>(3, 0.0));
 
 	for (int i = 0; i != matrix.size(); ++i)
 	{
@@ -32,7 +28,7 @@ int main()
 	std::cout << std::endl;
 
 	// Aufgabe 2
-	vector<double> row_max_vec = max_row_values(matrix);
+	std::vector<double> row_max_vec = max_row_values(matrix);
 
 	for (int i = 0; i != row_max_vec.size(); ++i)
 	{

@@ -1,20 +1,14 @@
 #include <iostream>
-#include <string>
 #include <vector>
 #include <iterator>
 #include <algorithm>
-#include <random>
-#include <chrono>
 #include <functional>
-
-using std::string;
-using std::vector;
 
 // Template class:
 // Nachteil template class member functions
-// k�nnen nicht virtual sein!
-// Keyword: typename und class im <...> Ausdruck �quivalent
-// Ebenfalls: Bei einer Template Klasse m�ssen die beim Aufruf die
+// können nicht virtual sein!
+// Keyword: typename und class im <...> Ausdruck äquivalent
+// Ebenfalls: Bei einer Template Klasse müssen die beim Aufruf die
 // Parameter angegeben werden.
 // Also Compile Time - Type Deducing funktioniert hier nicht.
 

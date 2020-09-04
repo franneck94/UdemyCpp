@@ -5,13 +5,8 @@
 #include <iterator>
 #include <numeric>
 #include <random>
-#include <string>
 #include <vector>
-
 #include <thread>
-
-using std::string;
-using std::vector;
 
 void print_text()
 {

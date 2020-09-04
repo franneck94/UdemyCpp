@@ -1,14 +1,9 @@
 #include <algorithm>
-#include <chrono>
 #include <functional>
 #include <iostream>
 #include <iterator>
 #include <random>
-#include <string>
 #include <vector>
-
-using std::string;
-using std::vector;
 
 // Friendships are not symmetric Friendships are not transitive Friendships are not inherited
 class Stack
@@ -32,7 +27,7 @@ public:
     };
 
 private:
-    vector<int> m_elements;
+    std::vector<int> m_elements;
     friend void print_elements(Stack);
 };
 

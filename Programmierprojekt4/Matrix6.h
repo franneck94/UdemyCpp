@@ -19,7 +19,7 @@ namespace cppmath
 	{
 	public:
 		template <typename T>
-		friend class Vector;
+		friend class Vec;
 
 		/***********************/
 		/****  CONSTRUCTORS  ***/
@@ -52,7 +52,7 @@ namespace cppmath
 		Matrix<T> &operator*=(const T &scalar);
 		Matrix<T> operator/(const T &scalar);
 		Matrix<T> &operator/=(const T &scalar);
-		Vector<T> operator*(const Vector<T> &vecB);
+		Vec<T> operator*(const Vec<T> &vecB);
 		Matrix<T> transpose();
 
 		/***********************/
@@ -353,14 +353,14 @@ namespace cppmath
 	}
 
 	template <typename T>
-	Vector<T> Matrix<T>::operator*(const Vector<T> &vecB)
+	Vec<T> Matrix<T>::operator*(const Vec<T> &vecB)
 	{
 		try
 		{
 			if (this->m_cols != vecB.m_length)
 				throw(std::invalid_argument("Dimensions does not match!"));
 
-			Vector<T> result(m_rows);
+			Vec<T> result(m_rows);
 
 			for (int i = 0; i != m_rows; ++i)
 			{

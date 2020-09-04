@@ -11,7 +11,7 @@
 namespace cppmath
 {
 	template <typename T>
-	class Vector
+	class Vec
 	{
 		static_assert(std::is_floating_point<T>::value,
 					  "An specialization of the vector class has to be of a floating type!");
@@ -23,18 +23,18 @@ namespace cppmath
 		/***********************/
 		/****  CONSTRUCTORS  ***/
 		/***********************/
-		Vector<T>(const std::size_t &length, const T &value); // User defined Constructor
-		Vector<T>(const std::vector<T> &data);				  // User defined Constructor
-		Vector<T>(const std::size_t &length);				  // User defined Constructor
-		~Vector<T>() noexcept = default;					  // Default Destructor
+		Vec<T>(const std::size_t &length, const T &value); // User defined Constructor
+		Vec<T>(const std::vector<T> &data);				  // User defined Constructor
+		Vec<T>(const std::size_t &length);				  // User defined Constructor
+		~Vec<T>() noexcept = default;					  // Default Destructor
 
 		/****************************/
 		/* COPY/MOVE CONST./ASSIGN  */
 		/****************************/
-		Vector<T>(const Vector<T> &vectorB) = default;				  // Copy Constructor
-		Vector<T> &operator=(const Vector<T> &vectorB) = default;	  // Copy Assignment Operator
-		Vector<T>(Vector<T> &&vectorB) noexcept = default;			  // Move Constructor
-		Vector<T> &operator=(Vector<T> &&vectorB) noexcept = default; // Move Assignment Operator
+		Vec<T>(const Vec<T> &vectorB) = default;				  // Copy Constructor
+		Vec<T> &operator=(const Vec<T> &vectorB) = default;	  // Copy Assignment Operator
+		Vec<T>(Vec<T> &&vectorB) noexcept = default;			  // Move Constructor
+		Vec<T> &operator=(Vec<T> &&vectorB) noexcept = default; // Move Assignment Operator
 
 		/***********************/
 		/**** ELEMENT ACCESS ***/
@@ -47,15 +47,15 @@ namespace cppmath
 		/***********************/
 		/*** MATH. OPERATORS ***/
 		/***********************/
-		Vector<T> operator+(const Vector &vectorB);
-		Vector<T> &operator+=(const Vector &vectorB);
-		Vector<T> operator-(const Vector &vectorB);
-		Vector<T> &operator-=(const Vector &vectorB);
+		Vec<T> operator+(const Vector &vectorB);
+		Vec<T> &operator+=(const Vector &vectorB);
+		Vec<T> operator-(const Vector &vectorB);
+		Vec<T> &operator-=(const Vector &vectorB);
 		T operator*(const Vector &vectorB);
-		Vector<T> operator*(const T &scalar);
-		Vector<T> &operator*=(const T &scalar);
-		Vector<T> operator/(const T &scalar);
-		Vector<T> &operator/=(const T &scalar);
+		Vec<T> operator*(const T &scalar);
+		Vec<T> &operator*=(const T &scalar);
+		Vec<T> operator/(const T &scalar);
+		Vec<T> &operator/=(const T &scalar);
 
 		/***********************/
 		/*** HELPER FUNCTIONS **/
@@ -79,7 +79,7 @@ namespace cppmath
 	/****  CONSTRUCTORS  ***/
 	/***********************/
 	template <typename T>
-	Vector<T>::Vector(
+	Vec<T>::Vector(
 		const std::size_t &length,
 		const T &value) : m_length(length),
 						  m_data(std::vector<T>(m_length, value))
@@ -87,14 +87,14 @@ namespace cppmath
 	}
 
 	template <typename T>
-	Vector<T>::Vector(
+	Vec<T>::Vector(
 		const std::vector<T> &data) : m_length(data.size()),
 									  m_data(data)
 	{
 	}
 
 	template <typename T>
-	Vector<T>::Vector(
+	Vec<T>::Vector(
 		const std::size_t &length) : m_length(length),
 									 m_data(std::vector<T>(length, 0))
 	{
@@ -105,10 +105,10 @@ namespace cppmath
 	/***********************/
 
 	template <typename T>
-	Vector<T> Vector<T>::operator+(
+	Vec<T> Vec<T>::operator+(
 		const Vector &vectorB)
 	{
-		Vector<T> result(m_length);
+		Vec<T> result(m_length);
 
 		std::transform(
 			this->m_data.begin(),
@@ -121,7 +121,7 @@ namespace cppmath
 	}
 
 	template <typename T>
-	Vector<T> &Vector<T>::operator+=(
+	Vec<T> &Vec<T>::operator+=(
 		const Vector &vectorB)
 	{
 		std::transform(
@@ -135,10 +135,10 @@ namespace cppmath
 	}
 
 	template <typename T>
-	Vector<T> Vector<T>::operator-(
+	Vec<T> Vec<T>::operator-(
 		const Vector &vectorB)
 	{
-		Vector<T> result(m_length);
+		Vec<T> result(m_length);
 
 		std::transform(
 			this->m_data.begin(),
@@ -151,7 +151,7 @@ namespace cppmath
 	}
 
 	template <typename T>
-	Vector<T> &Vector<T>::operator-=(
+	Vec<T> &Vec<T>::operator-=(
 		const Vector &vectorB)
 	{
 		std::transform(
@@ -165,7 +165,7 @@ namespace cppmath
 	}
 
 	template <typename T>
-	T Vector<T>::operator*(
+	T Vec<T>::operator*(
 		const Vector &vectorB)
 	{
 		T sum = 0;
@@ -179,10 +179,10 @@ namespace cppmath
 	}
 
 	template <typename T>
-	Vector<T> Vector<T>::operator*(
+	Vec<T> Vec<T>::operator*(
 		const T &scalar)
 	{
-		Vector<T> result(m_length);
+		Vec<T> result(m_length);
 
 		std::transform(
 			this->m_data.begin(),
@@ -194,7 +194,7 @@ namespace cppmath
 	}
 
 	template <typename T>
-	Vector<T> &Vector<T>::operator*=(
+	Vec<T> &Vec<T>::operator*=(
 		const T &scalar)
 	{
 		std::transform(
@@ -207,10 +207,10 @@ namespace cppmath
 	}
 
 	template <typename T>
-	Vector<T> Vector<T>::operator/(
+	Vec<T> Vec<T>::operator/(
 		const T &scalar)
 	{
-		Vector<T> result(m_length);
+		Vec<T> result(m_length);
 
 		std::transform(
 			this->m_data.begin(),
@@ -222,7 +222,7 @@ namespace cppmath
 	}
 
 	template <typename T>
-	Vector<T> &Vector<T>::operator/=(
+	Vec<T> &Vec<T>::operator/=(
 		const T &scalar)
 	{
 		std::transform(
@@ -239,7 +239,7 @@ namespace cppmath
 	/***********************/
 
 	template <typename T>
-	void Vector<T>::print_vector() const
+	void Vec<T>::print_vector() const
 	{
 		for (std::size_t i = 0; i != m_length; ++i)
 		{
@@ -250,7 +250,7 @@ namespace cppmath
 	}
 
 	template <typename T>
-	const std::size_t Vector<T>::length() const
+	const std::size_t Vec<T>::length() const
 	{
 		return m_length;
 	}

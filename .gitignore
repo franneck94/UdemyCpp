@@ -8,43 +8,11 @@
 *.pro
 *.sln
 *.bmp
+*.ui
 
 ################################
 ########### FOLDERS ############
 ################################
-Programmierprojekt1/Video1/
-Programmierprojekt1/Video2/
-Programmierprojekt1/Video3/
-Programmierprojekt1/Video4/
-
-Programmierprojekt2/Video1/
-Programmierprojekt2/Video2/
-Programmierprojekt2/Video3/
-
-Computerspiel2/Video1
-Computerspiel2/Video2
-
-Computerspiel3/Video1
-Computerspiel3/Video2
-
-Computerspiel4/Video1
-Computerspiel4/Video2
-
-Computerspiel5/Video1
-Computerspiel5/Video2
-Computerspiel5/Video3
-
-GUIPrime/Video2
-GUIPrime/Video3
-GUIPrime/Video4
-GUIPrime/Video5
-
-GUIComputerspiel/Video1
-GUIComputerspiel/Video2
-GUIComputerspiel/Video3
-GUIComputerspiel/Video4
-GUIComputerspiel/Video5
-GUIComputerspiel/Video6
 
 # directories
 build/

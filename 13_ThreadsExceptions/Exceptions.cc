@@ -1,12 +1,5 @@
-#include <algorithm>
 #include <exception>
 #include <iostream>
-#include <iterator>
-#include <string>
-#include <vector>
-
-using std::string;
-using std::vector;
 
 double div(double a, double b)
 {

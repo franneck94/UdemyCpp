@@ -5,21 +5,17 @@
 #include <iterator>
 #include <numeric>
 #include <random>
-#include <string>
 #include <thread>
 #include <vector>
 
 #include "omp.h"
-
-using std::string;
-using std::vector;
 
 int main()
 {
     // SETUP
     std::random_device gen;
     std::uniform_int_distribution<int> dist(-10, 10);
-    vector<int> vector_a(10'000'000, 0);
+    std::vector<int> vector_a(10'000'000, 0);
     std::generate(vector_a.begin(), vector_a.end(), [&]() { return dist(gen); });
 
     // SERIELL

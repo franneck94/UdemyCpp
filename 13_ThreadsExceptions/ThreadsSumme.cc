@@ -5,14 +5,10 @@
 #include <iterator>
 #include <numeric>
 #include <random>
-#include <string>
 #include <thread>
 #include <vector>
 
 #include "omp.h"
-
-using std::string;
-using std::vector;
 
 template <typename T> long long serial_sum(vector<T> &vec)
 {
@@ -47,8 +43,8 @@ long long parallel_sum(vector<int> &vec)
     size_t end = elements_per_thread;
     long long final_sum = 0;
 
-    vector<long long> sums(n_threads);
-    vector<std::thread> threads(n_threads - 1);
+    std::vector<long long> sums(n_threads);
+    std::vector<std::thread> threads(n_threads - 1);
 
     for (int i = 0; i != threads.size(); ++i)
     {
@@ -74,7 +70,7 @@ int main()
     // SETUP
     std::random_device gen;
     std::uniform_int_distribution<int> dist(-10, 10);
-    vector<int> vector_a(10'000'000, 0);
+    std::vector<int> vector_a(10'000'000, 0);
     std::generate(vector_a.begin(), vector_a.end(), [&]() { return dist(gen); });
 
     // SERIELL

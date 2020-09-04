@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <vector>
 #include <iterator>
 #include <algorithm>
@@ -9,11 +8,8 @@
 
 #include "exercise.h"
 
-using std::string;
-using std::vector;
-
 // Aufgabe 2
-vector<bool> shuffle_till_equal(const BinaryArray &target, BinaryArray input)
+std::vector<bool> shuffle_till_equal(const BinaryArray &target, BinaryArray input)
 {
 	bool equal = false;
 	int iteration = 1;
@@ -36,11 +32,11 @@ vector<bool> shuffle_till_equal(const BinaryArray &target, BinaryArray input)
 }
 
 // Aufgabe 3
-vector<bool> smart_shuffle_till_equal(const BinaryArray &target, BinaryArray input)
+std::vector<bool> smart_shuffle_till_equal(const BinaryArray &target, BinaryArray input)
 {
 	bool equal = false;
-	vector<bool>::iterator first = input.begin();
-	vector<bool>::iterator last = input.end();
+	std::vector<bool>::iterator first = input.begin();
+	std::vector<bool>::iterator last = input.end();
 	int iteration = 1;
 
 	while (!equal)
