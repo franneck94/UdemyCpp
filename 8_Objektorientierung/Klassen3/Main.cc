@@ -4,10 +4,8 @@
 
 int main()
 {
-    {
-        Image img(100, 400, 0);
-        img.save_image("image.bmp");
-    }
+    Image my_image1(100, 400);
+    my_image1.save_image("image.bmp");
 
     return 0;
 }

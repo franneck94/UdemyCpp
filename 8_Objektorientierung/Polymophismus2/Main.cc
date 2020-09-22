@@ -2,7 +2,6 @@
 #include <string>
 
 #include "Animal.h"
-#include "Dog.h"
 
 void eatingPoly(Animal &animal)
 {
@@ -11,12 +10,14 @@ void eatingPoly(Animal &animal)
 
 int main()
 {
-    Animal animal1("Tatze");
+    std::string name_animal = "Tatze";
+    Animal animal1(name_animal);
     animal1.type();
 
     std::cout << std::endl;
 
-    Dog dog1("Bello", true);
+    std::string name_dog = "Bello";
+    Dog dog1(name_dog);
     dog1.type();
 
     std::cout << std::endl;

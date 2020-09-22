@@ -2,7 +2,6 @@
 #include <string>
 
 #include "Animal.h"
-#include "Dog.h"
 
 int main()
 {
@@ -13,11 +12,8 @@ int main()
     std::cout << std::endl;
 
     std::string name_dog = "Bello";
-    bool type_dog = true;
-    Dog dog1(name_dog, type_dog);
+    Dog dog1(name_dog);
     dog1.type();
-
-    std::cout << std::endl;
 
     return 0;
 }

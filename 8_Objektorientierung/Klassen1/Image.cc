@@ -1,18 +1,24 @@
-﻿#include <iostream>
+#include <iostream>
 
 #include "Image.h"
 
-// Konstruktor
+Image::Image()
+{
+    m_width = 0;
+    m_height = 0;
+
+    std::cout << "Created empty image object!" << std::endl;
+}
+
 Image::Image(const unsigned int &width, const unsigned int &height)
 {
     m_width = width;
     m_height = height;
 
-    std::cout << "Image created with width: " << m_width << " height: " << m_height << std::endl;
+    std::cout << "Created image object with shape=(" << m_width << "," << m_height << ")!" << std::endl;
 }
 
-// Destruktor
 Image::~Image()
 {
-    std::cout << "Image destroyed" << std::endl;
+    std::cout << "Image object destroyed!" << std::endl;
 }

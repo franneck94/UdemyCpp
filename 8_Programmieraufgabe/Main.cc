@@ -4,8 +4,7 @@
 
 void image_code()
 {
-	//				  w,   h,  v
-	GrayImage image1(100, 400, 0);
+	Image image1(100, 400);
 	image1.save_image("image1.bmp");
 
 	std::cout << "Create image with (100, 400)" << std::endl;

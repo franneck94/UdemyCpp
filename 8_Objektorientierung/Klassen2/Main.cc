@@ -4,9 +4,9 @@
 
 int main()
 {
-    {
-        Image img(100, 400);
-    }
+    Image my_image1(10, 10);
+
+    Image my_image2;
 
     return 0;
 }

@@ -4,15 +4,12 @@
 
 int main()
 {
-    {
-        Image img(100, 400, 0);
-        img.save_image("image.bmp");
+    Image my_image1(100, 400);
+    my_image1.save_image("image.bmp");
 
-        std::cout << img.get_width() << " " << img.get_height() << std::endl;
-        img.set_width(200);
-        img.set_height(300);
-        std::cout << img.get_width() << " " << img.get_height() << std::endl;
-    }
+    std::cout << "Height: " << my_image1.get_height() << std::endl;
+    my_image1.set_height(200);
+    std::cout << "Height: " << my_image1.get_height() << std::endl;
 
     return 0;
 }

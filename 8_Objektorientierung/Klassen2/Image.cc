@@ -1,16 +1,21 @@
-﻿#include <iostream>
+#include <iostream>
 
 #include "Image.h"
 
-// Konstruktor
-Image::Image(const unsigned int &width, const unsigned int &height)
-    : m_width(width), m_height(height), m_matrix(m_width, std::vector<uchar>(m_height, 0))
+Image::Image() 
+    : m_width(0), m_height(0), m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
 {
-    std::cout << "Image created with width: " << m_width << " height: " << m_height << std::endl;
+    std::cout << "Created empty image object!" << std::endl;
 }
 
-// Destruktor
+Image::Image(const unsigned int &width, const unsigned int &height) 
+    : m_width(width), m_height(height), m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
+{
+    std::cout << "Created image object with shape=(" << m_width << "," << m_height << ")!" << std::endl;
+    std::cout << "Matrix size: (" << m_matrix.size() << "," << m_matrix[0].size() << ")" << std::endl;
+}
+
 Image::~Image()
 {
-    std::cout << "Image destroyed" << std::endl;
+    std::cout << "Image object destroyed!" << std::endl;
 }
