@@ -1,28 +1,21 @@
 #include <iostream>
 #include <string>
-#include <fstream>
-
-using std::string;
 
 int main()
 {
-	string s = "Hallo das ist ein Text";
+	std::string s = "Hallo das ist ein Text";
 
-	size_t index = s.find("Hallo");
+	std::size_t index = s.find("Hallo");
 
-	if (index != string::npos)
+	if (index != std::string::npos)
 	{
-		std::cout << std::endl
-				  << index;
+		std::cout << "Substring found at index " << index << std::endl;
 	}
 	else
 	{
-		std::cout << std::endl
-				  << "Nicht enthalten!";
+		std::cout << "Substring not found!" << std::endl;
 	}
-
-	std::cout << std::endl
-			  << s;
+	
 
 	return 0;
 }
