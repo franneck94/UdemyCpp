@@ -1,8 +1,8 @@
-#include <algorithm>
-#include <cmath>
 #include <iostream>
+#include <algorithm>
 #include <numeric>
 #include <vector>
+#include <cmath>
 
 
 // 0, 1, 2, 3, 4 (INPUT)

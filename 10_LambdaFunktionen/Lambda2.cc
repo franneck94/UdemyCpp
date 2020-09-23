@@ -11,15 +11,17 @@ int main()
     std::vector<int> my_result(10, 0);
     std::vector<int> my_result2;
 
-    // REMOVE IF: L�sche den Wert aus my_vector, wenn dieser gr��er als 5 ist.
-    // WICHTIG: L�scht den Wert bei return true!
+    // REMOVE IF: Lösche den Wert aus my_vector, wenn dieser größer als 5 ist.
+    // WICHTIG: Löscht den Wert bei return true!
     my_vector.erase(std::remove_if(my_vector.begin(), my_vector.end(),
-                                   [](int val) -> int {
-                                       if (val > 5)
-                                           return true;
-                                       else
-                                           return false;
-                                   }),
+                                    [](int val) -> int 
+                                    {
+                                        if (val > 5)
+                                            return true;
+                                        else
+                                            return false;
+                                    }
+                                    ),
                     my_vector.end());
     for (const auto &val : my_vector)
     {
@@ -27,17 +29,19 @@ int main()
     }
     std::cout << std::endl;
 
-    // REMOVE IF: L�sche den Wert aus my_vector, wenn dieser gr��er als 3 ist.
-    // WICHTIG: L�scht den Wert bei return true!
+    // REMOVE IF: Lösche den Wert aus my_vector, wenn dieser größer als 3 ist.
+    // WICHTIG: Löscht den Wert bei return true!
     int upper_bound = 3;
 
     my_vector.erase(std::remove_if(my_vector.begin(), my_vector.end(),
-                                   [&upper_bound](const int &val) -> int {
-                                       if (val > upper_bound)
-                                           return true;
-                                       else
-                                           return false;
-                                   }),
+                                    [&upper_bound](const int &val) -> int 
+                                    {
+                                        if (val > upper_bound)
+                                            return true;
+                                        else
+                                            return false;
+                                    }
+                                   ),
                     my_vector.end());
     for (const auto &val : my_vector)
     {

@@ -5,7 +5,7 @@
 template <typename T> class DynamicArray
 {
   public:
-    DynamicArray<T>(const T &value, const std::size_t &length);
+    DynamicArray(const T &value, const std::size_t &length);
 
     const std::size_t get_length() const;
 
@@ -27,7 +27,7 @@ template <typename T> class DynamicArray
 template <typename T> DynamicArray<T>::DynamicArray(const T &value, const std::size_t &length)
 {
     m_length = length;
-    m_data = new double[length];
+    m_data = new T[length];
 
     for (std::size_t i = 0; i < length; i++)
     {

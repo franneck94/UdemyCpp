@@ -30,12 +30,12 @@ private:
 	T m_max;
 	double m_mean;
 	int m_num_samples;
-	vector<T> m_samples;
+	std::vector<T> m_samples;
 };
 
 template <typename T>
-Statistic<T>::Statistic() : m_min(0), m_max(0), m_num_samples(0),
-							m_mean(0.0), m_samples(0, 0)
+Statistic<T>::Statistic() : 
+	m_min(0), m_max(0), m_num_samples(0), m_mean(0.0), m_samples(0, 0)
 {
 }
 

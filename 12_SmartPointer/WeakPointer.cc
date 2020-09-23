@@ -50,7 +50,7 @@ void f2()
     t3->test();
 }
 
-// Weak Pointer: erh�ht den Reference Counter eines Shared Pointer NICHT
+// Weak Pointer: erhöht den Reference Counter eines Shared Pointer NICHT
 void f3()
 {
     std::shared_ptr<ScopeTest> t4 = std::make_shared<ScopeTest>("t4");

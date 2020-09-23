@@ -23,7 +23,7 @@ int main()
 	std::shared_ptr<IntNode> n4 = std::make_shared<IntNode>();
 	std::shared_ptr<IntNode> n5 = std::make_shared<IntNode>();
 
-	// Werte , next/prev f�r die Nodes
+	// Werte , next/prev für die Nodes
 	n1->value = 6;
 	n1->prev = nullptr;
 	n1->next = n2;

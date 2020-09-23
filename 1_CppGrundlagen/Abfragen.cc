@@ -22,7 +22,7 @@ int main()
     // Gleichheit (==), Kleiner Gleich (<=), Groesser Gleich (>=)
     // Un-Gleichheit (!=), Kleiner (<), Groesser (>)
 
-    // Logische Verkn�fungen:
+    // Logische Verknüfungen:
     // Und (&&), Oder (||)
 
     if (zahl >= 1 && zahl <= 10)

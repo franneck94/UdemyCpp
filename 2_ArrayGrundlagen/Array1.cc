@@ -2,7 +2,7 @@
 
 int main()
 {
-    // Anlegen des Arrays mit 5 Pl�tzen
+    // Anlegen des Arrays mit 5 Plätzen
     //                       0   1   2    3   4
     int freunde_alter[5] = {23, 21, 25, 27, 31};
 

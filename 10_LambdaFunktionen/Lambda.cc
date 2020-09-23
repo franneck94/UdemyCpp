@@ -29,12 +29,15 @@ int main()
     // TRANSFORM:  Speichert True oder False in my_result
     // bei Gerade/Ungerade Zahl in my_vector haben
     // WICHTIG: Speichert wirklich den return Wert ab!
-    std::transform(my_vector.begin(), my_vector.end(), my_result.begin(), [](int val) -> int {
-        if (val % 2 == 0)
-            return true;
-        else
-            return false;
-    });
+    std::transform(my_vector.begin(), my_vector.end(), my_result.begin(),
+        [](int val) -> int 
+        {
+            if (val % 2 == 0)
+                return true;
+            else
+                return false;
+        }
+    );
 
     for (const auto &val : my_result)
     {
@@ -45,12 +48,15 @@ int main()
     // COPY IF: Speichert den Wert in my_result2
     // bei Geraden/Ungeraden Zahl aus my_vector
     // WICHTIG: Speichert den Value bei return True
-    std::copy_if(my_vector.begin(), my_vector.end(), std::back_inserter(my_result2), [](int val) -> int {
-        if (val % 2 == 0)
-            return true;
-        else
-            return false;
-    });
+    std::copy_if(my_vector.begin(), my_vector.end(), std::back_inserter(my_result2),
+        [](int val) -> int 
+        {
+            if (val % 2 == 0)
+                return true;
+            else
+                return false;
+        }
+    );
 
     for (const auto &val : my_result2)
     {

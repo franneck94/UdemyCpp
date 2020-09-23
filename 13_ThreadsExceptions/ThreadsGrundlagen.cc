@@ -41,7 +41,7 @@ int main()
     // t1.detach();
     // t2.detach();
 
-    // Funktionen �bergeben
+    // Funktionen übergeben
     int n1 = 12;
     int n2 = 24;
 
@@ -56,7 +56,7 @@ int main()
     std::cout << std::endl << "n1: " << n1 << "\n";
     std::cout << std::endl << "n2: " << n2 << "\n";
 
-    // Referenzen �bergeben
+    // Referenzen übergeben
     int n1 = 12;
     int n2 = 24;
 

@@ -6,7 +6,7 @@ template <typename T> class DynamicArray
 {
   public:
     // Constructors
-    DynamicArray<T>(const T &value, const std::size_t length);
+    DynamicArray(const T &value, const std::size_t length);
 
     // Data-manipulation methods
     void push_back(const T &value);
@@ -34,7 +34,7 @@ template <typename T> class DynamicArray
  */
 template <typename T>
 DynamicArray<T>::DynamicArray(const T &value, const std::size_t length)
-    : m_length(length), m_capacity(length), m_data(new double[length])
+    : m_length(length), m_capacity(length), m_data(new T[length])
 {
     for (std::size_t i = 0; i < length; i++)
     {
