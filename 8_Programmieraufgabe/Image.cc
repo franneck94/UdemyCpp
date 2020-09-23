@@ -44,7 +44,7 @@ void Image::clear_image()
 // Aufgabe 2
 void Image::set_pixel(const unsigned int x, const unsigned int y, const uchar value)
 {
-	m_matrix = value;
+	m_matrix[x][y] = value;
 }
 
 // Aufgabe 3
@@ -94,7 +94,7 @@ void Image::draw_line(const unsigned int x1, const unsigned int y1,
 		std::cout << "Draw line!" << std::endl;
 		std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << std::endl;
 
-		// Draw horizontal line
+		// Draw vertical line
 		if (x1 == x2)
 		{
 			std::cout << "Same x!" << std::endl;
@@ -103,7 +103,6 @@ void Image::draw_line(const unsigned int x1, const unsigned int y1,
 			{
 				length = y2 - y1;
 				std::cout << "With length: " << length + 1 << std::endl;
-				;
 
 				for (int i = 0; i != length; ++i)
 				{
@@ -114,7 +113,6 @@ void Image::draw_line(const unsigned int x1, const unsigned int y1,
 			{
 				length = y1 - y2;
 				std::cout << "With length: " << length + 1 << std::endl;
-				;
 
 				for (int i = 0; i != length; ++i)
 				{
@@ -122,7 +120,7 @@ void Image::draw_line(const unsigned int x1, const unsigned int y1,
 				}
 			}
 		}
-		// Draw vertical line
+		// Draw horizontal line
 		else if (y1 == y2)
 		{
 			std::cout << "Same y!" << std::endl;
@@ -131,7 +129,6 @@ void Image::draw_line(const unsigned int x1, const unsigned int y1,
 			{
 				length = x2 - x1;
 				std::cout << "With length: " << length + 1 << std::endl;
-				;
 
 				for (int i = 0; i != length; ++i)
 				{
@@ -142,7 +139,6 @@ void Image::draw_line(const unsigned int x1, const unsigned int y1,
 			{
 				length = x1 - x2;
 				std::cout << "With length: " << length + 1 << std::endl;
-				;
 
 				for (int i = 0; i != length; ++i)
 				{
