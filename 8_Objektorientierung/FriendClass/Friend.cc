@@ -34,8 +34,9 @@ private:
 void print_elements(Stack s)
 {
     for (auto elem : s.m_elements)
-        std::cout << std::endl
-                  << elem;
+    {
+        std::cout << std::endl << elem;
+    }
 }
 
 class Graph
@@ -59,8 +60,7 @@ int main()
     Stack my_stack(1);
     Graph g(my_stack); // G (V, E), V = {1};
 
-    std::cout << std::endl
-              << "Graph ruft Attribut von Stack auf: " << std::endl;
+    std::cout << "Graph ruft Attribut von Stack auf: " << std::endl;
     g.print_nodes();
 
     return 0;

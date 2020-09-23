@@ -3,27 +3,28 @@
 
 #include "Animal.h"
 
-void eatingPoly(Animal &animal)
+void polyFavouriteFood(Animal* &animal)
 {
-    animal.eating();
+    animal->my_favourite_food();
 }
 
 int main()
 {
-    std::string name_animal = "Tatze";
-    Animal animal1(name_animal);
-    animal1.type();
+    {
+        std::string animal_name = "Tatze";
+        Animal* animal1 = new Animal(animal_name);
+        polyFavouriteFood(animal1);
+        delete animal1;
+    }
 
     std::cout << std::endl;
 
-    std::string name_dog = "Bello";
-    Dog dog1(name_dog);
-    dog1.type();
-
-    std::cout << std::endl;
-
-    eatingPoly(animal1);
-    eatingPoly(dog1);
+    {
+        std::string dog_name = "Bello";
+        Animal* dog1 = new Dog(dog_name);
+        polyFavouriteFood(dog1);
+        delete dog1;
+    }
 
     return 0;
 }

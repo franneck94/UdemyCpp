@@ -6,39 +6,29 @@
 class Animal
 {
 public:
-    Animal(std::string &name) : m_name(name)
+    Animal(const std::string &name) : m_name(name)
     {
         std::cout << "Animal Constructor!" << std::endl;
     }
 
-    ~Animal()
+    virtual ~Animal()
     {
         std::cout << "Animal Destructor!" << std::endl;
     }
 
-    void type()
+    virtual void my_favourite_food()
     {
-        std::cout << "Animal!" << std::endl;
-    }
-
-    std::string get_name() const
-    {
-        return m_name;
-    }
-
-    virtual void eating()
-    {
-        std::cout << "Animal eating!" << std::endl;
+        std::cout << "Salad" << std::endl;
     }
 
 private:
-    std::string m_name;
+    const std::string m_name;
 };
 
 class Dog : public Animal
 {
 public:
-    Dog(std::string &name) : Animal(name)
+    Dog(const std::string &name) : Animal(name)
     {
         std::cout << "Dog Constructor!" << std::endl;
     }
@@ -48,13 +38,8 @@ public:
         std::cout << "Dog Destructor!" << std::endl;
     }
 
-    void type()
+    void my_favourite_food() override
     {
-        std::cout << "Dog!" << std::endl;
-    }
-
-    void eating() override
-    {
-        std::cout << "Dog eating!" << std::endl;
+        std::cout << "Meat" << std::endl;
     }
 };

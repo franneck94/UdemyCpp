@@ -44,7 +44,7 @@ void Image::clear_image()
 // Aufgabe 2
 void Image::set_pixel(const unsigned int x, const unsigned int y, const uchar value)
 {
-	m_matrix[y][x] = value;
+	m_matrix = value;
 }
 
 // Aufgabe 3
@@ -60,9 +60,9 @@ void Image::resize_image(const unsigned int new_width, const unsigned int new_he
 	// New height
 	if (new_height != m_height)
 	{
-		for (auto &row : m_matrix)
+		for (auto &col : m_matrix)
 		{
-			row.resize(new_height);
+			col.resize(new_height);
 		}
 
 		m_height = new_height;
@@ -72,9 +72,9 @@ void Image::resize_image(const unsigned int new_width, const unsigned int new_he
 // Aufgabe 4
 void Image::fill_image(const uchar value)
 {
-	for (auto &row : m_matrix)
+	for (auto &col : m_matrix)
 	{
-		std::fill(row.begin(), row.end(), value);
+		std::fill(col.begin(), col.end(), value);
 	}
 }
 
@@ -89,8 +89,7 @@ void Image::draw_line(const unsigned int x1, const unsigned int y1,
 		(x2 < m_width) &&
 		(y1 < m_height) &&
 		(y2 < m_height) &&
-		((x1 == x2) ||
-		(y1 == y2)))
+		((x1 == x2) || (y1 == y2)))
 	{
 		std::cout << "Draw line!" << std::endl;
 		std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << std::endl;
