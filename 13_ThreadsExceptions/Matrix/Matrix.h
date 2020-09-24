@@ -4,6 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
+#include <exception>
 
 namespace cppmath
 {
@@ -92,90 +93,129 @@ Matrix<T> Matrix<T>::transpose()
 template <typename T>
 Matrix<T> Matrix<T>::operator+(const Matrix &rhs)
 {
-	Matrix<T> result(m_rows, m_cols);
+    if (m_rows != rhs.m_rows)
+    {
+        throw(std::invalid_argument("Number of Rows not equal!"));
+    }
+    if (m_cols != rhs.m_cols)
+    {
+        throw(std::invalid_argument("Number of Cols not equal!"));
+    }
 
-	for (std::size_t i = 0; i != m_rows; ++i)
-	{
-		std::transform(
-			m_data[i].begin(),
-			m_data[i].end(),
-			rhs.m_data[i].begin(),
-			result.m_data[i].begin(),
-			std::plus<T>()
-		);
-	}
+    Matrix<T> result(m_rows, m_cols);
 
-	return result;
+    for (std::size_t i = 0; i != m_rows; ++i)
+    {
+        std::transform(m_data[i].begin(),
+                    m_data[i].end(),
+                    rhs.m_data[i].begin(),
+                    result.m_data[i].begin(), 
+                    std::plus<T>()
+                    );
+    }
+
+    return result;
 }
 
 template <typename T>
 Matrix<T> &Matrix<T>::operator+=(const Matrix &rhs)
 {
-	for (std::size_t i = 0; i != m_rows; ++i)
-	{
-		std::transform(
-			m_data[i].begin(),
-			m_data[i].end(),
-			rhs.m_data[i].begin(),
-			m_data[i].begin(),
-			std::plus<T>());
-	}
+    if (m_rows != rhs.m_rows)
+    {
+        throw(std::invalid_argument("Number of Rows not equal!"));
+    }
+    if (m_cols != rhs.m_cols)
+    {
+        throw(std::invalid_argument("Number of Cols not equal!"));
+    }
 
-	return *this;
+    for (std::size_t i = 0; i != m_rows; ++i)
+    {
+        std::transform(m_data[i].begin(),
+                        m_data[i].end(),
+                        rhs.m_data[i].begin(),
+                        m_data[i].begin(),
+                        std::plus<T>()
+                    );
+    }
+
+    return *this;
 }
 
 template <typename T>
 Matrix<T> Matrix<T>::operator-(const Matrix &rhs)
 {
-	Matrix<T> result(m_rows, m_cols);
+    if (m_rows != rhs.m_rows)
+    {
+        throw(std::invalid_argument("Number of Rows not equal!"));
+    }
+    if (m_cols != rhs.m_cols)
+    {
+        throw(std::invalid_argument("Number of Cols not equal!"));
+    }
 
-	for (std::size_t i = 0; i != m_rows; ++i)
-	{
-		std::transform(
-			m_data[i].begin(),
-			m_data[i].end(),
-			rhs.m_data[i].begin(),
-			result.m_data[i].begin(),
-			std::minus<T>()
-		);
-	}
+    Matrix<T> result(m_rows, m_cols);
 
-	return result;
+    for (std::size_t i = 0; i != m_rows; ++i)
+    {
+        std::transform(m_data[i].begin(),
+                        m_data[i].end(),
+                        rhs.m_data[i].begin(),
+                        result.m_data[i].begin(), 
+                        std::minus<T>()
+                    );
+    }
+
+    return result;
 }
 
 template <typename T>
 Matrix<T> &Matrix<T>::operator-=(const Matrix &rhs)
 {
-	for (std::size_t i = 0; i != m_rows; ++i)
-	{
-		std::transform(
-			m_data[i].begin(),
-			m_data[i].end(),
-			rhs.m_data[i].begin(),
-			m_data[i].begin(),
-			std::minus<T>());
-	}
+    if (m_rows != rhs.m_rows)
+    {
+        throw(std::invalid_argument("Number of Rows not equal!"));
+    }
+    if (m_cols != rhs.m_cols)
+    {
+        throw(std::invalid_argument("Number of Cols not equal!"));
+    }
 
-	return *this;
+    for (std::size_t i = 0; i != m_rows; ++i)
+    {
+        std::transform(m_data[i].begin(),
+                        m_data[i].end(),
+                        rhs.m_data[i].begin(),
+                        m_data[i].begin(),
+                        std::minus<T>()
+                    );
+    }
+
+    return *this;
 }
 
 template <typename T>
 Matrix<T> Matrix<T>::operator*(const Matrix &rhs)
 {
-	Matrix<T> result(m_rows, rhs.m_cols);
+    if (m_cols != rhs.m_rows)
+    {
+        throw(std::invalid_argument("Dimensions does not match!"));
+    }
 
-	for (std::size_t i = 0; i != m_rows; ++i)
-	{
-		for (std::size_t j = 0; j != rhs.m_cols; ++j)
-		{
-			for (std::size_t k = 0; k != rhs.m_rows; ++k)
-			{
-				result.m_data[i][j] = result.m_data[i][j] + m_data[i][k] * rhs.m_data[k][j];
-			}
-		}
-	}
+    Matrix<T> result(m_rows, rhs.m_cols);
 
-	return result;
+    for (std::size_t i = 0; i != m_rows; ++i)
+    {
+        for (std::size_t j = 0; j != rhs.m_cols; ++j)
+        {
+            for (std::size_t k = 0; k != rhs.m_rows; ++k)
+            {
+                result.m_data[i][j] = result.m_data[i][j] + m_data[i][k] * rhs.m_data[k][j];
+            }
+        }
+    }
+
+    return result;
 }
 
 template <typename T>
@@ -198,7 +238,7 @@ Matrix<T> Matrix<T>::operator*(const T &scalar)
 			m_data[i].end(),
 			result.m_data[i].begin(),
 			[scalar](T val) { return val * scalar; }
-		);
+        );
 	}
 
 	return result;
@@ -214,7 +254,7 @@ Matrix<T> &Matrix<T>::operator*=(const T &scalar)
 			m_data[i].end(),
 			m_data[i].begin(),
 			[scalar](T val) { return val * scalar; }
-		);
+        );
 	}
 
 	return *this;
@@ -232,7 +272,7 @@ Matrix<T> Matrix<T>::operator/(const T &scalar)
 			m_data[i].end(),
 			result.m_data[i].begin(),
 			[scalar, this](T val) { return val / (scalar + EPS); }
-		);
+        );
 	}
 
 	return result;
@@ -247,8 +287,8 @@ Matrix<T> &Matrix<T>::operator/=(const T &scalar)
 			m_data[i].begin(),
 			m_data[i].end(),
 			m_data[i].begin(),
-			[scalar, this](T val) { return val / (scalar + m_epsilon); }
-		);
+			[scalar, this](T val) { return val / (scalar + EPS); }
+        );
 	}
 
 	return *this;
@@ -261,7 +301,7 @@ std::size_t Matrix<T>::num_rows() const
 }
 
 template <typename T>
-std::size_t Matrix<T>::num_cols() const()
+std::size_t Matrix<T>::num_cols() const
 {
 	return m_cols;
 }

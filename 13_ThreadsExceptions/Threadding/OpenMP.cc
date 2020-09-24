@@ -3,7 +3,6 @@
 #include <iostream>
 #include <random>
 #include <vector>
-
 #include "omp.h"
 
 long long serial_sum(std::vector<int> &vec)

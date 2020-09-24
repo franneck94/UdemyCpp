@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "DynArrayCopy.h"
+#include "DynamicArray.h"
 
 int main()
 {

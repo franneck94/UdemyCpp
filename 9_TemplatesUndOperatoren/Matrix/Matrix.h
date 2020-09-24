@@ -1,18 +1,25 @@
 #pragma once
 
+#include <iostream>
+
 class Matrix
 {
 public:
 	Matrix();
 	Matrix(const double &A, const double &B, const double &C, const double &D);
-	~Matrix() = default;
+
+	Matrix operator+(const Matrix &rhs);
+	Matrix& operator+=(const Matrix &rhs);
+	Matrix operator-(const Matrix &rhs);
+	Matrix& operator-=(const Matrix &rhs);
 
 	void print_matrix() const;
+	friend std::ostream& operator<<(std::ostream &out, const Matrix &matrix);
 
-	const double get_A() const;
-	const double get_B() const;
-	const double get_C() const;
-	const double get_D() const;
+	double get_A() const;
+	double get_B() const;
+	double get_C() const;
+	double get_D() const;
 
 	void set_A(const double &val);
 	void set_B(const double &val);

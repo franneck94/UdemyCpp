@@ -2,10 +2,11 @@
 
 #include <cstddef>
 
-template <typename T> class DynamicArray
+template <typename T>
+class DynamicArray
 {
   public:
-    // Constructors
+    // Constructor/Destructor
     DynamicArray(const T &value, const std::size_t length);
 
     // Data-manipulation methods
@@ -30,11 +31,10 @@ template <typename T> class DynamicArray
  *
  * @param value The fill value for the array.
  * @param length The length of the array.
- * @return
  */
 template <typename T>
-DynamicArray<T>::DynamicArray(const T &value, const std::size_t length)
-    : m_length(length), m_capacity(length), m_data(new T[length])
+DynamicArray<T>::DynamicArray(const T &value, const std::size_t length) :
+    m_length(length), m_capacity(length), m_data(new T[length])
 {
     for (std::size_t i = 0; i < length; i++)
     {
@@ -48,7 +48,8 @@ DynamicArray<T>::DynamicArray(const T &value, const std::size_t length)
  * @param dynmaic_array The dynamic array.
  * @param value The value to append to the array.
  */
-template <typename T> void DynamicArray<T>::push_back(const T &value)
+template <typename T>
+void DynamicArray<T>::push_back(const T &value)
 {
     if (m_length == m_capacity)
     {
@@ -72,11 +73,9 @@ template <typename T> void DynamicArray<T>::push_back(const T &value)
 
 /**
  * @brief Pop backs the value at the end of the vector.
- *
- * @param input_array The dynamic array.
- * @param size The size of the array.
  */
-template <typename T> void DynamicArray<T>::pop_back()
+template <typename T>
+void DynamicArray<T>::pop_back()
 {
     if (m_length > 0)
     {
@@ -100,17 +99,20 @@ template <typename T> void DynamicArray<T>::pop_back()
     }
 }
 
-template <typename T> T &DynamicArray<T>::operator[](const std::size_t index)
+template <typename T>
+T &DynamicArray<T>::operator[](const std::size_t index)
 {
     return m_data[index];
 }
 
-template <typename T> const T &DynamicArray<T>::operator[](const std::size_t index) const
+template <typename T>
+const T &DynamicArray<T>::operator[](const std::size_t index) const
 {
     return m_data[index];
 }
 
-template <typename T> std::size_t DynamicArray<T>::get_length() const
+template <typename T>
+std::size_t DynamicArray<T>::get_length() const
 {
     return m_length;
 }
