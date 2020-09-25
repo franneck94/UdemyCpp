@@ -184,7 +184,7 @@ Vec<T> Vec<T>::operator*(const T &scalar)
 		m_data.begin(),
 		m_data.end(),
 		result.m_data.begin(),
-		[scalar](T val) { return val * scalar; });
+		[scalar](const T val) { return val * scalar; });
 
 	return result;
 }
@@ -196,7 +196,7 @@ Vec<T> &Vec<T>::operator*=(const T &scalar)
 		m_data.begin(),
 		m_data.end(),
 		m_data.begin(),
-		[scalar](T val) { return val * scalar; }
+		[scalar](const T val) { return val * scalar; }
 	);
 
 	return *this;
@@ -211,7 +211,7 @@ Vec<T> Vec<T>::operator/(const T &scalar)
 		m_data.begin(),
 		m_data.end(),
 		result.m_data.begin(),
-		[scalar, this](T val) { return val / (scalar + EPS); }
+		[scalar](const T val) { return val / (scalar + EPS); }
 	);
 
 	return result;
@@ -224,7 +224,7 @@ Vec<T> &Vec<T>::operator/=(const T &scalar)
 		m_data.begin(),
 		m_data.end(),
 		m_data.begin(),
-		[scalar, this](T val) { return val / (scalar + EPS); }
+		[scalar](const T val) { return val / (scalar + EPS); }
 	);
 
 	return *this;
@@ -251,4 +251,4 @@ std::size_t Vec<T>::length() const
 	return m_length;
 }
 
-} // end namespace cppmath
+} // namespace cppmath

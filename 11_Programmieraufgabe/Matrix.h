@@ -225,7 +225,7 @@ Matrix<T> Matrix<T>::operator*(const T &scalar)
 			m_data[i].begin(),
 			m_data[i].end(),
 			result.m_data[i].begin(),
-			[scalar](T val) { return val * scalar; });
+			[scalar](const T val) { return val * scalar; });
 	}
 
 	return result;
@@ -240,7 +240,7 @@ Matrix<T> &Matrix<T>::operator*=(const T &scalar)
 			m_data[i].begin(),
 			m_data[i].end(),
 			m_data[i].begin(),
-			[scalar](T val) { return val * scalar; });
+			[scalar](const T val) { return val * scalar; });
 	}
 
 	return *this;
@@ -257,7 +257,7 @@ Matrix<T> Matrix<T>::operator/(const T &scalar)
 			m_data[i].begin(),
 			m_data[i].end(),
 			result.m_data[i].begin(),
-			[scalar, this](T val) { return val / (scalar + EPS); });
+			[scalar](const T val) { return val / (scalar + EPS); });
 	}
 
 	return result;
@@ -272,7 +272,7 @@ Matrix<T> &Matrix<T>::operator/=(const T &scalar)
 			m_data[i].begin(),
 			m_data[i].end(),
 			m_data[i].begin(),
-			[scalar, this](T val) { return val / (scalar + m_epsilon); });
+			[scalar](const T val) { return val / (scalar + EPS); });
 	}
 
 	return *this;
@@ -285,9 +285,9 @@ std::size_t Matrix<T>::num_rows() const
 }
 
 template <typename T>
-std::size_t Matrix<T>::num_cols() const()
+std::size_t Matrix<T>::num_cols() const
 {
 	return m_cols;
 }
 
-} // end namespace cppmath
+} // namespace cppmath

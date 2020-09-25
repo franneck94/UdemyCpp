@@ -35,4 +35,4 @@ private:
 	std::chrono::time_point<Clock> m_start_point;
 };
 
-} // end namespace cpptiming
+} // namespace cpptiming

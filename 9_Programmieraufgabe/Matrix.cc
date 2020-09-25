@@ -69,7 +69,7 @@ Matrix Matrix::operator*(const double &scalar)
 	return result;
 }
 
-Matrix &Matrix::operator*=(const double &scalar)
+Matrix& Matrix::operator*=(const double &scalar)
 {
 	set_A(get_A() * scalar);
 	set_B(get_B() * scalar);
@@ -92,7 +92,7 @@ Matrix Matrix::operator/(const double &scalar)
 	return result;
 }
 
-Matrix &Matrix::operator/=(const double &scalar)
+Matrix& Matrix::operator/=(const double &scalar)
 {
 	set_A(get_A() / scalar);
 	set_B(get_B() / scalar);
@@ -115,23 +115,18 @@ Matrix Matrix::operator*(const Matrix &rhs)
 	return result;
 }
 
-Matrix &Matrix::operator*=(const Matrix &rhs)
+Matrix& Matrix::operator*=(const Matrix &rhs)
 {
-	return *this = (*this) * rhs;
+	*this = (*this) * rhs;
+
+	return *this;
 }
 
 void Matrix::print_matrix() const
 {
 	std::cout << m_A << ", " << m_B << std::endl;
 	std::cout << m_C << ", " << m_D << std::endl;
-}
-
-std::ostream& operator<<(std::ostream &out, const Matrix &matrix)
-{
-	out << matrix.m_A << ", " << matrix.m_B << std::endl;
-	out << matrix.m_C << ", " << matrix.m_D << std::endl;
-
-	return out;
+	std::cout << std::endl;
 }
 
 double Matrix::get_A() const

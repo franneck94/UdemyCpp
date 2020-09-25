@@ -24,7 +24,6 @@ public:
 	Matrix& operator*=(const Matrix &rhs);
 
 	void print_matrix() const;
-	friend std::ostream& operator<<(std::ostream &out, const Matrix &matrix);
 
 	double get_A() const;
 	double get_B() const;
