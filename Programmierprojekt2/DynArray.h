@@ -8,6 +8,7 @@ class DynamicArray
   public:
     // Constructor/Destructor
     DynamicArray(const T &value, const std::size_t length);
+    ~DynamicArray();
 
     // Data-manipulation methods
     void push_back(const T &value);
@@ -39,6 +40,19 @@ DynamicArray<T>::DynamicArray(const T &value, const std::size_t length) :
     for (std::size_t i = 0; i < length; i++)
     {
         m_data[i] = value;
+    }
+}
+
+/**
+ @brief Frees dynamic array.
+ */
+template <typename T>
+DynamicArray<T>::~DynamicArray()
+{
+    if (m_data != nullptr)
+    {
+        delete[] m_data;
+        m_data = nullptr;
     }
 }
 
