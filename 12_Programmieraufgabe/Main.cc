@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <memory>
 
 // Aufgabe 1
@@ -47,8 +46,7 @@ int main()
 	// Aufgabe 3
 	std::shared_ptr<IntNode> n = n1;
 
-	std::cout << std::endl
-			  << "Head to Tail" << std::endl;
+	std::cout << std::endl << "Head to Tail" << std::endl;
 	while (n != nullptr)
 	{
 		std::cout << "Node Value: " << n->value << std::endl;
@@ -58,9 +56,9 @@ int main()
 	// Aufgabe 4
 	n = n5;
 
-	std::cout << std::endl
-			  << "Tail to Head" << std::endl;
+	std::cout << std::endl << "Tail to Head" << std::endl;
 	std::cout << "Node Value: " << n->value << std::endl;
+
 	while (n != nullptr)
 	{
 		std::cout << "Node Value: " << n->value << std::endl;
