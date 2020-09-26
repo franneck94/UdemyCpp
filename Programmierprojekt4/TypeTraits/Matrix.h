@@ -6,6 +6,7 @@
 #include <functional>
 #include <exception>
 #include <stdexcept>
+#include <type_traits>
 
 namespace cppmath
 {
@@ -13,6 +14,9 @@ namespace cppmath
 template <typename T>
 class Matrix
 {
+	static_assert(std::is_floating_point<T>::value,
+				  "An specialization of the matrix class has to be of a floating point type!");
+
 public:
 	using MatrixDataType = std::vector<std::vector<T>>;
 
