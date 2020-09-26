@@ -11,6 +11,10 @@ class DynamicArray
     DynamicArray(const T &value, const std::size_t length);
     ~DynamicArray();
 
+    // Copy-Constructor/Assignment Operator
+    DynamicArray(const DynamicArray &other);
+    DynamicArray& operator=(const DynamicArray &other);
+
     // Data-manipulation methods
     void push_back(const T &value);
     void pop_back();
@@ -64,6 +68,72 @@ DynamicArray<T>::~DynamicArray()
         delete[] m_data;
         m_data = nullptr;
     }
+}
+
+/**
+ * @brief Copy constructor.
+ * 
+ * @param other other DynmaicArray
+ */
+template<typename T>
+DynamicArray<T>::DynamicArray(const DynamicArray<T> &other) :
+    m_length(other.m_length),
+    m_capacity(other.m_capacity),
+    m_data(other.m_length > 0 ? new T[other.m_length] : nullptr)
+{
+    for(std::size_t i = 0; i != m_length; ++i)
+    {
+        m_data[i] = other.m_data[i];
+    }
+
+    std::cout << "Copy constructor - other.m_length = "
+              << other.m_length 
+              << " - this.m_length = " 
+              << m_length 
+              << std::endl;
+}
+
+/**
+ * @brief Copy assignment operator.
+ * 
+ * @param other DynamicArray rhs of the operator.
+ * @return DynamicArray& 
+ */
+template<typename T>
+DynamicArray<T>& DynamicArray<T>::operator=(const DynamicArray<T> &other)
+{
+    if (this != &other)
+    {
+        if (m_length != other.m_length)
+        {
+            delete[] m_data;
+
+            m_length = other.m_length;
+            m_capacity = other.m_capacity;
+
+            if (other.m_length > 0)
+            {
+                m_data = new T[other.m_length];
+            }
+            else
+            {
+                m_data = nullptr;
+            }    
+        }
+
+        for (std::size_t i = 0; i != m_length; ++i)
+        {
+            m_data[i] = other.m_data[i];
+        }
+    }
+
+    std::cout << "Copy assignment operator - other.m_length = " 
+              << other.m_length 
+              << " - this.m_length = "  
+              << m_length 
+              << std::endl;
+
+    return *this;
 }
 
 /**

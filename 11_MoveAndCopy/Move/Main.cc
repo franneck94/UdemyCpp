@@ -1,36 +1,24 @@
+#include <cstddef>
 #include <iostream>
+#include <vector>
 
-#include "DynamicArray.h"
+#include "AlgoArray.h"
+#include "DynArray.h"
 
 int main()
 {
-	// Constructor
-	DynamicArray<double> a(1, 3);
-	for (int i = 0; i != 3; ++i)
-	{
-		std::cout << a[i] << ", ";
-	}
-	std::cout << std::endl;
+    DynamicArray<int> a1(1.0, 3);
+    DynamicArray<int> a2(-1.0, 4);
 
-	// Move Constructor
-	DynamicArray<double> b(std::move(a));
-	std::cout << "Move constructor: " << b.m_data << std::endl;
-	for (int i = 0; i != 3; ++i)
-	{
-		std::cout << b[i] << ", ";
-	}
-	std::cout << std::endl;
+    DynamicArray<int> a3 = a2; // Copy constructor
+    DynamicArray<int> a4(a2); // Copy constructor
+    DynamicArray<int> a5{ a2 }; // Copy constructor
+    DynamicArray<int> a6 = { a2 }; // Copy constructor
 
-	// Move Assignment Operator
-	DynamicArray<double> c(2.0, 3);
-	std::cout << "Before move assignment: " << c.m_data << std::endl;
-	c = std::move(b);
-	std::cout << "After move assignment: " << c.m_data << std::endl;
-	for (int i = 0; i != 3; ++i)
-	{
-		std::cout << c[i] << ", ";
-	}
-	std::cout << std::endl;
+    a1 = a2; // Copy assignment operator
 
-	return 0;
+    DynamicArray<int> a7 = std::move(a6); // Move constructor
+    a7 = std::move(a5); // Move assignment operator
+
+    return 0;
 }
