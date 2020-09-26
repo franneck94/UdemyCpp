@@ -17,11 +17,12 @@ public:
 	Matrix() = delete;
 	Matrix(std::size_t rows, std::size_t cols);
 	Matrix(std::size_t rows, std::size_t cols, const T &value);
+	~Matrix() noexcept = default;
 
-	// Aufgabe 1: Copy Constructor
-	Matrix(const Matrix &other);
-	// Aufgabe 2: Copy Assignment Operator
-	Matrix& operator=(const Matrix &other);
+	Matrix(const Matrix &other) = default;
+	Matrix& operator=(const Matrix &other) = default;
+	Matrix(Matrix &&other) noexcept = default;
+	Atrix& operator=(Matrix &&other) noexcept = default;
 
 	Matrix operator+(const Matrix &rhs);
 	Matrix& operator+=(const Matrix &rhs);

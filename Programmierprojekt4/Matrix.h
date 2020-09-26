@@ -9,9 +9,9 @@
 #include <omp.h>
 
 #include "Types.h"
-#include "Vec.h"
 
 constexpr uint8_t NUM_THREADS = 4;
+constexpr double EPS = 1e-6;
 
 namespace cppmath
 {
@@ -23,9 +23,6 @@ class Matrix
 					"An specialization of the matrix class has to be of a floating type!");
 
 public:
-	template <typename U>
-	friend class Vec;
-
 	/***********************/
 	/****  CONSTRUCTORS  ***/
 	/***********************/
@@ -55,7 +52,6 @@ public:
 	Matrix& operator*=(const T &scalar);
 	Matrix operator/(const T &scalar);
 	Matrix& operator/=(const T &scalar);
-	Vec<T> operator*(const Vec<T> &vecB);
 
 	void parallel_dot(const Matrix &matrixA, const Matrix &matrixB, Matrix &result);
 	void dot(const Matrix &matrixA, const Matrix &matrixB, Matrix &result);
@@ -374,35 +370,6 @@ Matrix<T> &Matrix<T>::operator/=(const T &scalar)
 	}
 
 	return *this;
-}
-
-template <typename T>
-Vec<T> Matrix<T>::operator*(const Vec<T> &vecB)
-{
-	try
-	{
-		if (m_cols != vecB.m_length)
-		{
-			throw(std::invalid_argument("Dimensions does not match!"));
-		}
-
-		Vec<T> result(m_rows);
-
-		for (std::size_t i = 0; i != m_rows; ++i)
-		{
-			result[i] = std::inner_product(
-				m_data[i].begin(),
-				m_data[i].end(),
-				vecB.m_data.begin(),
-				0.0);
-		}
-
-		return result;
-	}
-	catch (std::invalid_argument &err)
-	{
-		std::cerr << err.what() << std::endl;
-	}
 }
 
 template <typename T>
