@@ -1,4 +1,3 @@
-#include <exception>
 #include <iostream>
 
 double div(double a, double b)
@@ -15,16 +14,16 @@ int main()
 {
     double x = 10.0;
     double y = 0.0;
-    double z = 0.0;
 
     try
     {
-        z = div(x, y);
+        double z = div(x, y);
         std::cout << z << std::endl;
     }
-    catch (const char *msg)
+    catch(const char* msg)
     {
         std::cerr << msg << std::endl;
+        double z = 0;
     }
 
     return 0;

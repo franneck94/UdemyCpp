@@ -3,6 +3,7 @@
 #include <iostream>
 #include <random>
 #include <vector>
+#include <thread>
 #include "omp.h"
 
 long long serial_sum(std::vector<int> &vec)
@@ -12,6 +13,19 @@ long long serial_sum(std::vector<int> &vec)
     for (int i = 0; i != vec.size(); ++i)
     {
         sum = sum + vec[i];
+    }
+
+    return sum;
+}
+
+template <typename T>
+long long adder(std::vector<T> vec, std::size_t begin, std::size_t end)
+{
+    long long sum = 0;
+
+    for (std::size_t i = begin; i != end; ++i)
+    {
+        sum += vec[i];
     }
 
     return sum;
@@ -28,10 +42,10 @@ long long parallel_sum_omp(std::vector<int> &vec)
 {
     long long final_sum = 0;
     long long sum = 0;
-    int i = 0;
-    int n = vec.size();
+    std::size_t i = 0;
+    std::size_t n = vec.size();
 
-    const int NUM_THREADS = 2;
+    const unsigned int NUM_THREADS = 2;
 #pragma omp parallel for reduction(+ : sum) num_threads(NUM_THREADS)
     for (i = 0; i < n; ++i)
     {
@@ -48,7 +62,7 @@ long long parallel_sum_omp(std::vector<int> &vec)
 int main()
 {
     // SETUP
-    const int NUM_RUNS = 100;
+    const unsigned int NUM_RUNS = 100;
     long long sum_vector = 0L;
 
     std::random_device gen;
@@ -58,7 +72,7 @@ int main()
 
     // SERIELL
     auto start = std::chrono::high_resolution_clock::now();
-    for (int i = 0; i < NUM_RUNS; ++i)
+    for (unsigned int i = 0; i < NUM_RUNS; ++i)
     {
         sum_vector = serial_sum(vector_a);
     }
@@ -69,7 +83,7 @@ int main()
 
     // OPENMP
     start = std::chrono::high_resolution_clock::now();
-    for (int i = 0; i < NUM_RUNS; ++i)
+    for (unsigned int i = 0; i < NUM_RUNS; ++i)
     {
         sum_vector = parallel_sum_omp(vector_a);
     }
