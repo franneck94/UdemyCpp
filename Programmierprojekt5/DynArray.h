@@ -5,71 +5,110 @@
 #include <limits>
 #include <stdexcept>
 #include <algorithm>
+#include <iterator>
 
 /**************************************/
-/*      VECTOR ITERATOR TRAITS        */
+/*              ALLOCATOR             */
 /**************************************/
-template<class DynamicArray>
-struct iterator_traits
+template<typename T>
+class StandardAllocator
 {
-    using value_type = typename DynamicArray::value_type;
-    using difference_type = typename DynamicArray::difference_type;
-    using reference = typename DynamicArray::reference;
-    using pointer = typename DynamicArray::pointer;
-};
+public:
+    using value_type        = T;
+    using size_type         = std::size_t;
+    using reference         = value_type&;
+    using const_reference   = const value_type&;
+    using pointer           = value_type*;
+    using const_pointer     = const value_type*;
 
-template<class DynamicArray>
-struct const_iterator_traits
-{
-    using value_type = typename DynamicArray::value_type;
-    using difference_type = typename DynamicArray::difference_type;
-    using reference = typename DynamicArray::const_reference;
-    using pointer = typename DynamicArray::const_pointer;
+public:
+    constexpr StandardAllocator() noexcept { }
+
+    ~StandardAllocator() noexcept { }
+
+    constexpr pointer allocate(size_type n) const
+    {
+        return static_cast<pointer>(::operator new(n * sizeof(value_type)));
+    }
+
+    constexpr void deallocate(pointer p) const noexcept
+    {
+        ::operator delete[](p);
+    }
 };
 
 /**************************************/
 /*          VECTOR ITERATOR           */
 /**************************************/
-template <class iterator_traits>
+template <class T>
 class RandomAcessIterator
 {
 public:
-    using value_type = typename iterator_traits::value_type;
-    using difference_type = typename iterator_traits::difference_type;
-    using reference = typename iterator_traits::reference;
-    using pointer = typename iterator_traits::pointer;
-
+    using value_type        = T;
+    using difference_type   = std::ptrdiff_t;
+    using reference         = T&;
+    using pointer           = T*;
+    using iterator_category = std::random_access_iterator_tag;
 
 public:
-    RandomAcessIterator(pointer ptr) : 
+    constexpr RandomAcessIterator(value_type* ptr) : 
         m_ptr(ptr)
     {
     }
 
-    RandomAcessIterator& operator++()
+    constexpr RandomAcessIterator& operator++()
     {
         m_ptr++;
         return *this;
     }
 
-    RandomAcessIterator& operator++(int)
+    constexpr RandomAcessIterator operator++(int)
     {
-        RandomAcessIterator it = *this;
-        ++(*this);
-        return it;
+        RandomAcessIterator tmp = *this;
+        ++m_ptr;
+        return tmp;
     }
 
-    RandomAcessIterator& operator--()
+    constexpr RandomAcessIterator& operator--()
     {
         m_ptr--;
         return *this;
     }
 
-    RandomAcessIterator& operator--(int)
+    constexpr RandomAcessIterator operator--(int)
     {
-        RandomAcessIterator it = *this;
-        --(*this);
-        return it;
+        RandomAcessIterator tmp = *this;
+        --m_ptr;
+        return tmp;
+    }
+
+    constexpr RandomAcessIterator operator+(difference_type n) const
+    {
+        return RandomAcessIterator(m_ptr + n);
+    }
+
+    constexpr RandomAcessIterator& operator+=(difference_type n)
+    {
+        m_ptr += n;
+        
+        return *this;
+    }
+
+    constexpr RandomAcessIterator operator-(difference_type n) const
+    {
+        return RandomAcessIterator(m_ptr - n);
+    }
+
+    constexpr RandomAcessIterator& operator-=(difference_type n)
+    {
+        m_ptr -= n;
+
+        return *this;
+    }
+
+    constexpr difference_type operator-(const RandomAcessIterator& other) const
+    {
+        return std::distance(other.m_ptr, m_ptr);
     }
 
     constexpr reference operator[](difference_type index)
@@ -97,50 +136,79 @@ public:
         return m_ptr != other.m_ptr;
     }
 
-private:
-    pointer m_ptr;
+protected:
+    value_type* m_ptr;
 };
 
-template <class iterator_traits>
+template <class T>
 class ReverseRandomAcessIterator
 {
 public:
-    using value_type = typename iterator_traits::value_type;
-    using difference_type = typename iterator_traits::difference_type;
-    using reference = typename iterator_traits::reference;
-    using pointer = typename iterator_traits::pointer;
-
+    using value_type        = T;
+    using difference_type   = std::ptrdiff_t;
+    using reference         = T&;
+    using pointer           = T*;
+    using iterator_category = std::random_access_iterator_tag;
 
 public:
-    ReverseRandomAcessIterator(pointer ptr) : 
+    constexpr ReverseRandomAcessIterator(value_type* ptr) : 
         m_ptr(ptr)
     {
     }
 
-    ReverseRandomAcessIterator& operator++()
+    constexpr ReverseRandomAcessIterator& operator++()
     {
         m_ptr--;
         return *this;
     }
 
-    ReverseRandomAcessIterator& operator++(int)
+    constexpr ReverseRandomAcessIterator operator++(int)
     {
-        ReverseRandomAcessIterator it = *this;
-        --(*this);
-        return it;
+        ReverseRandomAcessIterator tmp = *this;
+        --m_ptr;
+        return tmp;
     }
 
-    ReverseRandomAcessIterator& operator--()
+    constexpr ReverseRandomAcessIterator& operator--()
     {
         m_ptr++;
         return *this;
     }
 
-    ReverseRandomAcessIterator& operator--(int)
+    constexpr ReverseRandomAcessIterator operator--(int)
     {
-        ReverseRandomAcessIterator it = *this;
-        ++(*this);
-        return it;
+        ReverseRandomAcessIterator tmp = *this;
+        ++m_ptr;
+        return tmp;
+    }
+
+    constexpr ReverseRandomAcessIterator operator+(difference_type n) const
+    {
+        return ReverseRandomAcessIterator(m_ptr - n);
+    }
+
+    constexpr ReverseRandomAcessIterator& operator+=(difference_type n)
+    {
+        m_ptr -= n;
+        
+        return *this;
+    }
+    
+    constexpr ReverseRandomAcessIterator operator-(difference_type n) const
+    {
+        return ReverseRandomAcessIterator(m_ptr + n);
+    }
+
+    constexpr ReverseRandomAcessIterator& operator-=(difference_type n)
+    {
+        m_ptr += n;
+
+        return *this;
+    }
+    
+    constexpr difference_type operator-(const ReverseRandomAcessIterator& other) const
+    {
+        return std::distance(m_ptr, other.m_ptr);
     }
 
     constexpr reference operator[](difference_type index)
@@ -168,72 +236,76 @@ public:
         return m_ptr != other.m_ptr;
     }
 
-private:
-    pointer m_ptr;
+protected:
+    value_type* m_ptr;
 };
 
 /**************************************/
 /*            VECTOR CLASS            */
 /**************************************/
-template <typename T>
+template <class T, class Allocator = StandardAllocator<T>>
 class DynamicArray
 {
 public:
-    using value_type = T;
-    using size_type = std::size_t;
-    using difference_type = std::ptrdiff_t;
-    using reference = value_type&;
-    using const_reference = const value_type&;
-    using pointer = T*;
-    using const_pointer = T* const;
-protected:
-    using iterator_trait = iterator_traits<DynamicArray<T>>;
-    using const_iterator_trait = const_iterator_traits<DynamicArray<T>>;
+    using value_type        = T;
+    using allocator_type    = Allocator;
+    using size_type         = std::size_t;
+    using difference_type   = std::ptrdiff_t;
+    using reference         = value_type&;
+    using const_reference   = const value_type&;
+    using pointer           = typename Allocator::pointer;
+    using const_pointer     = typename Allocator::const_pointer;
 public:
-    using iterator = RandomAcessIterator<iterator_trait>;
-    using const_iterator = RandomAcessIterator<const_iterator_trait>;
-    using reverse_iterator = ReverseRandomAcessIterator<iterator_trait>;
-    using const_reverse_iterator = ReverseRandomAcessIterator<const_iterator_trait>;
+    using iterator = RandomAcessIterator<value_type>;
+    using const_iterator = RandomAcessIterator<const value_type>;
+    using reverse_iterator = ReverseRandomAcessIterator<value_type>;
+    using const_reverse_iterator = ReverseRandomAcessIterator<const value_type>;
 
     /**************************************/
     /*        SPECIAL MEMBER FUNCTIONS    */
     /**************************************/
 public:
-    /**
-     * @brief Create an empty dynamic array object
-     */
-    DynamicArray() : 
+    constexpr DynamicArray() : 
         m_size(0), m_capacity(0), m_data(nullptr)
     { 
     }
 
-    /**
-     * @brief Create a dynamic array object
-     */
-    DynamicArray(const size_type length, const_reference value) :
-        m_size(length), m_capacity(length), m_data(new value_type[length])
+    constexpr DynamicArray(const size_type count, const_reference value, const Allocator& alloc = Allocator()):
+        m_size(count), m_capacity(count), m_data(alloc.allocate(m_size))
     {
         std::fill(m_data, m_data + m_size, value);
     }
 
-    /**
-     * @brief Destroys a dynamic array object
-     */
+    constexpr explicit DynamicArray(size_type count, const Allocator& alloc = Allocator()) : 
+        m_size(count), m_capacity(count), m_data(alloc.allocate(m_size))
+    {
+        std::fill(m_data, m_data + m_size, value_type());
+    }
+
+    template< class InputIt >
+    constexpr DynamicArray(InputIt first, InputIt last, const Allocator& alloc = Allocator()) :
+        m_size(std::distance(first, last)), m_capacity(m_size), m_data(alloc.allocate(m_size))
+    {
+        std::copy(first, last, m_data);
+    }
+
+    constexpr DynamicArray(std::initializer_list<T> init, const Allocator& alloc = Allocator()) :
+        m_size(init.size()), m_capacity(m_size), m_data(alloc.allocate(m_size))
+    {
+        std::copy(init.begin(), init.end(), m_data);
+    }
+
     ~DynamicArray() noexcept
     {
         if (m_data != nullptr)
         {
-            delete[] m_data;
+            Allocator alloc = Allocator();
+            alloc.deallocate(m_data);
             m_data = nullptr;
         }
     }
 
-    /**
-     * @brief Copy constructor.
-     * 
-     * @param other other DynmaicArray
-     */
-    DynamicArray(const DynamicArray &other) :
+    constexpr DynamicArray(const DynamicArray &other) :
         m_size(other.m_size),
         m_capacity(other.m_capacity),
         m_data(other.m_size > 0 ? new value_type[other.m_size] : nullptr)
@@ -241,13 +313,7 @@ public:
         std::copy(m_data, m_data + m_size, other.m_data);
     }
 
-    /**
-     * @brief Copy assignment operator.
-     * 
-     * @param other DynamicArray rhs of the operator.
-     * @return DynamicArray& 
-     */
-    DynamicArray& operator=(const DynamicArray &other)
+    constexpr DynamicArray& operator=(const DynamicArray &other)
     {
         if (this != &other)
         {
@@ -272,12 +338,7 @@ public:
         }
     }
 
-    /**
-     * @brief Move constructor.
-     * 
-     * @param other 
-     */
-    DynamicArray(DynamicArray &&other) noexcept :
+    constexpr DynamicArray(DynamicArray &&other) noexcept :
         m_size(std::move(other.m_size)),
         m_capacity(std::move(other.m_capacity)),
         m_data(std::move(other.m_data))
@@ -287,13 +348,7 @@ public:
         other.m_data = nullptr;
     }
 
-    /**
-     * @brief Move assignment operator.
-     * 
-     * @param other 
-     * @return DynamicArray& 
-     */
-    DynamicArray& operator=(DynamicArray &&other) noexcept
+    constexpr DynamicArray& operator=(DynamicArray &&other) noexcept
     {
         if(this != &other)
         {
@@ -370,12 +425,12 @@ public:
 
     constexpr pointer data() noexcept
     {
-        return *begin();
+        return m_data;
     }
 
-    constexpr const pointer data() const noexcept
+    constexpr const_pointer data() const noexcept
     {
-        return *begin();
+        return m_data;
     }
     
     /**************************************/
@@ -413,32 +468,32 @@ public:
 
     constexpr reverse_iterator rbegin() noexcept
     {
-        return reverse_iterator(m_data);
+        return reverse_iterator(m_data + m_size - 1);
     }
     
     constexpr const_reverse_iterator rbegin() const noexcept
     {
-        return const_reverse_iterator(m_data);
+        return const_reverse_iterator(m_data + m_size - 1);
     }
 
     constexpr const_reverse_iterator crbegin() const noexcept
     {
-        return const_reverse_iterator(m_data);
+        return const_reverse_iterator(m_data + m_size - 1);
     }
 
     constexpr reverse_iterator rend() noexcept
     {
-        return reverse_iterator(m_data + m_size);
+        return reverse_iterator(m_data - 1);
     }
     
     constexpr const_reverse_iterator rend() const noexcept
     {
-        return const_reverse_iterator(m_data + m_size);
+        return const_reverse_iterator(m_data - 1);
     }
 
     constexpr const_reverse_iterator crend() const noexcept
     {
-        return const_reverse_iterator(m_data + m_size);
+        return const_reverse_iterator(m_data - 1);
     }
     
     /**************************************/
@@ -495,22 +550,9 @@ public:
     /**************************************/
     constexpr void clear()
     {
-        if (m_size > 0)
-        {
-            delete[] m_data;
-
-            m_size = 0;
-            m_capacity = 0;
-            m_data = nullptr;
-        }
+        m_size = 0;
     }
 
-    /**
-     * @brief Push backs the *value* at the end of the array.
-     *
-     * @param dynmaic_array The dynamic array.
-     * @param value The value to append to the array.
-     */
     constexpr void push_back(const_reference value)
     {
         if (m_size == m_capacity)
@@ -524,9 +566,6 @@ public:
         m_size++;
     }
 
-    /**
-     * @brief Pop backs the value at the end of the vector.
-     */
     constexpr void pop_back()
     {
         if (m_size > 0)
@@ -537,7 +576,7 @@ public:
 
     constexpr void resize(size_type count)
     {
-        resize(count, 0);
+        resize(count, value_type());
     }
 
     constexpr void resize(size_type count, const value_type& value)
@@ -549,12 +588,12 @@ public:
         else if(m_capacity < count) // m_size < count
         {
             reserve(count);
-            std::fill(m_data + m_size, m_data + m_capacity, value_type());
+            std::fill(m_data + m_size, m_data + m_capacity, value);
             m_size = count;
         }
         else // capacity is large enough
         {
-            std::fill(m_data + m_size, m_data + m_capacity, value_type());
+            std::fill(m_data + m_size, m_data + m_capacity, value);
             m_size = count;
         }
     }

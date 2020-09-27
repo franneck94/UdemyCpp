@@ -1,20 +1,17 @@
+#include <iostream>
+#include <random>
+#include <vector>
 #include <algorithm>
 #include <chrono>
-#include <functional>
-#include <iostream>
-#include <iterator>
-#include <numeric>
-#include <random>
 #include <thread>
-#include <vector>
-
 #include "omp.h"
 
-template <typename T> long long serial_sum(vector<T> &vec)
+template <typename T>
+long long serial_sum(std::vector<T> &vec)
 {
     long long sum = 0;
 
-    for (int i = 0; i != vec.size(); ++i)
+    for (std::size_t i = 0; i != vec.size(); ++i)
     {
         sum += vec[i];
     }
@@ -22,11 +19,12 @@ template <typename T> long long serial_sum(vector<T> &vec)
     return sum;
 }
 
-template <typename T> long long adder(vector<T> vec, size_t begin, size_t end)
+template <typename T>
+long long adder(std::vector<T> vec, std::size_t begin, std::size_t end)
 {
     long long sum = 0;
 
-    for (int i = begin; i != end; ++i)
+    for (std::size_t i = begin; i != end; ++i)
     {
         sum += vec[i];
     }
@@ -34,19 +32,20 @@ template <typename T> long long adder(vector<T> vec, size_t begin, size_t end)
     return sum;
 }
 
-long long parallel_sum(vector<int> &vec)
+template <typename T>
+long long parallel_sum(std::vector<T> &vec)
 {
-    int n_threads = std::thread::hardware_concurrency();
-    size_t length = std::distance(vec.begin(), vec.end());
-    size_t elements_per_thread = length / n_threads;
-    size_t begin = 0;
-    size_t end = elements_per_thread;
+    std::size_t n_threads = std::thread::hardware_concurrency();
+    std::size_t length = std::distance(vec.begin(), vec.end());
+    std::size_t elements_per_thread = length / n_threads;
+    std::size_t begin = 0;
+    std::size_t end = elements_per_thread;
     long long final_sum = 0;
 
     std::vector<long long> sums(n_threads);
     std::vector<std::thread> threads(n_threads - 1);
 
-    for (int i = 0; i != threads.size(); ++i)
+    for (std::size_t i = 0; i != threads.size(); ++i)
     {
         threads[i] = std::thread([&](long long sum) { sum = adder(vec, begin, end); }, std::ref(sums[i]));
 
@@ -56,7 +55,7 @@ long long parallel_sum(vector<int> &vec)
 
     sums[n_threads - 1] = adder(vec, begin, end);
 
-    for (int i = 0; i != threads.size(); ++i)
+    for (std::size_t i = 0; i != threads.size(); ++i)
     {
         threads[i].join();
     }

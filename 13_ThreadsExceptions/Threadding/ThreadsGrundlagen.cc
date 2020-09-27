@@ -1,11 +1,4 @@
-#include <algorithm>
-#include <chrono>
-#include <functional>
 #include <iostream>
-#include <iterator>
-#include <numeric>
-#include <random>
-#include <vector>
 #include <thread>
 
 void print_text()
@@ -57,11 +50,11 @@ int main()
     std::cout << std::endl << "n2: " << n2 << "\n";
 
     // Referenzen übergeben
-    int n1 = 12;
-    int n2 = 24;
+    n1 = 12;
+    n2 = 24;
 
-    std::thread t3(print_text3, std::ref(n1));
-    std::thread t4(print_text3, std::ref(n2));
+    t3 = std::thread(print_text3, std::ref(n1));
+    t4 = std::thread(print_text3, std::ref(n2));
 
     if (t3.joinable())
         t3.join();
