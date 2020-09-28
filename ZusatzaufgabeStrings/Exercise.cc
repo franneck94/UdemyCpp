@@ -68,14 +68,14 @@ unsigned int str_concat_exponent(const std::string str, const std::string base)
 
 	while (cmp_str.find(base) != std::string::npos)
 	{
-		// Wenn str zwingend ausschließlich aus base bestehen darf, folgende if-Abfrage:
+		// Wenn str zwingend ausschlieÃŸlich aus base bestehen darf, folgende if-Abfrage:
 		if (cmp_str.find(base) != 0)
 			return 0;
 		++count;
 		cmp_str = cmp_str.substr(cmp_str.find_first_of(base) + base.length());
 	}
 
-	// Wenn str zwingend ausschließlich aus base bestehen darf, folgende if-Abfrage:
+	// Wenn str zwingend ausschlieÃŸlich aus base bestehen darf, folgende if-Abfrage:
 	if (cmp_str.length() > 0)
 		return 0;
 	else

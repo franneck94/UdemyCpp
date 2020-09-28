@@ -1,44 +1,13 @@
 #pragma once
 
-#include <cstddef>
-#include <utility>
 #include <limits>
 #include <stdexcept>
 #include <algorithm>
 #include <iterator>
+#include <compare>
 
 /**************************************/
-/*              ALLOCATOR             */
-/**************************************/
-template<typename T>
-class StandardAllocator
-{
-public:
-    using value_type = T;
-    using size_type = std::size_t;
-    using reference = value_type&;
-    using const_reference = const value_type&;
-    using pointer = value_type*;
-    using const_pointer = const value_type*;
-
-public:
-    constexpr StandardAllocator() noexcept { }
-
-    ~StandardAllocator() noexcept { }
-
-    constexpr pointer allocate(size_type n) const
-    {
-        return static_cast<pointer>(::operator new(n * sizeof(value_type)));
-    }
-
-    constexpr void deallocate(pointer p) const noexcept
-    {
-        ::operator delete[](p);
-    }
-};
-
-/**************************************/
-/*          VECTOR ITERATOR           */
+/*          DynamicArray ITERATOR           */
 /**************************************/
 template <class T>
 class RandomAcessIterator
@@ -241,9 +210,9 @@ protected:
 };
 
 /**************************************/
-/*            VECTOR CLASS            */
+/*            DynamicArray CLASS            */
 /**************************************/
-template <class T, class Allocator = StandardAllocator<T>>
+template <class T, class Allocator = std::allocator<T>>
 class DynamicArray
 {
 public:
@@ -255,7 +224,6 @@ public:
     using const_reference = const value_type&;
     using pointer = typename Allocator::pointer;
     using const_pointer = typename Allocator::const_pointer;
-public:
     using iterator = RandomAcessIterator<value_type>;
     using const_iterator = RandomAcessIterator<const value_type>;
     using reverse_iterator = ReverseRandomAcessIterator<value_type>;
@@ -266,50 +234,46 @@ public:
     /**************************************/
 public:
     constexpr DynamicArray() noexcept :
-        m_size(0), m_capacity(0), m_data(nullptr)
+        m_size(0), m_capacity(0), m_allocator(allocator_type()), m_data(nullptr)
     {
     }
 
-    constexpr DynamicArray(const size_type count, const_reference value, const Allocator& alloc = Allocator()) :
-        m_size(count), m_capacity(count), m_data(alloc.allocate(m_capacity))
+    constexpr DynamicArray(const size_type count, const_reference value, const allocator_type& alloc = allocator_type()) :
+        m_size(count), m_capacity(count), m_allocator(alloc), m_data(m_allocator.allocate(m_capacity))
     {
         std::fill(m_data, m_data + m_size, value);
     }
 
-    constexpr explicit DynamicArray(size_type count, const Allocator& alloc = Allocator()) :
-        m_size(count), m_capacity(count), m_data(alloc.allocate(m_capacity))
+    constexpr explicit DynamicArray(size_type count, const allocator_type& alloc = allocator_type()) :
+        m_size(count), m_capacity(count), m_allocator(alloc), m_data(m_allocator.allocate(m_capacity))
     {
         std::fill(m_data, m_data + m_size, value_type());
     }
 
-    template< class InputIt >
-    constexpr DynamicArray(InputIt first, InputIt last, const Allocator& alloc = Allocator()) :
-        m_size(std::distance(first, last)), m_capacity(m_size), m_data(alloc.allocate(m_capacity))
+    template <class InputIt >
+    constexpr DynamicArray(InputIt first, InputIt last, const allocator_type& alloc = allocator_type()) :
+        m_size(std::distance(first, last)), m_capacity(m_size),
+        m_allocator(alloc), m_data(m_allocator.allocate(m_capacity))
     {
         std::copy(first, last, m_data);
     }
 
-    constexpr DynamicArray(std::initializer_list<T> init, const Allocator& alloc = Allocator()) :
-        m_size(init.size()), m_capacity(m_size), m_data(alloc.allocate(m_capacity))
+    constexpr DynamicArray(std::initializer_list<value_type> init, const allocator_type& alloc = allocator_type()) :
+        m_size(init.size()), m_capacity(m_size), m_allocator(alloc), m_data(m_allocator.allocate(m_capacity))
     {
         std::copy(init.begin(), init.end(), m_data);
     }
 
     constexpr DynamicArray(const DynamicArray& other) :
-        m_size(other.m_size),
-        m_capacity(other.m_capacity),
-        m_data( nullptr)
+        m_size(other.m_size), m_capacity(other.m_capacity), m_allocator(other.m_allocator), m_data( nullptr)
     {
-        Allocator alloc = Allocator();
-        m_data = alloc.allocate(m_capacity);
-
+        m_data = m_allocator.allocate(m_capacity);
         std::copy(other.m_data, other.m_data + m_size, m_data);
     }
     
     constexpr DynamicArray(DynamicArray&& other) noexcept :
-        m_size(std::move(other.m_size)),
-        m_capacity(std::move(other.m_capacity)),
-        m_data(std::move(other.m_data))
+        m_size(std::move(other.m_size)), m_capacity(std::move(other.m_capacity)),
+        m_allocator(std::move(other.m_allocator)), m_data(std::move(other.m_data))
     {
         other.m_size = 0;
         other.m_capacity = 0;
@@ -320,8 +284,12 @@ public:
     {
         if (m_data != nullptr)
         {
-            Allocator alloc = Allocator();
-            alloc.deallocate(m_data);
+            for (size_type i = 0; i < m_size; ++i)
+            {
+                m_allocator.destroy(&m_data[i]);
+            }
+
+            m_allocator.deallocate(m_data, m_capacity);
             m_data = nullptr;
         }
     }
@@ -332,15 +300,14 @@ public:
         {
             if (m_size != other.m_size)
             {
-                Allocator alloc = Allocator();
-                alloc.deallocate(m_data);
+                m_allocator.deallocate(m_data);
 
                 m_size = other.m_size;
                 m_capacity = other.m_capacity;
 
                 if (other.m_size > 0)
                 {
-                    m_data = alloc.allocate(m_capacity);
+                    m_data = m_allocator.allocate(m_capacity);
                 }
                 else
                 {
@@ -356,8 +323,7 @@ public:
     {
         if (this != &other)
         {
-            Allocator alloc = Allocator();
-            alloc.deallocate(m_data);
+            m_allocator.deallocate(m_data);
 
             m_size = std::move(other.m_size);
             m_capacity = std::move(other.m_capacity);
@@ -371,19 +337,18 @@ public:
         return *this;
     }
 
-    constexpr DynamicArray& operator=(std::initializer_list<T> init)
+    constexpr DynamicArray& operator=(std::initializer_list<value_type> init)
     {
-        if (m_size != init.m_size)
+        if (m_size != init.size())
         {
-            Allocator alloc = Allocator();
-            alloc.deallocate(m_data);
+            m_allocator.deallocate(m_data);
 
             m_size = init.size();
             m_capacity = init.size();
 
             if (init.size() > 0)
             {
-                m_data = alloc.allocate(m_capacity);
+                m_data = m_allocator.allocate(m_capacity);
             }
             else
             {
@@ -394,7 +359,7 @@ public:
         std::copy(init.begin(), init.end(), m_data);
     }
 
-    constexpr void assign(size_type count, const T& value)
+    constexpr void assign(size_type count, const_reference value)
     {
         std::fill(m_data, m_data + count, value);
     }
@@ -405,14 +370,14 @@ public:
         std::fill(first, last, m_data);
     }
 
-    constexpr void assign(std::initializer_list<T> init)
+    constexpr void assign(std::initializer_list<value_type> init)
     {
         std::fill(init.begin(), init.end(), m_data);
     }
 
-    allocator_type get_allocator() const noexcept
+    constexpr allocator_type get_allocator() const noexcept
     { 
-        return allocator_type(m_data);
+        return m_allocator;
     }
     /**************************************/
     /*          ELEMENT ACCESS            */
@@ -564,19 +529,17 @@ public:
 
     constexpr void reserve(const size_type new_capacity)
     {
-        if (m_capacity != new_capacity)
+        if (new_capacity > max_size())
         {
-            m_capacity = new_capacity;
-
-            Allocator alloc = Allocator();
-            pointer temp = nullptr;
-
-            temp = alloc.allocate(m_capacity);
-            std::copy(temp, temp + m_size, m_data);
-
-            alloc.deallocate(m_data);
-            m_data = temp;
+            throw new std::length_error("Capacity cannot be larger than max size!");
         }
+        
+        if (new_capacity > m_capacity)
+        {
+            reallocate(new_capacity);
+        }
+        
+        m_capacity = new_capacity;
     }
 
     constexpr size_type capacity() const noexcept
@@ -588,10 +551,7 @@ public:
     {
         if (m_size != m_capacity)
         {
-            if (m_size != m_capacity)
-            {
-                reserve(m_size);
-            }
+            reallocate(m_size);
         }
     }
 
@@ -603,86 +563,177 @@ public:
         m_size = 0;
     }
 
-    // TODO
     constexpr iterator insert(const_iterator pos, const_reference value)
     {
-
+        return insert(pos, 1, value);
     }
 
-    // TODO
-    constexpr iterator insert(const_iterator pos, T&& value)
+    constexpr iterator insert(const_iterator pos, value_type&& value)
     {
+        difference_type index = pos - begin();
+        
+        if (index > m_size)
+        {
+            throw new std::out_of_range("Insert index is out of range");
+        }
 
+        if (m_size == m_capacity)
+        {
+            reallocate(m_size + 1);
+        }
+
+        iterator it = &m_data[index];
+
+        std::move(it, end(), it + 1);
+        *it = std::move(value);
+
+        m_size += 1;
+
+        return it;
     }
 
-    // TODO
     constexpr iterator insert(const_iterator pos, size_type count, const_reference value)
     {
+        const difference_type index = pos - begin();
         
+        if (index > m_size)
+        {
+            throw new std::out_of_range("Insert index is out of range");
+        }
+
+        if (m_size + count > m_capacity)
+        {
+            reallocate(m_size + count);
+        }
+
+        iterator it = &m_data[index];
+
+        std::move(it, end(), it + count);
+        std::fill_n(it, count, value);
+
+        m_size += count;
+
+        return it;
     }
 
-    // TODO
     template<class InputIt>
     constexpr iterator insert(const_iterator pos, InputIt first, InputIt last)
     {
-
+        const difference_type count = last - first;
+        const difference_type index = pos - begin();
+        
+        if (m_size + count > m_capacity)
+        {
+            reallocate(m_size + count);
+        }
+        
+        iterator it = &m_data[index];
+        std::move(it, end(), it + count);
+        std::copy(first, last, it);
+        
+        m_size += count;
+        
+        return it;
     }
 
-    // TODO
-    constexpr iterator insert(const_iterator pos, std::initializer_list<T> ilist)
+    constexpr iterator insert(const_iterator pos, std::initializer_list<value_type> ilist)
     {
-
+        const difference_type count = ilist.m_size;
+        const difference_type index = pos - begin();
+        
+        if (m_size + count > m_capacity)
+        {
+            reallocate(m_size + count);
+        }
+        
+        iterator it = &m_data[index];
+        std::move(it, end(), it + count);
+        std::copy(ilist.begin(), ilist.end(), it);
+        
+        m_size += count;
+        
+        return it;
     }
 
-    // TODO
     template<class... Args>
     constexpr iterator emplace(const_iterator pos, Args&&... args)
     {
-
+        const difference_type index = pos - begin();
+        
+        if (index > m_size)
+        {
+            throw new std::out_of_range("Insert index is out of range");
+        }
+        
+        if (m_size == m_capacity)
+        {
+            reallocate(m_capacity + 1);
+        }
+        
+        iterator it = &m_data[index];
+        
+        std::move(it, end(), it + 1);
+        m_allocator.construct(it, args...);
+        
+        m_size += 1;
+        
+        return it;
     }
 
-    // TODO
     constexpr iterator erase(const_iterator pos)
     {
-
+        const difference_type index = pos - begin();
+        m_allocator.destroy(&m_data[index]);
+        
+        for (auto i = index; i < m_size - 1; ++i)
+        {
+            m_allocator.destroy(&m_data[i + 1]);
+            m_allocator.construct(&m_data[i], *(m_data + i + 1));
+        }
+        
+        m_size--;
+        iterator it = &m_data[index];
+        
+        return it;
     }
 
-    // TODO
     constexpr iterator erase(const_iterator first, const_iterator last)
     {
-
+        const difference_type startIndex = first - begin();
+        const difference_type endIndex = last - begin();
+        
+        for (difference_type i = 0; i < endIndex - startIndex; ++i)
+        {
+            m_allocator.destroy(&m_data[startIndex + i]);
+            m_allocator.construct(&m_data[startIndex + i], m_data[endIndex + i]);
+        }
+        
+        m_size -= endIndex - startIndex;
+        iterator it = &m_data[startIndex];
+        
+        return it;
     }
     
     constexpr void push_back(const_reference value)
     {
         if (m_size == m_capacity)
         {
-            size_type new_capacity = m_capacity * 2;
-            reserve(new_capacity);
+            reallocate(m_size + 1);
         }
 
         m_data[m_size] = value;
-        m_size++;
+        m_size += 1;
     }
 
     constexpr void push_back(value_type&& value)
     {
-        emplace_back(std::move(value));
+        emplace(end(), std::move(value));
     }
 
-    // TODO
     template<class... Args>
     constexpr reference emplace_back(Args&&... args)
     {
-        if (m_size == m_capacity)
-        {
-            size_type new_capacity = m_capacity * 2;
-            reserve(new_capacity);
-        }
-
-
-
-        return back();
+        emplace(end(), std::forward<Args>(args)...);
     }
 
     constexpr void pop_back()
@@ -700,32 +751,113 @@ public:
 
     constexpr void resize(size_type count, const_reference value)
     {
-        if (m_size >= count)
+        if (m_capacity < count)
         {
-            m_size = count;
-        }
-        else if (m_capacity < count) // m_size < count
-        {
-            reserve(count);
+            reallocate(count);
             std::fill(m_data + m_size, m_data + m_capacity, value);
-            m_size = count;
         }
         else // capacity is large enough
         {
             std::fill(m_data + m_size, m_data + m_capacity, value);
-            m_size = count;
         }
+
+        m_size = count;
     }
 
-    // TODO
     constexpr void swap(DynamicArray& other) noexcept
     {
         std::swap(m_size, other.m_size);
         std::swap(m_capacity, other.m_capacity);
+        std::swap(m_allocator, other.m_allocator);
         std::swap(m_data, other.m_data);
     }
+
 private:
     size_type m_size;
     size_type m_capacity;
+    allocator_type m_allocator;
     pointer m_data;
+
+private:
+    constexpr size_type calculate_grwoth(size_type new_size) const
+    {
+        const size_type geometric = m_capacity * 1.5;
+
+        if (geometric > max_size() || new_size > max_size())
+        {
+            throw new std::length_error("Capacity cannot be larger than max size!");
+        }
+
+        if (geometric < new_size)
+        {
+            return new_size;
+        }
+
+        return geometric;
+    }
+
+    constexpr void reallocate(size_type new_size)
+    {
+        const size_type new_capacity = calculate_grwoth(new_size);
+        pointer new_data = m_allocator.allocate(new_capacity);
+
+        for (size_type i = 0; i < m_size; ++i)
+        {
+            m_allocator.construct(&new_data[i], std::move(new_data[i]));
+            m_allocator.destroy(&m_data[i]);
+        }
+        m_allocator.deallocate(m_data, m_capacity);
+
+        m_data = new_data;
+        m_capacity = new_capacity;
+    }
 };
+
+template <class T, class Allocator>
+constexpr bool operator==(const DynamicArray<T, Allocator>& lhs, const DynamicArray<T, Allocator>& rhs)
+{
+    if (lhs.size() != rhs.size())
+    {
+        return false;
+    }
+    
+    for (int i = 0; i < lhs.size(); ++i)
+    {
+        if (lhs.at(i) != rhs.at(i))
+        {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+template <class T, class Allocator>
+constexpr bool operator!=(const DynamicArray<T, Allocator>& lhs, const DynamicArray<T, Allocator>& rhs)
+{
+    return !(lhs == rhs);
+}
+
+template <class T, class Allocator>
+constexpr bool operator<(const DynamicArray<T, Allocator>& lhs, const DynamicArray<T, Allocator>& rhs)
+{
+    return std::lexicographical_compare(lhs.begin(), lhs.end(), rhs.begin(), rhs.end());
+}
+
+template <class T, class Allocator>
+constexpr bool operator>(const DynamicArray<T, Allocator>& lhs, const DynamicArray<T, Allocator>& rhs)
+{
+    return rhs < lhs;
+}
+
+template <class T, class Allocator>
+constexpr bool operator<=(const DynamicArray<T, Allocator>& lhs, const DynamicArray<T, Allocator>& rhs)
+{
+    return !(rhs < lhs);
+}
+
+template <class T, class Allocator>
+constexpr bool operator>=(const DynamicArray<T, Allocator>& lhs, const DynamicArray<T, Allocator>& rhs)
+{
+    return !(lhs < rhs);
+}
