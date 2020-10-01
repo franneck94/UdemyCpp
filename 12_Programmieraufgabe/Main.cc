@@ -1,50 +1,38 @@
 #include <iostream>
 #include <memory>
 
-// Aufgabe 1
-template <typename T>
-struct Node
+/*
+Aufgaben:
+1.) Finde den Fehler beim Erstellen des unique_ptr in der Main Funktion.
+2.) Was ist der use_count in Zeile 13 und 34 (ohne den Code auszuführen)?
+*/
+
+template<typename T>
+auto my_function1(const std::unique_ptr<T> &unique_ptr)
 {
-	T value;
-	std::weak_ptr<Node<T>> prev;
-	std::shared_ptr<Node<T>> next;
+	std::cout << unique_ptr[0] << std::endl;
+	std::cout << unique_ptr[1] << std::endl;
+	std::cout << unique_ptr[2] << std::endl;
+}
 
-	Node() : value(T()), prev(nullptr), next(nullptr)
-	{
+template<typename U>
+auto my_function2(std::shared_ptr<U> shared_ptr)
+{
+	std::cout << shared_ptr.use_count() << std::endl;
+}
 
-	}
-};
-
-typedef Node<int> IntNode;
-
+//int your_main()
 int main()
 {
-	// Aufgabe 2
-	// Anlegen der Nodes
-	std::unique_ptr<IntNode> n1 = std::make_unique<IntNode>();
-	std::unique_ptr<IntNode> n2 = std::make_unique<IntNode>();
-	std::unique_ptr<IntNode> n3 = std::make_unique<IntNode>();
-	std::unique_ptr<IntNode> n4 = std::make_unique<IntNode>();
-	std::unique_ptr<IntNode> n5 = std::make_unique<IntNode>();
+	std::unique_ptr<int[]> ptr1 = std::make_unique<int[]>(3);
+	ptr1[0] = 42;
+	ptr1[1] = 62;
+	ptr1[2] = 82;
+	my_function1<int[]>(ptr1);
 
-	// Werte , next/prev für die Nodes
-	n1->value = 6;
-	n1->next = std::make_shared<IntNode>(n2);
-
-	n2->value = 12;
-	n2->prev = n1;
-	n2->next = std::make_shared<IntNode>(n3);
-
-	n3->value = 42;
-	n3->prev = n2;
-	n3->next = std::make_shared<IntNode>(n4);
-
-	n4->value = -7;
-	n4->prev = n3;
-	n4->next = std::make_shared<IntNode>(n5);
-
-	n5->value = 13;
-	n5->prev = n4;
+	std::shared_ptr<double> ptr2 = std::make_unique<double>(10.0);
+	my_function2<double>(ptr2);
+	std::cout << ptr2.use_count() << std::endl;
 
 	return 0;
 }

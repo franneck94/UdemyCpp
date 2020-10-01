@@ -3,217 +3,17 @@
 #include <limits>
 #include <stdexcept>
 #include <algorithm>
-#include <iterator>
-#include <compare>
 
-/**************************************/
-/*          DynamicArray ITERATOR           */
-/**************************************/
-template <class T>
-class RandomAcessIterator
+#include "MyIterators.h"
+
+namespace cppmath
 {
-public:
-    using value_type = T;
-    using difference_type = std::ptrdiff_t;
-    using reference = T&;
-    using pointer = T*;
-    using iterator_category = std::random_access_iterator_tag;
-
-public:
-    constexpr RandomAcessIterator(value_type* ptr) :
-        m_ptr(ptr)
-    {
-    }
-
-    constexpr RandomAcessIterator& operator++()
-    {
-        m_ptr++;
-        return *this;
-    }
-
-    constexpr RandomAcessIterator operator++(int)
-    {
-        RandomAcessIterator tmp = *this;
-        ++m_ptr;
-        return tmp;
-    }
-
-    constexpr RandomAcessIterator& operator--()
-    {
-        m_ptr--;
-        return *this;
-    }
-
-    constexpr RandomAcessIterator operator--(int)
-    {
-        RandomAcessIterator tmp = *this;
-        --m_ptr;
-        return tmp;
-    }
-
-    constexpr RandomAcessIterator operator+(difference_type n) const
-    {
-        return RandomAcessIterator(m_ptr + n);
-    }
-
-    constexpr RandomAcessIterator& operator+=(difference_type n)
-    {
-        m_ptr += n;
-
-        return *this;
-    }
-
-    constexpr RandomAcessIterator operator-(difference_type n) const
-    {
-        return RandomAcessIterator(m_ptr - n);
-    }
-
-    constexpr RandomAcessIterator& operator-=(difference_type n)
-    {
-        m_ptr -= n;
-
-        return *this;
-    }
-
-    constexpr difference_type operator-(const RandomAcessIterator& other) const
-    {
-        return std::distance(other.m_ptr, m_ptr);
-    }
-
-    constexpr reference operator[](difference_type index)
-    {
-        return *(m_ptr + index);
-    }
-
-    constexpr pointer operator->()
-    {
-        return m_ptr;
-    }
-
-    constexpr reference operator*()
-    {
-        return *m_ptr;
-    }
-
-    constexpr bool operator==(const RandomAcessIterator& other) const
-    {
-        return m_ptr == other.m_ptr;
-    }
-
-    constexpr bool operator!=(const RandomAcessIterator& other) const
-    {
-        return m_ptr != other.m_ptr;
-    }
-
-protected:
-    value_type* m_ptr;
-};
-
-template <class T>
-class ReverseRandomAcessIterator
-{
-public:
-    using value_type = T;
-    using difference_type = std::ptrdiff_t;
-    using reference = T&;
-    using pointer = T*;
-    using iterator_category = std::random_access_iterator_tag;
-
-public:
-    constexpr ReverseRandomAcessIterator(value_type* ptr) :
-        m_ptr(ptr)
-    {
-    }
-
-    constexpr ReverseRandomAcessIterator& operator++()
-    {
-        m_ptr--;
-        return *this;
-    }
-
-    constexpr ReverseRandomAcessIterator operator++(int)
-    {
-        ReverseRandomAcessIterator tmp = *this;
-        --m_ptr;
-        return tmp;
-    }
-
-    constexpr ReverseRandomAcessIterator& operator--()
-    {
-        m_ptr++;
-        return *this;
-    }
-
-    constexpr ReverseRandomAcessIterator operator--(int)
-    {
-        ReverseRandomAcessIterator tmp = *this;
-        ++m_ptr;
-        return tmp;
-    }
-
-    constexpr ReverseRandomAcessIterator operator+(difference_type n) const
-    {
-        return ReverseRandomAcessIterator(m_ptr - n);
-    }
-
-    constexpr ReverseRandomAcessIterator& operator+=(difference_type n)
-    {
-        m_ptr -= n;
-
-        return *this;
-    }
-
-    constexpr ReverseRandomAcessIterator operator-(difference_type n) const
-    {
-        return ReverseRandomAcessIterator(m_ptr + n);
-    }
-
-    constexpr ReverseRandomAcessIterator& operator-=(difference_type n)
-    {
-        m_ptr += n;
-
-        return *this;
-    }
-
-    constexpr difference_type operator-(const ReverseRandomAcessIterator& other) const
-    {
-        return std::distance(m_ptr, other.m_ptr);
-    }
-
-    constexpr reference operator[](difference_type index)
-    {
-        return *(m_ptr - index);
-    }
-
-    constexpr pointer operator->()
-    {
-        return m_ptr;
-    }
-
-    constexpr reference operator*()
-    {
-        return *m_ptr;
-    }
-
-    constexpr bool operator==(const ReverseRandomAcessIterator& other) const
-    {
-        return m_ptr == other.m_ptr;
-    }
-
-    constexpr bool operator!=(const ReverseRandomAcessIterator& other) const
-    {
-        return m_ptr != other.m_ptr;
-    }
-
-protected:
-    value_type* m_ptr;
-};
 
 /**************************************/
-/*            DynamicArray CLASS            */
+/*                Vector              */
 /**************************************/
 template <class T, class Allocator = std::allocator<T>>
-class DynamicArray
+class Vector
 {
 public:
     using value_type = T;
@@ -222,8 +22,8 @@ public:
     using difference_type = std::ptrdiff_t;
     using reference = value_type&;
     using const_reference = const value_type&;
-    using pointer = typename Allocator::pointer;
-    using const_pointer = typename Allocator::const_pointer;
+    using pointer = value_type*;
+    using const_pointer = value_type* const;
     using iterator = RandomAcessIterator<value_type>;
     using const_iterator = RandomAcessIterator<const value_type>;
     using reverse_iterator = ReverseRandomAcessIterator<value_type>;
@@ -233,45 +33,45 @@ public:
     /*        SPECIAL MEMBER FUNCTIONS    */
     /**************************************/
 public:
-    constexpr DynamicArray() noexcept :
+    constexpr Vector() noexcept :
         m_size(0), m_capacity(0), m_allocator(allocator_type()), m_data(nullptr)
     {
     }
 
-    constexpr DynamicArray(const size_type count, const_reference value, const allocator_type& alloc = allocator_type()) :
+    constexpr Vector(const size_type count, const_reference value, const allocator_type& alloc = allocator_type()) :
         m_size(count), m_capacity(count), m_allocator(alloc), m_data(m_allocator.allocate(m_capacity))
     {
         std::fill(m_data, m_data + m_size, value);
     }
 
-    constexpr explicit DynamicArray(size_type count, const allocator_type& alloc = allocator_type()) :
+    constexpr explicit Vector(size_type count, const allocator_type& alloc = allocator_type()) :
         m_size(count), m_capacity(count), m_allocator(alloc), m_data(m_allocator.allocate(m_capacity))
     {
         std::fill(m_data, m_data + m_size, value_type());
     }
 
     template <class InputIt >
-    constexpr DynamicArray(InputIt first, InputIt last, const allocator_type& alloc = allocator_type()) :
+    constexpr Vector(InputIt first, InputIt last, const allocator_type& alloc = allocator_type()) :
         m_size(std::distance(first, last)), m_capacity(m_size),
         m_allocator(alloc), m_data(m_allocator.allocate(m_capacity))
     {
         std::copy(first, last, m_data);
     }
 
-    constexpr DynamicArray(std::initializer_list<value_type> init, const allocator_type& alloc = allocator_type()) :
+    constexpr Vector(std::initializer_list<value_type> init, const allocator_type& alloc = allocator_type()) :
         m_size(init.size()), m_capacity(m_size), m_allocator(alloc), m_data(m_allocator.allocate(m_capacity))
     {
         std::copy(init.begin(), init.end(), m_data);
     }
 
-    constexpr DynamicArray(const DynamicArray& other) :
+    constexpr Vector(const Vector& other) :
         m_size(other.m_size), m_capacity(other.m_capacity), m_allocator(other.m_allocator), m_data( nullptr)
     {
         m_data = m_allocator.allocate(m_capacity);
         std::copy(other.m_data, other.m_data + m_size, m_data);
     }
     
-    constexpr DynamicArray(DynamicArray&& other) noexcept :
+    constexpr Vector(Vector&& other) noexcept :
         m_size(std::move(other.m_size)), m_capacity(std::move(other.m_capacity)),
         m_allocator(std::move(other.m_allocator)), m_data(std::move(other.m_data))
     {
@@ -280,7 +80,7 @@ public:
         other.m_data = nullptr;
     }
     
-    ~DynamicArray() noexcept
+    ~Vector() noexcept
     {
         if (m_data != nullptr)
         {
@@ -294,7 +94,7 @@ public:
         }
     }
 
-    constexpr DynamicArray& operator=(const DynamicArray& other)
+    constexpr Vector& operator=(const Vector& other)
     {
         if (this != &other)
         {
@@ -319,7 +119,7 @@ public:
         }
     }
 
-    constexpr DynamicArray& operator=(DynamicArray&& other) noexcept
+    constexpr Vector& operator=(Vector&& other) noexcept
     {
         if (this != &other)
         {
@@ -337,7 +137,7 @@ public:
         return *this;
     }
 
-    constexpr DynamicArray& operator=(std::initializer_list<value_type> init)
+    constexpr Vector& operator=(std::initializer_list<value_type> init)
     {
         if (m_size != init.size())
         {
@@ -524,7 +324,7 @@ public:
 
     constexpr size_type max_size() const noexcept
     {
-        return std::numeric_limits<size_type>::max();
+        return std::numeric_limits<difference_type>::max();
     }
 
     constexpr void reserve(const size_type new_capacity)
@@ -764,7 +564,7 @@ public:
         m_size = count;
     }
 
-    constexpr void swap(DynamicArray& other) noexcept
+    constexpr void swap(Vector& other) noexcept
     {
         std::swap(m_size, other.m_size);
         std::swap(m_capacity, other.m_capacity);
@@ -814,7 +614,7 @@ private:
 };
 
 template <class T, class Allocator>
-constexpr bool operator==(const DynamicArray<T, Allocator>& lhs, const DynamicArray<T, Allocator>& rhs)
+constexpr bool operator==(const Vector<T, Allocator>& lhs, const Vector<T, Allocator>& rhs)
 {
     if (lhs.size() != rhs.size())
     {
@@ -833,31 +633,33 @@ constexpr bool operator==(const DynamicArray<T, Allocator>& lhs, const DynamicAr
 }
 
 template <class T, class Allocator>
-constexpr bool operator!=(const DynamicArray<T, Allocator>& lhs, const DynamicArray<T, Allocator>& rhs)
+constexpr bool operator!=(const Vector<T, Allocator>& lhs, const Vector<T, Allocator>& rhs)
 {
     return !(lhs == rhs);
 }
 
 template <class T, class Allocator>
-constexpr bool operator<(const DynamicArray<T, Allocator>& lhs, const DynamicArray<T, Allocator>& rhs)
+constexpr bool operator<(const Vector<T, Allocator>& lhs, const Vector<T, Allocator>& rhs)
 {
     return std::lexicographical_compare(lhs.begin(), lhs.end(), rhs.begin(), rhs.end());
 }
 
 template <class T, class Allocator>
-constexpr bool operator>(const DynamicArray<T, Allocator>& lhs, const DynamicArray<T, Allocator>& rhs)
+constexpr bool operator>(const Vector<T, Allocator>& lhs, const Vector<T, Allocator>& rhs)
 {
     return rhs < lhs;
 }
 
 template <class T, class Allocator>
-constexpr bool operator<=(const DynamicArray<T, Allocator>& lhs, const DynamicArray<T, Allocator>& rhs)
+constexpr bool operator<=(const Vector<T, Allocator>& lhs, const Vector<T, Allocator>& rhs)
 {
     return !(rhs < lhs);
 }
 
 template <class T, class Allocator>
-constexpr bool operator>=(const DynamicArray<T, Allocator>& lhs, const DynamicArray<T, Allocator>& rhs)
+constexpr bool operator>=(const Vector<T, Allocator>& lhs, const Vector<T, Allocator>& rhs)
 {
     return !(lhs < rhs);
 }
+
+} // end namespace
