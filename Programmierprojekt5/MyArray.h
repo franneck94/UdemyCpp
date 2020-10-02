@@ -22,7 +22,7 @@ public:
     using reference = value_type&;
     using const_reference = const value_type&;
     using pointer = value_type*;
-    using const_pointer = value_type* const;
+    using const_pointer = const value_type*;
     using iterator = RandomAcessIterator<value_type>;
     using const_iterator = RandomAcessIterator<const value_type>;
     using reverse_iterator = ReverseRandomAcessIterator<value_type>;
@@ -87,6 +87,11 @@ public:
     }
 
     constexpr pointer data() noexcept
+    {
+        return m_data;
+    }
+
+    constexpr const_pointer data() const noexcept
     {
         return m_data;
     }

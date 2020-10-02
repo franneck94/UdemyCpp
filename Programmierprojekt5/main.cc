@@ -5,6 +5,8 @@
 #include "MyVector.h"
 #include "MyArray.h"
 #include "MyAlgorithm.h"
+#include "MyIterators.h"
+#include "MyTypeTraits.h"
 
 int main()
 {
@@ -103,7 +105,10 @@ int main()
         std::cout << val << std::endl;
     }
 
-    cppmath::sum(arr1.begin(), arr1.end());
+    std::cout << cppmath::sum(a3) << std::endl;
+    std::cout << cppmath::mean(a3) << std::endl;
+    std::cout << cppmath::variance(a3) << std::endl;
+    std::cout << cppmath::stddev(a3) << std::endl;
 
     return 0;
 }

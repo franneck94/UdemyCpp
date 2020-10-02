@@ -23,7 +23,7 @@ public:
     using reference = value_type&;
     using const_reference = const value_type&;
     using pointer = value_type*;
-    using const_pointer = value_type* const;
+    using const_pointer = const value_type*;
     using iterator = RandomAcessIterator<value_type>;
     using const_iterator = RandomAcessIterator<const value_type>;
     using reverse_iterator = ReverseRandomAcessIterator<value_type>;
@@ -175,14 +175,14 @@ public:
         std::fill(init.begin(), init.end(), m_data);
     }
 
-    constexpr allocator_type get_allocator() const noexcept
+    [[nodiscard]] constexpr allocator_type get_allocator() const noexcept
     { 
         return m_allocator;
     }
     /**************************************/
     /*          ELEMENT ACCESS            */
     /**************************************/
-    constexpr reference at(const size_type index)
+    [[nodiscard]] constexpr reference at(const size_type index)
     {
         if (index < m_size)
         {
@@ -194,7 +194,7 @@ public:
         }
     }
 
-    constexpr const_reference at(const size_type index) const
+    [[nodiscard]] constexpr const_reference at(const size_type index) const
     {
         if (index < m_size)
         {
@@ -206,42 +206,42 @@ public:
         }
     }
 
-    constexpr reference operator[](const size_type index)
+    [[nodiscard]] constexpr reference operator[](const size_type index)
     {
         return m_data[index];
     }
 
-    constexpr const_reference operator[](const size_type index) const
+    [[nodiscard]] constexpr const_reference operator[](const size_type index) const
     {
         return m_data[index];
     }
 
-    constexpr reference front()
+    [[nodiscard]] constexpr reference front()
     {
         return *begin();
     }
 
-    constexpr const_reference front() const
+    [[nodiscard]] constexpr const_reference front() const
     {
         return *begin();
     }
 
-    constexpr reference back()
+    [[nodiscard]] constexpr reference back()
     {
         return *(end() - 1);
     }
 
-    constexpr const_reference back() const
+    [[nodiscard]] constexpr const_reference back() const
     {
         return *(end() - 1);
     }
 
-    constexpr pointer data() noexcept
+    [[nodiscard]] constexpr pointer data() noexcept
     {
         return m_data;
     }
 
-    constexpr const_pointer data() const noexcept
+    [[nodiscard]] constexpr const_pointer data() const noexcept
     {
         return m_data;
     }
@@ -249,62 +249,62 @@ public:
     /**************************************/
     /*             ITERATORS              */
     /**************************************/
-    constexpr iterator begin() noexcept
+    [[nodiscard]] constexpr iterator begin() noexcept
     {
         return iterator(m_data);
     }
 
-    constexpr const_iterator begin() const noexcept
+    [[nodiscard]] constexpr const_iterator begin() const noexcept
     {
         return const_iterator(m_data);
     }
 
-    constexpr const_iterator cbegin() const noexcept
+    [[nodiscard]] constexpr const_iterator cbegin() const noexcept
     {
         return const_iterator(m_data);
     }
 
-    constexpr iterator end() noexcept
+    [[nodiscard]] constexpr iterator end() noexcept
     {
         return iterator(m_data + m_size);
     }
 
-    constexpr const_iterator end() const noexcept
+    [[nodiscard]] constexpr const_iterator end() const noexcept
     {
         return const_iterator(m_data + m_size);
     }
 
-    constexpr const_iterator cend() const noexcept
+    [[nodiscard]] constexpr const_iterator cend() const noexcept
     {
         return const_iterator(m_data + m_size);
     }
 
-    constexpr reverse_iterator rbegin() noexcept
+    [[nodiscard]] constexpr reverse_iterator rbegin() noexcept
     {
         return reverse_iterator(m_data + m_size - 1);
     }
 
-    constexpr const_reverse_iterator rbegin() const noexcept
+    [[nodiscard]] constexpr const_reverse_iterator rbegin() const noexcept
     {
         return const_reverse_iterator(m_data + m_size - 1);
     }
 
-    constexpr const_reverse_iterator crbegin() const noexcept
+    [[nodiscard]] constexpr const_reverse_iterator crbegin() const noexcept
     {
         return const_reverse_iterator(m_data + m_size - 1);
     }
 
-    constexpr reverse_iterator rend() noexcept
+    [[nodiscard]] constexpr reverse_iterator rend() noexcept
     {
         return reverse_iterator(m_data - 1);
     }
 
-    constexpr const_reverse_iterator rend() const noexcept
+    [[nodiscard]] constexpr const_reverse_iterator rend() const noexcept
     {
         return const_reverse_iterator(m_data - 1);
     }
 
-    constexpr const_reverse_iterator crend() const noexcept
+    [[nodiscard]] constexpr const_reverse_iterator crend() const noexcept
     {
         return const_reverse_iterator(m_data - 1);
     }
@@ -312,17 +312,17 @@ public:
     /**************************************/
     /*            CAPACITY                */
     /**************************************/
-    constexpr bool empty() const noexcept
+    [[nodiscard]] constexpr bool empty() const noexcept
     {
         return m_size > 0 ? true : false;
     }
 
-    constexpr size_type size() const noexcept
+    [[nodiscard]] constexpr size_type size() const noexcept
     {
         return m_size;
     }
 
-    constexpr size_type max_size() const noexcept
+    [[nodiscard]] constexpr size_type max_size() const noexcept
     {
         return std::numeric_limits<difference_type>::max();
     }
@@ -342,7 +342,7 @@ public:
         m_capacity = new_capacity;
     }
 
-    constexpr size_type capacity() const noexcept
+    [[nodiscard]] constexpr size_type capacity() const noexcept
     {
         return m_capacity;
     }

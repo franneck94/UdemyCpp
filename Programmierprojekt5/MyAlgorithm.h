@@ -1,73 +1,67 @@
 #pragma once
 
 #include <math.h>
+#include <numeric>
 
 #include "MyTypeTraits.h"
 
 namespace cppmath
 {
 
-template <class InputIterator, std::enable_if<is_iterator<InputIterator>::value>>
-auto sum(InputIterator itBegin, InputIterator itEnd)
+template <class T>
+T sum(cppmath::Vector<T> &vec)
 {
-    auto sum_value{ 0 };
-
-    for (InputIterator it = itBegin; it != itEnd; ++it)
-    {
-        sum_value += *it;
-    }
-
-    return sum_value;
+    return std::accumulate(vec.begin(), vec.end(), T());
 }
 
-template <class Container, std::enable_if<is_container<Container>::value>>
-double mean(Container &container)
+template <class T>
+auto mean(cppmath::Vector<T> &vec)
 {
-    return sum(container) / container.size();
+    return sum(vec) / vec.size();
 }
 
-template <class Container, std::enable_if<is_container<Container>::value>>
-double median(Container &container)
+template <class T>
+auto median(cppmath::Vector<T> &vec)
 {
     double median_value = 0.0;
-    bool has_odd_length = container.size() % 2;
+    bool has_odd_length = vec.size() % 2;
 
     if (has_odd_length)
     {
-        std::size_t index = container.size() / 2;
-        median_value = container[index];
+        std::size_t index = vec.size() / 2;
+        median_value = vec[index];
     }
     else
     {
-        std::size_t index1 = container.size() / 2;
+        std::size_t index1 = vec.size() / 2;
         std::size_t index2 = index1 - 1;
-        median_value = (container[index1] + container[index2]) / 2.0;
+        median_value = (vec[index1] + vec[index2]) / 2.0;
     }
 
     return median_value;
 }
 
-template <class Container, std::enable_if<is_container<Container>::value>>
-double variance(Container &container)
+template <class T>
+auto variance(cppmath::Vector<T> &vec)
 {
-    double mean_value = mean(container);
-    double variance_value = 0.0;
-    double probability = 1.0 / (double)container.size();
+    auto mean_value = mean(vec);
+    auto variance_value = 0.0;
+    auto probability = 1.0 / (double)vec.size();
 
-    for (std::size_t i = 0; i < container.size(); ++i)
+    for (std::size_t i = 0; i < vec.size(); ++i)
     {
-        double x_i = container[i];
+        auto x_i = vec[i];
         variance_value += pow(x_i - mean_value, 2.0) * probability;
     }
 
     return variance_value;
 }
 
-template <class Container, std::enable_if<is_container<Container>::value>>
-double stddev(Container &container)
+template <class T>
+auto stddev(cppmath::Vector<T> &vec)
 {
-    double variance_value = variance(container);
-    double stddev_value = sqrt(variance_value);
+    auto variance_value = variance(vec);
+    auto stddev_value = sqrt(variance_value);
 
     return stddev_value;
 }
