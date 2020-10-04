@@ -3,6 +3,9 @@
 #include <utility>
 #include <type_traits>
 
+namespace cppmath
+{
+
 template <class T1, class T2>
 class Pair
 {
@@ -80,3 +83,5 @@ public:
     T1 first;
     T2 second;
 };
+
+}

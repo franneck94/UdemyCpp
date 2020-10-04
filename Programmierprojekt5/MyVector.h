@@ -194,7 +194,7 @@ public:
         }
     }
 
-    [[nodiscard]] constexpr const_reference at(const size_type index) const
+    constexpr const_reference at(const size_type index) const
     {
         if (index < m_size)
         {
@@ -211,7 +211,7 @@ public:
         return m_data[index];
     }
 
-    [[nodiscard]] constexpr const_reference operator[](const size_type index) const
+    constexpr const_reference operator[](const size_type index) const
     {
         return m_data[index];
     }

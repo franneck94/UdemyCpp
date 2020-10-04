@@ -4,7 +4,7 @@
 /*
 Aufgaben:
 1.) Finde den Fehler beim Erstellen des unique_ptr in der Main Funktion.
-2.) Was ist der use_count in Zeile 13 und 34 (ohne den Code auszuführen)?
+2.) Was ist der use_count in Zeile 21 und 35 (ohne den Code auszuführen)?
 */
 
 template<typename T>
@@ -30,7 +30,7 @@ int main()
 	ptr1[2] = 82;
 	my_function1<int[]>(ptr1);
 
-	std::shared_ptr<double> ptr2 = std::make_unique<double>(10.0);
+	std::shared_ptr<double> ptr2 = std::make_shared<double>(10.0);
 	my_function2<double>(ptr2);
 	std::cout << ptr2.use_count() << std::endl;
 
