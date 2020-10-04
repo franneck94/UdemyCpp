@@ -6,14 +6,14 @@
 
 #include "MyIterators.h"
 
-namespace cppmath
+namespace cpp
 {
 
 /**************************************/
-/*                Vector              */
+/*                vector              */
 /**************************************/
 template <class T, class Allocator = std::allocator<T>>
-class Vector
+class vector
 {
 public:
     using value_type = T;
@@ -33,45 +33,45 @@ public:
     /*        SPECIAL MEMBER FUNCTIONS    */
     /**************************************/
 public:
-    constexpr Vector() noexcept :
+    constexpr vector() noexcept :
         m_size(0), m_capacity(0), m_allocator(allocator_type()), m_data(nullptr)
     {
     }
 
-    constexpr Vector(const size_type count, const_reference value, const allocator_type& alloc = allocator_type()) :
+    constexpr vector(const size_type count, const_reference value, const allocator_type& alloc = allocator_type()) :
         m_size(count), m_capacity(count), m_allocator(alloc), m_data(m_allocator.allocate(m_capacity))
     {
         std::fill(m_data, m_data + m_size, value);
     }
 
-    constexpr explicit Vector(size_type count, const allocator_type& alloc = allocator_type()) :
+    constexpr explicit vector(size_type count, const allocator_type& alloc = allocator_type()) :
         m_size(count), m_capacity(count), m_allocator(alloc), m_data(m_allocator.allocate(m_capacity))
     {
         std::fill(m_data, m_data + m_size, value_type());
     }
 
     template <class InputIt >
-    constexpr Vector(InputIt first, InputIt last, const allocator_type& alloc = allocator_type()) :
+    constexpr vector(InputIt first, InputIt last, const allocator_type& alloc = allocator_type()) :
         m_size(std::distance(first, last)), m_capacity(m_size),
         m_allocator(alloc), m_data(m_allocator.allocate(m_capacity))
     {
         std::copy(first, last, m_data);
     }
 
-    constexpr Vector(std::initializer_list<value_type> init, const allocator_type& alloc = allocator_type()) :
+    constexpr vector(std::initializer_list<value_type> init, const allocator_type& alloc = allocator_type()) :
         m_size(init.size()), m_capacity(m_size), m_allocator(alloc), m_data(m_allocator.allocate(m_capacity))
     {
         std::copy(init.begin(), init.end(), m_data);
     }
 
-    constexpr Vector(const Vector& other) :
+    constexpr vector(const vector& other) :
         m_size(other.m_size), m_capacity(other.m_capacity), m_allocator(other.m_allocator), m_data( nullptr)
     {
         m_data = m_allocator.allocate(m_capacity);
         std::copy(other.m_data, other.m_data + m_size, m_data);
     }
     
-    constexpr Vector(Vector&& other) noexcept :
+    constexpr vector(vector&& other) noexcept :
         m_size(std::move(other.m_size)), m_capacity(std::move(other.m_capacity)),
         m_allocator(std::move(other.m_allocator)), m_data(std::move(other.m_data))
     {
@@ -80,7 +80,7 @@ public:
         other.m_data = nullptr;
     }
     
-    ~Vector() noexcept
+    ~vector() noexcept
     {
         if (m_data != nullptr)
         {
@@ -94,7 +94,7 @@ public:
         }
     }
 
-    constexpr Vector& operator=(const Vector& other)
+    constexpr vector& operator=(const vector& other)
     {
         if (this != &other)
         {
@@ -119,7 +119,7 @@ public:
         }
     }
 
-    constexpr Vector& operator=(Vector&& other) noexcept
+    constexpr vector& operator=(vector&& other) noexcept
     {
         if (this != &other)
         {
@@ -137,7 +137,7 @@ public:
         return *this;
     }
 
-    constexpr Vector& operator=(std::initializer_list<value_type> init)
+    constexpr vector& operator=(std::initializer_list<value_type> init)
     {
         if (m_size != init.size())
         {
@@ -564,7 +564,7 @@ public:
         m_size = count;
     }
 
-    constexpr void swap(Vector& other) noexcept
+    constexpr void swap(vector& other) noexcept
     {
         std::swap(m_size, other.m_size);
         std::swap(m_capacity, other.m_capacity);
@@ -614,7 +614,7 @@ private:
 };
 
 template <class T, class Allocator>
-constexpr bool operator==(const Vector<T, Allocator>& lhs, const Vector<T, Allocator>& rhs)
+constexpr bool operator==(const vector<T, Allocator>& lhs, const vector<T, Allocator>& rhs)
 {
     if (lhs.size() != rhs.size())
     {
@@ -633,31 +633,31 @@ constexpr bool operator==(const Vector<T, Allocator>& lhs, const Vector<T, Alloc
 }
 
 template <class T, class Allocator>
-constexpr bool operator!=(const Vector<T, Allocator>& lhs, const Vector<T, Allocator>& rhs)
+constexpr bool operator!=(const vector<T, Allocator>& lhs, const vector<T, Allocator>& rhs)
 {
     return !(lhs == rhs);
 }
 
 template <class T, class Allocator>
-constexpr bool operator<(const Vector<T, Allocator>& lhs, const Vector<T, Allocator>& rhs)
+constexpr bool operator<(const vector<T, Allocator>& lhs, const vector<T, Allocator>& rhs)
 {
     return std::lexicographical_compare(lhs.begin(), lhs.end(), rhs.begin(), rhs.end());
 }
 
 template <class T, class Allocator>
-constexpr bool operator>(const Vector<T, Allocator>& lhs, const Vector<T, Allocator>& rhs)
+constexpr bool operator>(const vector<T, Allocator>& lhs, const vector<T, Allocator>& rhs)
 {
     return rhs < lhs;
 }
 
 template <class T, class Allocator>
-constexpr bool operator<=(const Vector<T, Allocator>& lhs, const Vector<T, Allocator>& rhs)
+constexpr bool operator<=(const vector<T, Allocator>& lhs, const vector<T, Allocator>& rhs)
 {
     return !(rhs < lhs);
 }
 
 template <class T, class Allocator>
-constexpr bool operator>=(const Vector<T, Allocator>& lhs, const Vector<T, Allocator>& rhs)
+constexpr bool operator>=(const vector<T, Allocator>& lhs, const vector<T, Allocator>& rhs)
 {
     return !(lhs < rhs);
 }

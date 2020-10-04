@@ -12,7 +12,7 @@ int main()
 {
     std::cout << "TESTING VECTOR" << std::endl;
 
-    cppmath::Vector<double> a1(3, 1.0);
+    cpp::vector<double> a1(3, 1.0);
     a1[0] = 1;
     a1[1] = 2;
     a1[2] = 3;
@@ -23,25 +23,25 @@ int main()
     }
 
     std::cout << std::endl;
-    for (cppmath::Vector<double>::iterator it = a1.begin(); it != a1.end(); it++)
+    for (cpp::vector<double>::iterator it = a1.begin(); it != a1.end(); it++)
     {
         std::cout << *it << std::endl;
     }
 
     std::cout << std::endl;
-    for (cppmath::Vector<double>::const_iterator it = a1.cbegin(); it != a1.cend(); it++)
+    for (cpp::vector<double>::const_iterator it = a1.cbegin(); it != a1.cend(); it++)
     {
         std::cout << *it << std::endl;
     }
 
     std::cout << std::endl;
-    for (cppmath::Vector<double>::reverse_iterator it = a1.rbegin(); it != a1.rend(); it++)
+    for (cpp::vector<double>::reverse_iterator it = a1.rbegin(); it != a1.rend(); it++)
     {
         std::cout << *it << std::endl;
     }
 
     std::cout << std::endl;
-    for (cppmath::Vector<double>::const_reverse_iterator it = a1.crbegin(); it != a1.crend(); it++)
+    for (cpp::vector<double>::const_reverse_iterator it = a1.crbegin(); it != a1.crend(); it++)
     {
         std::cout << *it << std::endl;
     }
@@ -84,14 +84,14 @@ int main()
     }
 
     std::cout << std::endl;
-    cppmath::Vector<double> a2 = { 1, 2, 3, 4 };
+    cpp::vector<double> a2 = { 1, 2, 3, 4 };
     for (const auto& val : a2)
     {
         std::cout << val << std::endl;
     }
 
     std::cout << std::endl;
-    cppmath::Vector<double> a3({ 1, 2, 3, 4 });
+    cpp::vector<double> a3({ 1, 2, 3, 4 });
     for (const auto& val : a3)
     {
         std::cout << val << std::endl;
@@ -99,16 +99,16 @@ int main()
 
     std::cout << "TESTING ARRAY" << std::endl;
 
-    cppmath::Array<int, std::size_t{8}> arr1 = { 1, 2, 3 };
+    cpp::array<int, std::size_t{8}> arr1 = { 1, 2, 3 };
     for (const auto& val : arr1)
     {
         std::cout << val << std::endl;
     }
 
-    std::cout << cppmath::sum(a3) << std::endl;
-    std::cout << cppmath::mean(a3) << std::endl;
-    std::cout << cppmath::variance(a3) << std::endl;
-    std::cout << cppmath::stddev(a3) << std::endl;
+    std::cout << cpp::sum(a3) << std::endl;
+    std::cout << cpp::mean(a3) << std::endl;
+    std::cout << cpp::variance(a3) << std::endl;
+    std::cout << cpp::stddev(a3) << std::endl;
 
     return 0;
 }

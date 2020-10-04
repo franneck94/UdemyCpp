@@ -5,23 +5,23 @@
 
 #include "MyTypeTraits.h"
 
-namespace cppmath
+namespace cpp
 {
 
 template <class T>
-T sum(cppmath::Vector<T> &vec)
+T sum(cpp::vector<T> &vec)
 {
     return std::accumulate(vec.begin(), vec.end(), T());
 }
 
 template <class T>
-auto mean(cppmath::Vector<T> &vec)
+auto mean(cpp::vector<T> &vec)
 {
     return sum(vec) / vec.size();
 }
 
 template <class T>
-auto median(cppmath::Vector<T> &vec)
+auto median(cpp::vector<T> &vec)
 {
     double median_value = 0.0;
     bool has_odd_length = vec.size() % 2;
@@ -42,7 +42,7 @@ auto median(cppmath::Vector<T> &vec)
 }
 
 template <class T>
-auto variance(cppmath::Vector<T> &vec)
+auto variance(cpp::vector<T> &vec)
 {
     auto mean_value = mean(vec);
     auto variance_value = 0.0;
@@ -58,7 +58,7 @@ auto variance(cppmath::Vector<T> &vec)
 }
 
 template <class T>
-auto stddev(cppmath::Vector<T> &vec)
+auto stddev(cpp::vector<T> &vec)
 {
     auto variance_value = variance(vec);
     auto stddev_value = sqrt(variance_value);

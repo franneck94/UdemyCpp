@@ -3,11 +3,11 @@
 #include <utility>
 #include <type_traits>
 
-namespace cppmath
+namespace cpp
 {
 
 template <class T1, class T2>
-class Pair
+class pair
 {
 public:
     using first_type = T1;
@@ -18,7 +18,7 @@ public:
                                        std::is_default_constructible<U2>>, int> = 0>
     constexpr explicit(!std::is_default_constructible_v<U1> ||
                        !std::is_default_constructible_v<U1>)
-    Pair() noexcept :
+    pair() noexcept :
         first(), second()
     {
     }
@@ -28,19 +28,19 @@ public:
                                        std::is_copy_constructible<U2>>, int> = 0>
     constexpr explicit(!std::is_convertible_v<const first_type&, first_type> ||
                        !std::is_convertible_v<const second_type&, second_type>)
-    Pair(const T1& x, const T2& y) noexcept :
+    pair(const T1& x, const T2& y) noexcept :
         first(x), second(y)
     {
     }
 
-    Pair(const Pair& p) = default;
+    pair(const pair& p) = default;
 
-    Pair(Pair&& p) = default;
+    pair(pair&& p) = default;
 
-    template <class _Pair = Pair,
+    template <class _Pair = pair,
         enable_if_t<std::conjunction_v<std::is_copy_assignable_v<typename _Pair::first_type>,
                                        std::is_copy_assignable_v<typename _Pair::second_type>>, int> = 0>
-    constexpr Pair& operator=(const _Pair& other) noexcept
+    constexpr pair& operator=(const _Pair& other) noexcept
     {
         first = other.first;
         second = other.second;
@@ -49,10 +49,10 @@ public:
     }
 
     template <class U1, class U2,
-        enable_if_t<std::conjunction_v<std::negation<std::is_same<Pair, Pair<U1, U2>>>,
+        enable_if_t<std::conjunction_v<std::negation<std::is_same<pair, pair<U1, U2>>>,
                                        std::is_assignable<T1&, const U1&>,
                                        std::is_assignable<T2&, const U2&>>, int> = 0>
-    constexpr Pair& operator=(const Pair<U1,U2>& other) noexcept
+    constexpr pair& operator=(const pair<U1,U2>& other) noexcept
     {
         first  = other.first;
         second = other.second;
@@ -60,10 +60,10 @@ public:
         return *this;
     }
 
-    template <class _Pair = Pair,
+    template <class _Pair = pair,
         enable_if_t<std::conjunction_v<std::is_move_assignable_v<typename _Pair::first_type>,
                                        std::is_move_assignable_v<typename _Pair::second_type>>, int> = 0>
-    constexpr Pair& operator=(_Pair&& other) noexcept
+    constexpr pair& operator=(_Pair&& other) noexcept
     {
         first  = std::forward<T1>(_Right.first);
         second = std::forward<T2>(_Right.second);
@@ -71,7 +71,7 @@ public:
         return *this;
     }
 
-    constexpr void swap(Pair& other) noexcept
+    constexpr void swap(pair& other) noexcept
     {
         if (this != &other)
         {

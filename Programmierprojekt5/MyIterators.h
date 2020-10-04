@@ -2,7 +2,7 @@
 
 #include <iterator>
 
-namespace cppmath
+namespace cpp
 {
 
 template <class T>

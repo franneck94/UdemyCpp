@@ -6,14 +6,14 @@
 
 #include "MyIterators.h"
 
-namespace cppmath
+namespace cpp
 {
 
 /**************************************/
-/*                Array               */
+/*                array               */
 /**************************************/
 template <class T, std::size_t N>
-class Array
+class array
 {
 public:
     using value_type = T;
@@ -185,7 +185,7 @@ public:
         std::fill(m_data, m_data + N, value);
     }
 
-    constexpr void swap(Array& other) noexcept
+    constexpr void swap(array& other) noexcept
     {
         std::swap(m_data, other.m_data);
     }
@@ -195,7 +195,7 @@ public:
 };
 
 template <class T, std::size_t N>
-constexpr bool operator==(const Array<T, N>& lhs, const Array<T, N>& rhs)
+constexpr bool operator==(const array<T, N>& lhs, const array<T, N>& rhs)
 {
     if (lhs.size() != rhs.size())
     {
@@ -214,31 +214,31 @@ constexpr bool operator==(const Array<T, N>& lhs, const Array<T, N>& rhs)
 }
 
 template <class T, std::size_t N>
-constexpr bool operator!=(const Array<T, N>& lhs, const Array<T, N>& rhs)
+constexpr bool operator!=(const array<T, N>& lhs, const array<T, N>& rhs)
 {
     return !(lhs == rhs);
 }
 
 template <class T, std::size_t N>
-constexpr bool operator<(const Array<T, N>& lhs, const Array<T, N>& rhs)
+constexpr bool operator<(const array<T, N>& lhs, const array<T, N>& rhs)
 {
     return std::lexicographical_compare(lhs.begin(), lhs.end(), rhs.begin(), rhs.end());
 }
 
 template <class T, std::size_t N>
-constexpr bool operator>(const Array<T, N>& lhs, const Array<T, N>& rhs)
+constexpr bool operator>(const array<T, N>& lhs, const array<T, N>& rhs)
 {
     return rhs < lhs;
 }
 
 template <class T, std::size_t N>
-constexpr bool operator<=(const Array<T, N>& lhs, const Array<T, N>& rhs)
+constexpr bool operator<=(const array<T, N>& lhs, const array<T, N>& rhs)
 {
     return !(rhs < lhs);
 }
 
 template <class T, std::size_t N>
-constexpr bool operator>=(const Array<T, N>& lhs, const Array<T, N>& rhs)
+constexpr bool operator>=(const array<T, N>& lhs, const array<T, N>& rhs)
 {
     return !(lhs < rhs);
 }
