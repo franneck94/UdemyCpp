@@ -93,7 +93,7 @@ public:
 
     constexpr vector& operator=(const vector& other)
     {
-        if (this != &other)
+        if (this != std::adressof(other))
         {
             if (m_size != other.m_size)
             {
@@ -118,7 +118,7 @@ public:
 
     constexpr vector& operator=(vector&& other) noexcept
     {
-        if (this != &other)
+        if (this != std::adressof(other))
         {
             m_allocator.deallocate(m_data);
 
