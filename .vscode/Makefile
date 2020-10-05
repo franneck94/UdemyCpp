@@ -12,9 +12,9 @@ RM = rm -f
 endif
 
 ifeq ($(COMPILATION_MODE), Debug)
-CPP_COMPILER_FLAGS = -g -std=$(CPP_STANDARD)
+CPP_COMPILER_FLAGS = -g -std=$(CPP_STANDARD) # -fopenmp
 else ifeq ($(COMPILATION_MODE), Release)
-CPP_COMPILER_FLAGS = -O3 -std=$(CPP_STANDARD)
+CPP_COMPILER_FLAGS = -O3 -std=$(CPP_STANDARD) # -fopenmp
 endif
 
 ifeq ($(ENABLE_WARNINGS), 1)
@@ -33,7 +33,7 @@ CPP_OBJECTS = $(filter %.o, $(patsubst %.cc,  %.o, $(CPP_SRCS)))
 build: $(EXECUTABLE_NAME)
 
 build_single: 
-	$(CPP_COMPILER_CALL) -o $(EXECUTABLE_NAME) "$(FILE_NAME)"
+	$(CPP_COMPILER_CALL) -o $(EXECUTABLE_NAME) $(FILE_NAME)
 
 $(EXECUTABLE_NAME): $(CPP_OBJECTS)
 	$(CPP_COMPILER_CALL) $^ -o $@
