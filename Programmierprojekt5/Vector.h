@@ -4,9 +4,9 @@
 #include <stdexcept>
 #include <algorithm>
 
-#include "MyIterators.h"
+#include "Iterators.h"
 
-namespace cpp
+namespace learncpp
 {
 
 /**************************************/
@@ -84,14 +84,11 @@ public:
     {
         if (m_data != nullptr)
         {
-            for (size_type i = 0; i < m_size; ++i)
-            {
-                m_allocator.destroy(&m_data[i]);
-            }
-
             m_allocator.deallocate(m_data, m_capacity);
-            m_data = nullptr;
         }
+
+        m_data = nullptr;
+        m_capacity = 0;
     }
 
     constexpr vector& operator=(const vector& other)
@@ -324,7 +321,7 @@ public:
 
     [[nodiscard]] constexpr size_type max_size() const noexcept
     {
-        return std::numeric_limits<difference_type>::max();
+        return std::numeric_limits<size_type>::max();
     }
 
     constexpr void reserve(const size_type new_capacity)
@@ -455,26 +452,26 @@ public:
         return it;
     }
 
+    // TODO
     template<class... Args>
-    constexpr iterator emplace(const_iterator pos, Args&&... args)
+    constexpr iterator emplace(iterator pos, Args&&... args)
     {
         const difference_type index = pos - begin();
-        
-        if (index > m_size)
+
+        if (static_cast<size_type>(index) > max_size())
         {
             throw new std::out_of_range("Insert index is out of range");
         }
-        
+
         if (m_size == m_capacity)
         {
-            reallocate(m_capacity + 1);
+            reallocate(m_size + 1);
         }
         
         iterator it = &m_data[index];
         
         std::move(it, end(), it + 1);
-        m_allocator.construct(it, args...);
-        
+
         m_size += 1;
         
         return it;
@@ -483,12 +480,10 @@ public:
     constexpr iterator erase(const_iterator pos)
     {
         const difference_type index = pos - begin();
-        m_allocator.destroy(&m_data[index]);
-        
+
         for (auto i = index; i < m_size - 1; ++i)
         {
-            m_allocator.destroy(&m_data[i + 1]);
-            m_allocator.construct(&m_data[i], *(m_data + i + 1));
+            m_data[i] = std::move(m_data[i + 1]);
         }
         
         m_size--;
@@ -499,17 +494,16 @@ public:
 
     constexpr iterator erase(const_iterator first, const_iterator last)
     {
-        const difference_type startIndex = first - begin();
-        const difference_type endIndex = last - begin();
+        const difference_type start_index = first - begin();
+        const difference_type end_index = last - begin();
         
-        for (difference_type i = 0; i < endIndex - startIndex; ++i)
+        for (difference_type i = 0; i < end_index - start_index; ++i)
         {
-            m_allocator.destroy(&m_data[startIndex + i]);
-            m_allocator.construct(&m_data[startIndex + i], m_data[endIndex + i]);
+            m_data[i] = std::move(m_data[start_index + i]);
         }
         
-        m_size -= endIndex - startIndex;
-        iterator it = &m_data[startIndex];
+        m_size -= end_index - start_index;
+        iterator it = &m_data[start_index];
         
         return it;
     }
@@ -527,13 +521,13 @@ public:
 
     constexpr void push_back(value_type&& value)
     {
-        emplace(end(), std::move(value));
+        emplace_back(std::move(value));
     }
 
     template<class... Args>
     constexpr reference emplace_back(Args&&... args)
     {
-        emplace(end(), std::forward<Args>(args)...);
+        return *emplace(end(), std::forward<Args>(args)...);
     }
 
     constexpr void pop_back()
@@ -598,14 +592,16 @@ private:
 
     constexpr void reallocate(size_type new_size)
     {
-        const size_type new_capacity = calculate_grwoth(new_size);
-        pointer new_data = m_allocator.allocate(new_capacity);
+        size_type new_capacity = 0;
+        pointer new_data = nullptr;
 
-        for (size_type i = 0; i < m_size; ++i)
+        if (new_size > 0)
         {
-            m_allocator.construct(&new_data[i], std::move(new_data[i]));
-            m_allocator.destroy(&m_data[i]);
+            new_capacity = calculate_grwoth(new_size);
+            new_data = m_allocator.allocate(new_capacity);
+            std::copy(m_data, m_data + m_size, new_data);
         }
+
         m_allocator.deallocate(m_data, m_capacity);
 
         m_data = new_data;

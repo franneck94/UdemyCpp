@@ -2,7 +2,7 @@
 
 #include <iterator>
 
-namespace cpp
+namespace learncpp
 {
 
 template <class T>

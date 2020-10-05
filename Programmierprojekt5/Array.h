@@ -4,9 +4,9 @@
 #include <stdexcept>
 #include <algorithm>
 
-#include "MyIterators.h"
+#include "Iterators.h"
 
-namespace cpp
+namespace learncpp
 {
 
 /**************************************/
@@ -164,7 +164,7 @@ public:
     /**************************************/
     [[nodiscard]] constexpr bool empty() const noexcept
     {
-        return N > 0 ? true : false;
+        return N > 0 ? false : true;
     }
 
     [[nodiscard]] constexpr size_type size() const noexcept

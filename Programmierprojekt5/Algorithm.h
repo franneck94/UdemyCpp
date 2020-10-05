@@ -3,25 +3,25 @@
 #include <math.h>
 #include <numeric>
 
-#include "MyTypeTraits.h"
+#include "Vector.h"
 
-namespace cpp
+namespace learncpp
 {
 
 template <class T>
-T sum(cpp::vector<T> &vec)
+T sum(learncpp::vector<T> &vec)
 {
     return std::accumulate(vec.begin(), vec.end(), T());
 }
 
 template <class T>
-auto mean(cpp::vector<T> &vec)
+T mean(learncpp::vector<T> &vec)
 {
     return sum(vec) / vec.size();
 }
 
 template <class T>
-auto median(cpp::vector<T> &vec)
+T median(learncpp::vector<T> &vec)
 {
     double median_value = 0.0;
     bool has_odd_length = vec.size() % 2;
@@ -42,15 +42,15 @@ auto median(cpp::vector<T> &vec)
 }
 
 template <class T>
-auto variance(cpp::vector<T> &vec)
+T variance(learncpp::vector<T> &vec)
 {
-    auto mean_value = mean(vec);
-    auto variance_value = 0.0;
-    auto probability = 1.0 / (double)vec.size();
+    T mean_value = mean(vec);
+    T variance_value = 0.0;
+    T probability = 1.0 / (double)vec.size();
 
     for (std::size_t i = 0; i < vec.size(); ++i)
     {
-        auto x_i = vec[i];
+        T x_i = vec[i];
         variance_value += pow(x_i - mean_value, 2.0) * probability;
     }
 
@@ -58,10 +58,10 @@ auto variance(cpp::vector<T> &vec)
 }
 
 template <class T>
-auto stddev(cpp::vector<T> &vec)
+T stddev(learncpp::vector<T> &vec)
 {
-    auto variance_value = variance(vec);
-    auto stddev_value = sqrt(variance_value);
+    T variance_value = variance(vec);
+    T stddev_value = sqrt(variance_value);
 
     return stddev_value;
 }
