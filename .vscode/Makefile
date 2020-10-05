@@ -2,7 +2,7 @@ COMPILATION_MODE ?= Debug
 ENABLE_WARNINGS ?= 1
 WARNINGS_AS_ERRORS ?= 0
 CPP_COMPILER ?= g++ # g++, clang++
-CPP_STANDARD ?= c++17 # c++11, c++14, c++17, c++2a
+CPP_STANDARD ?= c++2a # c++11, c++14, c++17, c++2a
 EXECUTABLE_NAME ?= main
 
 ifeq ($(OS), Windows_NT)
