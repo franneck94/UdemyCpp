@@ -22,6 +22,8 @@ latex/
 Slides/
 .vs/
 .vscode/VsCodeSettings/
+*.Debug
+*.Release
 
 ################################
 ############ C/C++ #############
