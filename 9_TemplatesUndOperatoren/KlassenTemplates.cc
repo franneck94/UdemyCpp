@@ -34,7 +34,7 @@ private:
 };
 
 template <typename T>
-Statistic<T>::Statistic() : 
+Statistic<T>::Statistic() :
 	m_min(0), m_max(0), m_num_samples(0), m_mean(0.0), m_samples(0, 0)
 {
 }

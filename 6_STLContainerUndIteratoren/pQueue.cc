@@ -35,7 +35,7 @@ int main()
 	my_pq1.push(23);
 	my_pq1.push(42);
 
-	std::vector<int> data = {10, 23, 42};
+	std::vector<int> data = { 10, 23, 42 };
 	std::priority_queue<int, std::vector<int>, std::greater<int>> my_pq2(data.begin(), data.end());
 
 	execute(my_pq1);

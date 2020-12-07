@@ -5,13 +5,13 @@
 #pragma warning(disable : 4996)
 #include "Image.h"
 
-Image::Image() 
+Image::Image()
     : m_width(0), m_height(0), m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
 {
     std::cout << "Created empty image object!" << std::endl;
 }
 
-Image::Image(const unsigned int &width, const unsigned int &height) 
+Image::Image(const unsigned int &width, const unsigned int &height)
     : m_width(width), m_height(height), m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
 {
     std::cout << "Created image object with shape=(" << m_width << "," << m_height << ")!" << std::endl;
@@ -25,10 +25,10 @@ Image::~Image()
 
 void Image::save_image(const char *file_name) const
 {
-    FILE* f;
+    FILE *f;
 
     unsigned int num_bytes = 3 * m_width * m_height;
-    uchar* img = (uchar*)(malloc(num_bytes));
+    uchar *img = (uchar *)(malloc(num_bytes));
     memset(img, 0, num_bytes);
 
     int filesize = 54 + 3 * m_width * m_height;
@@ -43,23 +43,23 @@ void Image::save_image(const char *file_name) const
         }
     }
 
-    uchar bmpfileheader[14] = {'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0};
-    uchar bmpinfoheader[40] = {40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0};
-    uchar bmppad[3] = {0, 0, 0};
+    uchar bmpfileheader[14] = { 'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0 };
+    uchar bmpinfoheader[40] = { 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0 };
+    uchar bmppad[3] = { 0, 0, 0 };
 
-    bmpfileheader[2]    = (uchar)(filesize);
-    bmpfileheader[3]    = (uchar)(filesize >> 8);
-    bmpfileheader[4]    = (uchar)(filesize >> 16);
-    bmpfileheader[5]    = (uchar)(filesize >> 24);
+    bmpfileheader[2] = (uchar)(filesize);
+    bmpfileheader[3] = (uchar)(filesize >> 8);
+    bmpfileheader[4] = (uchar)(filesize >> 16);
+    bmpfileheader[5] = (uchar)(filesize >> 24);
 
-    bmpinfoheader[4]    = (uchar)(m_width);
-    bmpinfoheader[5]    = (uchar)(m_width >> 8);
-    bmpinfoheader[6]    = (uchar)(m_width >> 16);
-    bmpinfoheader[7]    = (uchar)(m_width >> 24);
-    bmpinfoheader[8]    = (uchar)(m_height);
-    bmpinfoheader[9]    = (uchar)(m_height >> 8);
-    bmpinfoheader[10]   = (uchar)(m_height >> 16);
-    bmpinfoheader[11]   = (uchar)(m_height >> 24);
+    bmpinfoheader[4] = (uchar)(m_width);
+    bmpinfoheader[5] = (uchar)(m_width >> 8);
+    bmpinfoheader[6] = (uchar)(m_width >> 16);
+    bmpinfoheader[7] = (uchar)(m_width >> 24);
+    bmpinfoheader[8] = (uchar)(m_height);
+    bmpinfoheader[9] = (uchar)(m_height >> 8);
+    bmpinfoheader[10] = (uchar)(m_height >> 16);
+    bmpinfoheader[11] = (uchar)(m_height >> 24);
 
     f = fopen(file_name, "wb");
     fwrite(bmpfileheader, 1, 14, f);

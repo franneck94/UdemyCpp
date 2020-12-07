@@ -115,7 +115,7 @@ Position execute_move(Position &player, ConsoleInput &move, Obstacles &obstacles
 
 void move_obstacles(Obstacles &obstacles, Position &goal, Position &player)
 {
-    std::vector<char> move_set = {LEFT, UP, RIGHT, DOWN};
+    std::vector<char> move_set = { LEFT, UP, RIGHT, DOWN };
 
     for (auto &obs : obstacles)
     {

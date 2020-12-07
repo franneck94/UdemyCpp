@@ -6,7 +6,7 @@
 
 int main()
 {
-	std::vector<int> my_vector = {1, 2};
+	std::vector<int> my_vector = { 1, 2 };
 
 	for (int i = 0; i < my_vector.size(); i++)
 	{
@@ -16,7 +16,7 @@ int main()
 	std::cout << std::endl;
 
 	std::forward_list<int> my_flist;
-	my_flist.assign({1, 2, 3, 4});
+	my_flist.assign({ 1, 2, 3, 4 });
 
 	for (auto it = my_flist.begin(); it != my_flist.end(); it++)
 	{

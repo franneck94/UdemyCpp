@@ -10,7 +10,7 @@
 /*        IMAGE       */
 /**********************/
 Image::Image(const unsigned int width, const unsigned int height) :
-	m_width(width), m_height(height)
+    m_width(width), m_height(height)
 {
 
 }
@@ -27,61 +27,61 @@ unsigned int Image::get_height() const
 
 void Image::clear_image()
 {
-	m_matrix.clear();
-	m_height = 0;
-	m_width = 0;
+    m_matrix.clear();
+    m_height = 0;
+    m_width = 0;
 }
 
 void Image::resize_image(const unsigned int new_width, const unsigned int new_height)
 {
-	// New width
-	if (new_width != m_width)
-	{
-		m_matrix.resize(new_width);
-		m_width = new_width;
-	}
+    // New width
+    if (new_width != m_width)
+    {
+        m_matrix.resize(new_width);
+        m_width = new_width;
+    }
 
-	// New height
-	if (new_height != m_height)
-	{
-		for (auto &col : m_matrix)
-		{
-			col.resize(new_height);
-		}
+    // New height
+    if (new_height != m_height)
+    {
+        for (auto &col : m_matrix)
+        {
+            col.resize(new_height);
+        }
 
-		m_height = new_height;
-	}
+        m_height = new_height;
+    }
 }
 
 /**********************/
 /*   GRAYSCALE IMAGE */
 /**********************/
 GrayscaleImage::GrayscaleImage(const unsigned int width, const unsigned int height) :
-	Image(width, height),
-	m_matrix(GrayscaleMatrix(m_width, std::vector<GrayscalePixelValue>(m_height, { 0 })))
+    Image(width, height),
+    m_matrix(GrayscaleMatrix(m_width, std::vector<GrayscalePixelValue>(m_height, { 0 })))
 {
 
 }
 
 void GrayscaleImage::set_pixel(const unsigned int x, const unsigned int y, const GrayscalePixelValue pixel_value)
 {
-	m_matrix[x][y] = pixel_value;
+    m_matrix[x][y] = pixel_value;
 }
 
 void GrayscaleImage::fill_image(const GrayscalePixelValue pixel_value)
 {
-	for (auto &col : m_matrix)
-	{
-		std::fill(col.begin(), col.end(), pixel_value);
-	}
+    for (auto &col : m_matrix)
+    {
+        std::fill(col.begin(), col.end(), pixel_value);
+    }
 }
 
 void GrayscaleImage::save_image(const char *file_name) const
 {
-    FILE* f;
+    FILE *f;
 
     unsigned int num_bytes = 3 * m_width * m_height;
-    uchar* img = (uchar*)(malloc(num_bytes));
+    uchar *img = (uchar *)(malloc(num_bytes));
     memset(img, 0, num_bytes);
 
     int filesize = 54 + 3 * m_width * m_height;
@@ -96,23 +96,23 @@ void GrayscaleImage::save_image(const char *file_name) const
         }
     }
 
-    uchar bmpfileheader[14] = {'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0};
-    uchar bmpinfoheader[40] = {40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0};
-    uchar bmppad[3] = {0, 0, 0};
+    uchar bmpfileheader[14] = { 'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0 };
+    uchar bmpinfoheader[40] = { 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0 };
+    uchar bmppad[3] = { 0, 0, 0 };
 
-    bmpfileheader[2]    = (uchar)(filesize);
-    bmpfileheader[3]    = (uchar)(filesize >> 8);
-    bmpfileheader[4]    = (uchar)(filesize >> 16);
-    bmpfileheader[5]    = (uchar)(filesize >> 24);
+    bmpfileheader[2] = (uchar)(filesize);
+    bmpfileheader[3] = (uchar)(filesize >> 8);
+    bmpfileheader[4] = (uchar)(filesize >> 16);
+    bmpfileheader[5] = (uchar)(filesize >> 24);
 
-    bmpinfoheader[4]    = (uchar)(m_width);
-    bmpinfoheader[5]    = (uchar)(m_width >> 8);
-    bmpinfoheader[6]    = (uchar)(m_width >> 16);
-    bmpinfoheader[7]    = (uchar)(m_width >> 24);
-    bmpinfoheader[8]    = (uchar)(m_height);
-    bmpinfoheader[9]    = (uchar)(m_height >> 8);
-    bmpinfoheader[10]   = (uchar)(m_height >> 16);
-    bmpinfoheader[11]   = (uchar)(m_height >> 24);
+    bmpinfoheader[4] = (uchar)(m_width);
+    bmpinfoheader[5] = (uchar)(m_width >> 8);
+    bmpinfoheader[6] = (uchar)(m_width >> 16);
+    bmpinfoheader[7] = (uchar)(m_width >> 24);
+    bmpinfoheader[8] = (uchar)(m_height);
+    bmpinfoheader[9] = (uchar)(m_height >> 8);
+    bmpinfoheader[10] = (uchar)(m_height >> 16);
+    bmpinfoheader[11] = (uchar)(m_height >> 24);
 
     f = fopen(file_name, "wb");
     fwrite(bmpfileheader, 1, 14, f);
@@ -131,30 +131,30 @@ void GrayscaleImage::save_image(const char *file_name) const
 /*      RGB IMAGE     */
 /**********************/
 RGBImage::RGBImage(const unsigned int width, const unsigned int height) :
-	Image(width, height),
-	m_matrix(RGBMatrix(m_width, std::vector<RGBPixelValue>(m_height, RGBPixelValue{ 0, 0, 0 })))
+    Image(width, height),
+    m_matrix(RGBMatrix(m_width, std::vector<RGBPixelValue>(m_height, RGBPixelValue{ 0, 0, 0 })))
 {
 
 }
 void RGBImage::set_pixel(const unsigned int x, const unsigned int y, const RGBPixelValue pixel_value)
 {
-	m_matrix[x][y] = pixel_value;
+    m_matrix[x][y] = pixel_value;
 }
 
 void RGBImage::fill_image(const RGBPixelValue value)
 {
-	for (auto &col : m_matrix)
-	{
-		std::fill(col.begin(), col.end(), value);
-	}
+    for (auto &col : m_matrix)
+    {
+        std::fill(col.begin(), col.end(), value);
+    }
 }
 
 void RGBImage::save_image(const char *file_name) const
 {
-    FILE* f;
+    FILE *f;
 
     unsigned int num_bytes = 3 * m_width * m_height;
-    uchar* img = (uchar*)(malloc(num_bytes));
+    uchar *img = (uchar *)(malloc(num_bytes));
     memset(img, 0, num_bytes);
 
     int filesize = 54 + 3 * m_width * m_height;
@@ -169,23 +169,23 @@ void RGBImage::save_image(const char *file_name) const
         }
     }
 
-    uchar bmpfileheader[14] = {'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0};
-    uchar bmpinfoheader[40] = {40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0};
-    uchar bmppad[3] = {0, 0, 0};
+    uchar bmpfileheader[14] = { 'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0 };
+    uchar bmpinfoheader[40] = { 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0 };
+    uchar bmppad[3] = { 0, 0, 0 };
 
-    bmpfileheader[2]    = (uchar)(filesize);
-    bmpfileheader[3]    = (uchar)(filesize >> 8);
-    bmpfileheader[4]    = (uchar)(filesize >> 16);
-    bmpfileheader[5]    = (uchar)(filesize >> 24);
+    bmpfileheader[2] = (uchar)(filesize);
+    bmpfileheader[3] = (uchar)(filesize >> 8);
+    bmpfileheader[4] = (uchar)(filesize >> 16);
+    bmpfileheader[5] = (uchar)(filesize >> 24);
 
-    bmpinfoheader[4]    = (uchar)(m_width);
-    bmpinfoheader[5]    = (uchar)(m_width >> 8);
-    bmpinfoheader[6]    = (uchar)(m_width >> 16);
-    bmpinfoheader[7]    = (uchar)(m_width >> 24);
-    bmpinfoheader[8]    = (uchar)(m_height);
-    bmpinfoheader[9]    = (uchar)(m_height >> 8);
-    bmpinfoheader[10]   = (uchar)(m_height >> 16);
-    bmpinfoheader[11]   = (uchar)(m_height >> 24);
+    bmpinfoheader[4] = (uchar)(m_width);
+    bmpinfoheader[5] = (uchar)(m_width >> 8);
+    bmpinfoheader[6] = (uchar)(m_width >> 16);
+    bmpinfoheader[7] = (uchar)(m_width >> 24);
+    bmpinfoheader[8] = (uchar)(m_height);
+    bmpinfoheader[9] = (uchar)(m_height >> 8);
+    bmpinfoheader[10] = (uchar)(m_height >> 16);
+    bmpinfoheader[11] = (uchar)(m_height >> 24);
 
     f = fopen(file_name, "wb");
     fwrite(bmpfileheader, 1, 14, f);

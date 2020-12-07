@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-class A 
+class A
 {
 public: // In Base class and in Derived class and outside of the classes
     int x;

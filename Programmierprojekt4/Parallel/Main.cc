@@ -5,8 +5,8 @@
 
 int main()
 {
-	cppmath::Matrix<double> m1(250, 250, -1.3);
-	cppmath::Matrix<double> m2(250, 250, -1.3);
+  cppmath::Matrix<double> m1(250, 250, -1.3);
+  cppmath::Matrix<double> m2(250, 250, -1.3);
 
   auto start = std::chrono::high_resolution_clock::now();
   cppmath::Matrix<double> m3 = m1 * m2;
@@ -23,5 +23,5 @@ int main()
   // 10: Time in ms: 3.9459
   // 12: Time in ms: 4.6522
 
-	return 0;
+  return 0;
 }

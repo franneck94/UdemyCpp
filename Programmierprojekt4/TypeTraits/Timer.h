@@ -3,7 +3,7 @@
 #include <chrono>
 #include <atomic>
 
-namespace learncpptiming
+namespace cpptiming
 {
 
 typedef std::chrono::high_resolution_clock Clock;
@@ -35,4 +35,4 @@ private:
 	std::chrono::time_point<Clock> m_start_point;
 };
 
-} // namespace learncpptiming
+} // namespace cpptiming

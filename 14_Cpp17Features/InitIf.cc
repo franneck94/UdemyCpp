@@ -15,6 +15,5 @@ int main()
         std::cout << "Found Name" << std::endl;
     }
 
-    ();
     return 0;
 }

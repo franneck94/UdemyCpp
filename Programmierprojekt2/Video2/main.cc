@@ -4,6 +4,7 @@
 #include "DynArray.h"
 //#include "AlgoArray.h"
 
+int main()
 {
     double fill_value = 1.0;
     std::size_t length = 5;

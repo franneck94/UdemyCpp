@@ -23,10 +23,10 @@ int main()
 	int input_array_value;
 
 	std::cout << std::endl
-			  << "Gebe Array Length ein!" << std::endl;
+		<< "Gebe Array Length ein!" << std::endl;
 	std::cin >> input_array_length;
 	std::cout << std::endl
-			  << "Gebe Array Wert ein!" << std::endl;
+		<< "Gebe Array Wert ein!" << std::endl;
 	std::cin >> input_array_value;
 
 	int *p_array_exercise2 = array_constructor(input_array_value, input_array_length);

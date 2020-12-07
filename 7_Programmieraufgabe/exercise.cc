@@ -18,7 +18,7 @@ std::vector<bool> shuffle_till_equal(const BinaryArray &target, BinaryArray inpu
 	{
 		if (iteration % 100'000 == 0)
 			std::cout << std::endl
-					  << "Iteration: " << iteration;
+			<< "Iteration: " << iteration;
 		++iteration;
 
 		auto timestamp = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now()).time_since_epoch().count();
@@ -43,7 +43,7 @@ std::vector<bool> smart_shuffle_till_equal(const BinaryArray &target, BinaryArra
 	{
 		if (iteration % 100000 == 0)
 			std::cout << std::endl
-					  << "Iteration: " << iteration;
+			<< "Iteration: " << iteration;
 		++iteration;
 
 		auto timestamp = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now()).time_since_epoch().count();

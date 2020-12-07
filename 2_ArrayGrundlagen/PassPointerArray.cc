@@ -37,7 +37,7 @@ int main()
     // Heap De-Allocation
     delete[] p;
 
-    int a[5] = {4, 5, 6, 7, 8};
+    int a[5] = { 4, 5, 6, 7, 8 };
     std::cout << array_maximum(a, 5) << std::endl;
 
     return 0;

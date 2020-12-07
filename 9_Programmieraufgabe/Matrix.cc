@@ -24,7 +24,7 @@ Matrix Matrix::operator+(const Matrix &rhs)
     return result;
 }
 
-Matrix& Matrix::operator+=(const Matrix &rhs)
+Matrix &Matrix::operator+=(const Matrix &rhs)
 {
     set_A(get_A() + rhs.get_A());
     set_B(get_B() + rhs.get_B());
@@ -46,7 +46,7 @@ Matrix Matrix::operator-(const Matrix &rhs)
     return result;
 }
 
-Matrix& Matrix::operator-=(const Matrix &rhs)
+Matrix &Matrix::operator-=(const Matrix &rhs)
 {
     set_A(get_A() - rhs.get_A());
     set_B(get_B() - rhs.get_B());

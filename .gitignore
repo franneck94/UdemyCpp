@@ -19,7 +19,7 @@
 build/
 html/
 latex/
-Slides/
+_Slides/
 .vs/
 .vscode/VsCodeSettings/
 *.Debug

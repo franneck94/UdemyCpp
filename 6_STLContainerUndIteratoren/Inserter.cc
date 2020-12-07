@@ -16,9 +16,9 @@ int main()
 
 	// Inserter (Benötigt Insert)
 	std::copy(my_vector.begin(), my_vector.end(),
-			  std::inserter(my_vector3, my_vector3.end()));
+		std::inserter(my_vector3, my_vector3.end()));
 	std::copy(my_vector2.begin(), my_vector2.end(),
-			  std::inserter(my_vector3, my_vector3.end()));
+		std::inserter(my_vector3, my_vector3.end()));
 
 	std::cout << "Starting Inserter!" << std::endl;
 	for (const auto &val : my_vector3)
@@ -30,9 +30,9 @@ int main()
 
 	// BackInserter (Benötigt push_back)
 	std::copy(my_vector.begin(), my_vector.end(),
-			  std::back_inserter(my_vector4));
+		std::back_inserter(my_vector4));
 	std::copy(my_vector2.begin(), my_vector2.end(),
-			  std::back_inserter(my_vector4));
+		std::back_inserter(my_vector4));
 
 	std::cout << "Starting BackInserter!" << std::endl;
 	for (const auto &val : my_vector4)

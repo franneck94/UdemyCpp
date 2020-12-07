@@ -20,20 +20,20 @@ public:
 	~Matrix() noexcept = default;
 
 	Matrix(const Matrix &other) = default;
-	Matrix& operator=(const Matrix &other) = default;
+	Matrix &operator=(const Matrix &other) = default;
 	Matrix(Matrix &&other) noexcept = default;
-	Matrix& operator=(Matrix &&other) noexcept = default;
+	Matrix &operator=(Matrix &&other) noexcept = default;
 
 	Matrix operator+(const Matrix &rhs);
-	Matrix& operator+=(const Matrix &rhs);
+	Matrix &operator+=(const Matrix &rhs);
 	Matrix operator-(const Matrix &rhs);
-	Matrix& operator-=(const Matrix &rhs);
+	Matrix &operator-=(const Matrix &rhs);
 	Matrix operator*(const T &scalar);
-	Matrix& operator*=(const T &scalar);
+	Matrix &operator*=(const T &scalar);
 	Matrix operator/(const T &scalar);
-	Matrix& operator/=(const T &scalar);
+	Matrix &operator/=(const T &scalar);
 	Matrix operator*(const Matrix &rhs);
-	Matrix& operator*=(const Matrix &rhs);
+	Matrix &operator*=(const Matrix &rhs);
 
 	void print_matrix() const;
 
@@ -102,7 +102,7 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T>& Matrix<T>::operator+=(const Matrix<T> &rhs)
+Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &rhs)
 {
 	for (std::size_t i = 0; i != m_rows; ++i)
 	{
@@ -138,7 +138,7 @@ Matrix<T> Matrix<T>::operator-(const Matrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T>& Matrix<T>::operator-=(const Matrix<T> &rhs)
+Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &rhs)
 {
 	for (std::size_t i = 0; i != m_rows; ++i)
 	{
@@ -173,7 +173,7 @@ Matrix<T> Matrix<T>::operator*(const T &scalar)
 }
 
 template <typename T>
-Matrix<T>& Matrix<T>::operator*=(const T &scalar)
+Matrix<T> &Matrix<T>::operator*=(const T &scalar)
 {
 	for (std::size_t i = 0; i != m_rows; ++i)
 	{
@@ -207,7 +207,7 @@ Matrix<T> Matrix<T>::operator/(const T &scalar)
 }
 
 template <typename T>
-Matrix<T>& Matrix<T>::operator/=(const T &scalar)
+Matrix<T> &Matrix<T>::operator/=(const T &scalar)
 {
 	for (std::size_t i = 0; i != m_rows; ++i)
 	{
@@ -242,7 +242,7 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T>& Matrix<T>::operator*=(const Matrix<T> &rhs)
+Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &rhs)
 {
 	*this = (*this) * rhs;
 
@@ -252,9 +252,9 @@ Matrix<T>& Matrix<T>::operator*=(const Matrix<T> &rhs)
 template <typename T>
 void Matrix<T>::print_matrix() const
 {
-	for(std::size_t i = 0; i < m_rows; ++i)
+	for (std::size_t i = 0; i < m_rows; ++i)
 	{
-		for(std::size_t j = 0; j < m_cols; ++j)
+		for (std::size_t j = 0; j < m_cols; ++j)
 		{
 			std::cout << m_data[i][j] << " ";
 		}

@@ -39,12 +39,12 @@ using RGBMatrix = std::vector<std::vector<RGBPixelValue>>;
 class Image
 {
 public:
-    Image() = delete;
+	Image() = delete;
 	Image(const unsigned int width, const unsigned int height);
 	~Image() = default;
 
-    unsigned int get_width() const;
-    unsigned int get_height() const;
+	unsigned int get_width() const;
+	unsigned int get_height() const;
 
 	virtual void save_image(const char *file_name) const = 0;
 
@@ -52,17 +52,17 @@ public:
 	void resize_image(const unsigned int new_width, const unsigned int new_height);
 
 protected:
-    unsigned int m_width; // num cols
-    unsigned int m_height; // num rows
+	unsigned int m_width; // num cols
+	unsigned int m_height; // num rows
 	BaseMatrix m_matrix;
 };
 
 class GrayscaleImage : public Image
 {
 public:
-    GrayscaleImage() = delete;
-    GrayscaleImage(const unsigned int width, const unsigned int height);
-    ~GrayscaleImage() = default;
+	GrayscaleImage() = delete;
+	GrayscaleImage(const unsigned int width, const unsigned int height);
+	~GrayscaleImage() = default;
 
 	void save_image(const char *file_name) const override;
 
@@ -70,15 +70,15 @@ public:
 	void fill_image(const GrayscalePixelValue pixel_value);
 
 private:
-    GrayscaleMatrix m_matrix;
+	GrayscaleMatrix m_matrix;
 };
 
 class RGBImage : public Image
 {
 public:
-    RGBImage()  = delete;
-    RGBImage(const unsigned int width, const unsigned int height);
-    ~RGBImage() = default;
+	RGBImage() = delete;
+	RGBImage(const unsigned int width, const unsigned int height);
+	~RGBImage() = default;
 
 	virtual void save_image(const char *file_name) const override;
 
@@ -86,5 +86,5 @@ public:
 	void fill_image(const RGBPixelValue pixel_value);
 
 private:
-    RGBMatrix m_matrix;
+	RGBMatrix m_matrix;
 };

@@ -11,7 +11,7 @@ T max(T value_one, T value_two)
 	{
 		return value_one;
 	}
-	
+
 }
 
 int main()

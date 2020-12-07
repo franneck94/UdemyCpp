@@ -3,7 +3,7 @@
 
 #include "Animal.h"
 
-void polyFavouriteFood(Animal* &animal)
+void polyFavouriteFood(Animal *&animal)
 {
     animal->my_favourite_food();
 }
@@ -12,7 +12,7 @@ int main()
 {
     {
         std::string animal_name = "Tatze";
-        Animal* animal1 = new Animal(animal_name);
+        Animal *animal1 = new Animal(animal_name);
         polyFavouriteFood(animal1);
         delete animal1;
     }
@@ -21,7 +21,7 @@ int main()
 
     {
         std::string dog_name = "Bello";
-        Animal* dog1 = new Dog(dog_name);
+        Animal *dog1 = new Dog(dog_name);
         polyFavouriteFood(dog1);
         delete dog1;
     }

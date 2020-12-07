@@ -9,9 +9,9 @@ int main()
 	const unsigned int num_cols = 2;
 
 	// 2d-array (3x2 matrix)
-	int arr[num_rows][num_cols] = {{0, 1},
+	int arr[num_rows][num_cols] = { {0, 1},
 								   {2, 3},
-								   {4, 5}};
+								   {4, 5} };
 
 	// 2d-vector (3x2 matrix) => 3 Rows, 2 Columns
 	//                                       NUM_OF: std::vector<int>     VALUE OF: std::vector<int>

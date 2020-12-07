@@ -80,7 +80,7 @@ int main()
 	std::string new_substr = "three";
 	text.replace(first_idx, length, new_substr);
 	std::cout << "Replaced:\n"
-			  << text << std::endl;
+		<< text << std::endl;
 	write_text("TextOutput.txt", text);
 
 	//////////////////////////

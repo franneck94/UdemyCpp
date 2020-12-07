@@ -15,7 +15,7 @@ template <typename T>
 class Matrix
 {
 	static_assert(std::is_floating_point<T>::value,
-				  "An specialization of the matrix class has to be of a floating point type!");
+		"An specialization of the matrix class has to be of a floating point type!");
 
 public:
 	using MatrixDataType = std::vector<std::vector<T>>;
@@ -26,20 +26,20 @@ public:
 	~Matrix() noexcept = default;
 
 	Matrix(const Matrix &other) = default;
-	Matrix& operator=(const Matrix &other) = default;
+	Matrix &operator=(const Matrix &other) = default;
 	Matrix(Matrix &&other) noexcept = default;
-	Matrix& operator=(Matrix &&other) noexcept = default;
+	Matrix &operator=(Matrix &&other) noexcept = default;
 
 	Matrix operator+(const Matrix &rhs);
-	Matrix& operator+=(const Matrix &rhs);
+	Matrix &operator+=(const Matrix &rhs);
 	Matrix operator-(const Matrix &rhs);
-	Matrix& operator-=(const Matrix &rhs);
+	Matrix &operator-=(const Matrix &rhs);
 	Matrix operator*(const T &scalar);
-	Matrix& operator*=(const T &scalar);
+	Matrix &operator*=(const T &scalar);
 	Matrix operator/(const T &scalar);
-	Matrix& operator/=(const T &scalar);
+	Matrix &operator/=(const T &scalar);
 	Matrix operator*(const Matrix &rhs);
-	Matrix& operator*=(const Matrix &rhs);
+	Matrix &operator*=(const Matrix &rhs);
 
 	void print_matrix() const;
 
@@ -71,11 +71,11 @@ Matrix<T>::Matrix(std::size_t rows, std::size_t cols, const T &value) :
 template <typename T>
 Matrix<T> Matrix<T>::operator+(const Matrix<T> &rhs)
 {
-	if(m_rows != rhs.m_rows)
+	if (m_rows != rhs.m_rows)
 	{
 		throw(std::invalid_argument("Number of rows are not equal!"));
 	}
-	if(m_cols != rhs.m_cols)
+	if (m_cols != rhs.m_cols)
 	{
 		throw(std::invalid_argument("Number of cols are not equal!"));
 	}
@@ -97,13 +97,13 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T>& Matrix<T>::operator+=(const Matrix<T> &rhs)
+Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &rhs)
 {
-	if(m_rows != rhs.m_rows)
+	if (m_rows != rhs.m_rows)
 	{
 		throw(std::invalid_argument("Number of rows are not equal!"));
 	}
-	if(m_cols != rhs.m_cols)
+	if (m_cols != rhs.m_cols)
 	{
 		throw(std::invalid_argument("Number of cols are not equal!"));
 	}
@@ -125,11 +125,11 @@ Matrix<T>& Matrix<T>::operator+=(const Matrix<T> &rhs)
 template <typename T>
 Matrix<T> Matrix<T>::operator-(const Matrix<T> &rhs)
 {
-	if(m_rows != rhs.m_rows)
+	if (m_rows != rhs.m_rows)
 	{
 		throw(std::invalid_argument("Number of rows are not equal!"));
 	}
-	if(m_cols != rhs.m_cols)
+	if (m_cols != rhs.m_cols)
 	{
 		throw(std::invalid_argument("Number of cols are not equal!"));
 	}
@@ -151,13 +151,13 @@ Matrix<T> Matrix<T>::operator-(const Matrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T>& Matrix<T>::operator-=(const Matrix<T> &rhs)
+Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &rhs)
 {
-	if(m_rows != rhs.m_rows)
+	if (m_rows != rhs.m_rows)
 	{
 		throw(std::invalid_argument("Number of rows are not equal!"));
 	}
-	if(m_cols != rhs.m_cols)
+	if (m_cols != rhs.m_cols)
 	{
 		throw(std::invalid_argument("Number of cols are not equal!"));
 	}
@@ -195,7 +195,7 @@ Matrix<T> Matrix<T>::operator*(const T &scalar)
 }
 
 template <typename T>
-Matrix<T>& Matrix<T>::operator*=(const T &scalar)
+Matrix<T> &Matrix<T>::operator*=(const T &scalar)
 {
 	for (std::size_t i = 0; i != m_rows; ++i)
 	{
@@ -213,7 +213,7 @@ Matrix<T>& Matrix<T>::operator*=(const T &scalar)
 template <typename T>
 Matrix<T> Matrix<T>::operator/(const T &scalar)
 {
-	if(scalar == 0)
+	if (scalar == 0)
 	{
 		throw(std::overflow_error("You cannot divide by a scalar value of zero!"));
 	}
@@ -234,7 +234,7 @@ Matrix<T> Matrix<T>::operator/(const T &scalar)
 }
 
 template <typename T>
-Matrix<T>& Matrix<T>::operator/=(const T &scalar)
+Matrix<T> &Matrix<T>::operator/=(const T &scalar)
 {
 	for (std::size_t i = 0; i != m_rows; ++i)
 	{
@@ -252,7 +252,7 @@ Matrix<T>& Matrix<T>::operator/=(const T &scalar)
 template <typename T>
 Matrix<T> Matrix<T>::operator*(const Matrix<T> &rhs)
 {
-	if(m_cols != rhs.m_rows)
+	if (m_cols != rhs.m_rows)
 	{
 		throw(std::invalid_argument("Number of cols are not equal!"));
 	}
@@ -274,9 +274,9 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T>& Matrix<T>::operator*=(const Matrix<T> &rhs)
+Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &rhs)
 {
-	if(m_cols != rhs.m_rows)
+	if (m_cols != rhs.m_rows)
 	{
 		throw(std::invalid_argument("Number of cols are not equal!"));
 	}
@@ -289,9 +289,9 @@ Matrix<T>& Matrix<T>::operator*=(const Matrix<T> &rhs)
 template <typename T>
 void Matrix<T>::print_matrix() const
 {
-	for(std::size_t i = 0; i < m_rows; ++i)
+	for (std::size_t i = 0; i < m_rows; ++i)
 	{
-		for(std::size_t j = 0; j < m_cols; ++j)
+		for (std::size_t j = 0; j < m_cols; ++j)
 		{
 			std::cout << m_data[i][j] << " ";
 		}

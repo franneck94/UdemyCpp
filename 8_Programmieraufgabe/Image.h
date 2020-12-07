@@ -8,16 +8,16 @@ using GrayscaleMatrix = std::vector<std::vector<uchar>>;
 class Image
 {
 public:
-    // Konstruktor
-    Image();
-    Image(const unsigned int width, const unsigned int height);
+	// Konstruktor
+	Image();
+	Image(const unsigned int width, const unsigned int height);
 
-    // Destruktor
-    ~Image();
+	// Destruktor
+	~Image();
 
-    // Getter
-    unsigned int get_width() const;
-    unsigned int get_height() const;
+	// Getter
+	unsigned int get_width() const;
+	unsigned int get_height() const;
 
 	// Helper
 	void save_image(const char *file_name) const;
@@ -31,12 +31,12 @@ public:
 	// Aufgabe 4
 	void fill_image(const uchar value);
 	// Aufgabe 5
-	void draw_line(const unsigned int x1, const unsigned int y1, 
-				   const unsigned int x2, const unsigned int y2, 
-				   const uchar value);
+	void draw_line(const unsigned int x1, const unsigned int y1,
+		const unsigned int x2, const unsigned int y2,
+		const uchar value);
 
 private:
-    unsigned int m_width;
-    unsigned int m_height;
-    GrayscaleMatrix m_matrix;
+	unsigned int m_width;
+	unsigned int m_height;
+	GrayscaleMatrix m_matrix;
 };

@@ -4,7 +4,7 @@
 
 template <typename T> class DynamicArray
 {
-  public:
+public:
     DynamicArray(const T &value, const std::size_t &length);
 
     const std::size_t get_length() const;
@@ -12,7 +12,7 @@ template <typename T> class DynamicArray
     void push_back(const T &value);
     void pop_back();
 
-  private:
+private:
     T *m_data;
     std::size_t m_length;
 };

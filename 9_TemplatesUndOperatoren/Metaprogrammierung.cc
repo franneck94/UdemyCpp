@@ -13,7 +13,7 @@ template<const int n>
 class faculty
 {
 public:
-	static const int val = faculty<n-1>::val * n;
+	static const int val = faculty<n - 1>::val * n;
 };
 
 template<>

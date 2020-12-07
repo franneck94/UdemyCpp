@@ -20,7 +20,7 @@ int main()
         double z = div(x, y);
         std::cout << z << std::endl;
     }
-    catch(const char* msg)
+    catch (const char *msg)
     {
         std::cerr << msg << std::endl;
         double z = 0;

@@ -14,15 +14,15 @@ int main()
     // REMOVE IF: Lösche den Wert aus my_vector, wenn dieser größer als 5 ist.
     // WICHTIG: Löscht den Wert bei return true!
     my_vector.erase(std::remove_if(my_vector.begin(), my_vector.end(),
-                                    [](int val) -> int 
-                                    {
-                                        if (val > 5)
-                                            return true;
-                                        else
-                                            return false;
-                                    }
-                                    ),
-                    my_vector.end());
+        [](int val) -> int
+        {
+            if (val > 5)
+                return true;
+            else
+                return false;
+        }
+    ),
+        my_vector.end());
     for (const auto &val : my_vector)
     {
         std::cout << val << std::endl;
@@ -34,15 +34,15 @@ int main()
     int upper_bound = 3;
 
     my_vector.erase(std::remove_if(my_vector.begin(), my_vector.end(),
-                                    [&upper_bound](const int &val) -> int 
-                                    {
-                                        if (val > upper_bound)
-                                            return true;
-                                        else
-                                            return false;
-                                    }
-                                   ),
-                    my_vector.end());
+        [&upper_bound](const int &val) -> int
+        {
+            if (val > upper_bound)
+                return true;
+            else
+                return false;
+        }
+    ),
+        my_vector.end());
     for (const auto &val : my_vector)
     {
         std::cout << val << std::endl;

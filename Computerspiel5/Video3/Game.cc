@@ -113,7 +113,7 @@ void Game::move_player(ConsoleInput &move, bool &finished)
 
 void Game::move_obstacles()
 {
-    std::vector<char> move_set = {LEFT, UP, RIGHT, DOWN};
+    std::vector<char> move_set = { LEFT, UP, RIGHT, DOWN };
 
     for (auto &obs : m_obstacles)
     {

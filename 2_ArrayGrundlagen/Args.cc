@@ -5,12 +5,12 @@ int main(int argc, char **argv)
     if (argc > 1)
     {
         std::cout << std::endl
-                  << "Argc: <<<<<" << argc;
+            << "Argc: <<<<<" << argc;
 
         for (int i = 0; i < argc; i++)
         {
             std::cout << std::endl
-                      << argv[i];
+                << argv[i];
         }
 
         char input1 = *argv[1];
@@ -20,11 +20,11 @@ int main(int argc, char **argv)
         std::cout << std::endl;
 
         std::cout << std::endl
-                  << input1;
+            << input1;
         std::cout << std::endl
-                  << input2;
+            << input2;
         std::cout << std::endl
-                  << input3;
+            << input3;
     }
 
     return 0;

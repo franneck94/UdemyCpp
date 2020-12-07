@@ -17,15 +17,15 @@ public:
 	Matrix(std::size_t rows, std::size_t cols, const T &value);
 
 	Matrix operator+(const Matrix &rhs);
-	Matrix& operator+=(const Matrix &rhs);
+	Matrix &operator+=(const Matrix &rhs);
 	Matrix operator-(const Matrix &rhs);
-	Matrix& operator-=(const Matrix &rhs);
+	Matrix &operator-=(const Matrix &rhs);
 	Matrix operator*(const double &scalar);
-	Matrix& operator*=(const double &scalar);
+	Matrix &operator*=(const double &scalar);
 	Matrix operator/(const double &scalar);
-	Matrix& operator/=(const double &scalar);
+	Matrix &operator/=(const double &scalar);
 	Matrix operator*(const Matrix &rhs);
-	Matrix& operator*=(const Matrix &rhs);
+	Matrix &operator*=(const Matrix &rhs);
 
 	void print_matrix() const;
 
@@ -64,7 +64,7 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T>& Matrix<T>::operator+=(const Matrix<T> &rhs)
+Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &rhs)
 {
 
 	return *this;
@@ -80,7 +80,7 @@ Matrix<T> Matrix<T>::operator-(const Matrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T>& Matrix<T>::operator-=(const Matrix<T> &rhs)
+Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &rhs)
 {
 
 	return *this;
@@ -96,7 +96,7 @@ Matrix<T> Matrix<T>::operator*(const double &scalar)
 }
 
 template <typename T>
-Matrix<T>& Matrix<T>::operator*=(const double &scalar)
+Matrix<T> &Matrix<T>::operator*=(const double &scalar)
 {
 
 	return *this;
@@ -112,7 +112,7 @@ Matrix<T> Matrix<T>::operator/(const double &scalar)
 }
 
 template <typename T>
-Matrix<T>& Matrix<T>::operator/=(const double &scalar)
+Matrix<T> &Matrix<T>::operator/=(const double &scalar)
 {
 
 	return *this;
@@ -128,7 +128,7 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &rhs)
 }
 
 template <typename T>
-Matrix<T>& Matrix<T>::operator*=(const Matrix<T> &rhs)
+Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &rhs)
 {
 	*this = (*this) * rhs;
 
@@ -138,9 +138,9 @@ Matrix<T>& Matrix<T>::operator*=(const Matrix<T> &rhs)
 template <typename T>
 void Matrix<T>::print_matrix() const
 {
-	for(std::size_t i = 0; i < m_rows; ++i)
+	for (std::size_t i = 0; i < m_rows; ++i)
 	{
-		for(std::size_t j = 0; j < m_cols; ++j)
+		for (std::size_t j = 0; j < m_cols; ++j)
 		{
 			std::cout << m_data[i][j] << " ";
 		}

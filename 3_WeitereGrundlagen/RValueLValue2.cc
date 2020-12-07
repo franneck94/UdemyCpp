@@ -11,7 +11,7 @@
 void f(int &z)
 {
 	std::cout << "LValue Reference: " << z << " " << &z << std::endl
-			  << std::endl;
+		<< std::endl;
 }
 
 // 3. Const LValue Reference
@@ -19,7 +19,7 @@ void f(int &z)
 void f(const int &z)
 {
 	std::cout << "Const LValue Reference: " << z << " " << &z << std::endl
-			  << std::endl;
+		<< std::endl;
 }
 
 //// 4. RValue Reference
