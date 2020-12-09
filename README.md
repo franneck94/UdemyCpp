@@ -3,8 +3,8 @@
 Dies ist der Code zu meinem Udemy Kurs:
 *Moderne und Effektive C++ Programmierung* von Jan Schaffranek.
 
-Erhalte den Kurs vom 7.11.2020 bis zum 7.12.2020 für nur 21,99€*.
-Rabatt-Link: [Cpp Kurs im Rabatt](https://www.udemy.com/course/der-komplettkurs-zur-modernen-c-programmierung/?couponCode=FRANNECK_NOV_2020)
+Erhalte den Kurs vom 01.12.2020 bis zum 31.12.2020 zum aktuellen Bestpreis.
+Rabatt-Link: [Cpp Kurs im Rabatt](https://www.udemy.com/course/der-komplettkurs-zur-modernen-c-programmierung/?couponCode=FRANNECK_DEC_2020)
 
 ## Bewertungen von Kursteilnehmern
 
@@ -33,13 +33,8 @@ Alle Kapitel des Kurses sind mit Videos, Quizze und Programmieraufgaben verse
 - Die Einführung von Threading und der Boost Bibliothek
 - Die Einführung in die GUI-Programmierung mit Qt
 
-## Warum sollte man die C++ Programmierung beherrschen
-
-- C++ ist eine schnelle und effektive Programmiersprache
-- Bietet die Möglichkeit Low-Level Operationen auszuführen
-- Wird von Firmen, wie Amazon und Google für große Projekte eingesetzt
-
-Werde noch heute ein Profi, in der Technologie von Morgen!Wir sehen uns im Kurs!
+Werde noch heute ein Profi, in der Technologie von Morgen!
+Wir sehen uns im Kurs!
 
 
 \* Alle Angaben ohne Gewähr
