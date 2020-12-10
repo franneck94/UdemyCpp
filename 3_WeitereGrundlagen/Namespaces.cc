@@ -1,7 +1,5 @@
 #include <iostream>
 
-namespace Sammlung
-{
 namespace Kino
 {
 struct Film
@@ -10,26 +8,30 @@ struct Film
 	const char *titel;
 	const char *regisseur;
 };
-} // namespace Kino
+}
 
-namespace TV
-{
-struct Serie
-{
-	const int jahr;
-	const char *titel;
-	const char *regisseur;
-};
-} // namespace TV
-} // namespace Sammlung
-
-//using Sammlung::Kino::Film;
-//using Sammlung::TV::Serie;
+// using Kino::Film;
+using namespace Kino;
 
 int main()
 {
-	Sammlung::Kino::Film star_wars_8{ 2017, "The Last Jedi", "Rian Johnson" };
-	Sammlung::TV::Serie game_of_thrones_staffel_8{ 2019, "Game of Thrones Season 8", "KA" };
+	Film *star_wars_7 = new Film{ 2015, "Star Wars the Force Awakens", "J. J. Abrams" };
+
+	std::cout << star_wars_7->jahr << std::endl;
+	std::cout << star_wars_7->titel << std::endl;
+	std::cout << star_wars_7->regisseur << std::endl;
+
+	Kino::Film star_wars_8{ 2017, "Star Wars the Last Jedi", "Rian Johnson" };
+
+	std::cout << star_wars_8.jahr << std::endl;
+	std::cout << star_wars_8.titel << std::endl;
+	std::cout << star_wars_8.regisseur << std::endl;
+
+	Kino::Film star_wars_9{ 2019, "Star Wars the Rise of Skywalker", "J. J. Abrams" };
+
+	std::cout << star_wars_9.jahr << std::endl;
+	std::cout << star_wars_9.titel << std::endl;
+	std::cout << star_wars_9.regisseur << std::endl;
 
 	return 0;
 }

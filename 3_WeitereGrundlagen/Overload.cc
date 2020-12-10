@@ -6,7 +6,7 @@ int max(const int &a, const int &b)
 	{
 		return b;
 	}
-	else // a >= b
+	else
 	{
 		return a;
 	}
@@ -18,7 +18,7 @@ double max(const double &a, const double &b)
 	{
 		return b;
 	}
-	else // a >= b
+	else
 	{
 		return a;
 	}
@@ -26,14 +26,14 @@ double max(const double &a, const double &b)
 
 int main()
 {
-	int a = 4;
-	int b = 0;
+	int num1 = 4;
+	int num2 = 0;
 
-	double c = 10.0;
-	double d = 10.5;
+	double num3 = 10.0;
+	double num4 = 10.5;
 
-	std::cout << max(a, b) << std::endl;
-	std::cout << max(c, d) << std::endl;
+	std::cout << max(num1, num2) << std::endl;
+	std::cout << max(num3, num4) << std::endl;
 
 	return 0;
 }
