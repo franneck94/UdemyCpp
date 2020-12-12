@@ -1,5 +1,4 @@
-#ifndef EXERCISE_H
-#define EXERCISE_H
+#pragma once
 
 #include <vector>
 
@@ -10,5 +9,3 @@ std::vector<bool> shuffle_till_equal(const BinaryArray &target, BinaryArray inpu
 
 // Aufgabe 3
 std::vector<bool> smart_shuffle_till_equal(const BinaryArray &target, BinaryArray input);
-
-#endif // _EXERCISE_H

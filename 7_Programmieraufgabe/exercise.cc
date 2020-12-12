@@ -16,16 +16,19 @@ std::vector<bool> shuffle_till_equal(const BinaryArray &target, BinaryArray inpu
 
 	while (!equal)
 	{
-		if (iteration % 100'000 == 0)
-			std::cout << std::endl
-			<< "Iteration: " << iteration;
+		if (iteration % 250'000 == 0)
+		{
+			std::cout << std::endl << "Iteration: " << iteration;
+		}
 		++iteration;
 
 		auto timestamp = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now()).time_since_epoch().count();
 		std::shuffle(input.begin(), input.end(), std::default_random_engine(timestamp));
 
 		if (std::equal(input.begin(), input.end(), target.begin()))
+		{
 			equal = true;
+		}
 	}
 
 	return input;
@@ -42,8 +45,9 @@ std::vector<bool> smart_shuffle_till_equal(const BinaryArray &target, BinaryArra
 	while (!equal)
 	{
 		if (iteration % 100000 == 0)
-			std::cout << std::endl
-			<< "Iteration: " << iteration;
+		{
+			std::cout << std::endl << "Iteration: " << iteration;
+		}
 		++iteration;
 
 		auto timestamp = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now()).time_since_epoch().count();

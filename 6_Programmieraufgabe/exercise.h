@@ -1,5 +1,4 @@
-#ifndef EXERCISE_H
-#define EXERCISE_H
+#pragma once
 
 #include <utility>
 #include <map>
@@ -16,5 +15,3 @@ typedef map<string, pair<int, int>> Friends;
 string get_oldest_friend(const Friends &friends);
 
 string get_heaviest_friend(const Friends &friends);
-
-#endif // _EXERCISE_H
