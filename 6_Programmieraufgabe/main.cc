@@ -1,12 +1,8 @@
 #include <iostream>
 #include <string>
-#include <vector>
 #include <tuple>
 #include <utility>
 #include <map>
-#include <set>
-#include <algorithm>
-#include <iterator>
 
 #include "exercise.h"
 

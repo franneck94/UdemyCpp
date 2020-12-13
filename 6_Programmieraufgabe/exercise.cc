@@ -1,14 +1,9 @@
 #include <iostream>
-#include <string>
-#include <vector>
-#include <utility>
-#include <algorithm>
-#include <iterator>
 
 #include "exercise.h"
 
 // Aufgabe 2
-string get_oldest_friend(const Friends &friends)
+std::string get_oldest_friend(const Friends &friends)
 {
 	std::string oldest_friend = "";
 	int oldest_age = 0;
@@ -27,7 +22,7 @@ string get_oldest_friend(const Friends &friends)
 	return oldest_friend;
 }
 
-string get_heaviest_friend(const Friends &friends)
+std::string get_heaviest_friend(const Friends &friends)
 {
 	std::string heaviest_friend = "";
 	int heaviest_weight = 0;

@@ -10,8 +10,6 @@
 
 int main()
 {
-	auto timestamp = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now()).time_since_epoch().count();
-
 	// Aufgabe 1
 	std::random_device gen;
 	std::bernoulli_distribution dist(0.5);
@@ -20,8 +18,7 @@ int main()
 	std::generate(target.begin(), target.end(), [&] { return dist(gen); });
 
 	BinaryArray input(target.begin(), target.end());
-	timestamp = std::chrono::time_point_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now()).time_since_epoch().count();
-	std::shuffle(input.begin(), input.end(), std::default_random_engine(timestamp));
+	std::shuffle(input.begin(), input.end(), std::default_random_engine(42));
 
 	for (std::size_t i = 0; i < target.size(); ++i)
 	{
@@ -38,7 +35,7 @@ int main()
 	auto start = std::chrono::high_resolution_clock::now();
 	BinaryArray result_exercise2 = shuffle_till_equal(target, input);
 	auto end = std::chrono::high_resolution_clock::now();
-	double elapsed_milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+	double elapsed_milliseconds = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000.0;
 	std::cout << std::endl << "Time for exercise 2 in ms: " << elapsed_milliseconds;
 	bool is_equal2 = std::equal(result_exercise2.begin(), result_exercise2.end(), target.begin());
 	std::cout << std::endl << "Vectors are equal: " << is_equal2 << std::endl;
