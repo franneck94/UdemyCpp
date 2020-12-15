@@ -22,14 +22,14 @@ Dann ist mein Kurs genau richtig für dich!
 
 ## Dieser Kurs besteht aus folgenden Themengebieten
 
-☑️Die Grundlagen der C/C++ Programmierung  
-☑️Alle wichtigen Features aus C++11, C++14 und C++17  
-☑️Der richtige Einsatz von Pointern und Referenzen  
-☑️Alle wichtigen Features und Funktionen der STL und STD  
-☑️Der Einsatz von moderner Objektorientierung  
-☑️Das Anwenden von Lambda Ausdrücken und Templates  
-☑️Smart Pointer und Copy/Move Konstruktoren  
-☑️Die Einführung in die GUI-Programmierung mit Qt  
+☑️ Die Grundlagen der C/C++ Programmierung  
+☑️ Alle wichtigen Features aus C++11, C++14 und C++17  
+☑️ Der richtige Einsatz von Pointern und Referenzen  
+☑️ Alle wichtigen Features und Funktionen der STL und STD  
+☑️ Der Einsatz von moderner Objektorientierung  
+☑️ Das Anwenden von Lambda Ausdrücken und Templates  
+☑️ Smart Pointer und Copy/Move Konstruktoren  
+☑️ Die Einführung in die GUI-Programmierung mit Qt  
 
 Werde noch heute ein Profi, in der Technologie von Morgen!
 Wir sehen uns im Kurs!
