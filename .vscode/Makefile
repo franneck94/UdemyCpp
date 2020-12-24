@@ -1,15 +1,12 @@
+###############
+## VARIABLES ##
+###############
 COMPILATION_MODE ?= Debug
 ENABLE_WARNINGS ?= 1
 WARNINGS_AS_ERRORS ?= 0
 CPP_COMPILER ?= g++ # g++, clang++
 CPP_STANDARD ?= c++2a # c++11, c++14, c++17, c++2a
 EXECUTABLE_NAME ?= main
-
-ifeq ($(OS), Windows_NT)
-RM = rm -f # RM = del /Q /F # if cygwin is not installed
-else
-RM = rm -f
-endif
 
 ifeq ($(COMPILATION_MODE), Debug)
 CPP_COMPILER_FLAGS = -g -std=$(CPP_STANDARD) # -fopenmp
@@ -27,22 +24,37 @@ endif
 
 CPP_COMPILER_CALL = $(CPP_COMPILER) $(CPP_COMPILER_FLAGS)
 
-CPP_SRCS = $(wildcard *.cc)
-CPP_OBJECTS = $(filter %.o, $(patsubst %.cc,  %.o, $(CPP_SRCS)))
+CPP_SRCS = $(wildcard *.cpp)
+CPP_OBJECTS = $(patsubst %.cpp, %.o, $(CPP_SRCS))
 
+CC_SRCS = $(wildcard *.cc)
+CC_OBJECTS = $(patsubst %.cc, %.o, $(CC_SRCS))
+
+####################
+## PSEUDO TARGETS ##
+####################
 build: $(EXECUTABLE_NAME)
 
-build_single: 
+#############
+## TARGETS ##
+#############
+build_single:
 	$(CPP_COMPILER_CALL) -o $(EXECUTABLE_NAME) $(FILE_NAME)
 
-$(EXECUTABLE_NAME): $(CPP_OBJECTS)
+$(EXECUTABLE_NAME): $(CPP_OBJECTS) $(CC_OBJECTS)
 	$(CPP_COMPILER_CALL) $^ -o $@
-
-%.o : %.cc
-	$(CPP_COMPILER_CALL) -c $< -o $@
 
 execute:
 	./$(EXECUTABLE_NAME)
 
 clean:
 	$(RM) *.o
+
+##############
+## PATTERNS ##
+##############
+%.o : %.cpp
+	$(CPP_COMPILER_CALL) -c $< -o $@
+
+%.o : %.cc
+	$(CPP_COMPILER_CALL) -c $< -o $@

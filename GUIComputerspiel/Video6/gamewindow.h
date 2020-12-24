@@ -95,7 +95,7 @@ class GameWindow : public QMainWindow
     bool m_in_game;
     UInt m_points;
 
-    QString m_path = "C:/Users/Jan/Dropbox/_Programmieren/Udemy C++ Kurs/GUI-Computerspiel/ressources/";
+    QString m_path = "C:/Users/Jan/Dropbox/_Coding/Udemy C++ Kurs/GUI-Computerspiel/ressources/";
     QString m_field_icon_path = m_path + "FieldIcon.png";
     QString m_player_icon_path = m_path + "PlayerIcon.png";
     QString m_obstacle_icon_path = m_path + "ObstacleIcon.png";

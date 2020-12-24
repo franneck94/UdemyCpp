@@ -9,10 +9,10 @@ int main()
 {
 	std::ifstream iffile;
 	iffile.open("text.txt", std::ios::in);
+
 	std::string content;
 	iffile >> content;
 	iffile.close();
-	std::cout << "Content: " << content << std::endl;
 
 	ByteArray plain_text(content.begin(), content.end());
 	ByteArray key(8, 0xff);
