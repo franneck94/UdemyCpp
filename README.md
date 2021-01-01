@@ -4,7 +4,7 @@ Dies ist der Code zu meinem Udemy Kurs:
 *Moderne und Effektive C++ Programmierung* von Jan Schaffranek.
 
 Erhalte den Kurs vom 01.12.2020 bis zum 31.12.2020 zum aktuellen Bestpreis.
-Rabatt-Link: [Cpp Kurs im Rabatt](https://www.udemy.com/course/der-komplettkurs-zur-modernen-c-programmierung/?couponCode=FRANNECK_DEC_2020)
+Rabatt-Link: [Cpp Kurs im Rabatt](https://www.udemy.com/course/der-komplettkurs-zur-modernen-c-programmierung/?couponCode=FRANNECK_JAN_2021)
 
 ## Bewertungen von Kursteilnehmern
 
