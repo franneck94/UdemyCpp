@@ -3,7 +3,7 @@
 
 #include "Game.h"
 
-constexpr unsigned int LEN_X = 10u;
+constexpr unsigned int LEN_X = 10;
 constexpr unsigned int START = 0;
 constexpr unsigned int GOAL = LEN_X - 1;
 
@@ -25,9 +25,8 @@ void print_game_state(unsigned int player)
 
     for (unsigned int i = 0; i < LEN_X; i++)
     {
-        std::cout << game_state[i] << " ";
+        std::cout << game_state[i];
     }
-    std::cout << std::endl;
 }
 
 unsigned int execute_move(unsigned int player, char move)

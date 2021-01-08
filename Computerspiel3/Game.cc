@@ -3,24 +3,27 @@
 
 #include "Game.h"
 
-#define LEN_X 5
-#define LEN_Y 5
-#define LEFT 'a'
-#define RIGHT 'd'
-#define UP 'w'
-#define DOWN 's'
+constexpr unsigned int LEN_X = 5;
+constexpr unsigned int LEN_Y = 5;
+constexpr Position START = { 0, 0 };
+constexpr Position GOAL = { LEN_X - 1, LEN_Y - 1 };
 
-void print_game_state(Position player, Position goal, Position start)
+constexpr char LEFT = 'a';
+constexpr char RIGHT = 'd';
+constexpr char UP = 'w';
+constexpr char DOWN = 's';
+
+void print_game_state(Position player)
 {
     GameState game_state(LEN_X, std::string(LEN_Y, '.'));
 
-    game_state[start.first][start.second] = '|';
+    game_state[START.first][START.second] = '|';
+    game_state[GOAL.first][GOAL.second] = '|';
     game_state[player.first][player.second] = 'P';
-    game_state[goal.first][goal.second] = '|';
 
-    for (int i = 0; i < LEN_X; ++i)
+    for (unsigned int i = 0; i < LEN_X; ++i)
     {
-        for (int j = 0; j < LEN_Y; ++j)
+        for (unsigned int j = 0; j < LEN_Y; ++j)
         {
             std::cout << game_state[i][j] << " ";
         }
@@ -31,37 +34,38 @@ void print_game_state(Position player, Position goal, Position start)
 
 Position execute_move(Position player, ConsoleInput move)
 {
-    // Fuehre den eingegebenen move aus
-    if (move == LEFT)
+    if (LEFT == move)
     {
-        if (player.second > 0)
+        if (player.second > START.second)
         {
             player.second--;
-            std::cout << "You moved left!" << std::endl;
+
+            std::cout << "You moved to the left!" << std::endl;
         }
         else
         {
             std::cout << "You bounced!" << std::endl;
         }
     }
-    else if (move == RIGHT)
+    else if (RIGHT == move)
     {
-        // player <= 8
-        if (player.second < LEN_Y - 1)
+        if (player.second < GOAL.second)
         {
             player.second++;
-            std::cout << "You moved right!" << std::endl;
+
+            std::cout << "You moved to the right!" << std::endl;
         }
         else
         {
             std::cout << "You bounced!" << std::endl;
         }
     }
-    else if (move == UP)
+    else if (UP == move)
     {
-        if (player.first > 0)
+        if (player.first > START.first)
         {
             player.first--;
+
             std::cout << "You moved up!" << std::endl;
         }
         else
@@ -71,9 +75,10 @@ Position execute_move(Position player, ConsoleInput move)
     }
     else if (move == DOWN)
     {
-        if (player.first < LEN_X - 1)
+        if (player.first < GOAL.first)
         {
             player.first++;
+
             std::cout << "You moved down!" << std::endl;
         }
         else
@@ -89,12 +94,12 @@ Position execute_move(Position player, ConsoleInput move)
     return player;
 }
 
-bool is_finished(Position player, Position goal)
+bool is_finished(Position player)
 {
-    // Ueberpreufe ob das Spiel gewonnen ist
-    if (player == goal)
+    if (GOAL == player)
     {
         std::cout << "You won the game!" << std::endl;
+
         return true;
     }
     else
@@ -105,22 +110,16 @@ bool is_finished(Position player, Position goal)
 
 void game()
 {
-    // LEN_X = 10
-    // Wir haben 10 Spielfelder insgesamt
-    // Pos 0: Start, Pos 9: Ziel
     Position player(0, 0);
-    Position start(0, 0);
-    Position goal(LEN_X - 1, LEN_Y - 1);
-
     ConsoleInput move;
     bool finished = false;
 
     while (!finished)
     {
-        print_game_state(player, goal, start);
+        print_game_state(player);
         std::cin >> move;
         system("clear");
         player = execute_move(player, move);
-        finished = is_finished(player, goal);
+        finished = is_finished(player);
     }
 }
