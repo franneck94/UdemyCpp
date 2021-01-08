@@ -1,7 +1,4 @@
 #include <iostream>
-#include <stdlib.h>
-
-#include "Game.h"
 
 constexpr unsigned int LEN_X = 10;
 constexpr unsigned int START = 0;
@@ -14,16 +11,16 @@ void print_game_state(unsigned int player)
 {
     char game_state[LEN_X];
 
-    for (unsigned int i = 0; i < LEN_X; i++)
+    for(unsigned int i = 0; i < LEN_X; i++)
     {
         game_state[i] = '.';
     }
 
     game_state[START] = '|';
-    game_state[player] = 'P';
     game_state[GOAL] = '|';
+    game_state[player] = 'P';
 
-    for (unsigned int i = 0; i < LEN_X; i++)
+    for(unsigned int i = 0; i < LEN_X; i++)
     {
         std::cout << game_state[i];
     }
@@ -36,6 +33,7 @@ unsigned int execute_move(unsigned int player, char move)
         if (player > START)
         {
             player--;
+
             std::cout << "You moved to the left!" << std::endl;
         }
         else
@@ -48,6 +46,7 @@ unsigned int execute_move(unsigned int player, char move)
         if (player < GOAL)
         {
             player++;
+
             std::cout << "You moved to the right!" << std::endl;
         }
         else
@@ -65,15 +64,16 @@ unsigned int execute_move(unsigned int player, char move)
 
 bool is_finished(unsigned int player)
 {
+    bool finished = false;
+
     if (player == GOAL)
     {
+        finished = true;
+
         std::cout << "You won the game!" << std::endl;
-        return true;
     }
-    else
-    {
-        return false;
-    }
+
+    return finished;
 }
 
 void game()
@@ -82,7 +82,7 @@ void game()
     char move;
     bool finished = false;
 
-    while (!finished)
+    while(!finished)
     {
         print_game_state(player);
         std::cin >> move;
