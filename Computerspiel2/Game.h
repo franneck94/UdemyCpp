@@ -1,7 +1,9 @@
-void print_game_state(unsigned int player_pos, unsigned int goal, unsigned int start);
+#pragma once
 
-unsigned int execute_move(unsigned int player_pos, char move);
+void print_game_state(unsigned int player, unsigned int goal, unsigned int start);
 
-bool is_finished(unsigned int player_pos, unsigned int goal);
+unsigned int execute_move(unsigned int player, char move);
+
+bool is_finished(unsigned int player, unsigned int goal);
 
 void game();

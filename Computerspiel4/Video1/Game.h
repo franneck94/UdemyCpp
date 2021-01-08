@@ -11,11 +11,11 @@ typedef std::vector<Position> Obstacles;
 
 void print_game_state(GameState &game_state);
 
-GameState update_game_state(Position &player_pos, Position &goal, Position &start);
+GameState update_game_state(Position &player, Position &goal, Position &start);
 
-Position execute_move(Position &player_pos, ConsoleInput &move);
+Position execute_move(Position &player, ConsoleInput &move);
 
-bool is_finished(Position &player_pos, Position &goal);
+bool is_finished(Position &player, Position &goal);
 
 UInt random_uint(const UInt &lbound, const UInt &ubound);
 

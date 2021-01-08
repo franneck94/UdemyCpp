@@ -8,10 +8,10 @@ typedef char ConsoleInput;
 typedef std::pair<UInt, UInt> Position;
 typedef std::vector<std::string> GameState;
 
-void print_game_state(Position player_pos, Position goal, Position start);
+void print_game_state(Position player, Position goal, Position start);
 
-Position execute_move(Position player_pos, ConsoleInput move);
+Position execute_move(Position player, ConsoleInput move);
 
-bool is_finished(Position player_pos, Position goal);
+bool is_finished(Position player, Position goal);
 
 void game();

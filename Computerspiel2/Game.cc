@@ -3,52 +3,53 @@
 
 #include "Game.h"
 
-#define LEN_X 10
-#define LEFT 'a'
-#define RIGHT 'd'
+constexpr unsigned int LEN_X = 10u;
+constexpr unsigned int START = 0;
+constexpr unsigned int GOAL = LEN_X - 1;
 
-void print_game_state(unsigned int player_pos, unsigned int goal, unsigned int start)
+constexpr char LEFT = 'a';
+constexpr char RIGHT = 'd';
+
+void print_game_state(unsigned int player)
 {
     char game_state[LEN_X];
 
-    for (int i = 0; i < LEN_X; i++)
+    for (unsigned int i = 0; i < LEN_X; i++)
     {
         game_state[i] = '.';
     }
 
-    game_state[start] = '|';
-    game_state[player_pos] = 'P';
-    game_state[goal] = '|';
+    game_state[START] = '|';
+    game_state[player] = 'P';
+    game_state[GOAL] = '|';
 
-    for (int i = 0; i < LEN_X; i++)
+    for (unsigned int i = 0; i < LEN_X; i++)
     {
         std::cout << game_state[i] << " ";
     }
     std::cout << std::endl;
 }
 
-unsigned int execute_move(unsigned int player_pos, char move)
+unsigned int execute_move(unsigned int player, char move)
 {
-    // Fuehre den eingegebenen move aus
-    if (move == LEFT)
+    if (LEFT == move)
     {
-        if (player_pos > 0)
+        if (player > START)
         {
-            player_pos--;
-            std::cout << "You moved left!" << std::endl;
+            player--;
+            std::cout << "You moved to the left!" << std::endl;
         }
         else
         {
             std::cout << "You bounced!" << std::endl;
         }
     }
-    else if (move == RIGHT)
+    else if (RIGHT == move)
     {
-        // player_pos <= 8
-        if (player_pos < LEN_X - 1)
+        if (player < GOAL)
         {
-            player_pos++;
-            std::cout << "You moved right!" << std::endl;
+            player++;
+            std::cout << "You moved to the right!" << std::endl;
         }
         else
         {
@@ -60,13 +61,12 @@ unsigned int execute_move(unsigned int player_pos, char move)
         std::cout << "Unrecognized move!" << std::endl;
     }
 
-    return player_pos;
+    return player;
 }
 
-bool is_finished(unsigned int player_pos, unsigned int goal)
+bool is_finished(unsigned int player)
 {
-    // Ueberpreufe ob das Spiel gewonnen ist
-    if (player_pos == goal)
+    if (player == GOAL)
     {
         std::cout << "You won the game!" << std::endl;
         return true;
@@ -79,22 +79,16 @@ bool is_finished(unsigned int player_pos, unsigned int goal)
 
 void game()
 {
-    // LEN_X = 10
-    // Wir haben 10 Spielfelder insgesamt
-    // Pos 0: Start, Pos 9: Ziel
-    unsigned int player_pos = 0;
-    unsigned int start = 0;
-    unsigned int goal = LEN_X - 1;
-
+    unsigned int player = 0;
     char move;
     bool finished = false;
 
     while (!finished)
     {
-        print_game_state(player_pos, goal, start);
+        print_game_state(player);
         std::cin >> move;
         system("clear");
-        player_pos = execute_move(player_pos, move);
-        finished = is_finished(player_pos, goal);
+        player = execute_move(player, move);
+        finished = is_finished(player);
     }
 }

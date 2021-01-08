@@ -10,6 +10,7 @@
     // For all OS
     "make": "make",
     "files.associations": {
+        "*.h": "cpp",
         "iostream": "cpp",
         "ostream": "cpp",
         "algorithm": "cpp",
@@ -97,6 +98,20 @@
         "future": "cpp",
         "iomanip": "cpp",
         "mutex": "cpp",
-        "resumable": "cpp"
+        "resumable": "cpp",
+        "__bit_reference": "cpp",
+        "__config": "cpp",
+        "__debug": "cpp",
+        "__errc": "cpp",
+        "__functional_base": "cpp",
+        "__hash_table": "cpp",
+        "__locale": "cpp",
+        "__mutex_base": "cpp",
+        "__node_handle": "cpp",
+        "__nullptr": "cpp",
+        "__split_buffer": "cpp",
+        "__string": "cpp",
+        "__threading_support": "cpp",
+        "__tuple": "cpp"
     },
 }

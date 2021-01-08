@@ -8,12 +8,12 @@
 #define LEFT 'a'
 #define RIGHT 'd'
 
-void print_game_state(Position player_pos, Position goal, Position start)
+void print_game_state(Position player, Position goal, Position start)
 {
     GameState game_state(LEN_X, std::string(LEN_Y, '.'));
 
     game_state[start.first][start.second] = '|';
-    game_state[player_pos.first][player_pos.second] = 'P';
+    game_state[player.first][player.second] = 'P';
     game_state[goal.first][goal.second] = '|';
 
     for (int i = 0; i < LEN_X; ++i)
@@ -27,14 +27,14 @@ void print_game_state(Position player_pos, Position goal, Position start)
     }
 }
 
-Position execute_move(Position player_pos, ConsoleInput move)
+Position execute_move(Position player, ConsoleInput move)
 {
     // Fuehre den eingegebenen move aus
     if (move == LEFT)
     {
-        if (player_pos.second > 0)
+        if (player.second > 0)
         {
-            player_pos.second--;
+            player.second--;
             std::cout << "You moved left!" << std::endl;
         }
         else
@@ -44,10 +44,10 @@ Position execute_move(Position player_pos, ConsoleInput move)
     }
     else if (move == RIGHT)
     {
-        // player_pos <= 8
-        if (player_pos.second < LEN_Y - 1)
+        // player <= 8
+        if (player.second < LEN_Y - 1)
         {
-            player_pos.second++;
+            player.second++;
             std::cout << "You moved right!" << std::endl;
         }
         else
@@ -60,13 +60,13 @@ Position execute_move(Position player_pos, ConsoleInput move)
         std::cout << "Unrecognized move!" << std::endl;
     }
 
-    return player_pos;
+    return player;
 }
 
-bool is_finished(Position player_pos, Position goal)
+bool is_finished(Position player, Position goal)
 {
     // Ueberpreufe ob das Spiel gewonnen ist
-    if (player_pos == goal)
+    if (player == goal)
     {
         std::cout << "You won the game!" << std::endl;
         return true;
@@ -82,7 +82,7 @@ void game()
     // LEN_X = 10
     // Wir haben 10 Spielfelder insgesamt
     // Pos 0: Start, Pos 9: Ziel
-    Position player_pos(0, 0);
+    Position player(0, 0);
     Position start(0, 0);
     Position goal(LEN_X - 1, LEN_Y - 1);
 
@@ -91,10 +91,10 @@ void game()
 
     while (!finished)
     {
-        print_game_state(player_pos, goal, start);
+        print_game_state(player, goal, start);
         std::cin >> move;
         system("clear");
-        player_pos = execute_move(player_pos, move);
-        finished = is_finished(player_pos, goal);
+        player = execute_move(player, move);
+        finished = is_finished(player, goal);
     }
 }
