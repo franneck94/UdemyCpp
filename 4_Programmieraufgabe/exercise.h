@@ -3,7 +3,7 @@
 #include <vector>
 
 // Aufgabe 1
-typedef std::vector<std::vector<double>> Matrix;
+using Matrix = std::vector<std::vector<double>>;
 
 // Aufgabe 2
 std::vector<double> max_row_values(Matrix &matrix);
