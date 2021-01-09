@@ -2,15 +2,21 @@
 
 #include "Helper.h"
 
-UInt random_uint(const UInt &lbound, const UInt &ubound)
+unsigned int random_uint(const unsigned int lower,
+                         const unsigned int upper)
 {
     std::random_device gen;
-    std::uniform_int_distribution<UInt> dist(lbound, ubound);
+    std::uniform_int_distribution<unsigned int> dist(lower, upper);
+
     return dist(gen);
 }
 
-Position random_position(const UInt &lbound1, const UInt &ubound1, const UInt &lbound2, const UInt &ubound2)
+Position random_position(const unsigned int lower_x,
+                         const unsigned int upper_x,
+                         const unsigned int lower_y,
+                         const unsigned int upper_y)
 {
-    Position pos(random_uint(lbound1, ubound1), random_uint(lbound2, ubound2));
+    Position pos(random_uint(lower_x, upper_x), random_uint(lower_y, upper_y));
+
     return pos;
 }

@@ -3,15 +3,32 @@
 
 #include "Game.h"
 
-constexpr unsigned int LEN_X = 5;
-constexpr unsigned int LEN_Y = 5;
-constexpr Position START = { 0, 0 };
-constexpr Position GOAL = { LEN_X - 1, LEN_Y - 1 };
-
-constexpr char LEFT = 'a';
-constexpr char RIGHT = 'd';
-constexpr char UP = 'w';
-constexpr char DOWN = 's';
+ConsoleInput map_user_input(char user_input)
+{
+    switch (user_input)
+    {
+    case 'a':
+    {
+        return ConsoleInput::LEFT;
+    }
+    case 'd':
+    {
+        return ConsoleInput::RIGHT;
+    }
+    case 'w':
+    {
+        return ConsoleInput::UP;
+    }
+    case 's':
+    {
+        return ConsoleInput::DOWN;
+    }
+    default:
+    {
+        return ConsoleInput::INVALID;
+    }
+    }
+}
 
 void print_game_state(Position player)
 {
@@ -34,7 +51,9 @@ void print_game_state(Position player)
 
 Position execute_move(Position player, ConsoleInput move)
 {
-    if (LEFT == move)
+    switch (move)
+    {
+    case ConsoleInput::LEFT:
     {
         if (player.second > START.second)
         {
@@ -46,8 +65,10 @@ Position execute_move(Position player, ConsoleInput move)
         {
             std::cout << "You bounced!" << std::endl;
         }
+
+        break;
     }
-    else if (RIGHT == move)
+    case ConsoleInput::RIGHT:
     {
         if (player.second < GOAL.second)
         {
@@ -59,8 +80,10 @@ Position execute_move(Position player, ConsoleInput move)
         {
             std::cout << "You bounced!" << std::endl;
         }
+
+        break;
     }
-    else if (UP == move)
+    case ConsoleInput::UP:
     {
         if (player.first > START.first)
         {
@@ -72,8 +95,10 @@ Position execute_move(Position player, ConsoleInput move)
         {
             std::cout << "You bounced!" << std::endl;
         }
+
+        break;
     }
-    else if (move == DOWN)
+    case ConsoleInput::DOWN:
     {
         if (player.first < GOAL.first)
         {
@@ -85,10 +110,16 @@ Position execute_move(Position player, ConsoleInput move)
         {
             std::cout << "You bounced!" << std::endl;
         }
+
+        break;
     }
-    else
+    case ConsoleInput::INVALID: /* Fallthrough to default */
+    default:
     {
         std::cout << "Unrecognized move!" << std::endl;
+
+        break;
+    }
     }
 
     return player;
@@ -98,8 +129,6 @@ bool is_finished(Position player)
 {
     if (GOAL == player)
     {
-        std::cout << "You won the game!" << std::endl;
-
         return true;
     }
     else
@@ -111,13 +140,15 @@ bool is_finished(Position player)
 void game()
 {
     Position player(0, 0);
+    char user_input;
     ConsoleInput move;
     bool finished = false;
 
     while (!finished)
     {
         print_game_state(player);
-        std::cin >> move;
+        std::cin >> user_input;
+        move = map_user_input(user_input);
         system("clear");
         player = execute_move(player, move);
         finished = is_finished(player);

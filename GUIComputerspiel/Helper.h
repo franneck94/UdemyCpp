@@ -2,6 +2,6 @@
 
 #include "gamewindow.h"
 
-UInt random_uint(const UInt &lbound, const UInt &ubound);
+unsigned int random_uint(const unsigned int &lbound, const unsigned int &ubound);
 
-Position random_position(const UInt &lbound1, const UInt &ubound1, const UInt &lbound2, const UInt &ubound2);
+Position random_position(const unsigned int &lbound1, const unsigned int &ubound1, const unsigned int &lbound2, const unsigned int &ubound2);

@@ -9,9 +9,9 @@
 
 #include "Helper.h"
 
-typedef unsigned int UInt;
+typedef unsigned int unsigned int;
 typedef char ConsoleInput;
-typedef std::pair<UInt, UInt> Position;
+typedef std::pair<unsigned int, unsigned int> Position;
 typedef std::vector<std::string> GameState;
 typedef std::vector<Position> Obstacles;
 
@@ -63,12 +63,12 @@ class GameWindow : public QMainWindow
     bool is_occupied(Position &pos);
 
   private:
-    const UInt LEN_X;
-    const UInt LEN_Y;
+    const unsigned int LEN_X;
+    const unsigned int LEN_Y;
     GameState m_game_state;
     Position m_player;
     Position m_goal;
-    UInt m_num_obstacles;
+    unsigned int m_num_obstacles;
     Obstacles m_obstacles;
 
   private:

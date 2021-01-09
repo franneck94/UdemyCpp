@@ -5,9 +5,9 @@
 #include <vector>
 
 
-typedef unsigned int UInt;
+typedef unsigned int unsigned int;
 typedef char ConsoleInput;
-typedef std::pair<UInt, UInt> Position;
+typedef std::pair<unsigned int, unsigned int> Position;
 typedef std::vector<std::string> GameState;
 typedef std::vector<Position> Obstacles;
 
@@ -25,7 +25,7 @@ public:
   /*********************************/
   /*   CONSTRUCTOR / DESTRUCTOR    */
   /*********************************/
-  Game(const UInt &len_x, const UInt &len_y);
+  Game(const unsigned int &len_x, const unsigned int &len_y);
   ~Game();
 
   /*********************************/
@@ -60,8 +60,8 @@ private:
   GameState m_game_state;
   Position m_player;
   Position m_goal;
-  UInt m_num_obstacles;
+  unsigned int m_num_obstacles;
   Obstacles m_obstacles;
-  const UInt LEN_X;
-  const UInt LEN_Y;
+  const unsigned int LEN_X;
+  const unsigned int LEN_Y;
 };

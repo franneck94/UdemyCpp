@@ -1,28 +1,48 @@
+#pragma once
+
 #include <string>
 #include <utility>
 #include <vector>
 
+using Position = std::pair<unsigned int, unsigned int>;
+using GameState = std::vector<std::string>;
+using Obstacles = std::vector<Position>;
 
-typedef unsigned int UInt;
-typedef char ConsoleInput;
-typedef std::pair<UInt, UInt> Position;
-typedef std::vector<std::string> GameState;
-typedef std::vector<Position> Obstacles;
+constexpr unsigned int LEN_X = 5;
+constexpr unsigned int LEN_Y = 5;
+constexpr Position START = { 0, 0 };
+constexpr Position GOAL = { LEN_X - 1, LEN_Y - 1 };
 
-void print_game_state(GameState &game_state);
+enum class ConsoleInput : int
+{
+  LEFT = 0,
+  RIGHT = 1,
+  UP = 2,
+  DOWN = 3,
+  INVALID = 4
+};
 
-GameState update_game_state(Position &player, Position &goal, Position &start, Obstacles &obstacles);
+ConsoleInput map_user_input(char user_input);
 
-Position execute_move(Position &player, ConsoleInput &move, Obstacles &obstacles, bool &finished);
+void print_game_state(const GameState &game_state);
 
-bool is_dead(Position &pos, Obstacles &obstacles);
+GameState update_game_state(const Position &player,
+                            const Obstacles &obstacles);
 
-bool is_valid_move(Position &new_pos);
+void execute_move(Position &player,
+                  const ConsoleInput &move);
 
-bool is_finished(Position &player, Position &goal);
+bool is_dead(const Position &pos,
+             const Obstacles &obstacles);
 
-UInt random_uint(const UInt &lbound, const UInt &ubound);
+bool is_finished(const Position &player);
 
-Position random_position(const UInt &lbound1, const UInt &ubound1, const UInt &lbound2, const UInt &ubound2);
+unsigned int random_uint(const unsigned int lower,
+                         const unsigned int upper);
+
+Position random_position(const unsigned int lower_x,
+                         const unsigned int upper_x,
+                         const unsigned int lower_y,
+                         const unsigned int upper_y);
 
 void game();

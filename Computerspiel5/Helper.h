@@ -2,6 +2,10 @@
 
 #include "Game.h"
 
-UInt random_uint(const UInt &lbound, const UInt &ubound);
+unsigned int random_uint(const unsigned int lower,
+                         const unsigned int upper);
 
-Position random_position(const UInt &lbound1, const UInt &ubound1, const UInt &lbound2, const UInt &ubound2);
+Position random_position(const unsigned int lower_x,
+                         const unsigned int upper_x,
+                         const unsigned int lower_y,
+                         const unsigned int upper_y);

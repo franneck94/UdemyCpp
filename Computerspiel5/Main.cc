@@ -6,17 +6,13 @@
 int main()
 {
     bool repeat = true;
-    Game game(10, 10);
 
-    while (true)
+    while (repeat)
     {
-        game.start_game();
+        game();
 
         std::cout << "Play again? (0=N, 1=Y)" << std::endl;
         std::cin >> repeat;
-
-        if (repeat == 0)
-            break;
 
         system("clear");
     }

@@ -93,7 +93,7 @@ void GameWindow::move_obstacles()
 
     for (auto &obs : m_obstacles)
     {
-        UInt random_move_idx = random_uint(0, 3);
+        unsigned int random_move_idx = random_uint(0, 3);
         char move = move_set[random_move_idx];
         Position new_pos;
 

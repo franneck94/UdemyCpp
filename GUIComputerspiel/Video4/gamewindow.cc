@@ -33,7 +33,7 @@ GameWindow::~GameWindow()
 /*********************************/
 void GameWindow::start_game()
 {
-    UInt active_num_obstacles = m_obstacles_combo_box->currentText().toUInt();
+    unsigned int active_num_obstacles = m_obstacles_combo_box->currentText().toUInt();
     std::cout << "Start Game with: " << active_num_obstacles << " Obstacles!" << std::endl;
 
     m_points_label->setText("0");
@@ -125,7 +125,7 @@ void GameWindow::move_obstacles()
 
     for (auto &obs : m_obstacles)
     {
-        UInt random_move_idx = random_uint(0, 3);
+        unsigned int random_move_idx = random_uint(0, 3);
         char move = move_set[random_move_idx];
         Position new_pos;
 

@@ -7,7 +7,7 @@
 /*********************************/
 /*   CONSTRUCTOR / DESTRUCTOR    */
 /*********************************/
-Game::Game(const UInt &len_x, const UInt &len_y) : LEN_X(len_x), LEN_Y(len_y), m_num_obstacles(3)
+Game::Game(const unsigned int &len_x, const unsigned int &len_y) : LEN_X(len_x), LEN_Y(len_y), m_num_obstacles(3)
 {
     std::cout << "Created Game Instance - with GridSize: " << LEN_X << "," << LEN_Y << std::endl;
 }
@@ -117,7 +117,7 @@ void Game::move_obstacles()
 
     for (auto &obs : m_obstacles)
     {
-        UInt random_move_idx = random_uint(0, 3);
+        unsigned int random_move_idx = random_uint(0, 3);
         char move = move_set[random_move_idx];
         Position new_pos;
 
