@@ -8,15 +8,12 @@ int main()
     bool repeat = true;
     Game game;
 
-    while (true)
+    while(repeat)
     {
         game.start_game();
 
-        std::cout << "Play again? (0=N, 1=Y)" << std::endl;
+        std::cout << "Play again? (0=No, 1=Yes)" << std::endl;
         std::cin >> repeat;
-
-        if (repeat == 0)
-            break;
 
         system("clear");
     }
