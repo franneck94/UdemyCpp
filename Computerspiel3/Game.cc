@@ -1,11 +1,10 @@
 #include <iostream>
-#include <stdlib.h>
 
 #include "Game.h"
 
 ConsoleInput map_user_input(char user_input)
 {
-    switch (user_input)
+    switch(user_input)
     {
     case 'a':
     {
@@ -38,9 +37,9 @@ void print_game_state(Position player)
     game_state[GOAL.first][GOAL.second] = '|';
     game_state[player.first][player.second] = 'P';
 
-    for (unsigned int i = 0; i < LEN_X; ++i)
+    for(unsigned int i = 0; i < LEN_X; i++)
     {
-        for (unsigned int j = 0; j < LEN_Y; ++j)
+        for (unsigned int j = 0; j < LEN_Y; j++)
         {
             std::cout << game_state[i][j] << " ";
         }
@@ -49,9 +48,10 @@ void print_game_state(Position player)
     }
 }
 
-Position execute_move(Position player, ConsoleInput move)
+Position execute_move(Position player,
+                      ConsoleInput move)
 {
-    switch (move)
+    switch(move)
     {
     case ConsoleInput::LEFT:
     {
@@ -89,7 +89,7 @@ Position execute_move(Position player, ConsoleInput move)
         {
             player.first--;
 
-            std::cout << "You moved up!" << std::endl;
+            std::cout << "You moved upwards!" << std::endl;
         }
         else
         {
@@ -104,7 +104,7 @@ Position execute_move(Position player, ConsoleInput move)
         {
             player.first++;
 
-            std::cout << "You moved down!" << std::endl;
+            std::cout << "You moved downwards!" << std::endl;
         }
         else
         {
@@ -113,7 +113,7 @@ Position execute_move(Position player, ConsoleInput move)
 
         break;
     }
-    case ConsoleInput::INVALID: /* Fallthrough to default */
+    case ConsoleInput::INVALID:
     default:
     {
         std::cout << "Unrecognized move!" << std::endl;
@@ -127,24 +127,26 @@ Position execute_move(Position player, ConsoleInput move)
 
 bool is_finished(Position player)
 {
+    bool finished = false;
+
     if (GOAL == player)
     {
-        return true;
+        finished = true;
+
+        std::cout << "You won the game!" << std::endl;
     }
-    else
-    {
-        return false;
-    }
+
+    return finished;
 }
 
 void game()
 {
-    Position player(0, 0);
+    Position player = { 0, 0 };
     char user_input;
     ConsoleInput move;
     bool finished = false;
 
-    while (!finished)
+    while(!finished)
     {
         print_game_state(player);
         std::cin >> user_input;

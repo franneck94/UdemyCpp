@@ -4,64 +4,59 @@
 #include <utility>
 #include <vector>
 
+using Position = std::pair<unsigned int, unsigned int>;
+using GameState = std::vector<std::string>;
+using Obstacles = std::vector<Position>;
 
-typedef unsigned int unsigned int;
-typedef char ConsoleInput;
-typedef std::pair<unsigned int, unsigned int> Position;
-typedef std::vector<std::string> GameState;
-typedef std::vector<Position> Obstacles;
+constexpr unsigned int LEN_X = 5;
+constexpr unsigned int LEN_Y = 5;
+constexpr Position START = { 0, 0 };
+constexpr Position GOAL = { LEN_X - 1, LEN_Y - 1 };
+constexpr unsigned int NUM_OBSTACLES = 3;
 
-enum
+enum class ConsoleInput : int
 {
-  LEFT = 'a',
-  RIGHT = 'd',
-  UP = 'w',
-  DOWN = 's'
+    LEFT = 0,
+    RIGHT = 1,
+    UP = 2,
+    DOWN = 3,
+    INVALID = 4
 };
 
 class Game
 {
 public:
-  /*********************************/
-  /*   CONSTRUCTOR / DESTRUCTOR    */
-  /*********************************/
-  Game(const unsigned int &len_x, const unsigned int &len_y);
-  ~Game();
+    Game();
 
-  /*********************************/
-  /*         GAME FUNCTIONS        */
-  /*********************************/
+    ConsoleInput map_user_input(char user_input);
 
-  void start_game();
+    void update_game_state();
 
-  void update_game_state();
+    void print_game_state();
 
-  void print_game_state();
+    void move_player(ConsoleInput move);
 
-  void move_player(ConsoleInput &move, bool &finished);
+    void move_obstacles();
 
-  void move_obstacles();
+    void generate_random_obstacles();
 
-  void generate_random_obstacles();
+    bool is_dead();
 
-  /*********************************/
-  /*      GAME LOGIC FUNCTIONS     */
-  /*********************************/
+    bool is_finished();
 
-  bool is_killed(Position &pos);
+    unsigned int random_uint(const unsigned int lower,
+                             const unsigned int upper);
 
-  bool is_inbounds(Position &pos);
+    Position random_position(const unsigned int lower_x,
+                             const unsigned int upper_x,
+                             const unsigned int lower_y,
+                             const unsigned int upper_y);
 
-  bool is_finished();
-
-  bool is_occupied(Position &pos);
+    void start_game();
 
 private:
-  GameState m_game_state;
-  Position m_player;
-  Position m_goal;
-  unsigned int m_num_obstacles;
-  Obstacles m_obstacles;
-  const unsigned int LEN_X;
-  const unsigned int LEN_Y;
+    Position m_player;
+    Position m_goal;
+    GameState m_game_state;
+    Obstacles m_obstacles;
 };

@@ -15,27 +15,27 @@ constexpr Position GOAL = { LEN_X - 1, LEN_Y - 1 };
 
 enum class ConsoleInput : int
 {
-  LEFT = 0,
-  RIGHT = 1,
-  UP = 2,
-  DOWN = 3,
-  INVALID = 4
+    LEFT = 0,
+    RIGHT = 1,
+    UP = 2,
+    DOWN = 3,
+    INVALID = 4
 };
 
 ConsoleInput map_user_input(char user_input);
 
-void print_game_state(const GameState &game_state);
-
 GameState update_game_state(const Position &player,
                             const Obstacles &obstacles);
 
-void execute_move(Position &player,
-                  const ConsoleInput &move);
+void print_game_state(const GameState &game_state);
 
-bool is_dead(const Position &pos,
+Position execute_move(Position player,
+                      ConsoleInput move);
+
+bool is_dead(const Position &player,
              const Obstacles &obstacles);
 
-bool is_finished(const Position &player);
+bool is_finished(Position player);
 
 unsigned int random_uint(const unsigned int lower,
                          const unsigned int upper);

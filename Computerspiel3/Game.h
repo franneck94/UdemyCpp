@@ -14,11 +14,11 @@ constexpr Position GOAL = { LEN_X - 1, LEN_Y - 1 };
 
 enum class ConsoleInput : int
 {
-  LEFT = 0,
-  RIGHT = 1,
-  UP = 2,
-  DOWN = 3,
-  INVALID = 4
+    LEFT = 0,
+    RIGHT = 1,
+    UP = 2,
+    DOWN = 3,
+    INVALID = 4
 };
 
 ConsoleInput map_user_input(char user_input);

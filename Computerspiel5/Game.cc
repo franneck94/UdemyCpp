@@ -1,46 +1,42 @@
 #include <iostream>
 #include <stdlib.h>
+#include <random>
 
 #include "Game.h"
-#include "Helper.h"
 
-/*********************************/
-/*   CONSTRUCTOR / DESTRUCTOR    */
-/*********************************/
-Game::Game(const unsigned int &len_x, const unsigned int &len_y) : LEN_X(len_x), LEN_Y(len_y), m_num_obstacles(3)
+Game::Game() :
+    m_player(Position(0, 0)),
+    m_goal(random_position(2, LEN_X - 1, 2, LEN_Y - 1)),
+    m_game_state(GameState()),
+    m_obstacles(Obstacles(NUM_OBSTACLES, Position(0, 0)))
 {
-    std::cout << "Created Game Instance - with GridSize: " << LEN_X << "," << LEN_Y << std::endl;
-}
-
-Game::~Game()
-{
-    std::cout << "Deleted Game Instance" << std::endl;
-}
-
-/*********************************/
-/*         GAME FUNCTIONS        */
-/*********************************/
-
-void Game::start_game()
-{
-    m_player = Position(0, 0);
-    m_goal = random_position(2, LEN_X - 1, 2, LEN_Y - 1);
     generate_random_obstacles();
-    m_game_state = GameState();
+}
 
-    ConsoleInput move;
-    bool finished = false;
-
-    while (!finished)
+ConsoleInput Game::map_user_input(char user_input)
+{
+    switch(user_input)
     {
-        update_game_state();
-        print_game_state();
-        std::cin >> move;
-        system("clear");
-        move_player(move, finished);
-        move_obstacles();
-        if (is_finished())
-            finished = true;
+    case 'a':
+    {
+        return ConsoleInput::LEFT;
+    }
+    case 'd':
+    {
+        return ConsoleInput::RIGHT;
+    }
+    case 'w':
+    {
+        return ConsoleInput::UP;
+    }
+    case 's':
+    {
+        return ConsoleInput::DOWN;
+    }
+    default:
+    {
+        return ConsoleInput::INVALID;
+    }
     }
 }
 
@@ -48,20 +44,20 @@ void Game::update_game_state()
 {
     m_game_state = GameState(LEN_X, std::string(LEN_Y, '.'));
 
-    for (auto &obs : m_obstacles)
+    for (const auto &obs : m_obstacles)
     {
-        m_game_state[obs.first][obs.second] = 'X';
+        m_game_state[obs.first][obs.second] = 'x';
     }
 
     m_game_state[m_player.first][m_player.second] = 'P';
-    m_game_state[m_goal.first][m_goal.second] = 'O';
+    m_game_state[m_goal.first][m_goal.second] = '|';
 }
 
 void Game::print_game_state()
 {
-    for (int i = 0; i < LEN_X; ++i)
+    for (unsigned int i = 0; i < LEN_X; ++i)
     {
-        for (int j = 0; j < LEN_Y; ++j)
+        for (unsigned int j = 0; j < LEN_Y; ++j)
         {
             std::cout << m_game_state[i][j] << " ";
         }
@@ -70,75 +66,90 @@ void Game::print_game_state()
     }
 }
 
-void Game::move_player(ConsoleInput &move, bool &finished)
+void Game::move_player(ConsoleInput move)
 {
-    Position new_pos;
+    switch(move)
+    {
+    case ConsoleInput::LEFT:
+    {
+        if (m_player.second > START.second)
+        {
+            m_player.second--;
 
-    if (move == LEFT)
-    {
-        new_pos = Position(m_player.first, m_player.second - 1);
+            std::cout << "You moved to the left!" << std::endl;
+        }
+        else
+        {
+            std::cout << "You bounced!" << std::endl;
+        }
+
+        break;
     }
-    else if (move == RIGHT)
+    case ConsoleInput::RIGHT:
     {
-        new_pos = Position(m_player.first, m_player.second + 1);
+        if (m_player.second < GOAL.second)
+        {
+            m_player.second++;
+
+            std::cout << "You moved to the right!" << std::endl;
+        }
+        else
+        {
+            std::cout << "You bounced!" << std::endl;
+        }
+
+        break;
     }
-    else if (move == UP)
+    case ConsoleInput::UP:
     {
-        new_pos = Position(m_player.first - 1, m_player.second);
+        if (m_player.first > START.first)
+        {
+            m_player.first--;
+
+            std::cout << "You moved upwards!" << std::endl;
+        }
+        else
+        {
+            std::cout << "You bounced!" << std::endl;
+        }
+
+        break;
     }
-    else if (move == DOWN)
+    case ConsoleInput::DOWN:
     {
-        new_pos = Position(m_player.first + 1, m_player.second);
+        if (m_player.first < GOAL.first)
+        {
+            m_player.first++;
+
+            std::cout << "You moved downwards!" << std::endl;
+        }
+        else
+        {
+            std::cout << "You bounced!" << std::endl;
+        }
+
+        break;
     }
-    else
+    case ConsoleInput::INVALID:
+    default:
     {
         std::cout << "Unrecognized move!" << std::endl;
-    }
 
-    if (is_killed(new_pos))
-    {
-        std::cout << "You died!" << std::endl;
-        finished = true;
+        break;
     }
-    else if (is_inbounds(new_pos))
-    {
-        std::cout << "You moved!" << std::endl;
-        m_player = new_pos;
-    }
-    else
-    {
-        std::cout << "You bounced!" << std::endl;
     }
 }
 
 void Game::move_obstacles()
 {
-    std::vector<char> move_set = { LEFT, UP, RIGHT, DOWN };
-
     for (auto &obs : m_obstacles)
     {
-        unsigned int random_move_idx = random_uint(0, 3);
-        char move = move_set[random_move_idx];
-        Position new_pos;
+        Position new_pos = random_position(-1, 1, -1, 1);
 
-        if (move == LEFT)
-        {
-            new_pos = Position(obs.first, obs.second - 1);
-        }
-        else if (move == RIGHT)
-        {
-            new_pos = Position(obs.first, obs.second + 1);
-        }
-        else if (move == UP)
-        {
-            new_pos = Position(obs.first - 1, obs.second);
-        }
-        else if (move == DOWN)
-        {
-            new_pos = Position(obs.first + 1, obs.second);
-        }
-
-        if (is_inbounds(new_pos) && !is_occupied(new_pos) && new_pos != m_player && new_pos != m_goal)
+        if (new_pos.first < LEN_X
+            && new_pos.second < LEN_Y
+            && new_pos != m_player
+            && new_pos != m_goal)
         {
             obs = new_pos;
         }
@@ -147,64 +158,79 @@ void Game::move_obstacles()
 
 void Game::generate_random_obstacles()
 {
-    m_obstacles = Obstacles(m_num_obstacles, Position(0, 0));
-
     for (auto &obs : m_obstacles)
     {
-        Position pos;
-
-        do
-        {
-            pos = random_position(1, LEN_X - 1, 1, LEN_Y - 1);
-        } while (is_occupied(pos));
-
-        obs = pos;
+        obs = random_position(1, LEN_X - 1, 1, LEN_Y - 1);
     }
 }
 
-/*********************************/
-/*      GAME LOGIC FUNCTIONS     */
-/*********************************/
-
-bool Game::is_killed(Position &pos)
+bool Game::is_dead()
 {
-    for (auto &obs : m_obstacles)
+    for (const auto &obs : m_obstacles)
     {
-        if (pos == obs)
+        if (m_player == obs)
             return true;
     }
 
     return false;
-}
-
-bool Game::is_inbounds(Position &pos)
-{
-    if (pos.first >= 0 && pos.second >= 0 && pos.first < LEN_X && pos.second < LEN_Y)
-        return true;
-    else
-        return false;
 }
 
 bool Game::is_finished()
 {
     if (m_player == m_goal)
     {
-        std::cout << "You won the game!" << std::endl;
         return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
-bool Game::is_occupied(Position &pos)
-{
-    for (auto &obs : m_obstacles)
-    {
-        if (pos == obs)
-            return true;
     }
 
     return false;
+}
+
+unsigned int Game::random_uint(const unsigned int lower,
+                               const unsigned int upper)
+{
+    std::random_device gen;
+    std::uniform_int_distribution<unsigned int> dist(lower, upper);
+
+    return dist(gen);
+}
+
+Position Game::random_position(const unsigned int lower_x,
+                               const unsigned int upper_x,
+                               const unsigned int lower_y,
+                               const unsigned int upper_y)
+{
+    Position pos(random_uint(lower_x, upper_x), random_uint(lower_y, upper_y));
+
+    return pos;
+}
+
+void Game::start_game()
+{
+    char user_input;
+    ConsoleInput move;
+    bool finished = false;
+
+    while (!finished)
+    {
+        update_game_state();
+        print_game_state();
+        std::cin >> user_input;
+        move = map_user_input(user_input);
+        system("clear");
+        move_player(move);
+        move_obstacles();
+
+        if(is_dead())
+        {
+            finished = true;
+
+            std::cout << "You died!" << std::endl;
+        }
+        else if(is_finished())
+        {
+            finished = true;
+
+            std::cout << "You won the game!" << std::endl;
+        }
+    }
 }
