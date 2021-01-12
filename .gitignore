@@ -7,6 +7,9 @@ TODO.txt
 # Unignore all dirs
 !*/
 
+test*
+build*
+
 .vscode/c_cpp_properties.json
 *.zip
 *.vcxproj
