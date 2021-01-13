@@ -5,10 +5,10 @@
 
 int main()
 {
-	// 1: auto val : vec (COPY BY VALUE) VERÄNDERN DER LOKALEN KOPIEN
-	// 2: auto &val : vec (CALL BY REFERENCE) VERÄNDERN IM EIGN. VECTOR
-	// 3: const auto &val : vec (CALL BY REFERENCE) KEIN VERÄNDERN IM EIGN. VECTOR
-	// 4: const auto val : vec (COPY BY VALUE) KEIN VERÄNDERN DER LOKALEN KOPIEN
+	// 1: auto val : vec => int val : vec
+	// 2: auto &val : vec => int& val : vec
+	// 3: const auto &val : vec => const int& val : vec
+	// 4: const auto val : vec => const int val : vec
 
 	std::vector<int> vec(10, 0);
 	std::iota(vec.begin(), vec.end(), 1);

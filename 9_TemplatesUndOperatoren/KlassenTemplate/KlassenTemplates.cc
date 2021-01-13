@@ -1,37 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <iterator>
-#include <algorithm>
-#include <functional>
-
-// Template class:
-// Nachteil template class member functions
-// können nicht virtual sein!
-// Keyword: typename und class im <...> Ausdruck äquivalent
-// Ebenfalls: Bei einer Template Klasse müssen die beim Aufruf die
-// Parameter angegeben werden.
-// Also Compile Time - Type Deducing funktioniert hier nicht.
-
-template <typename T>
-class Statistic
-{
-public:
-	Statistic<T>();
-	~Statistic<T>();
-
-	T get_min() const;
-	T get_max() const;
-	double get_mean() const;
-	void push_next_sample(T value);
-	void print_data();
-
-private:
-	T m_min;
-	T m_max;
-	double m_mean;
-	int m_num_samples;
-	std::vector<T> m_samples;
-};
+#include "KlassenTemplate.h"
 
 template <typename T>
 Statistic<T>::Statistic() :
@@ -93,20 +60,4 @@ void Statistic<T>::print_data()
 	std::cout << "Min: " << m_min << std::endl;
 	std::cout << "Mean: " << m_mean << std::endl;
 	std::cout << "------------------------------------------------" << std::endl;
-}
-
-int main()
-{
-	Statistic<float> stat1;
-
-	stat1.push_next_sample(1.0f);
-	stat1.push_next_sample(2.0f);
-	stat1.push_next_sample(3.0f);
-	stat1.push_next_sample(4.0f);
-	stat1.push_next_sample(5.0f);
-	stat1.push_next_sample(6.0f);
-
-	stat1.print_data();
-
-	return 0;
 }
