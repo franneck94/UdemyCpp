@@ -3,19 +3,9 @@
 #include <numeric>
 #include <vector>
 
-bool is_odd(int i)
-{
-	return (i % 2 == 1);
-}
-
 bool is_even(int i)
 {
 	return (i % 2 == 0);
-}
-
-bool third(int i)
-{
-	return (i % 3 == 0);
 }
 
 int main()

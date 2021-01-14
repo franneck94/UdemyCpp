@@ -2,8 +2,16 @@
 
 int main()
 {
-    Statistic<int> s;
-    s.push_next_sample(10);
+	Statistic<float> stat1;
 
-    return 0;
+	stat1.push_next_sample(1.0f);
+	stat1.push_next_sample(2.0f);
+	stat1.push_next_sample(3.0f);
+	stat1.push_next_sample(4.0f);
+	stat1.push_next_sample(5.0f);
+	stat1.push_next_sample(6.0f);
+
+	stat1.print_data();
+
+	return 0;
 }

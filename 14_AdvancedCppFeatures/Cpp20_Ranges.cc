@@ -1,6 +1,14 @@
+#include <algorithm>
 #include <iostream>
-#include <vector>
 #include <ranges>
+#include <vector>
+#include <string_view>
+
+auto print = [](auto const& view) {
+    for (std::cout << "{ "; const auto element : view)
+        std::cout << element << ' ';
+    std::cout << "} ";
+};
 
 int main()
 {
@@ -20,6 +28,11 @@ int main()
 
     for (auto v: results2) std::cout << v << " ";
     std::cout << std::endl;
+
+    constexpr std::string_view hello { "Hello C++ 20 !" };
+    auto res = hello | std::ranges::views::split(' ');
+    std::cout << "substrings: ";
+    std::ranges::for_each(res, print);
 
     return 0;
 }

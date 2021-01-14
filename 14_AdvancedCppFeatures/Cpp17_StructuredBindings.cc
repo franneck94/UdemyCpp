@@ -6,7 +6,12 @@ int main()
 {
     std::map<int, std::string> m;
 
-    auto [it, inserted] = m.insert({ 1, "one" });
-    std::cout << "inserted = " << inserted << '\n'
-        << "value = " << it->second << '\n';
+    const auto [it, inserted] = m.insert({ 1, "one" });
+    std::cout << "inserted = " << inserted << '\n' << "value = " << it->second << '\n';
+
+    constexpr int array[2] = { 1, 2 };
+    const auto [a0, a1] = array;
+
+    std::cout << "a0 = " << a0 << " a1 = " << a1 << std::endl;
+
 }
