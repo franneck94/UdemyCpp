@@ -38,8 +38,9 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
-
     ~MainWindow();
+
+    ConsoleInput map_user_input(char user_input);
 
     void update_game_state();
 
