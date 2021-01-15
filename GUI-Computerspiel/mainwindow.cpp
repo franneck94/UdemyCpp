@@ -1,107 +1,95 @@
 #include <iostream>
+#include <random>
+#include <QRandomGenerator>
 
-#include "Helper.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-
-MainWIndow::MainWIndow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWIndow), LEN_X(5), LEN_Y(5), m_max_num_obstacles(3)
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow),
+    m_player(Position(0, 0)),
+    m_goal(random_position(2, LEN_X - 1, 2, LEN_Y - 1)),
+    m_game_state(GameState(LEN_X, std::vector<QLabel *>(LEN_Y))),
+    m_obstacles(Obstacles(NUM_OBSTACLES, Position(0, 0)))
 {
     ui->setupUi(this);
-
     m_play_button = ui->playButton;
     m_field_grid_layout = ui->fieldGridLayout;
     m_points_label = ui->pointsLabel;
-    m_obstacles_combo_box = ui->obstaclesComboBox;
-
-    for (unsigned int i = m_max_num_obstacles; i > 0; --i)
-    {
-        m_obstacles_combo_box->addItem(QString::number(i));
-    }
-
     connect(m_play_button, SIGNAL(released()), this, SLOT(start_game()));
 }
 
-MainWIndow::~MainWIndow()
+MainWindow::~MainWindow()
 {
     delete ui;
 }
 
-/*********************************/
-/*      WIDGET FUNCTIONS         */
-/*********************************/
-void MainWIndow::start_game()
-{
-    unsigned int active_num_obstacles = m_obstacles_combo_box->currentText().toUInt();
-    std::cout << "Start Game with: " << active_num_obstacles << " Obstacles!" << std::endl;
-
-    m_points_label->setText("0");
-    m_points = 0;
-    m_in_game = true;
-
-    m_player = Position(0, 0);
-    m_goal = random_position(2, LEN_X - 1, 2, LEN_Y - 1);
-    generate_random_obstacles(active_num_obstacles);
-    m_game_state = GameState(LEN_X, std::vector<QLabel *>(LEN_Y));
-
-    for (unsigned int i = 0; i < LEN_X; ++i)
-    {
-        for (unsigned int j = 0; j < LEN_Y; ++j)
-        {
-            QString field_name = "Field" + QString::number(i) + "_" + QString::number(j);
-            m_game_state[i][j] = MainWIndow::findChild<QLabel *>(field_name);
-        }
-    }
-
-    update_game_state();
-}
-
-void MainWIndow::keyPressEvent(QKeyEvent *event)
+void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     if (m_in_game)
     {
-        KeyboardInput move;
+        ConsoleInput move;
 
         switch (event->key())
         {
-        case Qt::Key_W: {
-            std::cout << "W" << std::endl;
-            move = UP;
+        case Qt::Key_A:
+        {
+            move = ConsoleInput::LEFT;
             break;
         }
-        case Qt::Key_A: {
-            std::cout << "A" << std::endl;
-            move = LEFT;
+        case Qt::Key_D:
+        {
+            move = ConsoleInput::RIGHT;
             break;
         }
-        case Qt::Key_S: {
-            std::cout << "S" << std::endl;
-            move = DOWN;
+        case Qt::Key_W:
+        {
+            move = ConsoleInput::UP;
             break;
         }
-        case Qt::Key_D: {
-            std::cout << "D" << std::endl;
-            move = RIGHT;
+        case Qt::Key_S:
+        {
+            move = ConsoleInput::DOWN;
             break;
         }
-        default: {
-            std::cout << "Unrecognized move!" << std::endl;
-            return;
+        default:
+        {
+            move = ConsoleInput::INVALID;
+            break;
         }
         }
 
-        move_player(move);
-        move_obstacles();
-        update_game_state();
+        if (ConsoleInput::INVALID != move)
+        {
+            m_points++;
+        }
+
+        m_move = move;
+
+        if (ConsoleInput::INVALID != m_move)
+        {
+            move_player();
+            move_obstacles();
+            update_game_state();
+
+            if(is_dead())
+            {
+                m_in_game = false;
+
+                std::cout << "You died!" << std::endl;
+            }
+            else if(is_finished())
+            {
+                m_in_game = false;
+
+                std::cout << "You won the game!" << std::endl;
+            }
+        }
     }
 }
 
-/*********************************/
-/*         GAME FUNCTIONS        */
-/*********************************/
-
-void MainWIndow::update_game_state()
+void MainWindow::update_game_state()
 {
     for (unsigned int i = 0; i < LEN_X; ++i)
     {
@@ -121,132 +109,168 @@ void MainWIndow::update_game_state()
     m_points_label->setText(QString::number(m_points));
 }
 
-void MainWIndow::move_player(KeyboardInput &move)
+void MainWindow::move_player()
 {
-    Position new_pos;
-
-    if (move == LEFT)
+    switch(m_move)
     {
-        new_pos = Position(m_player.first, m_player.second - 1);
-    }
-    else if (move == RIGHT)
+    case ConsoleInput::LEFT:
     {
-        new_pos = Position(m_player.first, m_player.second + 1);
-    }
-    else if (move == UP)
-    {
-        new_pos = Position(m_player.first - 1, m_player.second);
-    }
-    else if (move == DOWN)
-    {
-        new_pos = Position(m_player.first + 1, m_player.second);
-    }
-
-    if (is_killed(new_pos))
-    {
-        std::cout << "You died!" << std::endl;
-        m_in_game = false;
-    }
-    else if (is_inbounds(new_pos))
-    {
-        m_player = new_pos;
-        m_points++;
-
-        if (is_finished())
+        if (m_player.second > START.second)
         {
-            std::cout << "You won!" << std::endl;
-            m_in_game = false;
+            m_player.second--;
+
+            std::cout << "You moved to the left!" << std::endl;
         }
+        else
+        {
+            std::cout << "You bounced!" << std::endl;
+        }
+
+        break;
+    }
+    case ConsoleInput::RIGHT:
+    {
+        if (m_player.second < LEN_Y)
+        {
+            m_player.second++;
+
+            std::cout << "You moved to the right!" << std::endl;
+        }
+        else
+        {
+            std::cout << "You bounced!" << std::endl;
+        }
+
+        break;
+    }
+    case ConsoleInput::UP:
+    {
+        if (m_player.first > START.first)
+        {
+            m_player.first--;
+
+            std::cout << "You moved upwards!" << std::endl;
+        }
+        else
+        {
+            std::cout << "You bounced!" << std::endl;
+        }
+
+        break;
+    }
+    case ConsoleInput::DOWN:
+    {
+        if (m_player.first < LEN_X)
+        {
+            m_player.first++;
+
+            std::cout << "You moved downwards!" << std::endl;
+        }
+        else
+        {
+            std::cout << "You bounced!" << std::endl;
+        }
+
+        break;
+    }
+    case ConsoleInput::INVALID:
+    default:
+    {
+        std::cout << "Unrecognized move!" << std::endl;
+
+        break;
+    }
     }
 }
 
-void MainWIndow::move_obstacles()
+void MainWindow::move_obstacles()
 {
-    std::vector<char> move_set = {LEFT, UP, RIGHT, DOWN};
-
     for (auto &obs : m_obstacles)
     {
-        unsigned int random_move_idx = random_uint(0, 3);
-        char move = move_set[random_move_idx];
-        Position new_pos;
+        Position offset = random_position(-1, 1, -1, 1);
 
-        if (move == LEFT)
+        if (obs.first + offset.first < LEN_X
+            && obs.second + offset.second < LEN_Y
+            && obs.first + offset.first != m_player.first
+            && obs.second + offset.second != m_player.second
+            && obs.first + offset.first != m_goal.first
+            && obs.second + offset.second != m_goal.second)
         {
-            new_pos = Position(obs.first, obs.second - 1);
-        }
-        else if (move == RIGHT)
-        {
-            new_pos = Position(obs.first, obs.second + 1);
-        }
-        else if (move == UP)
-        {
-            new_pos = Position(obs.first - 1, obs.second);
-        }
-        else if (move == DOWN)
-        {
-            new_pos = Position(obs.first + 1, obs.second);
-        }
-
-        if (is_inbounds(new_pos) && !is_occupied(new_pos) && new_pos != m_player && new_pos != m_goal)
-        {
-            obs = new_pos;
+            obs.first += offset.first;
+            obs.second += offset.second;
         }
     }
 }
 
-void MainWIndow::generate_random_obstacles(unsigned int &num_obstacles)
+void MainWindow::generate_random_obstacles()
 {
-    m_obstacles = Obstacles(num_obstacles, Position(0, 0));
-
     for (auto &obs : m_obstacles)
     {
         obs = random_position(1, LEN_X - 1, 1, LEN_Y - 1);
-        std::cout << obs.first << " " << obs.second << std::endl;
     }
 }
 
-/*********************************/
-/*      GAME LOGIC FUNCTIONS     */
-/*********************************/
-
-bool MainWIndow::is_killed(Position &pos)
+bool MainWindow::is_dead()
 {
-    for (auto &obs : m_obstacles)
+    for (const auto &obs : m_obstacles)
     {
-        if (pos == obs)
+        if(m_player == obs)
+        {
             return true;
+        }
     }
 
     return false;
 }
 
-bool MainWIndow::is_inbounds(Position &pos)
+bool MainWindow::is_finished()
 {
-    if (pos.first < LEN_X && pos.second < LEN_Y)
-        return true;
-    else
-        return false;
+    bool finished = false;
+
+    if (m_goal == m_player)
+    {
+        finished = true;
+    }
+
+    return finished;
 }
 
-bool MainWIndow::is_finished()
+unsigned int MainWindow::random_uint(const unsigned int lower,
+                                     const unsigned int upper)
 {
-    if (m_player == m_goal)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    auto dist = std::uniform_int_distribution<unsigned int>(lower, upper);
+
+    return dist(*QRandomGenerator::global());
 }
 
-bool MainWIndow::is_occupied(Position &pos)
+Position MainWindow::random_position(const unsigned int lower_x,
+                                     const unsigned int upper_x,
+                                     const unsigned int lower_y,
+                                     const unsigned int upper_y)
 {
-    for (auto &obs : m_obstacles)
+    Position pos(random_uint(lower_x, upper_x), random_uint(lower_y, upper_y));
+
+    return pos;
+}
+
+void MainWindow::start_game()
+{
+    m_points_label->setText("0");
+    m_points = 0;
+    m_in_game = true;
+
+    m_player= Position(0, 0);
+    m_goal = random_position(2, LEN_X - 1, 2, LEN_Y - 1);
+    generate_random_obstacles();
+
+    for (unsigned int i = 0; i < LEN_X; ++i)
     {
-        if (pos == obs)
-            return true;
+        for (unsigned int j = 0; j < LEN_Y; ++j)
+        {
+            QString field_name = "Field" + QString::number(i) + "_" +  QString::number(j);
+            m_game_state[i][j] = MainWindow::findChild<QLabel *>(field_name);
+        }
     }
 
-    return false;
+    update_game_state();
 }

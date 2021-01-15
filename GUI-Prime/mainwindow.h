@@ -14,14 +14,14 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-  public:
+public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-  private slots:
+private slots:
     void compute();
 
-  private:
+private:
     Ui::MainWindow *ui;
     QPushButton *m_calc_button;
     QLineEdit *m_input_edit;

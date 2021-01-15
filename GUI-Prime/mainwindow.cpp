@@ -1,7 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <iostream>
 #include <math.h>
+#include <stdint.h>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -13,27 +15,46 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     m_output_edit->setText("Is Prime!");
     m_calc_button = ui->calcButton;
 
-    // widget = calcButton
-    // Signal = released()
-    // SLOT = compute()
     connect(m_calc_button, SIGNAL(released()), this, SLOT(compute()));
 }
 
-bool is_prime(int val)
+bool is_prime(std::uint64_t val)
 {
-    if (val < 0 || val == 0 || val == 1)
+    if (val <= 1)
+    {
         return false;
+    }
 
-    if (val == 2)
+    if ((val == 2) || (val == 3) | (val == 5))
+    {
         return true;
+    }
 
     if (val % 2 == 0)
+    {
+        std::cout << "Divisible by 2" << std::endl;
         return false;
+    }
 
-    for (int i = 3; i <= sqrt(val); i += 2)
+    if (val % 3 == 0)
+    {
+        std::cout << "Divisible by 3" << std::endl;
+        return false;
+    }
+
+    if (val % 5 == 0)
+    {
+        std::cout << "Divisible by 5" << std::endl;
+        return false;
+    }
+
+    for (int i = 7; i <= sqrt(val); i += 2)
     {
         if (val % i == 0)
+        {
+            std::cout << "Divisible by: " << i << std::endl;
             return false;
+        }
     }
 
     return true;
@@ -42,7 +63,7 @@ bool is_prime(int val)
 void MainWindow::compute()
 {
     QString val_text = m_input_edit->text();
-    int val = val_text.toInt();
+    std::uint64_t val = val_text.toULongLong();
 
     if (is_prime(val))
     {
