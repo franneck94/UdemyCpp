@@ -5,7 +5,7 @@ int main()
 {
     for (std::string text = "Jan."; const auto& c : text)
     {
-        std::cout << c;
+        std::cout << c << " ";
     }
 
     return 0;
