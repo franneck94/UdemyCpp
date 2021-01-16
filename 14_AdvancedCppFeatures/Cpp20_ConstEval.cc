@@ -9,7 +9,7 @@ int main()
 {
     int a[func(3)] = {};
 
-    int b = 3;
+    constexpr int b = 3;
     func(b);
 
     return 0;
