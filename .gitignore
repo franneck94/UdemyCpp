@@ -23,6 +23,8 @@ build*
 *.bmp
 *.ui
 *.stackdump
+*.pcm
+!Makefile
 
 ################################
 ########### FOLDERS ############

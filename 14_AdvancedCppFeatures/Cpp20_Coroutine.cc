@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-std::generator<int> generatorForNumbers(int begin, int inc = 1)
+generator<int> generatorForNumbers(int begin, int inc = 1)
 {
   for (int i = begin;; i += inc)
   {

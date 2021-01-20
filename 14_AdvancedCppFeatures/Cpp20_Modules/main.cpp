@@ -1,8 +1,10 @@
-import hello;
+#include <iostream>
+
+import adder;
 
 int main(void)
 {
-  greeter("world");
+  std::cout << add_two(2) << std::endl;
 
   return 0;
 }
