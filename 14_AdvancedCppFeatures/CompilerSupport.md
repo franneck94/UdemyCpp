@@ -5,7 +5,7 @@ To see what features are already implemented for the compilers, see [here](https
 | Feature          | GCC  | Clang | MSVC  | Apple Clang |
 |------------------|------|-------|-------|-------------|
 | Concepts         | Yes  | Yes   | Part  | No          |
-| Ranges           | Yes  | No    | No    | No          |
+| Ranges           | Yes  | No    | Part  | No          |
 | Modules          | Part | Part  | Yes   | Part        |
 | Span             | Yes  | Yes   | Yes   | Yes         |
 | Three-way Comp.  | Yes  | Yes   | Yes   | No          |

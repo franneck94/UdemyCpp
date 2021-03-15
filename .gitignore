@@ -6,6 +6,7 @@
 TODO.txt
 # Unignore all dirs
 !*/
+*.pdf
 
 test*
 build*
@@ -34,7 +35,6 @@ build*
 build/
 html/
 latex/
-_Slides/
 .vs/
 .vscode/VsCodeSettings/
 *.Debug
