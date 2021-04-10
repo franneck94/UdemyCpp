@@ -1,12 +1,8 @@
 {
-    // Windows, Linux
-    "compilerC": "gcc",
-    "compilerCpp": "g++",
-    "debuggerCpp": "gdb",
-    // MacOS
-    // "compilerC": "clang",
-    // "compilerCpp": "clang++",
-    // "debuggerCpp": "lldb",
-    // For all OS
-    "make": "make"
+    "C_Cpp_Runner.compilerPathC": "C:\\cygwin64\\bin\\gcc.exe",
+    "C_Cpp_Runner.compilerPathCpp": "C:\\cygwin64\\bin\\g++.exe",
+    "C_Cpp_Runner.debuggerPath": "C:\\cygwin64\\bin\\gdb.exe",
+    "C_Cpp_Runner.makePath": "C:\\cygwin64\\bin\\make.exe",
+    "C_Cpp_Runner.standardCpp": "c++17",
+    "C_Cpp_Runner.standardC": "c90"
 }
