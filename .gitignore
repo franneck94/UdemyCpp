@@ -7,7 +7,7 @@ TODO.txt
 # Unignore all dirs
 !*/
 *.pdf
-vscode/
+.vscode/
 
 test*
 build*
