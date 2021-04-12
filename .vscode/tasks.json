@@ -1,7 +1,6 @@
 {
     "version": "2.0.0",
     "tasks": [
-        // Cpp Helper Tasks
         {
             "label": "Makefile_Debug",
             "type": "shell",
@@ -30,7 +29,6 @@
                 "EXECUTABLE_NAME=${fileBasenameNoExtension}Release"
             ]
         },
-        // Single Build Tasks
         {
             "label": "Cpp: Debug (Single File)",
             "type": "shell",
@@ -71,7 +69,6 @@
             },
             "problemMatcher": ["$gcc"]
         },
-        // Folder Build Tasks
         {
             "label": "Cpp: Debug (Folder)",
             "type": "shell",
@@ -104,7 +101,6 @@
             },
             "problemMatcher": ["$gcc"]
         },
-        // Execution Tasks
         {
             "label": "Execute: Debug Program",
             "type": "shell",
@@ -139,7 +135,6 @@
             },
             "problemMatcher": ["$gcc"]
         },
-        // Util Tasks
         {
             "label": "Makefile Clean",
             "type": "shell",
