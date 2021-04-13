@@ -42,8 +42,8 @@ long long parallel_sum_omp(std::vector<int> &vec)
 {
     long long final_sum = 0;
     long long sum = 0;
-    std::size_t i = 0;
-    std::size_t n = vec.size();
+    int i = 0;
+    int n = static_cast<int>(vec.size());
 
     const unsigned int NUM_THREADS = 2;
 #pragma omp parallel for reduction(+ : sum) num_threads(NUM_THREADS)

@@ -8,6 +8,7 @@ TODO.txt
 !*/
 *.pdf
 !Makefile
+!LICENSE
 c_cpp_properties.json
 
 test*
