@@ -34,7 +34,7 @@ ifeq ($(detected_OS), Windows)
 RM_FUNC = del /s /q
 CLEAN_PATH = *.o
 else
-RM_FUNC = RM -f
+RM_FUNC = rm -f
 CLEAN_PATH = *.o
 endif
 
