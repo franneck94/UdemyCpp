@@ -38,7 +38,7 @@ void double_vector_log(std::vector<double> &vec)
 
 int main()
 {
-    // Aufgabe:
+    // Exercise:
     // 1.) Schreibe eine Funktion, die einen double-Vector mit aufsteigenden double-Werten befüllt
     // => z.b. [0.0, 1.0, 2.0, 3.0, 4.0, 5.0] bei einem Input Vector der Länge 6
     // void fill_double_vector(std::vector<double> &vec)

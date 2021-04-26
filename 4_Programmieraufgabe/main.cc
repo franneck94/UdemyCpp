@@ -6,7 +6,7 @@
 
 int main()
 {
-    // Aufgabe 1
+    // Exercise 1
     Matrix matrix(3, std::vector<double>(3, 0.0));
 
     for (int i = 0; i != matrix.size(); ++i)
@@ -27,7 +27,7 @@ int main()
     }
     std::cout << std::endl;
 
-    // Aufgabe 2
+    // Exercise 2
     std::vector<double> row_max_vec = max_row_values(matrix);
 
     for (int i = 0; i != row_max_vec.size(); ++i)
@@ -35,7 +35,7 @@ int main()
         std::cout << "Maximum of row " << i << " = " << row_max_vec[i] << std::endl;
     }
 
-    // Aufgabe 3
+    // Exercise 3
     double temp = row_max_vec[2];
     row_max_vec[2] = row_max_vec[1];
     row_max_vec[1] = temp;

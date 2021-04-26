@@ -1,6 +1,6 @@
 #include "Exercise.h"
 
-// Aufgabe 1
+// Exercise 1
 bool is_palindrom(const std::string &str)
 {
     // std::string::iterator it; // begin(),     end()
@@ -18,7 +18,7 @@ bool is_palindrom(const std::string &str)
         return false;
 }
 
-// Aufgabe 2
+// Exercise 2
 bool is_in_string(const std::string str, const std::string sub_str)
 {
     std::size_t str_len = str.length();
@@ -44,7 +44,7 @@ bool is_in_string(const std::string str, const std::string sub_str)
     return false;
 }
 
-// Aufgabe 3
+// Exercise 3
 //unsigned int str_concat_exponent(const std::string str, const std::string base)
 //{
 //	//std::string str3 = "abab"; 6
@@ -60,7 +60,7 @@ bool is_in_string(const std::string str, const std::string sub_str)
 //		return exponent;
 //}
 
-// Aufgabe 3
+// Exercise 3
 unsigned int str_concat_exponent(const std::string str, const std::string base)
 {
     std::string cmp_str = str;

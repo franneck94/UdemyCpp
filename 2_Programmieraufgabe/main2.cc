@@ -19,7 +19,7 @@ int main()
         std::cout << my_data[i] << std::endl;
     }
 
-    // Aufgabe 1
+    // Exercise 1
     // 0 1 2 12
     push_back(my_data, size, 12);
     size++;
@@ -30,7 +30,7 @@ int main()
         std::cout << my_data[i] << std::endl;
     }
 
-    // Aufgabe 2
+    // Exercise 2
     pop_back(my_data, size);
     size--;
 

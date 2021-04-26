@@ -5,7 +5,7 @@
 
 int main()
 {
-    // Aufgabe 1
+    // Exercise 1
     std::string str1 = "anna";
 
     if (is_palindrom(str1))
@@ -17,7 +17,7 @@ int main()
         std::cout << "Ist kein Palindrom!" << std::endl;
     }
 
-    // Aufgabe 2
+    // Exercise 2
     std::string str2 = "HALLO";
     std::string sub_str = "LO";
 
@@ -30,7 +30,7 @@ int main()
         std::cout << "Ist nicht im String!" << std::endl;
     }
 
-    // Aufgabe 3
+    // Exercise 3
     std::string str3 = "abababababab";
     std::string base = "ab";
 

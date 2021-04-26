@@ -2,7 +2,7 @@
 
 #include "exercise.h"
 
-// Aufgabe 2
+// Exercise 2
 std::string get_oldest_friend(const Friends &friends)
 {
     std::string oldest_friend = "";

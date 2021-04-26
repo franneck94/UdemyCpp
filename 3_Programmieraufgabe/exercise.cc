@@ -4,7 +4,7 @@
 
 namespace computation
 {
-// Aufgabe 1
+// Exercise 1
 double mean_array_value(int *array, const unsigned int &length)
 {
     double mean_value = 0.0;

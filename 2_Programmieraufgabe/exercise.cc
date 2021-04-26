@@ -2,7 +2,7 @@
 
 #include "exercise.h"
 
-// Aufgabe 1
+// Exercise 1
 double array_sum(double *p_array, const unsigned int &length)
 {
     double sum = 0.0;
@@ -15,7 +15,7 @@ double array_sum(double *p_array, const unsigned int &length)
     return sum;
 }
 
-// Aufgabe 2
+// Exercise 2
 int *array_constructor(const int &value, const unsigned int &length)
 {
     int *constructed_array;

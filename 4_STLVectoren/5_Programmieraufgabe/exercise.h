@@ -5,9 +5,9 @@
 typedef unsigned char uchar;
 typedef std::vector<uchar> ByteArray;
 
-// Aufgabe 1
+// Exercise 1
 uchar hex_xor(uchar &hex1, uchar &hex2);
 
-// Aufgabe 2
+// Exercise 2
 ByteArray hex_vector_xor(ByteArray &vec1, ByteArray &vec2);
 

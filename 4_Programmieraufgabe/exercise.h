@@ -2,11 +2,11 @@
 
 #include <vector>
 
-// Aufgabe 1
+// Exercise 1
 using Matrix = std::vector<std::vector<double>>;
 
-// Aufgabe 2
+// Exercise 2
 std::vector<double> max_row_values(Matrix &matrix);
 
-// Aufgabe 3
+// Exercise 3
 double sort_and_max(std::vector<double> &vec);

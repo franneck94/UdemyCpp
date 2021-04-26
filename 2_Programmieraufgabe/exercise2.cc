@@ -2,7 +2,7 @@
 
 #include "exercise2.h"
 
-// Aufgabe 1
+// Exercise 1
 void push_back(int *&input_array, const unsigned int &size, const int &value)
 {
     int *temp = nullptr;
@@ -20,7 +20,7 @@ void push_back(int *&input_array, const unsigned int &size, const int &value)
     input_array = temp;
 }
 
-// Aufgabe 2
+// Exercise 2
 void pop_back(int *&input_array, const unsigned int &size)
 {
     int *temp = nullptr;

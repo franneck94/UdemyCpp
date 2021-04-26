@@ -70,7 +70,7 @@ void double_vector_log_for_each(std::vector<double> &vec)
 
 int main()
 {
-    // Aufgabe:
+    // Exercise:
     // 1.) Implementiere die bestehenden Funktionen mit einer for-Schleife, die einen
     // Iterator verwendet
     // 2.) Implementiere die bestehenden Funktionen mit einer for-each for-Schleife

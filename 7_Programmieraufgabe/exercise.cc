@@ -8,7 +8,7 @@
 
 #include "exercise.h"
 
-// Aufgabe 2
+// Exercise 2
 std::vector<bool> shuffle_till_equal(const BinaryArray &target, BinaryArray input)
 {
     bool equal = false;
@@ -34,7 +34,7 @@ std::vector<bool> shuffle_till_equal(const BinaryArray &target, BinaryArray inpu
     return input;
 }
 
-// Aufgabe 3
+// Exercise 3
 std::vector<bool> smart_shuffle_till_equal(const BinaryArray &target, BinaryArray input)
 {
     bool equal = false;

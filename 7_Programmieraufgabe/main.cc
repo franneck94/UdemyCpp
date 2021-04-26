@@ -10,7 +10,7 @@
 
 int main()
 {
-    // Aufgabe 1
+    // Exercise 1
     std::random_device gen;
     std::bernoulli_distribution dist(0.5);
 
@@ -30,7 +30,7 @@ int main()
         std::cout << "Input[" << i << "] = " << input[i] << std::endl;
     }
 
-    // Aufgabe 2
+    // Exercise 2
     std::cout << std::endl << "Starting exercise 2";
     auto start = std::chrono::high_resolution_clock::now();
     BinaryArray result_exercise2 = shuffle_till_equal(target, input);
@@ -40,7 +40,7 @@ int main()
     bool is_equal2 = std::equal(result_exercise2.begin(), result_exercise2.end(), target.begin());
     std::cout << std::endl << "Vectors are equal: " << is_equal2 << std::endl;
 
-    // Aufgabe 3
+    // Exercise 3
     std::cout << std::endl << "Starting exercise 3";
     start = std::chrono::high_resolution_clock::now();
     BinaryArray result_exercise3 = smart_shuffle_till_equal(target, input);

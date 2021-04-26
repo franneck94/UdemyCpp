@@ -33,7 +33,7 @@ unsigned int Image::get_height() const
     return m_height;
 }
 
-// Aufgabe 1
+// Exercise 1
 void Image::clear_image()
 {
     m_matrix.clear();
@@ -41,13 +41,13 @@ void Image::clear_image()
     m_width = 0;
 }
 
-// Aufgabe 2
+// Exercise 2
 void Image::set_pixel(const unsigned int x, const unsigned int y, const uchar value)
 {
     m_matrix[x][y] = value;
 }
 
-// Aufgabe 3
+// Exercise 3
 void Image::resize_image(const unsigned int new_width, const unsigned int new_height)
 {
     // New width
@@ -69,7 +69,7 @@ void Image::resize_image(const unsigned int new_width, const unsigned int new_he
     }
 }
 
-// Aufgabe 4
+// Exercise 4
 void Image::fill_image(const uchar value)
 {
     for (auto &col : m_matrix)
@@ -78,7 +78,7 @@ void Image::fill_image(const uchar value)
     }
 }
 
-// Aufgabe 5
+// Exercise 5
 void Image::draw_line(const unsigned int x1, const unsigned int y1,
     const unsigned int x2, const unsigned int y2,
     const uchar value)

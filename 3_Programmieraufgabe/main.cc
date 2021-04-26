@@ -3,7 +3,7 @@
 
 int main()
 {
-    // Aufgabe 1
+    // Exercise 1
     const unsigned int array_elements = 5;
     int array_a[array_elements] = { 1, 2, 3, 4, 5 };
     double array_b[array_elements] = { 1.0, 2.5, 3.5, 4.5, 10.0 };
@@ -14,7 +14,7 @@ int main()
     std::cout << "Mean Array A: " << mean_array_a << std::endl;
     std::cout << "Mean Array B: " << mean_array_b << std::endl;
 
-    // Aufgabe 2
+    // Exercise 2
     computation::Dataset data{ mean_array_a, mean_array_b };
 
     return 0;

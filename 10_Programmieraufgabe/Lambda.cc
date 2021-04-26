@@ -19,7 +19,7 @@ int main()
     }
     std::cout << std::endl;
 
-    // Aufgabe 1
+    // Exercise 1
     bool has_no_even = std::none_of(my_vector.begin(), my_vector.end(),
         [](int val) -> bool { return (val % 2 == 0); });
 
@@ -32,7 +32,7 @@ int main()
         std::cout << "The vector has even numbers" << std::endl;
     }
 
-    // Aufgabe 2
+    // Exercise 2
     std::transform(my_vector.begin(), my_vector.end(), my_result.begin(),
         [](int val) -> int { return pow(val, 2); });
 

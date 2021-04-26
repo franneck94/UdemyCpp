@@ -18,9 +18,9 @@ public:
     Matrix(std::size_t rows, std::size_t cols);
     Matrix(std::size_t rows, std::size_t cols, const T &value);
 
-    // Aufgabe 1: Copy Constructor
+    // Exercise 1: Copy Constructor
     Matrix(const Matrix &other);
-    // Aufgabe 2: Copy Assignment Operator
+    // Exercise 2: Copy Assignment Operator
     Matrix &operator=(const Matrix &other);
 
     Matrix operator+(const Matrix &rhs);

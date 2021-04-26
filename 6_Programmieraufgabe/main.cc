@@ -8,7 +8,7 @@
 
 int main()
 {
-    // Aufgabe 1
+    // Exercise 1
     Friends friends;
 
     friends["Jan"] = std::pair<int, int>(23, 68);
@@ -17,7 +17,7 @@ int main()
     friends["Kathrin"] = std::pair<int, int>(30, 60);
     friends["Lisa"] = std::pair<int, int>(26, 65);
 
-    // Aufgabe 2
+    // Exercise 2
     std::string oldest_friend = get_oldest_friend(friends);
     std::string heaviest_friend = get_heaviest_friend(friends);
 
