@@ -7,7 +7,7 @@ int main()
 {
     bool repeat = true;
 
-    while(repeat)
+    while (repeat)
     {
         game();
 

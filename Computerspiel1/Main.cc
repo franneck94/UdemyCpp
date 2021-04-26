@@ -12,9 +12,9 @@ int main()
 
     char move;
 
-    for(unsigned int i = 0; i < LEN_X; i++)
+    for (unsigned int i = 0; i < LEN_X; i++)
     {
-        if(i != player && i != start && i != goal)
+        if (i != player && i != start && i != goal)
         {
             std::cout << '.';
         }

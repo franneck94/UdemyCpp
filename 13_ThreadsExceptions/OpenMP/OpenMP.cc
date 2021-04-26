@@ -67,7 +67,7 @@ int main()
 
     std::random_device gen;
     std::uniform_int_distribution<int> dist(-10, 10);
-    std::vector<int> vector_a(10'000'000, 0);
+    std::vector<int> vector_a(10000000, 0);
     std::generate(vector_a.begin(), vector_a.end(), [&]() { return dist(gen); });
 
     // SERIELL

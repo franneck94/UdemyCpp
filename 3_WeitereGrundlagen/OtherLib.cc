@@ -3,5 +3,5 @@
 
 void my_function_wrapped()
 {
-	my_function();
+    my_function();
 }

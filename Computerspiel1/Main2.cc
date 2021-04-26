@@ -9,7 +9,7 @@ int main()
 {
     bool repeat = true;
 
-    while(repeat)
+    while (repeat)
     {
         unsigned int player = 0;
         unsigned int start = 0;
@@ -18,11 +18,11 @@ int main()
         char move;
         bool finished = false;
 
-        while(!finished)
+        while (!finished)
         {
-            for(unsigned int i = 0; i < LEN_X; i++)
+            for (unsigned int i = 0; i < LEN_X; i++)
             {
-                if(i != player && i != start && i != goal)
+                if (i != player && i != start && i != goal)
                 {
                     std::cout << '.';
                 }

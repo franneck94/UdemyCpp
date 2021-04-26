@@ -4,5 +4,5 @@
 
 void my_function()
 {
-	std::cout << "Hello World!" << std::endl;
+    std::cout << "Hello World!" << std::endl;
 }

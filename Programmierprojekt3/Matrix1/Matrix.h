@@ -6,20 +6,20 @@ template <typename T>
 class Matrix
 {
 public:
-	Matrix() = default;
+    Matrix() = default;
 
-	Matrix operator+(const Matrix &rhs);
-	Matrix &operator+=(const Matrix &rhs);
-	Matrix operator-(const Matrix &rhs);
-	Matrix &operator-=(const Matrix &rhs);
-	Matrix operator*(const double &scalar);
-	Matrix &operator*=(const double &scalar);
-	Matrix operator/(const double &scalar);
-	Matrix &operator/=(const double &scalar);
-	Matrix operator*(const Matrix &rhs);
-	Matrix &operator*=(const Matrix &rhs);
+    Matrix operator+(const Matrix &rhs);
+    Matrix &operator+=(const Matrix &rhs);
+    Matrix operator-(const Matrix &rhs);
+    Matrix &operator-=(const Matrix &rhs);
+    Matrix operator*(const double &scalar);
+    Matrix &operator*=(const double &scalar);
+    Matrix operator/(const double &scalar);
+    Matrix &operator/=(const double &scalar);
+    Matrix operator*(const Matrix &rhs);
+    Matrix &operator*=(const Matrix &rhs);
 
-	void print_matrix() const;
+    void print_matrix() const;
 
 private:
 
@@ -28,86 +28,86 @@ private:
 template <typename T>
 Matrix<T> Matrix<T>::operator+(const Matrix<T> &rhs)
 {
-	Matrix result;
+    Matrix result;
 
 
-	return result;
+    return result;
 }
 
 template <typename T>
 Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &rhs)
 {
 
-	return *this;
+    return *this;
 }
 
 template <typename T>
 Matrix<T> Matrix<T>::operator-(const Matrix<T> &rhs)
 {
-	Matrix result;
+    Matrix result;
 
 
-	return result;
+    return result;
 }
 
 template <typename T>
 Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &rhs)
 {
 
-	return *this;
+    return *this;
 }
 
 template <typename T>
 Matrix<T> Matrix<T>::operator*(const double &scalar)
 {
-	Matrix<T> result;
+    Matrix<T> result;
 
 
-	return result;
+    return result;
 }
 
 template <typename T>
 Matrix<T> &Matrix<T>::operator*=(const double &scalar)
 {
 
-	return *this;
+    return *this;
 }
 
 template <typename T>
 Matrix<T> Matrix<T>::operator/(const double &scalar)
 {
-	Matrix result;
+    Matrix result;
 
 
-	return result;
+    return result;
 }
 
 template <typename T>
 Matrix<T> &Matrix<T>::operator/=(const double &scalar)
 {
 
-	return *this;
+    return *this;
 }
 
 template <typename T>
 Matrix<T> Matrix<T>::operator*(const Matrix<T> &rhs)
 {
-	Matrix<T> result;
+    Matrix<T> result;
 
 
-	return result;
+    return result;
 }
 
 template <typename T>
 Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &rhs)
 {
-	*this = (*this) * rhs;
+    *this = (*this) * rhs;
 
-	return *this;
+    return *this;
 }
 
 template <typename T>
 void Matrix<T>::print_matrix() const
 {
-	std::cout << std::endl;
+    std::cout << std::endl;
 }

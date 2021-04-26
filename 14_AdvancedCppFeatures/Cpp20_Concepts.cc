@@ -16,17 +16,17 @@ template <typename T>
 requires Concatenable<T>
 T concat(T first, T second)
 {
-	return first + second;
+    return first + second;
 }
 
 int main()
 {
-	std::string s1 = "Ha";
-	std::string s2 = "ll";
-	std::string s3 = "o";
+    std::string s1 = "Ha";
+    std::string s2 = "ll";
+    std::string s3 = "o";
 
-	std::cout << concat(s1, s2) << std::endl;
-	// std::cout << concat(2, 3) << std::endl;
+    std::cout << concat(s1, s2) << std::endl;
+    // std::cout << concat(2, 3) << std::endl;
 
-	return 0;
+    return 0;
 }

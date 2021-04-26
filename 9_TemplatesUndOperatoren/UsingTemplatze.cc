@@ -12,8 +12,8 @@ using UserAccount = std::map<Id, std::vector<T>>;
 
 int main()
 {
-	UserAccount<int> account_admins;
-	UserAccount<int> account_users;
+    UserAccount<int> account_admins;
+    UserAccount<int> account_users;
 
-	return 0;
+    return 0;
 }

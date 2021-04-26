@@ -4,8 +4,8 @@
 struct Dummy
 {
     double value;
-    constexpr Dummy(double val): value{val} { }
-    auto operator<=>(const Dummy&) const = default;
+    constexpr Dummy(double val) : value{ val } { }
+    auto operator<=>(const Dummy &) const = default;
 };
 
 int main()

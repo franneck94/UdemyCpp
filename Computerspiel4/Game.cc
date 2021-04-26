@@ -5,33 +5,33 @@
 
 ConsoleInput map_user_input(char user_input)
 {
-    switch(user_input)
+    switch (user_input)
     {
-    case 'a':
-    {
-        return ConsoleInput::LEFT;
-    }
-    case 'd':
-    {
-        return ConsoleInput::RIGHT;
-    }
-    case 'w':
-    {
-        return ConsoleInput::UP;
-    }
-    case 's':
-    {
-        return ConsoleInput::DOWN;
-    }
-    default:
-    {
-        return ConsoleInput::INVALID;
-    }
+        case 'a':
+            {
+                return ConsoleInput::LEFT;
+            }
+        case 'd':
+            {
+                return ConsoleInput::RIGHT;
+            }
+        case 'w':
+            {
+                return ConsoleInput::UP;
+            }
+        case 's':
+            {
+                return ConsoleInput::DOWN;
+            }
+        default:
+            {
+                return ConsoleInput::INVALID;
+            }
     }
 }
 
 GameState update_game_state(const Position &player,
-                            const Obstacles &obstacles)
+    const Obstacles &obstacles)
 {
     GameState game_state(LEN_X, std::string(LEN_Y, '.'));
 
@@ -39,7 +39,7 @@ GameState update_game_state(const Position &player,
     game_state[GOAL.first][GOAL.second] = '|';
     game_state[player.first][player.second] = 'P';
 
-    for(const auto &obs : obstacles)
+    for (const auto &obs : obstacles)
     {
         game_state[obs.first][obs.second] = 'x';
     }
@@ -49,7 +49,7 @@ GameState update_game_state(const Position &player,
 
 void print_game_state(const GameState &game_state)
 {
-    for(unsigned int i = 0; i < LEN_X; i++)
+    for (unsigned int i = 0; i < LEN_X; i++)
     {
         for (unsigned int j = 0; j < LEN_Y; j++)
         {
@@ -61,88 +61,88 @@ void print_game_state(const GameState &game_state)
 }
 
 Position execute_move(Position player,
-                      ConsoleInput move)
+    ConsoleInput move)
 {
-    switch(move)
+    switch (move)
     {
-    case ConsoleInput::LEFT:
-    {
-        if (player.second > START.second)
-        {
-            player.second--;
+        case ConsoleInput::LEFT:
+            {
+                if (player.second > START.second)
+                {
+                    player.second--;
 
-            std::cout << "You moved to the left!" << std::endl;
-        }
-        else
-        {
-            std::cout << "You bounced!" << std::endl;
-        }
+                    std::cout << "You moved to the left!" << std::endl;
+                }
+                else
+                {
+                    std::cout << "You bounced!" << std::endl;
+                }
 
-        break;
-    }
-    case ConsoleInput::RIGHT:
-    {
-        if (player.second < GOAL.second)
-        {
-            player.second++;
+                break;
+            }
+        case ConsoleInput::RIGHT:
+            {
+                if (player.second < GOAL.second)
+                {
+                    player.second++;
 
-            std::cout << "You moved to the right!" << std::endl;
-        }
-        else
-        {
-            std::cout << "You bounced!" << std::endl;
-        }
+                    std::cout << "You moved to the right!" << std::endl;
+                }
+                else
+                {
+                    std::cout << "You bounced!" << std::endl;
+                }
 
-        break;
-    }
-    case ConsoleInput::UP:
-    {
-        if (player.first > START.first)
-        {
-            player.first--;
+                break;
+            }
+        case ConsoleInput::UP:
+            {
+                if (player.first > START.first)
+                {
+                    player.first--;
 
-            std::cout << "You moved upwards!" << std::endl;
-        }
-        else
-        {
-            std::cout << "You bounced!" << std::endl;
-        }
+                    std::cout << "You moved upwards!" << std::endl;
+                }
+                else
+                {
+                    std::cout << "You bounced!" << std::endl;
+                }
 
-        break;
-    }
-    case ConsoleInput::DOWN:
-    {
-        if (player.first < GOAL.first)
-        {
-            player.first++;
+                break;
+            }
+        case ConsoleInput::DOWN:
+            {
+                if (player.first < GOAL.first)
+                {
+                    player.first++;
 
-            std::cout << "You moved downwards!" << std::endl;
-        }
-        else
-        {
-            std::cout << "You bounced!" << std::endl;
-        }
+                    std::cout << "You moved downwards!" << std::endl;
+                }
+                else
+                {
+                    std::cout << "You bounced!" << std::endl;
+                }
 
-        break;
-    }
-    case ConsoleInput::INVALID:
-    default:
-    {
-        std::cout << "Unrecognized move!" << std::endl;
+                break;
+            }
+        case ConsoleInput::INVALID:
+        default:
+            {
+                std::cout << "Unrecognized move!" << std::endl;
 
-        break;
-    }
+                break;
+            }
     }
 
     return player;
 }
 
 bool is_dead(const Position &player,
-             const Obstacles &obstacles)
+    const Obstacles &obstacles)
 {
     for (const auto &obs : obstacles)
     {
-        if(player == obs)
+        if (player == obs)
         {
             return true;
         }
@@ -164,7 +164,7 @@ bool is_finished(Position player)
 }
 
 unsigned int random_uint(const unsigned int lower,
-                         const unsigned int upper)
+    const unsigned int upper)
 {
     std::random_device gen;
     std::uniform_int_distribution<unsigned int> dist(lower, upper);
@@ -173,9 +173,9 @@ unsigned int random_uint(const unsigned int lower,
 }
 
 Position random_position(const unsigned int lower_x,
-                         const unsigned int upper_x,
-                         const unsigned int lower_y,
-                         const unsigned int upper_y)
+    const unsigned int upper_x,
+    const unsigned int lower_y,
+    const unsigned int upper_y)
 {
     Position pos(random_uint(lower_x, upper_x), random_uint(lower_y, upper_y));
 
@@ -198,7 +198,7 @@ void game()
         obs = random_position(1, LEN_X - 1, 1, LEN_Y - 1);
     }
 
-    while(!finished)
+    while (!finished)
     {
         game_state = update_game_state(player, obstacles);
         print_game_state(game_state);
@@ -207,13 +207,13 @@ void game()
         system("clear");
         player = execute_move(player, move);
 
-        if(is_dead(player, obstacles))
+        if (is_dead(player, obstacles))
         {
             finished = true;
 
             std::cout << "You died!" << std::endl;
         }
-        else if(is_finished(player))
+        else if (is_finished(player))
         {
             finished = true;
 

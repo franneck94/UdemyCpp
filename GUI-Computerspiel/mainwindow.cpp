@@ -30,36 +30,36 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     if (m_in_game)
     {
-        switch(event->key())
+        switch (event->key())
         {
-        case Qt::Key_A:
-        {
-            m_move = ConsoleInput::LEFT;
-            break;
-        }
-        case Qt::Key_D:
-        {
-            m_move = ConsoleInput::RIGHT;
-            break;
-        }
-        case Qt::Key_W:
-        {
-            m_move = ConsoleInput::UP;
-            break;
-        }
-        case Qt::Key_S:
-        {
-            m_move = ConsoleInput::DOWN;
-            break;
-        }
-        default:
-        {
-            m_move = ConsoleInput::INVALID;
-            break;
-        }
+            case Qt::Key_A:
+                {
+                    m_move = ConsoleInput::LEFT;
+                    break;
+                }
+            case Qt::Key_D:
+                {
+                    m_move = ConsoleInput::RIGHT;
+                    break;
+                }
+            case Qt::Key_W:
+                {
+                    m_move = ConsoleInput::UP;
+                    break;
+                }
+            case Qt::Key_S:
+                {
+                    m_move = ConsoleInput::DOWN;
+                    break;
+                }
+            default:
+                {
+                    m_move = ConsoleInput::INVALID;
+                    break;
+                }
         }
 
-        if(ConsoleInput::INVALID != m_move)
+        if (ConsoleInput::INVALID != m_move)
         {
             m_points++;
 
@@ -67,20 +67,20 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             move_obstacles();
             update_game_state();
 
-            if(is_dead())
+            if (is_dead())
             {
                 m_in_game = false;
 
                 std::cout << "You died!" << std::endl;
             }
-            else if(is_finished())
+            else if (is_finished())
             {
                 m_in_game = false;
 
                 std::cout << "You won the game!" << std::endl;
             }
         }
-     }
+    }
 }
 
 void MainWindow::update_game_state()
@@ -93,7 +93,7 @@ void MainWindow::update_game_state()
         }
     }
 
-    for(auto &obs : m_obstacles)
+    for (auto &obs : m_obstacles)
     {
         m_game_state[obs.first][obs.second]->setPixmap(QPixmap(m_obstacle_icon_path));
     }
@@ -105,75 +105,75 @@ void MainWindow::update_game_state()
 
 void MainWindow::move_player()
 {
-    switch(m_move)
+    switch (m_move)
     {
-    case ConsoleInput::LEFT:
-    {
-        if (m_player.second > START.second)
-        {
-            m_player.second--;
+        case ConsoleInput::LEFT:
+            {
+                if (m_player.second > START.second)
+                {
+                    m_player.second--;
 
-            std::cout << "You moved to the left!" << std::endl;
-        }
-        else
-        {
-            std::cout << "You bounced!" << std::endl;
-        }
+                    std::cout << "You moved to the left!" << std::endl;
+                }
+                else
+                {
+                    std::cout << "You bounced!" << std::endl;
+                }
 
-        break;
-    }
-    case ConsoleInput::RIGHT:
-    {
-        if (m_player.second < LEN_Y)
-        {
-            m_player.second++;
+                break;
+            }
+        case ConsoleInput::RIGHT:
+            {
+                if (m_player.second < LEN_Y)
+                {
+                    m_player.second++;
 
-            std::cout << "You moved to the right!" << std::endl;
-        }
-        else
-        {
-            std::cout << "You bounced!" << std::endl;
-        }
+                    std::cout << "You moved to the right!" << std::endl;
+                }
+                else
+                {
+                    std::cout << "You bounced!" << std::endl;
+                }
 
-        break;
-    }
-    case ConsoleInput::UP:
-    {
-        if (m_player.first > START.first)
-        {
-            m_player.first--;
+                break;
+            }
+        case ConsoleInput::UP:
+            {
+                if (m_player.first > START.first)
+                {
+                    m_player.first--;
 
-            std::cout << "You moved upwards!" << std::endl;
-        }
-        else
-        {
-            std::cout << "You bounced!" << std::endl;
-        }
+                    std::cout << "You moved upwards!" << std::endl;
+                }
+                else
+                {
+                    std::cout << "You bounced!" << std::endl;
+                }
 
-        break;
-    }
-    case ConsoleInput::DOWN:
-    {
-        if (m_player.first < LEN_X)
-        {
-            m_player.first++;
+                break;
+            }
+        case ConsoleInput::DOWN:
+            {
+                if (m_player.first < LEN_X)
+                {
+                    m_player.first++;
 
-            std::cout << "You moved downwards!" << std::endl;
-        }
-        else
-        {
-            std::cout << "You bounced!" << std::endl;
-        }
+                    std::cout << "You moved downwards!" << std::endl;
+                }
+                else
+                {
+                    std::cout << "You bounced!" << std::endl;
+                }
 
-        break;
-    }
-    case ConsoleInput::INVALID:
-    default:
-    {
-        std::cout << "Unrecognized move!" << std::endl;
+                break;
+            }
+        case ConsoleInput::INVALID:
+        default:
+            {
+                std::cout << "Unrecognized move!" << std::endl;
 
-        break;
-    }
+                break;
+            }
     }
 }
 
@@ -208,7 +208,7 @@ bool MainWindow::is_dead()
 {
     for (const auto &obs : m_obstacles)
     {
-        if(m_player == obs)
+        if (m_player == obs)
         {
             return true;
         }
@@ -230,7 +230,7 @@ bool MainWindow::is_finished()
 }
 
 unsigned int MainWindow::random_uint(const unsigned int lower,
-                               const unsigned int upper)
+    const unsigned int upper)
 {
     std::uniform_int_distribution<unsigned int> dist(lower, upper);
 
@@ -238,9 +238,9 @@ unsigned int MainWindow::random_uint(const unsigned int lower,
 }
 
 Position MainWindow::random_position(const unsigned int lower_x,
-                               const unsigned int upper_x,
-                               const unsigned int lower_y,
-                               const unsigned int upper_y)
+    const unsigned int upper_x,
+    const unsigned int lower_y,
+    const unsigned int upper_y)
 {
     Position pos(random_uint(lower_x, upper_x), random_uint(lower_y, upper_y));
 

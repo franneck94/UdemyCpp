@@ -26,7 +26,7 @@ ConsoleInput map_user_input(char user_input);
 void print_game_state(Position player);
 
 Position execute_move(Position player,
-                      ConsoleInput move);
+    ConsoleInput move);
 
 bool is_finished(Position player);
 

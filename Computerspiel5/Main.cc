@@ -8,7 +8,7 @@ int main()
     bool repeat = true;
     Game game;
 
-    while(repeat)
+    while (repeat)
     {
         game.start_game();
 

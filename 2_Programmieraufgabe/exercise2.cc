@@ -5,33 +5,33 @@
 // Aufgabe 1
 void push_back(int *&input_array, const unsigned int &size, const int &value)
 {
-	int *temp = nullptr;
-	temp = new int[size + 1];
+    int *temp = nullptr;
+    temp = new int[size + 1];
 
-	for (unsigned int i = 0; i < size; i++)
-	{
-		temp[i] = input_array[i];
-	}
+    for (unsigned int i = 0; i < size; i++)
+    {
+        temp[i] = input_array[i];
+    }
 
-	temp[size] = value;
+    temp[size] = value;
 
-	delete[] input_array;
+    delete[] input_array;
 
-	input_array = temp;
+    input_array = temp;
 }
 
 // Aufgabe 2
 void pop_back(int *&input_array, const unsigned int &size)
 {
-	int *temp = nullptr;
-	temp = new int[size - 1];
+    int *temp = nullptr;
+    temp = new int[size - 1];
 
-	for (int i = 0; i < size - 1; i++)
-	{
-		temp[i] = input_array[i];
-	}
+    for (int i = 0; i < size - 1; i++)
+    {
+        temp[i] = input_array[i];
+    }
 
-	delete[] input_array;
+    delete[] input_array;
 
-	input_array = temp;
+    input_array = temp;
 }

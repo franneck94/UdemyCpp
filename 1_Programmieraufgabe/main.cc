@@ -4,11 +4,11 @@
 
 int main()
 {
-	int I = 5;
-	int J = 3;
+    int I = 5;
+    int J = 3;
 
-	// Funktionsaufruf hier
-	mod_cross_sum(I, J);
+    // Funktionsaufruf hier
+    mod_cross_sum(I, J);
 
-	return 0;
+    return 0;
 }

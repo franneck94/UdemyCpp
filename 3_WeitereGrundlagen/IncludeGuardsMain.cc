@@ -3,8 +3,8 @@
 
 int main()
 {
-	my_function();
-	my_function_wrapped();
+    my_function();
+    my_function_wrapped();
 
-	return 0;
+    return 0;
 }

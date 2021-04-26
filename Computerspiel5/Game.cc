@@ -14,28 +14,28 @@ Game::Game() :
 
 ConsoleInput Game::map_user_input(char user_input)
 {
-    switch(user_input)
+    switch (user_input)
     {
-    case 'a':
-    {
-        return ConsoleInput::LEFT;
-    }
-    case 'd':
-    {
-        return ConsoleInput::RIGHT;
-    }
-    case 'w':
-    {
-        return ConsoleInput::UP;
-    }
-    case 's':
-    {
-        return ConsoleInput::DOWN;
-    }
-    default:
-    {
-        return ConsoleInput::INVALID;
-    }
+        case 'a':
+            {
+                return ConsoleInput::LEFT;
+            }
+        case 'd':
+            {
+                return ConsoleInput::RIGHT;
+            }
+        case 'w':
+            {
+                return ConsoleInput::UP;
+            }
+        case 's':
+            {
+                return ConsoleInput::DOWN;
+            }
+        default:
+            {
+                return ConsoleInput::INVALID;
+            }
     }
 }
 
@@ -47,7 +47,7 @@ void Game::update_game_state()
     m_game_state[m_goal.first][m_goal.second] = '|';
     m_game_state[m_player.first][m_player.second] = 'P';
 
-    for(const auto &obs : m_obstacles)
+    for (const auto &obs : m_obstacles)
     {
         m_game_state[obs.first][obs.second] = 'x';
     }
@@ -55,7 +55,7 @@ void Game::update_game_state()
 
 void Game::print_game_state()
 {
-    for(unsigned int i = 0; i < LEN_X; i++)
+    for (unsigned int i = 0; i < LEN_X; i++)
     {
         for (unsigned int j = 0; j < LEN_Y; j++)
         {
@@ -68,75 +68,75 @@ void Game::print_game_state()
 
 void Game::move_player(ConsoleInput move)
 {
-    switch(move)
+    switch (move)
     {
-    case ConsoleInput::LEFT:
-    {
-        if (m_player.second > START.second)
-        {
-            m_player.second--;
+        case ConsoleInput::LEFT:
+            {
+                if (m_player.second > START.second)
+                {
+                    m_player.second--;
 
-            std::cout << "You moved to the left!" << std::endl;
-        }
-        else
-        {
-            std::cout << "You bounced!" << std::endl;
-        }
+                    std::cout << "You moved to the left!" << std::endl;
+                }
+                else
+                {
+                    std::cout << "You bounced!" << std::endl;
+                }
 
-        break;
-    }
-    case ConsoleInput::RIGHT:
-    {
-        if (m_player.second < LEN_Y)
-        {
-            m_player.second++;
+                break;
+            }
+        case ConsoleInput::RIGHT:
+            {
+                if (m_player.second < LEN_Y)
+                {
+                    m_player.second++;
 
-            std::cout << "You moved to the right!" << std::endl;
-        }
-        else
-        {
-            std::cout << "You bounced!" << std::endl;
-        }
+                    std::cout << "You moved to the right!" << std::endl;
+                }
+                else
+                {
+                    std::cout << "You bounced!" << std::endl;
+                }
 
-        break;
-    }
-    case ConsoleInput::UP:
-    {
-        if (m_player.first > START.first)
-        {
-            m_player.first--;
+                break;
+            }
+        case ConsoleInput::UP:
+            {
+                if (m_player.first > START.first)
+                {
+                    m_player.first--;
 
-            std::cout << "You moved upwards!" << std::endl;
-        }
-        else
-        {
-            std::cout << "You bounced!" << std::endl;
-        }
+                    std::cout << "You moved upwards!" << std::endl;
+                }
+                else
+                {
+                    std::cout << "You bounced!" << std::endl;
+                }
 
-        break;
-    }
-    case ConsoleInput::DOWN:
-    {
-        if (m_player.first < LEN_X)
-        {
-            m_player.first++;
+                break;
+            }
+        case ConsoleInput::DOWN:
+            {
+                if (m_player.first < LEN_X)
+                {
+                    m_player.first++;
 
-            std::cout << "You moved downwards!" << std::endl;
-        }
-        else
-        {
-            std::cout << "You bounced!" << std::endl;
-        }
+                    std::cout << "You moved downwards!" << std::endl;
+                }
+                else
+                {
+                    std::cout << "You bounced!" << std::endl;
+                }
 
-        break;
-    }
-    case ConsoleInput::INVALID:
-    default:
-    {
-        std::cout << "Unrecognized move!" << std::endl;
+                break;
+            }
+        case ConsoleInput::INVALID:
+        default:
+            {
+                std::cout << "Unrecognized move!" << std::endl;
 
-        break;
-    }
+                break;
+            }
     }
 }
 
@@ -171,7 +171,7 @@ bool Game::is_dead()
 {
     for (const auto &obs : m_obstacles)
     {
-        if(m_player == obs)
+        if (m_player == obs)
         {
             return true;
         }
@@ -193,7 +193,7 @@ bool Game::is_finished()
 }
 
 unsigned int Game::random_uint(const unsigned int lower,
-                               const unsigned int upper)
+    const unsigned int upper)
 {
     std::random_device gen;
     std::uniform_int_distribution<unsigned int> dist(lower, upper);
@@ -202,9 +202,9 @@ unsigned int Game::random_uint(const unsigned int lower,
 }
 
 Position Game::random_position(const unsigned int lower_x,
-                               const unsigned int upper_x,
-                               const unsigned int lower_y,
-                               const unsigned int upper_y)
+    const unsigned int upper_x,
+    const unsigned int lower_y,
+    const unsigned int upper_y)
 {
     Position pos(random_uint(lower_x, upper_x), random_uint(lower_y, upper_y));
 
@@ -219,7 +219,7 @@ void Game::start_game()
 
     generate_random_obstacles();
 
-    while(!finished)
+    while (!finished)
     {
         update_game_state();
         print_game_state();
@@ -229,13 +229,13 @@ void Game::start_game()
         move_player(move);
         move_obstacles();
 
-        if(is_dead())
+        if (is_dead())
         {
             finished = true;
 
             std::cout << "You died!" << std::endl;
         }
-        else if(is_finished())
+        else if (is_finished())
         {
             finished = true;
 

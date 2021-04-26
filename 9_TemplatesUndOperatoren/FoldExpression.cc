@@ -4,17 +4,17 @@
 template <typename T, typename... Args>
 T concat(Args... args)
 {
-	return (args + ...);
+    return (args + ...);
 }
 
 int main()
 {
-	std::string s1 = "Ha";
-	std::string s2 = "ll";
-	std::string s3 = "o";
+    std::string s1 = "Ha";
+    std::string s2 = "ll";
+    std::string s3 = "o";
 
-	std::cout << concat<std::string>(s1, s2, s3) << std::endl;
-	std::cout << concat<int>(2, 3, 4) << std::endl;
+    std::cout << concat<std::string>(s1, s2, s3) << std::endl;
+    std::cout << concat<int>(2, 3, 4) << std::endl;
 
-	return 0;
+    return 0;
 }

@@ -8,38 +8,38 @@ typedef std::priority_queue<int, std::vector<int>, std::greater<int>> priority_q
 
 void execute(priority_queue_less &pq)
 {
-	while (!pq.empty())
-	{
-		std::cout << pq.top() << std::endl;
-		pq.pop();
-	}
+    while (!pq.empty())
+    {
+        std::cout << pq.top() << std::endl;
+        pq.pop();
+    }
 
-	std::cout << std::endl;
+    std::cout << std::endl;
 }
 
 void execute(priority_queue_greater &pq)
 {
-	while (!pq.empty())
-	{
-		std::cout << pq.top() << std::endl;
-		pq.pop();
-	}
+    while (!pq.empty())
+    {
+        std::cout << pq.top() << std::endl;
+        pq.pop();
+    }
 
-	std::cout << std::endl;
+    std::cout << std::endl;
 }
 
 int main()
 {
-	std::priority_queue<int, std::vector<int>, std::less<int>> my_pq1;
-	my_pq1.push(10);
-	my_pq1.push(23);
-	my_pq1.push(42);
+    std::priority_queue<int, std::vector<int>, std::less<int>> my_pq1;
+    my_pq1.push(10);
+    my_pq1.push(23);
+    my_pq1.push(42);
 
-	std::vector<int> data = { 10, 23, 42 };
-	std::priority_queue<int, std::vector<int>, std::greater<int>> my_pq2(data.begin(), data.end());
+    std::vector<int> data = { 10, 23, 42 };
+    std::priority_queue<int, std::vector<int>, std::greater<int>> my_pq2(data.begin(), data.end());
 
-	execute(my_pq1);
-	execute(my_pq2);
+    execute(my_pq1);
+    execute(my_pq2);
 
-	return 0;
+    return 0;
 }

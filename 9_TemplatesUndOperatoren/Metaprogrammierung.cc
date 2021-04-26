@@ -13,14 +13,14 @@ template<const int n>
 class faculty
 {
 public:
-	static const int val = faculty<n - 1>::val * n;
+    static const int val = faculty<n - 1>::val * n;
 };
 
 template<>
 class faculty<1>
 {
 public:
-	static const int val = 1;
+    static const int val = 1;
 };
 
 
@@ -31,24 +31,24 @@ template<const int n>
 class sum
 {
 public:
-	static const int val = sum<n - 1>::val + n;
+    static const int val = sum<n - 1>::val + n;
 };
 
 template<>
 class sum<1>
 {
 public:
-	static const int val = 1;
+    static const int val = 1;
 };
 
 int main()
 {
-	// 5! = 5 * 4 * 3 * 2 * 1
-	// n! = n * (n-1) * ... * 1
-	std::cout << "5! = " << faculty<5>::val << std::endl;
+    // 5! = 5 * 4 * 3 * 2 * 1
+    // n! = n * (n-1) * ... * 1
+    std::cout << "5! = " << faculty<5>::val << std::endl;
 
-	// 5 + 4 + 3 + 2 + 1 = 15
-	std::cout << "Sum from 1 to n=5: " << sum<5>::val << std::endl;
+    // 5 + 4 + 3 + 2 + 1 = 15
+    std::cout << "Sum from 1 to n=5: " << sum<5>::val << std::endl;
 
-	return 0;
+    return 0;
 }

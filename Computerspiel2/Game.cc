@@ -11,7 +11,7 @@ void print_game_state(unsigned int player)
 {
     char game_state[LEN_X];
 
-    for(unsigned int i = 0; i < LEN_X; i++)
+    for (unsigned int i = 0; i < LEN_X; i++)
     {
         game_state[i] = '.';
     }
@@ -20,7 +20,7 @@ void print_game_state(unsigned int player)
     game_state[GOAL] = '|';
     game_state[player] = 'P';
 
-    for(unsigned int i = 0; i < LEN_X; i++)
+    for (unsigned int i = 0; i < LEN_X; i++)
     {
         std::cout << game_state[i];
     }
@@ -82,7 +82,7 @@ void game()
     char move;
     bool finished = false;
 
-    while(!finished)
+    while (!finished)
     {
         print_game_state(player);
         std::cin >> move;

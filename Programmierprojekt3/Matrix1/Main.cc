@@ -4,7 +4,7 @@
 
 int main()
 {
-	Matrix<double> m1;
+    Matrix<double> m1;
 
-	return 0;
+    return 0;
 }

@@ -4,35 +4,35 @@
 
 int main()
 {
-	std::string str;
-	std::string text;
+    std::string str;
+    std::string text;
 
-	std::ifstream iffile;
-	iffile.open("Text.txt");
+    std::ifstream iffile;
+    iffile.open("Text.txt");
 
-	if (iffile.is_open())
-	{
-		while (std::getline(iffile, str))
-		{
-			text += str + "\n";
-		}
+    if (iffile.is_open())
+    {
+        while (std::getline(iffile, str))
+        {
+            text += str + "\n";
+        }
 
-		std::cout << text << std::endl;
-	}
+        std::cout << text << std::endl;
+    }
 
-	iffile.close();
+    iffile.close();
 
-	// Wir suchen nach dem Wort "eins"
-	int index = text.find("eins");
-	text.replace(index, 4, "one");
+    // Wir suchen nach dem Wort "eins"
+    int index = text.find("eins");
+    text.replace(index, 4, "one");
 
-	std::cout << text << std::endl;
+    std::cout << text << std::endl;
 
-	std::ofstream offile;
-	offile.open("TextOutput.txt");
+    std::ofstream offile;
+    offile.open("TextOutput.txt");
 
-	offile << text;
-	offile.close();
+    offile << text;
+    offile.close();
 
-	return 0;
+    return 0;
 }

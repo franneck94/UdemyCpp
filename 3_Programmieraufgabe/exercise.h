@@ -9,7 +9,7 @@ double mean_array_value(double *array, const unsigned int &length);
 // Aufgabe 2
 struct Dataset
 {
-	double mean_array_a;
-	double mean_array_b;
+    double mean_array_a;
+    double mean_array_b;
 };
 }

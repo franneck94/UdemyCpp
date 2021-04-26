@@ -4,23 +4,23 @@
 
 int main()
 {
-	std::string str;
-	std::string text;
+    std::string str;
+    std::string text;
 
-	std::ifstream iffile;
-	iffile.open("Text.txt");
+    std::ifstream iffile;
+    iffile.open("Text.txt");
 
-	if (iffile.is_open())
-	{
-		while (std::getline(iffile, str))
-		{
-			text += str + "\n";
-		}
+    if (iffile.is_open())
+    {
+        while (std::getline(iffile, str))
+        {
+            text += str + "\n";
+        }
 
-		std::cout << text << std::endl;
-	}
+        std::cout << text << std::endl;
+    }
 
-	iffile.close();
+    iffile.close();
 
-	return 0;
+    return 0;
 }
