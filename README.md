@@ -3,8 +3,8 @@
 Dies ist der Code zu meinem Udemy Kurs:
 *Moderne und Effektive C++ Programmierung* von Jan Schaffranek.
 
-Der aktuelle Rabatt-Code lautet: FRANNECK_APR_2021.
-Rabatt-Link: [Cpp Kurs im Rabatt](https://www.udemy.com/course/der-komplettkurs-zur-modernen-c-programmierung/?couponCode=FRANNECK_APR_2021)
+Der aktuelle Rabatt-Code lautet: FRANNECK_MAI_2021.
+Rabatt-Link: [Cpp Kurs im Rabatt](https://www.udemy.com/course/der-komplettkurs-zur-modernen-c-programmierung/?couponCode=FRANNECK_MAI_2021)
 
 ## Bewertungen von Kursteilnehmern
 
