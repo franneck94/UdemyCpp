@@ -65,7 +65,8 @@
     "stop_token": "cpp",
     "streambuf": "cpp",
     "thread": "cpp",
-    "typeinfo": "cpp"
+    "typeinfo": "cpp",
+    "cinttypes": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "C:\\cygwin64\\bin\\gcc.exe",
   "C_Cpp_Runner.cppCompilerPath": "C:\\cygwin64\\bin\\g++.exe",
