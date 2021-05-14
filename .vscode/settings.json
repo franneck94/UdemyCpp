@@ -66,7 +66,8 @@
     "streambuf": "cpp",
     "thread": "cpp",
     "typeinfo": "cpp",
-    "cinttypes": "cpp"
+    "cinttypes": "cpp",
+    "stack": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "C:\\cygwin64\\bin\\gcc.exe",
   "C_Cpp_Runner.cppCompilerPath": "C:\\cygwin64\\bin\\g++.exe",

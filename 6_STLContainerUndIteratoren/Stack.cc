@@ -1,8 +1,3 @@
-#include <array>
-#include <vector>
-#include <deque>
-#include <forward_list>
-#include <list>
 #include <iostream>
 #include <stack>
 

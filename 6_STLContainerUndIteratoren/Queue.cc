@@ -1,17 +1,11 @@
-#include <array>
-#include <vector>
-#include <deque>
-#include <forward_list>
-#include <list>
 #include <iostream>
-#include <stack>
 #include <queue>
 
-void traverse_queue(std::queue<int> &queue)
+void correct_exam(std::queue<int> &queue)
 {
     while (queue.size() > 0)
     {
-        std::cout << "Done with person: " << queue.front() << std::endl;
+        std::cout << "Done with student: " << queue.front() << std::endl;
         queue.pop();
     }
 }
@@ -20,11 +14,11 @@ int main()
 {
     std::queue<int> my_queue;
 
-    my_queue.push(1);
-    my_queue.push(2);
-    my_queue.push(3);
+    my_queue.push(1080131311);
+    my_queue.push(1080131312);
+    my_queue.push(1080131313);
 
-    traverse_queue(my_queue);
+    correct_exam(my_queue);
 
     return 0;
 }

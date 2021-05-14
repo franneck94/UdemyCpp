@@ -1,8 +1,5 @@
 #include <iostream>
 #include <string>
-#include <vector>
-#include <tuple>
-#include <utility>
 #include <map>
 
 void print_map(std::map<std::string, int> &map)
@@ -23,9 +20,10 @@ int main()
 
     print_map(my_map1);
 
-    auto it = my_map1.find("Jann");
+    auto search_str = "Jann";
+    auto it = my_map1.find(search_str);
     bool is_in = it != my_map1.end();
-    std::cout << "Liegt Jan im Datensatz vor? " << is_in << std::endl;
+    std::cout << search_str << " found? " << is_in << std::endl;
 
     return 0;
 }

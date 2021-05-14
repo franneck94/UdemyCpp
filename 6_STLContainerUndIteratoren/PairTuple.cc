@@ -4,8 +4,8 @@
 #include <string>
 #include <vector>
 
-typedef std::tuple<int, std::string, bool> tuple_user;
-typedef std::pair<int, std::string> pair_user;
+using tuple_user = std::tuple<int, std::string, bool>;
+using pair_user = std::pair<int, std::string>;
 
 void print_pair(pair_user &pair)
 {
@@ -32,9 +32,6 @@ void print_students(std::vector<tuple_user> &students)
 
 int main()
 {
-    // std::pair hat immer zwei Werte
-    // std::tuple hat n Werte
-
     tuple_user my_tpl1(23, "Jan", true);
     print_tuple(my_tpl1);
 
