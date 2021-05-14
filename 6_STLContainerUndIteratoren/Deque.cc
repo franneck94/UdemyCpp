@@ -1,6 +1,8 @@
 #include <array>
 #include <vector>
+#include <list>
 #include <deque>
+#include <forward_list>
 #include <iostream>
 
 int main()
@@ -9,14 +11,15 @@ int main()
     std::deque<int> my_deque(9, 0);
 
     std::cout << "Vector capacity: " << my_vector.capacity() << std::endl;
-    for (int i = 0; i < my_vector.size(); i++)
+
+    for (std::size_t i = 0; i < my_vector.size(); i++)
     {
         std::cout << my_vector[i] << " " << &my_vector[i] << std::endl;
     }
 
     std::cout << std::endl;
 
-    for (int i = 0; i < my_deque.size(); i++)
+    for (std::size_t i = 0; i < my_deque.size(); i++)
     {
         std::cout << my_deque[i] << " " << &my_deque[i] << std::endl;
     }
@@ -26,7 +29,8 @@ int main()
 
     my_vector.push_back(9);
     std::cout << "Vector capacity: " << my_vector.capacity() << std::endl;
-    for (int i = 0; i < my_vector.size(); i++)
+
+    for (std::size_t i = 0; i < my_vector.size(); i++)
     {
         std::cout << my_vector[i] << " " << &my_vector[i] << std::endl;
     }
@@ -36,7 +40,10 @@ int main()
     my_deque.push_back(9);
     my_deque.push_back(10);
     my_deque.pop_front();
-    for (int i = 0; i < my_deque.size(); i++)
+    my_deque.pop_front();
+    my_deque.push_front(-1);
+
+    for (std::size_t i = 0; i < my_deque.size(); i++)
     {
         std::cout << my_deque[i] << " " << &my_deque[i] << std::endl;
     }

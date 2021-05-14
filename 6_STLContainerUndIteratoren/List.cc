@@ -1,15 +1,15 @@
 #include <array>
 #include <vector>
+#include <list>
 #include <deque>
 #include <forward_list>
-#include <list>
 #include <iostream>
 
 int main()
 {
     std::vector<int> my_vector = { 1, 2 };
 
-    for (int i = 0; i < my_vector.size(); i++)
+    for (std::size_t i = 0; i < my_vector.size(); i++)
     {
         std::cout << &my_vector[i] << std::endl;
     }
