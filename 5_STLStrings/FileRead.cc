@@ -14,13 +14,13 @@ int main()
     {
         while (std::getline(iffile, str))
         {
-            text += str + "\n";
+            text += str + '\n';
         }
-
-        std::cout << text << std::endl;
     }
 
     iffile.close();
+
+    std::cout << text << std::endl;
 
     return 0;
 }

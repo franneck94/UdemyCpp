@@ -21,9 +21,9 @@ bool is_in_string(const std::string &str, const std::string &sub_str)
     auto str_len = str.length();
     auto sub_str_len = sub_str.length();
 
-    if (sub_str_len > str_len || sub_str_len == 0)
+    if (sub_str_len > str_len || sub_str_len == 0 || str_len == 0)
     {
-        return 0;
+        return false;
     }
 
     for (auto it = str.cbegin(); it != (str.cend() - (sub_str_len - 1)); ++it)

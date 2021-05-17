@@ -14,24 +14,29 @@ int main()
     {
         while (std::getline(iffile, str))
         {
-            text += str + "\n";
+            text += str + '\n';
         }
-
-        std::cout << text << std::endl;
     }
 
     iffile.close();
 
-    // Wir suchen nach dem Wort "eins"
-    int index = text.find("eins");
-    text.replace(index, 4, "one");
+    std::cout << text << std::endl;
+
+    std::string search_str = "eins";
+    std::string replace_str = "one";
+    auto idx = text.find(search_str);
+    text.replace(idx, search_str.size(), replace_str);
 
     std::cout << text << std::endl;
 
     std::ofstream offile;
     offile.open("TextOutput.txt");
 
-    offile << text;
+    if (offile.is_open())
+    {
+        offile << text;
+    }
+
     offile.close();
 
     return 0;

@@ -1,8 +1,6 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
-#include <regex>
-
 // Exercise 1
 bool is_palindrom(const std::string &str);
 
