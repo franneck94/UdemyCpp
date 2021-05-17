@@ -26,70 +26,54 @@ void write_text(const std::string &path, const std::string &text)
 {
     std::ofstream offile;
     offile.open(path);
-    offile << text;
+
+    if (offile.is_open())
+    {
+        offile << text;
+    }
+
     offile.close();
 }
 
 int main()
 {
+    /* eins\nzwei\ndrei */
     std::string text = read_text("Text.txt");
     std::cout << text << std::endl;
 
-    // Find und NPOS
-    // find (first occurence)
-    std::string search = "drei";
-    std::size_t length = search.length();
+    std::string search_str = "drei";
+    auto idx = text.find(search_str);
+    std::cout << idx << std::endl;
 
-    std::size_t first_idx = text.find(search);
-    std::cout << first_idx << std::endl;
-
-    if (first_idx != std::string::npos)
+    if (idx != std::string::npos)
     {
-        std::cout << "Liegt vor!" << std::endl;
+        std::cout << "Found!" << std::endl;
     }
     else
     {
-        std::cout << "Liegt nicht vor!" << std::endl;
+        std::cout << "Not Found!" << std::endl;
     }
 
-    //////////////////////////
+    std::string text2 = "abab";
+    std::string search_str2 = "ab";
 
-    // rfind (last occurence)
-    std::string search2 = "drei";
-    std::size_t first_idx2 = text.rfind(search2);
-    std::cout << first_idx2 << std::endl;
+    auto idx2 = text2.find(search_str2);
+    std::cout << "find: " << idx2 << std::endl;
 
-    if (first_idx2 != std::string::npos)
-    {
-        std::cout << "Liegt vor!" << std::endl;
-    }
-    else
-    {
-        std::cout << "Liegt nicht vor!" << std::endl;
-    }
+    auto idx3 = text2.rfind(search_str2);
+    std::cout << "rfind: " << idx3 << std::endl;
 
-    //////////////////////////
+    auto idx4 = text2.find_first_not_of(search_str2);
+    std::cout << "find_first_not_of: " << idx4 << std::endl;
 
-    // Substring
-    std::string substr_search = text.substr(first_idx, length);
-    std::cout << "Substr: " << substr_search << std::endl;
+    auto idx5 = text2.find_last_not_of(search_str2);
+    std::cout << "find_last_not_of: " << idx5 << std::endl;
 
-    //////////////////////////
+    auto idx6 = text2.find_first_of(search_str2);
+    std::cout << "find_first_of: " << idx6 << std::endl;
 
-    // Replace
-    std::string new_substr = "three";
-    text.replace(first_idx, length, new_substr);
-    std::cout << "Replaced:\n"
-        << text << std::endl;
-    write_text("TextOutput.txt", text);
-
-    //////////////////////////
-
-    // Compare
-    std::string s1 = "Hello";
-    std::string s2 = "Hello";
-
-    std::cout << "String compare: " << s1.compare(s2) << std::endl;
+    auto idx7 = text2.find_last_of(search_str2);
+    std::cout << "find_last_of: " << idx7 << std::endl;
 
     return 0;
 }
