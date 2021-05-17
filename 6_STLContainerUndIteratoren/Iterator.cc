@@ -1,53 +1,56 @@
 #include <iostream>
 #include <vector>
+#include <list>
 #include <numeric>
 
 int main()
 {
     std::vector<int> my_vector(5, 0);
     std::iota(my_vector.begin(), my_vector.end(), 0);
-    std::vector<int> my_vector2(5, 0);
-    std::iota(my_vector2.begin(), my_vector2.end(), 0);
 
-    // Standard ForwardIterator [begin, end)
-    std::vector<int>::iterator it_begin = my_vector.begin();
-    std::vector<int>::iterator it_end = my_vector.end();
+    std::list<int> my_list(5, 0);
+    std::iota(my_list.begin(), my_list.end(), 0);
 
-    for (auto it = it_begin; it != it_end; ++it)
+    // ForwardIterator
+    auto it1 = my_vector.begin();
+    auto it2 = my_vector.end();
+
+    for (; it1 != it2; ++it1)
     {
-        std::cout << *it << " " << &*it << " " << &it << std::endl;
+        std::cout << *it1 << " " << &(*it1) << " " << &it1 << std::endl;
     }
     std::cout << std::endl;
 
-    // Const Standard ForwardIterator [begin, end)
-    std::vector<int>::const_iterator const_it_begin = my_vector2.cbegin();
-    std::vector<int>::const_iterator const_it_end = my_vector2.cend();
+    // Const ForwardIterator
+    auto it3 = my_vector.cbegin();
+    auto it4 = my_vector.cend();
 
-    for (std::vector<int>::const_iterator it = const_it_begin; it != const_it_end; ++it)
+    for (; it3 != it4; ++it3)
     {
-        std::cout << *it << " " << &*it << " " << &it << std::endl;
+        std::cout << *it3 << " " << &(*it3) << " " << &it3 << std::endl;
+        // *it3 = 10;
     }
     std::cout << std::endl;
 
-    // Standard BidirectionalIterator (end, begin]
-    std::vector<int>::reverse_iterator reverse_it_begin = my_vector.rbegin();
-    std::vector<int>::reverse_iterator reverse_it_end = my_vector.rend();
+    // BidirectionalIterator
+    auto it5 = my_list.rbegin();
+    auto it6 = my_list.rend();
 
-    for (auto it = reverse_it_begin; it != reverse_it_end; ++it)
+    for (; it5 != it6; ++it5)
     {
-        std::cout << *it << " " << &*it << " " << &it << std::endl;
+        std::cout << *it5 << " " << &(*it5) << " " << &it5 << std::endl;
     }
     std::cout << std::endl;
 
-    // Const Standard BidirectionalIterator [begin, end)
-    std::vector<int>::const_reverse_iterator const_reverse_it_begin = my_vector2.crbegin();
-    std::vector<int>::const_reverse_iterator const_reverse_it_end = my_vector2.crend();
+    // Const BidirectionalIterator
+    auto it7 = my_list.crbegin();
+    auto it8 = my_list.crend();
 
-    for (std::vector<int>::const_reverse_iterator it = const_reverse_it_begin;
-        it != const_reverse_it_end; ++it)
+    for (; it7 != it8; ++it7)
     {
-        std::cout << *it << " " << &*it << " " << &it << std::endl;
+        std::cout << *it7 << " " << &(*it7) << " " << &it7 << std::endl;
     }
+    std::cout << std::endl;
 
     return 0;
 }

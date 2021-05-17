@@ -1,8 +1,8 @@
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <utility>
 #include <set>
-#include <algorithm>
 
 void print_set(std::set<std::string> &set)
 {
@@ -70,15 +70,15 @@ int main()
 
     // Set SymmetricDifference
     std::cout << "Symmetric Difference: " << std::endl;
-    std::set<std::string> students_symmetric_difference;
+    std::set<std::string> students_symmetric;
     std::set_symmetric_difference(
         math_course.begin(),
         math_course.end(),
         coding_course.begin(),
         coding_course.end(),
-        std::inserter(students_symmetric_difference, students_symmetric_difference.end())
+        std::inserter(students_symmetric, students_symmetric.end())
     );
-    print_set(students_symmetric_difference);
+    print_set(students_symmetric);
 
     return 0;
 }
