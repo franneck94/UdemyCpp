@@ -42,6 +42,7 @@ int main()
 
     std::cout << "d1 == d2? " << std::boolalpha << equal(d1, d2) << std::endl;
 
+    std::cout << "epsilon = " << std::numeric_limits<double>::epsilon() << std::endl;
     std::cout << "d1 ~= d2? " << std::boolalpha << almost_equal(d1, d2) << std::endl;
 
     return 0;
