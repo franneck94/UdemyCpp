@@ -21,8 +21,9 @@ int main()
 
     auto end_time = std::chrono::high_resolution_clock::now();
 
-    double elapsed_microseconds = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time).count();
-    std::cout << "The program took " << elapsed_microseconds << " us." << std::endl;
+    using time = std::chrono::microseconds;
+    double elapsed = std::chrono::duration_cast<time>(end_time - start_time).count();
+    std::cout << "The program took " << elapsed << " us." << std::endl;
 
     return 0;
 }
