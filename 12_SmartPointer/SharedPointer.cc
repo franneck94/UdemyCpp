@@ -28,13 +28,13 @@ private:
 // Shared Pointer: besitzen ein Reference counting System
 void f1()
 {
-    std::shared_ptr<ScopeTest> t = std::make_shared<ScopeTest>(10);
+    auto t = std::make_shared<ScopeTest>(10);
     t->test();
 
     std::cout << "Count: " << t.use_count() << std::endl;
 
     {
-        std::shared_ptr<ScopeTest> t2 = t;
+        auto t2 = t;
         t2->test();
 
         std::cout << "Count: " << t.use_count() << std::endl;
@@ -51,9 +51,9 @@ void f2()
 
 void f3()
 {
-    std::shared_ptr<ScopeTest> t4 = std::make_shared<ScopeTest>(10);
+    auto t4 = std::make_shared<ScopeTest>(10);
     std::cout << "Count t4: " << t4.use_count() << std::endl;
-    std::shared_ptr<ScopeTest> t5 = std::make_shared<ScopeTest>(10);
+    auto t5 = std::make_shared<ScopeTest>(10);
     std::cout << "Count t5: " << t5.use_count() << std::endl;
 
     t4->m_partner = t5;

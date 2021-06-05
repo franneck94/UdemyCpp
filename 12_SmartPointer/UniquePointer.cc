@@ -25,7 +25,7 @@ private:
 
 void f1()
 {
-    std::unique_ptr<ScopeTest> t = std::make_unique<ScopeTest>(10);
+    auto t = std::make_unique<ScopeTest>(10);
     t->test();
 }
 
