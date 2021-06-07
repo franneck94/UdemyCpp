@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <cstring>
-#include <stdlib.h>
+#include <cstdlib>
 
 #pragma warning(disable : 4996)
 #include "Image.h"

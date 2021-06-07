@@ -1,5 +1,5 @@
 #include <cstddef>
-#include <math.h>
+#include <cmath>
 
 #include "AlgoArray.h"
 #include "DynArray.h"
@@ -19,13 +19,13 @@ double sum(DynamicArray &dynamic_array)
 
 double mean(DynamicArray &dynamic_array)
 {
-    return sum(dynamic_array) / dynamic_array.m_length;
+    return sum(dynamic_array) / static_cast<double>(dynamic_array.m_length);
 }
 
 double median(DynamicArray &dynamic_array)
 {
     double median_value = 0.0;
-    bool has_odd_length = dynamic_array.m_length % 2;
+    bool has_odd_length = static_cast<bool>(dynamic_array.m_length % 2);
 
     if (has_odd_length)
     {
@@ -46,7 +46,7 @@ double variance(DynamicArray &dynamic_array)
 {
     double mean_value = mean(dynamic_array);
     double variance_value = 0.0;
-    double probability = 1.0 / (double)dynamic_array.m_length;
+    double probability = 1.0 / static_cast<double>(dynamic_array.m_length);
 
     for (std::size_t i = 0; i < dynamic_array.m_length; i++)
     {

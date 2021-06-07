@@ -1,6 +1,6 @@
 #pragma once
 
-#include <math.h>
+#include <cmath>
 
 #include "DynArray.h"
 
@@ -30,7 +30,7 @@ template <typename T> T sum(DynamicArray<T> &dynamic_array)
  */
 template <typename T> double mean(DynamicArray<T> &dynamic_array)
 {
-    return sum(dynamic_array) / dynamic_array.get_length();
+    return sum(dynamic_array) / static_cast<double>(dynamic_array.get_length());
 }
 
 /**
@@ -42,7 +42,7 @@ template <typename T> double mean(DynamicArray<T> &dynamic_array)
 template <typename T> double median(DynamicArray<T> &dynamic_array)
 {
     double median_value = 0.0;
-    bool has_odd_length = dynamic_array.get_length() % 2;
+    bool has_odd_length = static_cast<bool>(dynamic_array.get_length() % 2);
 
     if (has_odd_length)
     {
@@ -69,7 +69,7 @@ template <typename T> double variance(DynamicArray<T> &dynamic_array)
 {
     double mean_value = mean(dynamic_array);
     double variance_value = 0.0;
-    double probability = 1.0 / (double)dynamic_array.get_length();
+    double probability = 1.0 / static_cast<double>(dynamic_array.get_length());
 
     for (std::size_t i = 0; i < dynamic_array.get_length(); i++)
     {

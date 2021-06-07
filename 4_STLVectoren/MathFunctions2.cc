@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <math.h>
+#include <cmath>
 
 void fill_double_vector(std::vector<double> &vec)
 {

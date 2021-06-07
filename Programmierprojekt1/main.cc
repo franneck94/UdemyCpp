@@ -1,10 +1,8 @@
 #include <cstddef>
 #include <iostream>
 
-
 #include "AlgoArray.h"
 #include "DynArray.h"
-
 
 // int main()
 int main()
@@ -16,7 +14,7 @@ int main()
 
     for (std::size_t i = 0; i < length; i++)
     {
-        my_array.m_data[i] = i;
+        my_array.m_data[i] = static_cast<double>(i);
     }
 
     std::cout << "Mean = " << mean(my_array) << std::endl;

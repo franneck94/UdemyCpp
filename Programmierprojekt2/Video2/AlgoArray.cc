@@ -1,5 +1,5 @@
 // #include <cstddef>
-// #include <math.h>
+// #include <cmath>
 
 // #include "DynArray.h"
 // #include "AlgoArray.h"
@@ -18,13 +18,13 @@
 
 // double mean(DyanmicArray &dynamic_array)
 // {
-//     return sum(dynamic_array) / dynamic_array.m_length;
+//     return sum(dynamic_array) / static_cast<double>(dynamic_array.m_length);
 // }
 
 // double median(DyanmicArray &dynamic_array)
 // {
 //     double median_value = 0.0;
-//     bool has_odd_length = dynamic_array.m_length % 2;
+//     bool has_odd_length = static_cast<bool>(dynamic_array.m_length % 2);
 
 //     if (has_odd_length)
 //     {

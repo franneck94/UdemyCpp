@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <math.h>
+#include <cmath>
 
 void fill_double_vector(std::vector<double> &vec)
 {
@@ -48,7 +48,7 @@ int main()
     // - Exponential
     // - Natural Logarithm
     // Werte von einem double-Vector berechnet
-    // Bsp: void double_vector_exp(std::vector<double> &vec) verwendet std::exp, std::log aus <math.h>
+    // Bsp: void double_vector_exp(std::vector<double> &vec) verwendet std::exp, std::log aus <cmath>
     // [exp(0.0), exp(1.0), ...]
     // [log(0.0), log(1.0), ...]
 

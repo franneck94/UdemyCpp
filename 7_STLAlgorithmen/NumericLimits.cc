@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <limits>
-#include <math.h>
+#include <cmath>
 
 template <typename T>
 void print_min_max()

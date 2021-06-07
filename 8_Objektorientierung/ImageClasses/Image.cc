@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <cstring>
-#include <stdlib.h>
+#include <cstdlib>
 #include <vector>
 
 #pragma warning(disable : 4996)

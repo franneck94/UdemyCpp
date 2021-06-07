@@ -10,7 +10,7 @@ int main()
     unsigned int start = 0;
     unsigned int goal = LEN_X - 1;
 
-    char move;
+    char move = 0;
 
     for (unsigned int i = 0; i < LEN_X; i++)
     {
@@ -42,7 +42,6 @@ int main()
     {
         std::cout << "Unrecognized move!" << std::endl;
     }
-
 
     return 0;
 }

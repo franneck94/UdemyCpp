@@ -1,5 +1,5 @@
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
 
 #define LEN_X 10u
 #define LEFT 'a'
@@ -15,7 +15,7 @@ int main()
         unsigned int start = 0;
         unsigned int goal = LEN_X - 1;
 
-        char move;
+        char move = 0;
         bool finished = false;
 
         while (!finished)

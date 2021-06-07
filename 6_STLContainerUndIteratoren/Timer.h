@@ -6,11 +6,11 @@
 namespace cpptiming
 {
 
-typedef std::chrono::high_resolution_clock Clock;
-typedef std::chrono::nanoseconds nanosecs;
-typedef std::chrono::microseconds microsecs;
-typedef std::chrono::milliseconds millisecs;
-typedef std::chrono::seconds secs;
+using Clock = std::chrono::high_resolution_clock;
+using nanosecs = std::chrono::nanoseconds;
+using microsecs = std::chrono::microseconds;
+using millisecs = std::chrono::milliseconds;
+using secs = std::chrono::seconds;
 
 class Timer
 {
