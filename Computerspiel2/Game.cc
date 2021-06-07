@@ -79,7 +79,7 @@ bool is_finished(unsigned int player)
 void game()
 {
     unsigned int player = 0;
-    char move;
+    char move = 0;
     bool finished = false;
 
     while (!finished)

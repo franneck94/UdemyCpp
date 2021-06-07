@@ -307,7 +307,9 @@ void Matrix<T>::dot(const Matrix<T> &matrixA, const Matrix<T> &matrixB, Matrix<T
 template <typename T>
 void Matrix<T>::parallel_dot(const Matrix<T> &matrixA, const Matrix<T> &matrixB, Matrix<T> &result)
 {
-    std::size_t i, j, k;
+    std::size_t i = 0;
+    std::size_t j = 0;
+    std::size_t k = 0;
 
 #pragma omp parallel for shared(result) private(i, j, k) num_threads(12)
     for (i = 0; i != matrixA.m_rows; ++i)

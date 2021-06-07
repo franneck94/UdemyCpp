@@ -185,8 +185,8 @@ Position random_position(const unsigned int lower_x,
 void game()
 {
     Position player = { 0, 0 };
-    char user_input;
-    ConsoleInput move;
+    char user_input = 0;
+    ConsoleInput move = ConsoleInput::INVALID;
     bool finished = false;
 
     unsigned int num_obstacles = 3;

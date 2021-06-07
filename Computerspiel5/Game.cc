@@ -213,8 +213,8 @@ Position Game::random_position(const unsigned int lower_x,
 
 void Game::start_game()
 {
-    char user_input;
-    ConsoleInput move;
+    char user_input = 0;
+    ConsoleInput move = ConsoleInput::INVALID;
     bool finished = false;
 
     generate_random_obstacles();

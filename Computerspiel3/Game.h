@@ -1,8 +1,8 @@
 #pragma once
 
+#include <vector>
 #include <string>
 #include <utility>
-#include <vector>
 
 using Position = std::pair<unsigned int, unsigned int>;
 using GameState = std::vector<std::string>;
