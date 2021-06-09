@@ -24,7 +24,7 @@ int main()
                                // 0000 0001
 
     unsigned char hex3 = hex1 & hex2;
-    std::cout << "AND: " << (int)hex3 << " (decimal)" << std::endl;
+    std::cout << "AND: " << static_cast<int>(hex3) << " (decimal)" << std::endl;
 
     return 0;
 }

@@ -8,7 +8,7 @@
  * @param dynamic_array
  * @return double
  */
-double sum(DynamicArray &dynamic_array);
+double sum(const DynamicArray &dynamic_array);
 
 /**
  * @brief
@@ -16,7 +16,7 @@ double sum(DynamicArray &dynamic_array);
  * @param dynamic_array
  * @return double
  */
-double mean(DynamicArray &dynamic_array);
+double mean(const DynamicArray &dynamic_array);
 
 /**
  * @brief
@@ -24,4 +24,4 @@ double mean(DynamicArray &dynamic_array);
  * @param dynamic_array
  * @return double
  */
-double median(DynamicArray &dynamic_array);
+double median(const DynamicArray &dynamic_array);

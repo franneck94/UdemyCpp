@@ -10,8 +10,10 @@ int main()
     std::cin >> birthday;
 
     std::stringstream birthday_ss(birthday);
-    unsigned int day, month, year;
-    char c;
+    unsigned int day = 0;
+    unsigned int month = 0;
+    unsigned int year = 0;
+    char c = 0;
 
     birthday_ss >> day >> c >> month >> c >> year;
 

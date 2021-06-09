@@ -17,7 +17,7 @@ int main(int argc, char **argv)
         std::stringstream sstrValue;
         sstrValue << argv[1];
 
-        int my_int_argument;
+        int my_int_argument = 0;
         sstrValue >> my_int_argument;
 
         std::cout << my_int_argument * 2 << std::endl;

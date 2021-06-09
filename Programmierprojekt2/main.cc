@@ -36,10 +36,5 @@ int main()
     std::cout << "Variance = " << variance(my_array) << std::endl;
     std::cout << "Stddev = " << stddev(my_array) << std::endl;
 
-    DynamicArray<int> a;
-    std::cout << a.get_length() << std::endl;
-
-    a.push_back(19);
-
     return 0;
 }

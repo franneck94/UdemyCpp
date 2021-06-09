@@ -9,7 +9,7 @@ double mean_array_value(int *array, const unsigned int &length)
 {
     double mean_value = 0.0;
 
-    for (int i = 0; i < length; i++)
+    for (unsigned int i = 0; i < length; i++)
     {
         mean_value += array[i];
     }
@@ -23,7 +23,7 @@ double mean_array_value(double *array, const unsigned int &length)
 {
     double mean_value = 0.0;
 
-    for (int i = 0; i < length; i++)
+    for (unsigned int i = 0; i < length; i++)
     {
         mean_value += array[i];
     }

@@ -51,12 +51,12 @@ int main()
         std::cout << "Equal" << std::endl;
     }
 
-    enum class Colors3 c3 = Colors3::RED;
-    enum class Colors3 c4 = Colors3::RED;
+    Colors3 c3 = Colors3::RED;
+    Colors3 c4 = Colors3::RED;
 
     unsigned char a = 'a';
 
-    if (a == c3)
+    if (a == static_cast<unsigned char>(c3))
     {
         std::cout << "Equal" << std::endl;
     }

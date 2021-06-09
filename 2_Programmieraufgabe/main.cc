@@ -5,9 +5,9 @@ int main()
 {
     // Exercise 1
     const unsigned int array_length = 100;
-    double sum;
+    double sum = 0.0;
 
-    double *p_array_exercise1;
+    double *p_array_exercise1 = nullptr;
     p_array_exercise1 = new double[array_length];
 
     for (int i = 0; i < 100; i++)
@@ -19,8 +19,8 @@ int main()
     std::cout << "(Exercise 1) Array Sum = " << sum << std::endl;
 
     // Exercise 2
-    unsigned int input_array_length;
-    int input_array_value;
+    unsigned int input_array_length = 0;
+    int input_array_value = 0;
 
     std::cout << std::endl
         << "Gebe Array Length ein!" << std::endl;

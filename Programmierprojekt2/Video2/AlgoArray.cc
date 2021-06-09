@@ -45,7 +45,7 @@
 // {
 //     double mean_value = mean(dynamic_array);
 //     double variance_value = 0.0;
-//     double probability = 1.0 / (double)dynamic_array.m_length;
+//     double probability = 1.0 / static_cast<double>(dynamic_array.m_length);
 
 //     for (std::size_t i = 0; i < dynamic_array.m_length; i++)
 //     {

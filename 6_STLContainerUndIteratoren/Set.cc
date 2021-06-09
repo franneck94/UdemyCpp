@@ -4,7 +4,7 @@
 #include <utility>
 #include <set>
 
-void print_set(std::set<std::string> &set)
+void print_set(const std::set<std::string> &set)
 {
     for (const auto &val : set)
     {

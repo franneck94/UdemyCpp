@@ -7,26 +7,26 @@ ConsoleInput map_user_input(char user_input)
 {
     switch (user_input)
     {
-        case 'a':
-            {
-                return ConsoleInput::LEFT;
-            }
-        case 'd':
-            {
-                return ConsoleInput::RIGHT;
-            }
-        case 'w':
-            {
-                return ConsoleInput::UP;
-            }
-        case 's':
-            {
-                return ConsoleInput::DOWN;
-            }
-        default:
-            {
-                return ConsoleInput::INVALID;
-            }
+    case 'a':
+        {
+            return ConsoleInput::LEFT;
+        }
+    case 'd':
+        {
+            return ConsoleInput::RIGHT;
+        }
+    case 'w':
+        {
+            return ConsoleInput::UP;
+        }
+    case 's':
+        {
+            return ConsoleInput::DOWN;
+        }
+    default:
+        {
+            return ConsoleInput::INVALID;
+        }
     }
 }
 
@@ -65,73 +65,73 @@ Position execute_move(Position player,
 {
     switch (move)
     {
-        case ConsoleInput::LEFT:
+    case ConsoleInput::LEFT:
+        {
+            if (player.second > START.second)
             {
-                if (player.second > START.second)
-                {
-                    player.second--;
+                player.second--;
 
-                    std::cout << "You moved to the left!" << std::endl;
-                }
-                else
-                {
-                    std::cout << "You bounced!" << std::endl;
-                }
-
-                break;
+                std::cout << "You moved to the left!" << std::endl;
             }
-        case ConsoleInput::RIGHT:
+            else
             {
-                if (player.second < GOAL.second)
-                {
-                    player.second++;
-
-                    std::cout << "You moved to the right!" << std::endl;
-                }
-                else
-                {
-                    std::cout << "You bounced!" << std::endl;
-                }
-
-                break;
+                std::cout << "You bounced!" << std::endl;
             }
-        case ConsoleInput::UP:
+
+            break;
+        }
+    case ConsoleInput::RIGHT:
+        {
+            if (player.second < GOAL.second)
             {
-                if (player.first > START.first)
-                {
-                    player.first--;
+                player.second++;
 
-                    std::cout << "You moved upwards!" << std::endl;
-                }
-                else
-                {
-                    std::cout << "You bounced!" << std::endl;
-                }
-
-                break;
+                std::cout << "You moved to the right!" << std::endl;
             }
-        case ConsoleInput::DOWN:
+            else
             {
-                if (player.first < GOAL.first)
-                {
-                    player.first++;
-
-                    std::cout << "You moved downwards!" << std::endl;
-                }
-                else
-                {
-                    std::cout << "You bounced!" << std::endl;
-                }
-
-                break;
+                std::cout << "You bounced!" << std::endl;
             }
-        case ConsoleInput::INVALID:
-        default:
+
+            break;
+        }
+    case ConsoleInput::UP:
+        {
+            if (player.first > START.first)
             {
-                std::cout << "Unrecognized move!" << std::endl;
+                player.first--;
 
-                break;
+                std::cout << "You moved upwards!" << std::endl;
             }
+            else
+            {
+                std::cout << "You bounced!" << std::endl;
+            }
+
+            break;
+        }
+    case ConsoleInput::DOWN:
+        {
+            if (player.first < GOAL.first)
+            {
+                player.first++;
+
+                std::cout << "You moved downwards!" << std::endl;
+            }
+            else
+            {
+                std::cout << "You bounced!" << std::endl;
+            }
+
+            break;
+        }
+    case ConsoleInput::INVALID:
+    default:
+        {
+            std::cout << "Unrecognized move!" << std::endl;
+
+            break;
+        }
     }
 
     return player;

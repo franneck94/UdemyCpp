@@ -4,7 +4,7 @@
 
 void fill_double_vector(std::vector<double> &vec)
 {
-    for (int i = 0; i < vec.size(); ++i)
+    for (unsigned int i = 0; i < vec.size(); ++i)
     {
         vec[i] = i;
     }
@@ -12,7 +12,7 @@ void fill_double_vector(std::vector<double> &vec)
 
 void print_double_vector(const std::vector<double> &vec)
 {
-    for (int i = 0; i < vec.size(); ++i)
+    for (unsigned int i = 0; i < vec.size(); ++i)
     {
         std::cout << "Vec[" << i << "] = " << vec[i] << std::endl;
     }
@@ -22,7 +22,7 @@ void print_double_vector(const std::vector<double> &vec)
 
 void double_vector_exp(std::vector<double> &vec)
 {
-    for (int i = 0; i < vec.size(); ++i)
+    for (unsigned int i = 0; i < vec.size(); ++i)
     {
         vec[i] = std::exp(vec[i]);
     }
@@ -46,7 +46,7 @@ void double_vector_exp_for_each(std::vector<double> &vec)
 
 void double_vector_log(std::vector<double> &vec)
 {
-    for (int i = 0; i < vec.size(); ++i)
+    for (unsigned int i = 0; i < vec.size(); ++i)
     {
         vec[i] = std::log(vec[i]);
     }

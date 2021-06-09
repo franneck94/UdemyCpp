@@ -14,7 +14,7 @@ int main()
     std::random_device gen;
     std::bernoulli_distribution dist(0.5);
 
-    BinaryArray target(20, 0);
+    BinaryArray target(20, false);
     std::generate(target.begin(), target.end(), [&] { return dist(gen); });
 
     BinaryArray input(target.begin(), target.end());
@@ -35,7 +35,7 @@ int main()
     auto start = std::chrono::high_resolution_clock::now();
     BinaryArray result_exercise2 = shuffle_till_equal(target, input);
     auto end = std::chrono::high_resolution_clock::now();
-    double elapsed_milliseconds = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000.0;
+    auto elapsed_milliseconds = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000.0;
     std::cout << std::endl << "Time for exercise 2 in ms: " << elapsed_milliseconds;
     bool is_equal2 = std::equal(result_exercise2.begin(), result_exercise2.end(), target.begin());
     std::cout << std::endl << "Vectors are equal: " << is_equal2 << std::endl;

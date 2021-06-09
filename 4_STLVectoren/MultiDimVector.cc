@@ -13,22 +13,30 @@ int main()
                                    {2, 3},
                                    {4, 5} };
 
+    for (unsigned int i = 0; i < num_rows; ++i)
+    {
+        for (unsigned int j = 0; j < num_cols; ++j)
+        {
+            std::cout << "arr[" << i << ", " << j << "] = " << arr[i][j] << std::endl;
+        }
+    }
+
     // 2d-vector (3x2 matrix) => 3 Rows, 2 Columns
     //                                       NUM_OF: std::vector<int>     VALUE OF: std::vector<int>
     std::vector<std::vector<int>> my_vector(num_rows, std::vector<int>(num_cols, 0));
 
-    for (int i = 0; i < my_vector.size(); ++i)
+    for (unsigned int i = 0; i < my_vector.size(); ++i)
     {
-        for (int j = 0; j < my_vector[i].size(); ++j)
+        for (unsigned int j = 0; j < my_vector[i].size(); ++j)
         {
             my_vector[i][j] = i * j + i + j;
         }
     }
 
-    for (int i = 0; i < my_vector.size(); ++i)
+    for (unsigned int i = 0; i < my_vector.size(); ++i)
     {
         // my_vector[i] => Row-vector with 2 int values
-        for (int j = 0; j < my_vector[i].size(); ++j)
+        for (unsigned int j = 0; j < my_vector[i].size(); ++j)
         {
             std::cout << "my_vector[" << i << ", " << j << "] = " << my_vector[i][j] << std::endl;
         }

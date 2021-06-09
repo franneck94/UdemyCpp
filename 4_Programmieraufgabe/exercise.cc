@@ -9,11 +9,11 @@ std::vector<double> max_row_values(Matrix &matrix)
 {
     std::vector<double> row_max_vec(matrix.size(), 0.0);
 
-    for (int i = 0; i != matrix.size(); ++i)
+    for (unsigned int i = 0; i != matrix.size(); ++i)
     {
         double act_row_max = 0.0;
 
-        for (int j = 0; j != matrix[i].size(); ++j)
+        for (unsigned int j = 0; j != matrix[i].size(); ++j)
         {
             if (matrix[i][j] > act_row_max)
             {

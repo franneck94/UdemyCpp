@@ -5,7 +5,7 @@
 
 void print_vector(const std::vector<int> &vec)
 {
-    for (int i = 0; i < vec.size(); ++i)
+    for (unsigned int i = 0; i < vec.size(); ++i)
     {
         std::cout << "Vec[" << i << "] = " << vec[i] << std::endl;
     }

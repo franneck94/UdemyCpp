@@ -9,17 +9,17 @@ int main()
     // Exercise 1
     Matrix matrix(3, std::vector<double>(3, 0.0));
 
-    for (int i = 0; i != matrix.size(); ++i)
+    for (unsigned int i = 0; i != matrix.size(); ++i)
     {
-        for (int j = 0; j != matrix[i].size(); ++j)
+        for (unsigned int j = 0; j != matrix[i].size(); ++j)
         {
             matrix[i][j] = i + j;
         }
     }
 
-    for (int i = 0; i != matrix.size(); ++i)
+    for (unsigned int i = 0; i != matrix.size(); ++i)
     {
-        for (int j = 0; j != matrix[i].size(); ++j)
+        for (unsigned int j = 0; j != matrix[i].size(); ++j)
         {
             std::cout << std::endl
                 << "i = " << i << " , j = " << j << ", matrix = " << matrix[i][j];
@@ -30,7 +30,7 @@ int main()
     // Exercise 2
     std::vector<double> row_max_vec = max_row_values(matrix);
 
-    for (int i = 0; i != row_max_vec.size(); ++i)
+    for (unsigned int i = 0; i != row_max_vec.size(); ++i)
     {
         std::cout << "Maximum of row " << i << " = " << row_max_vec[i] << std::endl;
     }
@@ -40,14 +40,14 @@ int main()
     row_max_vec[2] = row_max_vec[1];
     row_max_vec[1] = temp;
 
-    for (int i = 0; i != row_max_vec.size(); ++i)
+    for (unsigned int i = 0; i != row_max_vec.size(); ++i)
     {
         std::cout << "Vector[" << i << "] = " << row_max_vec[i] << std::endl;
     }
 
     double max = sort_and_max(row_max_vec);
 
-    for (int i = 0; i != row_max_vec.size(); ++i)
+    for (unsigned int i = 0; i != row_max_vec.size(); ++i)
     {
         std::cout << "Sorted vector[" << i << "] = " << row_max_vec[i] << std::endl;
     }

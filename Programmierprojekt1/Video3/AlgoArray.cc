@@ -4,7 +4,7 @@
 #include "DynArray.h"
 
 
-double sum(DynamicArray &dynamic_array)
+double sum(const DynamicArray &dynamic_array)
 {
     double sum_value = 0.0;
 
@@ -16,12 +16,12 @@ double sum(DynamicArray &dynamic_array)
     return sum_value;
 }
 
-double mean(DynamicArray &dynamic_array)
+double mean(const DynamicArray &dynamic_array)
 {
     return sum(dynamic_array) / static_cast<double>(dynamic_array.m_length);
 }
 
-double median(DynamicArray &dynamic_array)
+double median(const DynamicArray &dynamic_array)
 {
     double median_value = 0.0;
     bool has_odd_length = static_cast<bool>(dynamic_array.m_length % 2u);

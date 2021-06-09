@@ -20,7 +20,7 @@ int main()
 
     std::cout << std::endl;
 
-    for (int i = 0; i < 10; i++)
+    for (unsigned int i = 0; i < 10; i++)
     {
         std::cout << vec[i] << " " << &vec[i] << std::endl;
     }
