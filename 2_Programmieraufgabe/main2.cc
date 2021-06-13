@@ -3,7 +3,7 @@
 #include "exercise2.h"
 
 // int main()
-int main()
+int _main()
 {
     int *my_data = nullptr;
     unsigned int size = 3;

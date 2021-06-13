@@ -5,7 +5,7 @@ LANGUAGE_MODE ?= Cpp
 COMPILATION_MODE ?= Debug
 ENABLE_WARNINGS ?= 1
 WARNINGS_AS_ERRORS ?= 0
-WARNINGS ?= -Wall -Wextra -Wpedantic -Wshadow -Wnarrowing -Wformat=2 -Wunreachable-code -Wwrite-strings -Wconversion -Wstrict-aliasing=2 -Wformat-overflow=2
+WARNINGS ?= -Wall -Wextra -Wpedantic
 C_COMPILER ?= gcc
 C_STANDARD ?= c99
 CPP_COMPILER ?= g++

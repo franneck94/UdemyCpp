@@ -10,7 +10,7 @@ int main()
     double *p_array_exercise1 = nullptr;
     p_array_exercise1 = new double[array_length];
 
-    for (int i = 0; i < 100; i++)
+    for (unsigned int i = 0; i < 100; i++)
     {
         p_array_exercise1[i] = i;
     }
@@ -31,7 +31,7 @@ int main()
 
     int *p_array_exercise2 = array_constructor(input_array_value, input_array_length);
 
-    for (int i = 0; i < input_array_length; i++)
+    for (unsigned int i = 0; i < input_array_length; i++)
     {
         std::cout << p_array_exercise2[i] << std::endl;
     }
