@@ -12,4 +12,4 @@ struct Dataset
     double mean_array_a;
     double mean_array_b;
 };
-}
+} // namespace computation

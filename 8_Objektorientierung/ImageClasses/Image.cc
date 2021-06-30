@@ -1,7 +1,8 @@
-﻿#include <iostream>
+﻿#include <cstdlib>
 #include <cstring>
-#include <cstdlib>
+#include <iostream>
 #include <vector>
+
 
 #pragma warning(disable : 4996)
 #include "Image.h"
@@ -9,10 +10,9 @@
 /**********************/
 /*        IMAGE       */
 /**********************/
-Image::Image(const unsigned int width, const unsigned int height) :
-    m_width(width), m_height(height)
+Image::Image(const unsigned int width, const unsigned int height)
+    : m_width(width), m_height(height)
 {
-
 }
 
 unsigned int Image::get_width() const
@@ -32,7 +32,8 @@ void Image::clear_image()
     m_width = 0;
 }
 
-void Image::resize_image(const unsigned int new_width, const unsigned int new_height)
+void Image::resize_image(const unsigned int new_width,
+                         const unsigned int new_height)
 {
     // New width
     if (new_width != m_width)
@@ -56,14 +57,17 @@ void Image::resize_image(const unsigned int new_width, const unsigned int new_he
 /**********************/
 /*   GRAYSCALE IMAGE */
 /**********************/
-GrayscaleImage::GrayscaleImage(const unsigned int width, const unsigned int height) :
-    Image(width, height),
-    m_matrix(GrayscaleMatrix(m_width, std::vector<GrayscalePixelValue>(m_height, { 0 })))
+GrayscaleImage::GrayscaleImage(const unsigned int width,
+                               const unsigned int height)
+    : Image(width, height),
+      m_matrix(GrayscaleMatrix(m_width,
+                               std::vector<GrayscalePixelValue>(m_height, {0})))
 {
-
 }
 
-void GrayscaleImage::set_pixel(const unsigned int x, const unsigned int y, const GrayscalePixelValue pixel_value)
+void GrayscaleImage::set_pixel(const unsigned int x,
+                               const unsigned int y,
+                               const GrayscalePixelValue pixel_value)
 {
     m_matrix[x][y] = pixel_value;
 }
@@ -96,9 +100,10 @@ void GrayscaleImage::save_image(const char *file_name) const
         }
     }
 
-    uchar bmpfileheader[14] = { 'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0 };
-    uchar bmpinfoheader[40] = { 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0 };
-    uchar bmppad[3] = { 0, 0, 0 };
+    uchar bmpfileheader[14] = {'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0};
+    uchar bmpinfoheader[40] =
+        {40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0};
+    uchar bmppad[3] = {0, 0, 0};
 
     bmpfileheader[2] = (uchar)(filesize);
     bmpfileheader[3] = (uchar)(filesize >> 8);
@@ -130,13 +135,16 @@ void GrayscaleImage::save_image(const char *file_name) const
 /**********************/
 /*      RGB IMAGE     */
 /**********************/
-RGBImage::RGBImage(const unsigned int width, const unsigned int height) :
-    Image(width, height),
-    m_matrix(RGBMatrix(m_width, std::vector<RGBPixelValue>(m_height, RGBPixelValue{ 0, 0, 0 })))
+RGBImage::RGBImage(const unsigned int width, const unsigned int height)
+    : Image(width, height),
+      m_matrix(RGBMatrix(
+          m_width,
+          std::vector<RGBPixelValue>(m_height, RGBPixelValue{0, 0, 0})))
 {
-
 }
-void RGBImage::set_pixel(const unsigned int x, const unsigned int y, const RGBPixelValue pixel_value)
+void RGBImage::set_pixel(const unsigned int x,
+                         const unsigned int y,
+                         const RGBPixelValue pixel_value)
 {
     m_matrix[x][y] = pixel_value;
 }
@@ -169,9 +177,10 @@ void RGBImage::save_image(const char *file_name) const
         }
     }
 
-    uchar bmpfileheader[14] = { 'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0 };
-    uchar bmpinfoheader[40] = { 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0 };
-    uchar bmppad[3] = { 0, 0, 0 };
+    uchar bmpfileheader[14] = {'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0};
+    uchar bmpinfoheader[40] =
+        {40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0};
+    uchar bmppad[3] = {0, 0, 0};
 
     bmpfileheader[2] = (uchar)(filesize);
     bmpfileheader[3] = (uchar)(filesize >> 8);

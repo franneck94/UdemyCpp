@@ -1,6 +1,7 @@
+#include <cmath>
 #include <iostream>
 #include <vector>
-#include <cmath>
+
 
 void fill_double_vector(std::vector<double> &vec)
 {
@@ -84,14 +85,16 @@ int main()
     double_vector_exp_iterator(my_vector); // [exp(...), exp(...), ...]
     print_double_vector(my_vector);
 
-    double_vector_log_iterator(my_vector); // log(exp(val) = val   [log(...), log(...), ...]
-    print_double_vector(my_vector);		   // same output as in line 59
+    double_vector_log_iterator(
+        my_vector); // log(exp(val) = val   [log(...), log(...), ...]
+    print_double_vector(my_vector); // same output as in line 59
 
     double_vector_exp_for_each(my_vector); // [exp(...), exp(...), ...]
     print_double_vector(my_vector);
 
-    double_vector_log_for_each(my_vector); // log(exp(val) = val   [log(...), log(...), ...]
-    print_double_vector(my_vector);		   // same output as in line 59
+    double_vector_log_for_each(
+        my_vector); // log(exp(val) = val   [log(...), log(...), ...]
+    print_double_vector(my_vector); // same output as in line 59
 
     return 0;
 }

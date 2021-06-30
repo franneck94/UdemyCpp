@@ -26,9 +26,9 @@ void f(int &z)
 
 int main()
 {
-    int a = 3;		  // LValue
+    int a = 3;        // LValue
     const int b = 3;  // const LValue
-    int &c = a;		  // LValue reference
+    int &c = a;       // LValue reference
     const int &d = 3; // const LValue reference
 
     std::cout << "a main: " << a << " " << &a << std::endl;

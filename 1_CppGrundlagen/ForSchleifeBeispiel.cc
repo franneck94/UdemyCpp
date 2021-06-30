@@ -15,7 +15,8 @@ int main()
     for (int i = 0; i < num_iterations; i++)
     {
         input_number = input_number * input_number;
-        std::cout << "Iteration: " << i << " number: " << input_number << std::endl;
+        std::cout << "Iteration: " << i << " number: " << input_number
+                  << std::endl;
     }
 
     return 0;

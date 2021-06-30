@@ -9,15 +9,13 @@
 // faculty<2> : val = fac<1> * 2 => 1 * 2 = 2
 // faculty<2>: val = 1
 
-template<const int n>
-class faculty
+template <const int n> class faculty
 {
 public:
     static const int val = faculty<n - 1>::val * n;
 };
 
-template<>
-class faculty<1>
+template <> class faculty<1>
 {
 public:
     static const int val = 1;
@@ -27,15 +25,13 @@ public:
 ///////////////////
 
 // sum from 1 to n
-template<const int n>
-class sum
+template <const int n> class sum
 {
 public:
     static const int val = sum<n - 1>::val + n;
 };
 
-template<>
-class sum<1>
+template <> class sum<1>
 {
 public:
     static const int val = 1;

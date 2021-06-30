@@ -1,7 +1,8 @@
 #include <iostream>
-#include <vector>
 #include <list>
 #include <numeric>
+#include <vector>
+
 
 int main()
 {

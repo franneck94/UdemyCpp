@@ -30,8 +30,7 @@ int main()
         my_vector.begin(),
         my_vector.end(),
         [&](const int val) { return val == check_value; },
-        replace_value
-    );
+        replace_value);
 
     print_vector(my_vector);
 
@@ -39,23 +38,17 @@ int main()
 
     auto sorting = [](const int val1, const int val2) { return val1 > val2; };
 
-    std::sort(
-        my_vector.begin(),
-        my_vector.end(),
-        sorting
-    );
+    std::sort(my_vector.begin(), my_vector.end(), sorting);
 
     print_vector(my_vector);
 
     // sort: generic lambda
 
-    auto sorting2 = [](const auto val1, const auto val2) { return val1 < val2; };
+    auto sorting2 = [](const auto val1, const auto val2) {
+        return val1 < val2;
+    };
 
-    std::sort(
-        my_vector.begin(),
-        my_vector.end(),
-        sorting2
-    );
+    std::sort(my_vector.begin(), my_vector.end(), sorting2);
 
     print_vector(my_vector);
 

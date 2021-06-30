@@ -1,5 +1,6 @@
-#include <iostream>
 #include "exercise.h"
+#include <iostream>
+
 
 int main()
 {
@@ -22,14 +23,13 @@ int main()
     unsigned int input_array_length = 0;
     int input_array_value = 0;
 
-    std::cout << std::endl
-        << "Gebe Array Length ein!" << std::endl;
+    std::cout << std::endl << "Gebe Array Length ein!" << std::endl;
     std::cin >> input_array_length;
-    std::cout << std::endl
-        << "Gebe Array Wert ein!" << std::endl;
+    std::cout << std::endl << "Gebe Array Wert ein!" << std::endl;
     std::cin >> input_array_value;
 
-    int *p_array_exercise2 = array_constructor(input_array_value, input_array_length);
+    int *p_array_exercise2 =
+        array_constructor(input_array_value, input_array_length);
 
     for (unsigned int i = 0; i < input_array_length; i++)
     {

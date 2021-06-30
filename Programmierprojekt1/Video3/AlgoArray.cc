@@ -35,7 +35,8 @@ double median(const DynamicArray &dynamic_array)
     {
         std::size_t index1 = dynamic_array.m_length / 2u;
         std::size_t index2 = index1 - 1u;
-        median_value = (dynamic_array.m_data[index1] + dynamic_array.m_data[index2]) / 2.0;
+        median_value =
+            (dynamic_array.m_data[index1] + dynamic_array.m_data[index2]) / 2.0;
     }
 
     return median_value;

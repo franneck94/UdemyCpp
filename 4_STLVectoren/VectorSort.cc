@@ -1,7 +1,8 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <iostream>
 #include <numeric>
+#include <vector>
+
 
 void print_double_vector(const std::vector<double> &vec)
 {

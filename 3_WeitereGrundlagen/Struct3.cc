@@ -33,9 +33,9 @@ void print_vehicles(const TS_Vehicle *vehicles)
 
 int main()
 {
-    TS_Vehicle v1 = { 1, Lanes::CENTER_LANE, 100.0f };
-    TS_Vehicle v2 = { 2, Lanes::RIGHT_LANE, 100.0f };
-    TS_Vehicle v3 = { 3, Lanes::LEFT_LANE, 100.0f };
+    TS_Vehicle v1 = {1, Lanes::CENTER_LANE, 100.0f};
+    TS_Vehicle v2 = {2, Lanes::RIGHT_LANE, 100.0f};
+    TS_Vehicle v3 = {3, Lanes::LEFT_LANE, 100.0f};
 
     // dtype varName[numElements]
     TS_Vehicle vehicles[NUM_VEHICLES];
@@ -45,7 +45,7 @@ int main()
 
     print_vehicles(vehicles);
 
-    TS_Vehicle *v4 = new TS_Vehicle{ 4, Lanes::LEFT_LANE, 100.0f };
+    TS_Vehicle *v4 = new TS_Vehicle{4, Lanes::LEFT_LANE, 100.0f};
     print_vehicle_data(*v4);
 
     return 0;

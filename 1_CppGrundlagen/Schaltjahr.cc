@@ -16,21 +16,25 @@ int main()
         {
             if (year % 400 == 0)
             {
-                std::cout << "The year: " << year << " is a leap year!" << std::endl;
+                std::cout << "The year: " << year << " is a leap year!"
+                          << std::endl;
             }
             else
             {
-                std::cout << "The year: " << year << " is not a leap year!" << std::endl;
+                std::cout << "The year: " << year << " is not a leap year!"
+                          << std::endl;
             }
         }
         else
         {
-            std::cout << "The year: " << year << " is a leap year!" << std::endl;
+            std::cout << "The year: " << year << " is a leap year!"
+                      << std::endl;
         }
     }
     else
     {
-        std::cout << "The year: " << year << " is not a leap year!" << std::endl;
+        std::cout << "The year: " << year << " is not a leap year!"
+                  << std::endl;
     }
 
     return 0;

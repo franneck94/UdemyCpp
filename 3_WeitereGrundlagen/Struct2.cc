@@ -25,7 +25,9 @@ void print_vehicle_data(TS_Vehicle &v)
 
 int main()
 {
-    TS_Vehicle v1 = { .id = VEHICLE_ID, .lane = Lanes::CENTER_LANE, .velocity = 100.0f };
+    TS_Vehicle v1 = {.id = VEHICLE_ID,
+                     .lane = Lanes::CENTER_LANE,
+                     .velocity = 100.0f};
     print_vehicle_data(v1);
 
     return 0;

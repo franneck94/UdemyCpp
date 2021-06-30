@@ -1,10 +1,11 @@
+#include <algorithm>
+#include <functional>
 #include <iostream>
+#include <numeric>
+#include <random>
 #include <string>
 #include <vector>
-#include <algorithm>
-#include <random>
-#include <numeric>
-#include <functional>
+
 
 void random_vector(std::vector<int> &vec)
 {
@@ -42,12 +43,7 @@ int main()
         std::cout << val << std::endl;
     }
 
-    std::replace_if(
-        vector_c.begin(),
-        vector_c.end(),
-        replace_even,
-        1
-    );
+    std::replace_if(vector_c.begin(), vector_c.end(), replace_even, 1);
 
     for (const auto &val : vector_c)
     {

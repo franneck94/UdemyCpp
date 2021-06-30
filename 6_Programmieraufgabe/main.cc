@@ -1,8 +1,9 @@
 #include <iostream>
+#include <map>
 #include <string>
 #include <tuple>
 #include <utility>
-#include <map>
+
 
 #include "exercise.h"
 

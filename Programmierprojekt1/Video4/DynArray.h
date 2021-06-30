@@ -21,7 +21,8 @@ struct DynamicArray
  * @param length The length of the array.
  * @return DynamicArray
  */
-DynamicArray create_dynamic_array(const double &value, const std::size_t &length);
+DynamicArray create_dynamic_array(const double &value,
+                                  const std::size_t &length);
 
 /**
  * @brief Push backs the *value* at the end of the array.

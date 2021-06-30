@@ -32,8 +32,9 @@ int main()
         }
         else
         {
-            std::cout << "Du hast leider eine Zahl eingegeben, die nicht aus dem Intervall [1, 10] stammt!"
-                << std::endl;
+            std::cout << "Du hast leider eine Zahl eingegeben, die nicht aus "
+                         "dem Intervall [1, 10] stammt!"
+                      << std::endl;
         }
     }
 

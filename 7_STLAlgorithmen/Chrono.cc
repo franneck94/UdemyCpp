@@ -1,9 +1,10 @@
+#include <algorithm>
+#include <chrono>
 #include <iostream>
+#include <random>
 #include <string>
 #include <vector>
-#include <algorithm>
-#include <random>
-#include <chrono>
+
 
 using time_interval = std::chrono::microseconds;
 constexpr std::size_t NUM_ELEMENTS = 1'000'000;
@@ -25,7 +26,9 @@ int main()
 
     auto end_time = std::chrono::high_resolution_clock::now();
 
-    auto elapsed = std::chrono::duration_cast<time_interval>(end_time - start_time).count();
+    auto elapsed =
+        std::chrono::duration_cast<time_interval>(end_time - start_time)
+            .count();
     std::cout << "The program took " << elapsed << " us" << std::endl;
 
     return 0;

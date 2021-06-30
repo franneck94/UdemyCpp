@@ -1,14 +1,12 @@
 #include <iostream>
 #include <string>
 
-template <typename T>
-T concat(T first)
+template <typename T> T concat(T first)
 {
     return first;
 }
 
-template <typename T, typename... Args>
-T concat(T first, Args... args)
+template <typename T, typename... Args> T concat(T first, Args... args)
 {
     return first + concat(args...);
 }

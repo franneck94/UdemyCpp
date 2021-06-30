@@ -16,7 +16,7 @@ void g(int *&p_function)
 
 int main()
 {
-    int *p_number = new int{ 4 };
+    int *p_number = new int{4};
 
     std::cout << "(MAIN):  p_number = " << p_number << std::endl;
     std::cout << "(MAIN): &p_number = " << &p_number << std::endl;

@@ -1,21 +1,26 @@
-#include <iostream>
-#include <cstring>
 #include <cstdlib>
+#include <cstring>
+#include <iostream>
+
 
 #pragma warning(disable : 4996)
 #include "Image.h"
 
 Image::Image()
-    : m_width(0), m_height(0), m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
+    : m_width(0), m_height(0),
+      m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
 {
     std::cout << "Created empty image object!" << std::endl;
 }
 
 Image::Image(const unsigned int &width, const unsigned int &height)
-    : m_width(width), m_height(height), m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
+    : m_width(width), m_height(height),
+      m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
 {
-    std::cout << "Created image object with shape=(" << m_width << "," << m_height << ")!" << std::endl;
-    std::cout << "Matrix size: (" << m_matrix.size() << "," << m_matrix[0].size() << ")" << std::endl;
+    std::cout << "Created image object with shape=(" << m_width << ","
+              << m_height << ")!" << std::endl;
+    std::cout << "Matrix size: (" << m_matrix.size() << ","
+              << m_matrix[0].size() << ")" << std::endl;
 }
 
 Image::~Image()
@@ -43,9 +48,10 @@ void Image::save_image(const char *file_name) const
         }
     }
 
-    uchar bmpfileheader[14] = { 'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0 };
-    uchar bmpinfoheader[40] = { 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0 };
-    uchar bmppad[3] = { 0, 0, 0 };
+    uchar bmpfileheader[14] = {'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0};
+    uchar bmpinfoheader[40] =
+        {40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0};
+    uchar bmppad[3] = {0, 0, 0};
 
     bmpfileheader[2] = (uchar)(filesize);
     bmpfileheader[3] = (uchar)(filesize >> 8);

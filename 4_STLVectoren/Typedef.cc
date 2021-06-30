@@ -1,7 +1,8 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <iostream>
 #include <numeric>
+#include <vector>
+
 
 // typedef  Type								ALIAS NAME;
 typedef std::vector<int> IntVector;

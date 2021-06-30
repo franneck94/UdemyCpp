@@ -1,6 +1,7 @@
-#include <iostream>
 #include <bitset>
+#include <iostream>
 #include <string>
+
 
 int main()
 {

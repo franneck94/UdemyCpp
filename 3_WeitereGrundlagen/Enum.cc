@@ -17,21 +17,21 @@ struct User
 
 int main()
 {
-    User jan{ 102402402, PermissionLevel::ADMIN };
+    User jan{102402402, PermissionLevel::ADMIN};
     switch (jan.permission)
     {
-        case PermissionLevel::STUDENT:
-            std::cout << "Ich bin ein Student!" << std::endl;
-            break;
-        case PermissionLevel::TUTOR:
-            std::cout << "Ich bin ein Tutor!" << std::endl;
-            break;
-        case PermissionLevel::DOZENT:
-            std::cout << "Ich bin ein Dozent!" << std::endl;
-            break;
-        case PermissionLevel::ADMIN:
-            std::cout << "Ich bin ein Admin!" << std::endl;
-            break;
+    case PermissionLevel::STUDENT:
+        std::cout << "Ich bin ein Student!" << std::endl;
+        break;
+    case PermissionLevel::TUTOR:
+        std::cout << "Ich bin ein Tutor!" << std::endl;
+        break;
+    case PermissionLevel::DOZENT:
+        std::cout << "Ich bin ein Dozent!" << std::endl;
+        break;
+    case PermissionLevel::ADMIN:
+        std::cout << "Ich bin ein Admin!" << std::endl;
+        break;
     }
 
     return 0;

@@ -1,7 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <random>
 #include <algorithm>
+#include <iostream>
+#include <random>
+#include <vector>
+
 
 int main()
 {
@@ -10,8 +11,9 @@ int main()
 
     std::vector<int> my_vector(10, 0);
     std::vector<int> my_result(10, 0);
-    std::generate(my_vector.begin(), my_vector.end(),
-        [&]() -> int { return dist(gen); });
+    std::generate(my_vector.begin(), my_vector.end(), [&]() -> int {
+        return dist(gen);
+    });
 
     for (const auto &val : my_vector)
     {
@@ -20,8 +22,10 @@ int main()
     std::cout << std::endl;
 
     // Exercise 1
-    bool has_no_even = std::none_of(my_vector.begin(), my_vector.end(),
-        [](int val) -> bool { return (val % 2 == 0); });
+    bool has_no_even =
+        std::none_of(my_vector.begin(), my_vector.end(), [](int val) -> bool {
+            return (val % 2 == 0);
+        });
 
     if (has_no_even)
     {
@@ -33,7 +37,10 @@ int main()
     }
 
     // Exercise 2
-    std::transform(my_vector.begin(), my_vector.end(), my_result.begin(),
+    std::transform(
+        my_vector.begin(),
+        my_vector.end(),
+        my_result.begin(),
         [](int val) -> int { return static_cast<int>(pow(val, 2.0)); });
 
     for (const auto &val : my_result)

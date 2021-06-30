@@ -1,5 +1,6 @@
-#include "IncludeGuards.h"
 #include "OtherLib.h"
+#include "IncludeGuards.h"
+
 
 void my_function_wrapped()
 {

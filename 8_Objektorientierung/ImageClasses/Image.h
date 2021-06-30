@@ -7,15 +7,19 @@ using uchar = uint8_t;
 class BasePixelValue
 {
 public:
-    BasePixelValue() { };
-    virtual ~BasePixelValue() { };
+    BasePixelValue(){};
+    virtual ~BasePixelValue(){};
 };
 
 class GrayscalePixelValue : public BasePixelValue
 {
 public:
-    GrayscalePixelValue(uchar v) : value(v) { }
-    ~GrayscalePixelValue() { }
+    GrayscalePixelValue(uchar v) : value(v)
+    {
+    }
+    ~GrayscalePixelValue()
+    {
+    }
 
     uchar value;
 };
@@ -23,9 +27,13 @@ public:
 class RGBPixelValue : public BasePixelValue
 {
 public:
-    RGBPixelValue(uchar v1, uchar v2, uchar v3) :
-        value_red(v1), value_green(v2), value_blue(v3) { }
-    ~RGBPixelValue() { }
+    RGBPixelValue(uchar v1, uchar v2, uchar v3)
+        : value_red(v1), value_green(v2), value_blue(v3)
+    {
+    }
+    ~RGBPixelValue()
+    {
+    }
 
     uchar value_red;
     uchar value_green;
@@ -49,10 +57,11 @@ public:
     virtual void save_image(const char *file_name) const = 0;
 
     void clear_image();
-    void resize_image(const unsigned int new_width, const unsigned int new_height);
+    void resize_image(const unsigned int new_width,
+                      const unsigned int new_height);
 
 protected:
-    unsigned int m_width; // num cols
+    unsigned int m_width;  // num cols
     unsigned int m_height; // num rows
     BaseMatrix m_matrix;
 };
@@ -66,7 +75,9 @@ public:
 
     void save_image(const char *file_name) const override;
 
-    void set_pixel(const unsigned int x, const unsigned int y, const GrayscalePixelValue pixel_value);
+    void set_pixel(const unsigned int x,
+                   const unsigned int y,
+                   const GrayscalePixelValue pixel_value);
     void fill_image(const GrayscalePixelValue pixel_value);
 
 private:
@@ -82,7 +93,9 @@ public:
 
     virtual void save_image(const char *file_name) const override;
 
-    void set_pixel(const unsigned int x, const unsigned int y, const RGBPixelValue pixel_value);
+    void set_pixel(const unsigned int x,
+                   const unsigned int y,
+                   const RGBPixelValue pixel_value);
     void fill_image(const RGBPixelValue pixel_value);
 
 private:

@@ -23,9 +23,11 @@ int main()
     }
 
     if (is_prime == false)
-        std::cout << "The number " << number << " is not a prime number!" << std::endl;
+        std::cout << "The number " << number << " is not a prime number!"
+                  << std::endl;
     else
-        std::cout << "The number " << number << " is a prime number!" << std::endl;
+        std::cout << "The number " << number << " is a prime number!"
+                  << std::endl;
 
     return 0;
 }

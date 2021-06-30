@@ -1,6 +1,7 @@
 #include <array>
-#include <vector>
 #include <iostream>
+#include <vector>
+
 
 int main()
 {

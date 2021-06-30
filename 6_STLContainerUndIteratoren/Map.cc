@@ -1,6 +1,7 @@
 #include <iostream>
-#include <string>
 #include <map>
+#include <string>
+
 
 void print_map(std::map<std::string, int> &map)
 {

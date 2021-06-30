@@ -1,10 +1,11 @@
+#include <algorithm>
 #include <iostream>
-#include <vector>
 #include <list>
 #include <numeric>
-#include <algorithm>
 #include <random>
 #include <typeinfo>
+#include <vector>
+
 
 #include "Timer.h"
 
@@ -177,7 +178,8 @@ int main()
             total_time += t.elapsed_time<cpptiming::millisecs, double>();
         }
 
-        std::cout << "Random Index: " << total_time / NUM_RUNS << " ms" << std::endl;
+        std::cout << "Random Index: " << total_time / NUM_RUNS << " ms"
+                  << std::endl;
     }
 
     return 0;

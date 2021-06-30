@@ -4,9 +4,9 @@
 
 int main()
 {
-	int arr[10];
+    int arr[10];
 
-	// int arr[LEN];
+    // int arr[LEN];
 
-	return 0;
+    return 0;
 }

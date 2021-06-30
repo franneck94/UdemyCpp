@@ -1,6 +1,7 @@
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
+
 
 int main()
 {
@@ -17,7 +18,8 @@ int main()
 
     birthday_ss >> day >> c >> month >> c >> year;
 
-    std::cout << "Your birthday is: " << day << "." << month << "." << year << std::endl;
+    std::cout << "Your birthday is: " << day << "." << month << "." << year
+              << std::endl;
 
     return 0;
 }

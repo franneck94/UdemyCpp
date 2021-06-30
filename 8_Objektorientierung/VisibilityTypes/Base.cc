@@ -6,8 +6,10 @@ class A
 {
 public: // In Base class and in Derived class and outside of the classes
     int x;
+
 protected: // In Base class and in Derived class, not outside of the classes
     int y;
+
 private: // Only in Base class, not in Derived class, not outside of the classes
     int z;
 };
@@ -43,7 +45,7 @@ class C_Derived : protected C
     }
 };
 
-class D : private A    // 'private' is default for classes
+class D : private A // 'private' is default for classes
 {
     // x is private
     // y is private

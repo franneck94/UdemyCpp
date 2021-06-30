@@ -2,8 +2,7 @@
 
 #include <cstddef>
 
-template <typename T>
-class DynamicArray
+template <typename T> class DynamicArray
 {
 public:
     // Constructor/Destructor
@@ -36,8 +35,8 @@ private:
  * @brief Create a dynamic array object
  */
 template <typename T>
-DynamicArray<T>::DynamicArray() :
-    m_length(0), m_capacity(1), m_data(new T[m_capacity])
+DynamicArray<T>::DynamicArray()
+    : m_length(0), m_capacity(1), m_data(new T[m_capacity])
 {
 }
 
@@ -48,8 +47,9 @@ DynamicArray<T>::DynamicArray() :
  * @param length The length of the array.
  */
 template <typename T>
-DynamicArray<T>::DynamicArray(const T &value, const std::size_t length) :
-    m_length(length), m_capacity(length > 0 ? length : 1), m_data(new T[m_capacity])
+DynamicArray<T>::DynamicArray(const T &value, const std::size_t length)
+    : m_length(length), m_capacity(length > 0 ? length : 1),
+      m_data(new T[m_capacity])
 {
     for (std::size_t i = 0; i < length; i++)
     {
@@ -60,8 +60,7 @@ DynamicArray<T>::DynamicArray(const T &value, const std::size_t length) :
 /**
  * @brief Destroys a dynamic array object
  */
-template <typename T>
-DynamicArray<T>::~DynamicArray()
+template <typename T> DynamicArray<T>::~DynamicArray()
 {
     if (m_data != nullptr)
     {
@@ -75,22 +74,18 @@ DynamicArray<T>::~DynamicArray()
  *
  * @param other other DynmaicArray
  */
-template<typename T>
-DynamicArray<T>::DynamicArray(const DynamicArray<T> &other) :
-    m_length(other.m_length),
-    m_capacity(other.m_capacity),
-    m_data(other.m_length > 0 ? new T[other.m_length] : nullptr)
+template <typename T>
+DynamicArray<T>::DynamicArray(const DynamicArray<T> &other)
+    : m_length(other.m_length), m_capacity(other.m_capacity),
+      m_data(other.m_length > 0 ? new T[other.m_length] : nullptr)
 {
     for (std::size_t i = 0; i != m_length; ++i)
     {
         m_data[i] = other.m_data[i];
     }
 
-    std::cout << "Copy constructor - other.m_length = "
-        << other.m_length
-        << " - this.m_length = "
-        << m_length
-        << std::endl;
+    std::cout << "Copy constructor - other.m_length = " << other.m_length
+              << " - this.m_length = " << m_length << std::endl;
 }
 
 /**
@@ -99,7 +94,7 @@ DynamicArray<T>::DynamicArray(const DynamicArray<T> &other) :
  * @param other DynamicArray rhs of the operator.
  * @return DynamicArray&
  */
-template<typename T>
+template <typename T>
 DynamicArray<T> &DynamicArray<T>::operator=(const DynamicArray<T> &other)
 {
     if (this != &other)
@@ -128,10 +123,8 @@ DynamicArray<T> &DynamicArray<T>::operator=(const DynamicArray<T> &other)
     }
 
     std::cout << "Copy assignment operator - other.m_length = "
-        << other.m_length
-        << " - this.m_length = "
-        << m_length
-        << std::endl;
+              << other.m_length << " - this.m_length = " << m_length
+              << std::endl;
 
     return *this;
 }
@@ -142,8 +135,7 @@ DynamicArray<T> &DynamicArray<T>::operator=(const DynamicArray<T> &other)
  * @param dynmaic_array The dynamic array.
  * @param value The value to append to the array.
  */
-template <typename T>
-void DynamicArray<T>::push_back(const T &value)
+template <typename T> void DynamicArray<T>::push_back(const T &value)
 {
     if (m_length == m_capacity)
     {
@@ -168,8 +160,7 @@ void DynamicArray<T>::push_back(const T &value)
 /**
  * @brief Pop backs the value at the end of the vector.
  */
-template <typename T>
-void DynamicArray<T>::pop_back()
+template <typename T> void DynamicArray<T>::pop_back()
 {
     if (m_length > 0)
     {
@@ -193,8 +184,7 @@ void DynamicArray<T>::pop_back()
     }
 }
 
-template <typename T>
-T &DynamicArray<T>::operator[](const std::size_t index)
+template <typename T> T &DynamicArray<T>::operator[](const std::size_t index)
 {
     return m_data[index];
 }
@@ -205,8 +195,7 @@ const T &DynamicArray<T>::operator[](const std::size_t index) const
     return m_data[index];
 }
 
-template <typename T>
-std::size_t DynamicArray<T>::get_length() const
+template <typename T> std::size_t DynamicArray<T>::get_length() const
 {
     return m_length;
 }

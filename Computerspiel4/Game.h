@@ -10,8 +10,8 @@ using Obstacles = std::vector<Position>;
 
 constexpr unsigned int LEN_X = 5;
 constexpr unsigned int LEN_Y = 5;
-constexpr Position START = { 0, 0 };
-constexpr Position GOAL = { LEN_X - 1, LEN_Y - 1 };
+constexpr Position START = {0, 0};
+constexpr Position GOAL = {LEN_X - 1, LEN_Y - 1};
 
 enum class ConsoleInput : int
 {
@@ -24,25 +24,21 @@ enum class ConsoleInput : int
 
 ConsoleInput map_user_input(char user_input);
 
-GameState update_game_state(const Position &player,
-    const Obstacles &obstacles);
+GameState update_game_state(const Position &player, const Obstacles &obstacles);
 
 void print_game_state(const GameState &game_state);
 
-Position execute_move(Position player,
-    ConsoleInput move);
+Position execute_move(Position player, ConsoleInput move);
 
-bool is_dead(const Position &player,
-    const Obstacles &obstacles);
+bool is_dead(const Position &player, const Obstacles &obstacles);
 
 bool is_finished(Position player);
 
-unsigned int random_uint(const unsigned int lower,
-    const unsigned int upper);
+unsigned int random_uint(const unsigned int lower, const unsigned int upper);
 
 Position random_position(const unsigned int lower_x,
-    const unsigned int upper_x,
-    const unsigned int lower_y,
-    const unsigned int upper_y);
+                         const unsigned int upper_x,
+                         const unsigned int lower_y,
+                         const unsigned int upper_y);
 
 void game();

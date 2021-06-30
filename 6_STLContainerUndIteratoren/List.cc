@@ -1,13 +1,14 @@
 #include <array>
-#include <vector>
-#include <list>
 #include <deque>
 #include <forward_list>
 #include <iostream>
+#include <list>
+#include <vector>
+
 
 int main()
 {
-    std::vector<int> my_vector = { 1, 2 };
+    std::vector<int> my_vector = {1, 2};
 
     for (std::size_t i = 0; i < my_vector.size(); i++)
     {
@@ -16,7 +17,7 @@ int main()
 
     std::cout << std::endl;
 
-    std::list<int> my_list = { 1, 2, 3 };
+    std::list<int> my_list = {1, 2, 3};
 
     for (auto it = my_list.begin(); it != my_list.end(); it++)
     {

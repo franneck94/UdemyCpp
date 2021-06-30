@@ -13,7 +13,8 @@ int main()
 {
     const auto numbers = generatorForNumbers(-10);
 
-    for (int i = 1; i <= 20; ++i) std::cout << numbers << " ";
+    for (int i = 1; i <= 20; ++i)
+        std::cout << numbers << " ";
 
     return 0;
 }

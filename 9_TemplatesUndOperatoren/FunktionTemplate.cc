@@ -1,7 +1,6 @@
 #include <iostream>
 
-template <typename T>
-T max(T value_one, T value_two)
+template <typename T> T max(T value_one, T value_two)
 {
     if (value_one < value_two)
     {
@@ -11,7 +10,6 @@ T max(T value_one, T value_two)
     {
         return value_one;
     }
-
 }
 
 int main()

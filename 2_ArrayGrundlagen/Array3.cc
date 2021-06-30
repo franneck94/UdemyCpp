@@ -2,8 +2,8 @@
 
 int main()
 {
-    float vector1[3] = { 0.0f };
-    float vector2[3] = { 0.0f };
+    float vector1[3] = {0.0f};
+    float vector2[3] = {0.0f};
 
     std::cout << "Enter values for vector 1:" << std::endl;
 

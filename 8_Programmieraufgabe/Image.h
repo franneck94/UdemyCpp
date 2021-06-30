@@ -25,15 +25,20 @@ public:
     // Exercise 1
     void clear_image();
     // Exercise 2
-    void set_pixel(const unsigned int x, const unsigned int y, const uchar value);
+    void set_pixel(const unsigned int x,
+                   const unsigned int y,
+                   const uchar value);
     // Exercise 3
-    void resize_image(const unsigned int new_width, const unsigned int new_height);
+    void resize_image(const unsigned int new_width,
+                      const unsigned int new_height);
     // Exercise 4
     void fill_image(const uchar value);
     // Exercise 5
-    void draw_line(const unsigned int x1, const unsigned int y1,
-        const unsigned int x2, const unsigned int y2,
-        const uchar value);
+    void draw_line(const unsigned int x1,
+                   const unsigned int y1,
+                   const unsigned int x2,
+                   const unsigned int y2,
+                   const uchar value);
 
 private:
     unsigned int m_width;

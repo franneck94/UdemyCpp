@@ -1,6 +1,7 @@
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
+
 
 #include "exercise.h"
 

@@ -1,0 +1,24 @@
+---
+Language: Cpp
+BasedOnStyle: Microsoft
+AccessModifierOffset: -4
+IndentWidth: 4
+MaxEmptyLinesToKeep: 2
+NamespaceIndentation: None
+PointerAlignment: Right
+ReflowComments: false
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 80
+
+AlignAfterOpenBracket: Align
+AlignConsecutiveMacros: true
+AllowAllArgumentsOnNextLine: false
+AllowAllConstructorInitializersOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+BinPackParameters: false
+BinPackArguments: false
+BreakStringLiterals: true
+CompactNamespaces: false
+ExperimentalAutoDetectBinPacking: false
+...

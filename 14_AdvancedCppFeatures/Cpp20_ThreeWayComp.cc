@@ -1,10 +1,13 @@
-#include <iostream>
 #include <compare>
+#include <iostream>
+
 
 struct Dummy
 {
     double value;
-    constexpr Dummy(double val) : value{ val } { }
+    constexpr Dummy(double val) : value{val}
+    {
+    }
     auto operator<=>(const Dummy &) const = default;
 };
 

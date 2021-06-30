@@ -4,11 +4,12 @@
 #include <utility>
 #include <vector>
 
-#include <QMainWindow>
-#include <QLabel>
-#include <QPushButton>
 #include <QGridLayout>
 #include <QKeyEvent>
+#include <QLabel>
+#include <QMainWindow>
+#include <QPushButton>
+
 
 using Position = std::pair<unsigned int, unsigned int>;
 using GameState = std::vector<std::vector<QLabel *>>;
@@ -17,7 +18,7 @@ using Obstacles = std::vector<Position>;
 constexpr unsigned int NUM_OBSTACLES = 3;
 constexpr unsigned int LEN_X = 5;
 constexpr unsigned int LEN_Y = 5;
-constexpr Position START = { 0, 0 };
+constexpr Position START = {0, 0};
 
 enum class ConsoleInput : int
 {
@@ -29,7 +30,10 @@ enum class ConsoleInput : int
 };
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui
+{
+class MainWindow;
+}
 QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
@@ -55,12 +59,12 @@ public:
     bool is_finished();
 
     unsigned int random_uint(const unsigned int lower,
-        const unsigned int upper);
+                             const unsigned int upper);
 
     Position random_position(const unsigned int lower_x,
-        const unsigned int upper_x,
-        const unsigned int lower_y,
-        const unsigned int upper_y);
+                             const unsigned int upper_x,
+                             const unsigned int lower_y,
+                             const unsigned int upper_y);
 
 private slots:
     void start_game();
@@ -82,7 +86,8 @@ private:
     QGridLayout *m_field_grid_layout;
     QLabel *m_points_label;
 
-    const QString m_ressources_path = "C:/Users/Jan/Dropbox/_Coding/UdemyCpp/GUI-Computerspiel/ressources/";
+    const QString m_ressources_path =
+        "C:/Users/Jan/Dropbox/_Coding/UdemyCpp/GUI-Computerspiel/ressources/";
     const QString m_field_icon_path = m_ressources_path + "FieldIcon.png";
     const QString m_player_icon_path = m_ressources_path + "PlayerIcon.png";
     const QString m_obstacle_icon_path = m_ressources_path + "ObstacleIcon.png";

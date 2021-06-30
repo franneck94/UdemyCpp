@@ -1,8 +1,9 @@
 #include <iostream>
-#include <vector>
-#include <numeric>
 #include <iterator>
 #include <list>
+#include <numeric>
+#include <vector>
+
 
 int main()
 {

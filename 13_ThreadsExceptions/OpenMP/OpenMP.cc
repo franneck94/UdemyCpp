@@ -1,10 +1,10 @@
 #include <algorithm>
+#include <assert.h>
 #include <chrono>
 #include <iostream>
 #include <random>
-#include <vector>
 #include <thread>
-#include <assert.h>
+#include <vector>
 
 #include "omp.h"
 
@@ -61,7 +61,9 @@ int main()
     std::mt19937 gen(seed);
     std::uniform_int_distribution<int> dist(-10, 10);
     std::vector<int> vector_a(10'000'000, 0);
-    std::generate(vector_a.begin(), vector_a.end(), [&]() { return dist(gen); });
+    std::generate(vector_a.begin(), vector_a.end(), [&]() {
+        return dist(gen);
+    });
 
     // SERIELL
     auto start = std::chrono::high_resolution_clock::now();
@@ -72,7 +74,9 @@ int main()
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::milli> ms = end - start;
     std::cout << std::endl << "Serial time in ms: " << ms.count() / NUM_RUNS;
-    std::cout << std::endl << "Serial Sum: " << sum_vector << " Expected Sum: " << expected_sum << std::endl;
+    std::cout << std::endl
+              << "Serial Sum: " << sum_vector
+              << " Expected Sum: " << expected_sum << std::endl;
     assert(expected_sum == sum_vector);
 
     // OPENMP
@@ -84,7 +88,9 @@ int main()
     end = std::chrono::high_resolution_clock::now();
     ms = end - start;
     std::cout << std::endl << "OpenMP time in ms: " << ms.count() / NUM_RUNS;
-    std::cout << std::endl << "Serial Sum: " << sum_vector << " Expected Sum: " << expected_sum << std::endl;
+    std::cout << std::endl
+              << "Serial Sum: " << sum_vector
+              << " Expected Sum: " << expected_sum << std::endl;
     assert(expected_sum == sum_vector);
 
     return 0;
