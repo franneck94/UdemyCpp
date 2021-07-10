@@ -1,23 +1,24 @@
 #include <iostream>
 
-#define PI 3.14159
+// 1.) User-Input: radius of a circle
+// 2.) Compute the perimeter and area of a circle.
+// 3.) Print out the values to the console.
+// u = 2 * PI * r
+// A = PI * r^2
 
 int main()
 {
-    // User-Input: Radius r eines Kreises einlesen
-    // Aufgabe: Berechne den Umfang und den Fleacheninhalt des Kreises.
-    // Gebe die berechneten Werte in der Konsole aus.
+    const double PI = 3.14159;
 
     double radius;
-    std::cout << "Please enter the radius of the circle: ";
+    std::cout << "Please enter the radius: ";
     std::cin >> radius;
-    std::cout << "You entered the radius: " << radius << std::endl;
 
     double perimeter = 2 * PI * radius;
     double area = PI * radius * radius;
 
-    std::cout << "The perimeter of the circle is: " << perimeter << std::endl;
-    std::cout << "The area of the circle is: " << area << std::endl;
+    std::cout << "The perimeter is: " << perimeter << std::endl;
+    std::cout << "The area is: " << area << std::endl;
 
     return 0;
 }

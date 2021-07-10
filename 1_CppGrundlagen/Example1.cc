@@ -1,15 +1,14 @@
 #include <iostream>
 
+// 1.) User-Input: side length of a square
+// 2.) Compute the perimeter and area of a square.
+// 3.) Print out the values to the console.
+
 int main()
 {
-    // User-Input: Seitenlaenge a eines Quadrats
-    // Aufgabe: Berechne den Umfang und den Fleacheninhalt des Quadrats.
-    // Gebe die berechneten Werte in der Konsole aus.
-
-    double a = 0.0;
-    std::cout << "Please enter the value for a: ";
+    double a;
+    std::cout << "Please enter the value of a: ";
     std::cin >> a;
-    std::cout << "You entered: " << a << std::endl;
 
     double perimeter = 4 * a;
     double area = a * a;
