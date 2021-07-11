@@ -3,7 +3,7 @@
 
 class ScopeTest
 {
-public:
+  public:
     ScopeTest(int val) : m_val(val)
     {
         std::cout << "Constructor: " << m_val << std::endl;
@@ -19,7 +19,7 @@ public:
         std::cout << "Test!" << std::endl;
     }
 
-private:
+  private:
     int m_val;
 };
 

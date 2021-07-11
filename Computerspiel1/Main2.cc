@@ -1,9 +1,8 @@
 #include <cstdlib>
 #include <iostream>
 
-
 #define LEN_X 10u
-#define LEFT  'a'
+#define LEFT 'a'
 #define RIGHT 'd'
 
 int main()

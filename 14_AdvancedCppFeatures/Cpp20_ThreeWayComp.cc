@@ -1,7 +1,6 @@
 #include <compare>
 #include <iostream>
 
-
 struct Dummy
 {
     double value;

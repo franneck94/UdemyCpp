@@ -4,7 +4,6 @@
 #include <utility>
 #include <vector>
 
-
 using tuple_user = std::tuple<int, std::string, bool>;
 using pair_user = std::pair<int, std::string>;
 

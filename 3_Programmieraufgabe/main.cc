@@ -1,7 +1,6 @@
 #include "exercise.h"
 #include <iostream>
 
-
 int main()
 {
     // Exercise 1

@@ -6,14 +6,14 @@ using uchar = uint8_t;
 
 class BasePixelValue
 {
-public:
+  public:
     BasePixelValue(){};
     virtual ~BasePixelValue(){};
 };
 
 class GrayscalePixelValue : public BasePixelValue
 {
-public:
+  public:
     GrayscalePixelValue(uchar v) : value(v)
     {
     }
@@ -26,7 +26,7 @@ public:
 
 class RGBPixelValue : public BasePixelValue
 {
-public:
+  public:
     RGBPixelValue(uchar v1, uchar v2, uchar v3)
         : value_red(v1), value_green(v2), value_blue(v3)
     {
@@ -46,7 +46,7 @@ using RGBMatrix = std::vector<std::vector<RGBPixelValue>>;
 
 class Image
 {
-public:
+  public:
     Image() = delete;
     Image(const unsigned int width, const unsigned int height);
     ~Image() = default;
@@ -60,7 +60,7 @@ public:
     void resize_image(const unsigned int new_width,
                       const unsigned int new_height);
 
-protected:
+  protected:
     unsigned int m_width;  // num cols
     unsigned int m_height; // num rows
     BaseMatrix m_matrix;
@@ -68,7 +68,7 @@ protected:
 
 class GrayscaleImage : public Image
 {
-public:
+  public:
     GrayscaleImage() = delete;
     GrayscaleImage(const unsigned int width, const unsigned int height);
     ~GrayscaleImage() = default;
@@ -80,13 +80,13 @@ public:
                    const GrayscalePixelValue pixel_value);
     void fill_image(const GrayscalePixelValue pixel_value);
 
-private:
+  private:
     GrayscaleMatrix m_matrix;
 };
 
 class RGBImage : public Image
 {
-public:
+  public:
     RGBImage() = delete;
     RGBImage(const unsigned int width, const unsigned int height);
     ~RGBImage() = default;
@@ -98,6 +98,6 @@ public:
                    const RGBPixelValue pixel_value);
     void fill_image(const RGBPixelValue pixel_value);
 
-private:
+  private:
     RGBMatrix m_matrix;
 };

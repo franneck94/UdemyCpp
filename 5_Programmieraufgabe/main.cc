@@ -3,7 +3,6 @@
 #include <string>
 #include <vector>
 
-
 #include "exercise.h"
 
 int main()

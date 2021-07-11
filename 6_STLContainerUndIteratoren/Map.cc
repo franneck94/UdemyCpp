@@ -2,7 +2,6 @@
 #include <map>
 #include <string>
 
-
 void print_map(std::map<std::string, int> &map)
 {
     for (const auto &val : map)

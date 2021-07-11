@@ -3,7 +3,6 @@
 #include <numeric>
 #include <vector>
 
-
 void print_double_vector(const std::vector<double> &vec)
 {
     for (int i = 0; i < vec.size(); ++i)

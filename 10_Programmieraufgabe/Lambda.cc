@@ -3,7 +3,6 @@
 #include <random>
 #include <vector>
 
-
 int main()
 {
     std::mt19937 gen(42);

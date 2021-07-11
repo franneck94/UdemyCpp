@@ -5,7 +5,6 @@
 #include <numeric>
 #include <vector>
 
-
 void print_vector(const std::vector<double> &vec)
 {
     for (const auto &val : vec)

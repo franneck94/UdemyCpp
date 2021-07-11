@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 
-
 void fill_double_vector(std::vector<double> &vec)
 {
     for (unsigned int i = 0; i < vec.size(); ++i)

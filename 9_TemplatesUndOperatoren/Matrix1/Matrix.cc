@@ -41,7 +41,6 @@ double Matrix::get_D() const
     return m_D;
 }
 
-
 void Matrix::set_A(const double &new_A)
 {
     m_A = new_A;

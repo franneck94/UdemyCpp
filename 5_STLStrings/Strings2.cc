@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 
-
 std::string read_text(const std::string &path)
 {
     std::string str;

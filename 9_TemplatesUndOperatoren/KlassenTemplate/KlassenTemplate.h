@@ -6,10 +6,9 @@
 #include <iterator>
 #include <vector>
 
-
 template <typename T> class Statistic
 {
-public:
+  public:
     Statistic<T>();
     ~Statistic<T>();
 
@@ -19,7 +18,7 @@ public:
     void push_next_sample(T value);
     void print_data();
 
-private:
+  private:
     T m_min;
     T m_max;
     double m_mean;

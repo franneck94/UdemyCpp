@@ -4,7 +4,6 @@
 #include <tuple>
 #include <utility>
 
-
 #include "exercise.h"
 
 int main()

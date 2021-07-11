@@ -3,7 +3,6 @@
 #include <atomic>
 #include <chrono>
 
-
 namespace cpptiming
 {
 
@@ -15,7 +14,7 @@ using secs = std::chrono::seconds;
 
 class Timer
 {
-public:
+  public:
     Timer() : m_start_point(Clock::now())
     {
     }
@@ -36,7 +35,7 @@ public:
         m_start_point = Clock::now();
     }
 
-private:
+  private:
     std::chrono::time_point<Clock> m_start_point;
 };
 

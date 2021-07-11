@@ -3,7 +3,7 @@
 
 class ScopeTest
 {
-public:
+  public:
     ScopeTest(int val) : m_val(val)
     {
         std::cout << "Constructor: " << m_val << std::endl;
@@ -21,7 +21,7 @@ public:
 
     std::shared_ptr<ScopeTest> m_partner;
 
-private:
+  private:
     int m_val;
 };
 

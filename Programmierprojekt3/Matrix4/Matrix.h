@@ -5,13 +5,12 @@
 #include <iostream>
 #include <vector>
 
-
 namespace cppmath
 {
 
 template <typename T> class Matrix
 {
-public:
+  public:
     using MatrixDataType = std::vector<std::vector<T>>;
 
     Matrix() = delete;
@@ -34,7 +33,7 @@ public:
     std::size_t num_rows() const;
     std::size_t num_cols() const;
 
-private:
+  private:
     std::size_t m_rows;
     std::size_t m_cols;
     MatrixDataType m_data;

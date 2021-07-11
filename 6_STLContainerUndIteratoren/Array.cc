@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 
-
 int main()
 {
     const int l = 10;

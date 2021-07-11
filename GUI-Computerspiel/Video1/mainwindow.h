@@ -10,7 +10,6 @@
 #include <QMainWindow>
 #include <QPushButton>
 
-
 using Position = std::pair<unsigned int, unsigned int>;
 using GameState = std::vector<std::vector<QLabel *>>;
 using Obstacles = std::vector<Position>;
@@ -40,7 +39,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-public:
+  public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
@@ -68,7 +67,7 @@ public:
 
     void start_game();
 
-private:
+  private:
     Ui::MainWindow *ui;
 
     Position m_player;

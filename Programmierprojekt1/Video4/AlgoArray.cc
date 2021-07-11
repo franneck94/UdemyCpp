@@ -1,10 +1,8 @@
 #include <cmath>
 #include <cstddef>
 
-
 #include "AlgoArray.h"
 #include "DynArray.h"
-
 
 double sum(const DynamicArray &dynamic_array)
 {

@@ -6,7 +6,6 @@
 #include <string>
 #include <vector>
 
-
 void random_vector(std::vector<int> &vec)
 {
     std::random_device seed_generator;

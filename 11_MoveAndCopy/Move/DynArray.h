@@ -5,7 +5,7 @@
 
 template <typename T> class DynamicArray
 {
-public:
+  public:
     // Constructor/Destructor
     DynamicArray();
     DynamicArray(const T &value, const std::size_t length);
@@ -30,7 +30,7 @@ public:
     // Helper methods
     std::size_t get_length() const;
 
-private:
+  private:
     std::size_t m_length;
     std::size_t m_capacity;
     T *m_data;

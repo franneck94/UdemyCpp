@@ -3,7 +3,6 @@
 #include <limits>
 #include <vector>
 
-
 template <typename T> void print_min_max()
 {
     std::cout << "min: " << std::dec << std::numeric_limits<T>::min()

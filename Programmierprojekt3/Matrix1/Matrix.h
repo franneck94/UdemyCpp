@@ -4,7 +4,7 @@
 
 template <typename T> class Matrix
 {
-public:
+  public:
     Matrix() = default;
 
     Matrix operator+(const Matrix &rhs);
@@ -20,13 +20,12 @@ public:
 
     void print_matrix() const;
 
-private:
+  private:
 };
 
 template <typename T> Matrix<T> Matrix<T>::operator+(const Matrix<T> &rhs)
 {
     Matrix result;
-
 
     return result;
 }
@@ -41,7 +40,6 @@ template <typename T> Matrix<T> Matrix<T>::operator-(const Matrix<T> &rhs)
 {
     Matrix result;
 
-
     return result;
 }
 
@@ -54,7 +52,6 @@ template <typename T> Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &rhs)
 template <typename T> Matrix<T> Matrix<T>::operator*(const double &scalar)
 {
     Matrix<T> result;
-
 
     return result;
 }
@@ -69,7 +66,6 @@ template <typename T> Matrix<T> Matrix<T>::operator/(const double &scalar)
 {
     Matrix result;
 
-
     return result;
 }
 
@@ -82,7 +78,6 @@ template <typename T> Matrix<T> &Matrix<T>::operator/=(const double &scalar)
 template <typename T> Matrix<T> Matrix<T>::operator*(const Matrix<T> &rhs)
 {
     Matrix<T> result;
-
 
     return result;
 }

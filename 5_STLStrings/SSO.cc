@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 
-
 void *operator new(std::size_t n)
 {
     std::cout << "I am allocating on the heap: " << n << std::endl;

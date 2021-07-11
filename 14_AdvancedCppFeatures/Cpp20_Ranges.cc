@@ -4,7 +4,6 @@
 #include <string_view>
 #include <vector>
 
-
 auto print = [](auto const &view) {
     for (std::cout << "{ "; const auto element : view)
         std::cout << element << ' ';

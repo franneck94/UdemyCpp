@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 
-
 #include "exercise.h"
 
 // Exercise 2

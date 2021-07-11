@@ -2,7 +2,6 @@
 #include <cstring>
 #include <iostream>
 
-
 #pragma warning(disable : 4996)
 #include "Image.h"
 

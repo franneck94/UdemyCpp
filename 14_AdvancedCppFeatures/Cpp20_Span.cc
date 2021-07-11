@@ -2,7 +2,6 @@
 #include <span>
 #include <vector>
 
-
 int main()
 {
     // span with static extent

@@ -9,7 +9,6 @@
 #include <type_traits>
 #include <vector>
 
-
 namespace cppmath
 {
 
@@ -19,7 +18,7 @@ template <typename T> class Matrix
                   "An specialization of the matrix class has to be of a "
                   "floating point type!");
 
-public:
+  public:
     using MatrixDataType = std::vector<std::vector<T>>;
 
     Matrix() = delete;
@@ -53,7 +52,7 @@ public:
     std::size_t num_rows() const;
     std::size_t num_cols() const;
 
-private:
+  private:
     std::size_t m_rows;
     std::size_t m_cols;
     MatrixDataType m_data;
@@ -246,7 +245,6 @@ template <typename T> Matrix<T> Matrix<T>::operator*(const Matrix<T> &rhs)
     {
         parallel_dot(*this, rhs, result);
     }
-
 
     return result;
 }

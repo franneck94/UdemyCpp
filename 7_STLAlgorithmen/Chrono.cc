@@ -5,7 +5,6 @@
 #include <string>
 #include <vector>
 
-
 using time_interval = std::chrono::microseconds;
 constexpr std::size_t NUM_ELEMENTS = 1'000'000;
 

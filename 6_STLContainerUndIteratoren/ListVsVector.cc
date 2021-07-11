@@ -6,7 +6,6 @@
 #include <typeinfo>
 #include <vector>
 
-
 #include "Timer.h"
 
 constexpr std::size_t NUM_RUNS = 5;

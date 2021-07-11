@@ -6,7 +6,6 @@
 #include <random>
 #include <vector>
 
-
 #include "exercise.h"
 
 // Exercise 2

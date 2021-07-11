@@ -3,7 +3,6 @@
 #include <numeric>
 #include <vector>
 
-
 // typedef  Type								ALIAS NAME;
 typedef std::vector<int> IntVector;
 typedef std::vector<std::vector<double>> DoubleMatrix;

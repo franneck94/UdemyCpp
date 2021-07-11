@@ -2,7 +2,6 @@
 #include <map>
 #include <string>
 
-
 int main()
 {
     std::map<int, std::string> m;

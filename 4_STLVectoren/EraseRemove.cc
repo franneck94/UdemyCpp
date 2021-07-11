@@ -3,7 +3,6 @@
 #include <numeric>
 #include <vector>
 
-
 void print_vector(const std::vector<int> &vec)
 {
     for (unsigned int i = 0; i < vec.size(); ++i)

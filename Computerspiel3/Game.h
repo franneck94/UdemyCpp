@@ -4,7 +4,6 @@
 #include <utility>
 #include <vector>
 
-
 using Position = std::pair<unsigned int, unsigned int>;
 using GameState = std::vector<std::string>;
 

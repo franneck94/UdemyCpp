@@ -24,7 +24,7 @@ enum class ConsoleInput : int
 
 class Game
 {
-public:
+  public:
     Game();
 
     ConsoleInput map_user_input(char user_input);
@@ -53,7 +53,7 @@ public:
 
     void start_game();
 
-private:
+  private:
     Position m_player;
     Position m_goal;
     GameState m_game_state;

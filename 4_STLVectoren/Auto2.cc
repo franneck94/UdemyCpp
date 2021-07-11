@@ -3,7 +3,6 @@
 #include <numeric>
 #include <vector>
 
-
 int main()
 {
     // 1: auto val : vec => int val : vec

@@ -1,7 +1,6 @@
 #include <cstddef>
 #include <iostream>
 
-
 #include "DynArray.h"
 
 // int main()

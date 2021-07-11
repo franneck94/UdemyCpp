@@ -1,7 +1,6 @@
 #include <cstdlib>
 #include <iostream>
 
-
 #include "Game.h"
 
 int main()

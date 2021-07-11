@@ -3,7 +3,6 @@
 #include <numeric>
 #include <vector>
 
-
 int main()
 {
     std::vector<int> my_vector(10, 0);

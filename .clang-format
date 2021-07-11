@@ -9,6 +9,7 @@ ColumnLimit: 80
 
 PointerAlignment: Right
 ReflowComments: false
+AccessModifierOffset: -2
 
 AllowAllArgumentsOnNextLine: false
 AllowAllConstructorInitializersOnNextLine: false

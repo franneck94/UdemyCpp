@@ -3,7 +3,6 @@
 #include "AlgoArray.h"
 #include "DynArray.h"
 
-
 double sum(const DynamicArray &dynamic_array)
 {
     double sum_value = 0.0;

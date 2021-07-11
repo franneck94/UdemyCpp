@@ -4,7 +4,6 @@
 #include <string>
 #include <utility>
 
-
 // Exercise 1
 typedef std::map<std::string, std::pair<int, int>> Friends;
 

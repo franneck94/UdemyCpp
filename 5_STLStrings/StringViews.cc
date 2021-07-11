@@ -3,7 +3,6 @@
 #include <string>
 #include <string_view>
 
-
 unsigned int alloc_count = 0;
 
 void *operator new(std::size_t n)

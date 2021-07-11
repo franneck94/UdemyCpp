@@ -5,7 +5,6 @@
 #include <list>
 #include <vector>
 
-
 int main()
 {
     std::vector<int> my_vector = {1, 2};

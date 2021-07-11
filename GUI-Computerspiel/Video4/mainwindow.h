@@ -10,7 +10,6 @@
 #include <QMainWindow>
 #include <QPushButton>
 
-
 using Position = std::pair<unsigned int, unsigned int>;
 using GameState = std::vector<std::vector<QLabel *>>;
 using Obstacles = std::vector<Position>;
@@ -40,7 +39,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-public:
+  public:
     MainWindow(QWidget *parent = nullptr);
 
     ~MainWindow();
@@ -65,11 +64,11 @@ public:
                              const unsigned int lower_y,
                              const unsigned int upper_y);
 
-private slots:
+  private slots:
     void start_game();
     void keyPressEvent(QKeyEvent *event);
 
-private:
+  private:
     ConsoleInput m_move = ConsoleInput::INVALID;
     bool m_in_game = false;
     unsigned int m_points = 0;

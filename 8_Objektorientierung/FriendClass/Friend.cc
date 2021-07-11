@@ -8,7 +8,7 @@
 // Friendships are not symmetric Friendships are not transitive Friendships are not inherited
 class Stack
 {
-public:
+  public:
     Stack(const int &element)
     {
         m_elements.push_back(element);
@@ -26,7 +26,7 @@ public:
         m_elements.pop_back();
     };
 
-private:
+  private:
     std::vector<int> m_elements;
     friend void print_elements(Stack);
 };
@@ -41,7 +41,7 @@ void print_elements(Stack s)
 
 class Graph
 {
-public:
+  public:
     Graph(Stack &stack) : m_stack(stack)
     {
         std::cout << "Created Graph" << std::endl;
@@ -51,7 +51,7 @@ public:
         print_elements(m_stack);
     };
 
-private:
+  private:
     Stack m_stack;
 };
 

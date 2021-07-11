@@ -20,7 +20,6 @@
 // Number == 2: Wooden Spoon
 // Else: Lost
 
-
 int main()
 {
     int number;
