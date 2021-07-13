@@ -1,10 +1,32 @@
 ---
-Checks: '-*,clang-*,bugprone-*,cppcoreguidelines-*,google-*,hicpp-*,modernize-*,performance-*,readability-*,portability-*,
--modernize-use-trailing-return-type, -readability-uppercase-literal-suffix, -readability-braces-around-statements, -hicpp-uppercase-literal-suffix, -hicpp-braces-around-statements, -hicpp-no-array-decay, -cppcoreguidelines-pro-bounds-constant-array-index, -cppcoreguidelines-pro-bounds-pointer-arithmetic, -cppcoreguidelines-pro-bounds-array-to-pointer-decay, -readability-avoid-const-params-in-decls, -google-readability-braces-around-statements,-google-explicit-constructor,-hicpp-vararg,-cppcoreguidelines-pro-type-vararg, -cppcoreguidelines-avoid-non-const-global-variables, -google-readability-todo, -cppcoreguidelines-pro-type-member-init, -hicpp-member-init, -cppcoreguidelines-special-member-functions, -hicpp-special-member-functions'
-WarningsAsErrors: ''
-HeaderFilterRegex: ''
+Checks: '-*,
+clang-*,
+bugprone-*,
+cppcoreguidelines-*,
+google-*,
+hicpp-*,
+modernize-*,
+performance-*,
+readability-*,
+portability-*,
+-modernize-use-trailing-return-type,
+-cppcoreguidelines-pro-bounds-constant-array-index,
+-cppcoreguidelines-pro-bounds-pointer-arithmetic,
+-cppcoreguidelines-pro-bounds-array-to-pointer-decay,
+-cppcoreguidelines-avoid-non-const-global-variables,
+-cppcoreguidelines-pro-type-member-init,
+-cppcoreguidelines-special-member-functions,
+-hicpp-uppercase-literal-suffix,
+-hicpp-braces-around-statements,
+-hicpp-no-array-decay,
+-hicpp-member-init,
+-hicpp-special-member-functions,
+-google-readability-braces-around-statements,
+-google-explicit-constructor,
+-google-readability-todo,
+-readability-avoid-const-params-in-decls,
+-readability-uppercase-literal-suffix,
+-readability-braces-around-statements'
 AnalyzeTemporaryDtors: false
-FormatStyle:     Microsoft
-User:            jan
+FormatStyle: Microsoft
 ...
-

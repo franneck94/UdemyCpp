@@ -1,6 +1,4 @@
 ---
-Language: Cpp
-
 BasedOnStyle: Microsoft
 
 TabWidth: 4
@@ -11,10 +9,14 @@ PointerAlignment: Right
 ReflowComments: false
 AccessModifierOffset: -2
 
+BinPackParameters: false
+BinPackArguments: false
 AllowAllArgumentsOnNextLine: false
 AllowAllConstructorInitializersOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
-BinPackParameters: false
-BinPackArguments: false
 
+BreakBeforeBinaryOperators: true
+BreakBeforeBraces: Custom
+BraceWrapping:
+    AfterCaseLabel: true
 ...
