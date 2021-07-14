@@ -3,9 +3,10 @@
 int main()
 {
     bool has_won = false;
-    std::cout << "Welcome to the Guessing-Game!" << std::endl;
 
-    while (has_won == false)
+    std::cout << "Welcome to my Guessing-Game!" << std::endl;
+
+    do
     {
         int number;
         std::cout << "Please enter your number: ";
@@ -32,7 +33,7 @@ int main()
             std::cout << "You must enter a number between [0, 10]."
                       << std::endl;
         }
-    }
+    } while (has_won == false);
 
     return 0;
 }

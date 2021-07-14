@@ -2,13 +2,13 @@
 
 int main()
 {
-    int number_games;
+    int number_attempts;
 
-    std::cout << "Welcome to the Guessing-Game!" << std::endl;
-    std::cout << "How many trys will you buy? ";
-    std::cin >> number_games;
+    std::cout << "Welcome to my Guessing-Game!" << std::endl;
+    std::cout << "Enter the number of attempts: ";
+    std::cin >> number_attempts;
 
-    for (int i = 0; i < number_games; i++)
+    for (int i = 0; i < number_attempts; i++)
     {
         int number;
         std::cout << "Please enter your number: ";

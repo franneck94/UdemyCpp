@@ -2,16 +2,16 @@
 
 int main()
 {
-    int sum = 10;
+    int sum = 0;
 
-    do
+    while (sum < 10)
     {
         std::cout << "\nCurrent sum: " << sum << " Enter the next value: ";
         int input;
         std::cin >> input;
 
         sum += input;
-    } while (sum < 10);
+    }
 
     return 0;
 }
