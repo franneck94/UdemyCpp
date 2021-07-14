@@ -35,12 +35,12 @@ int main()
     f(a); // LValue => LValue Reference
 
     std::cout << "b main: " << b << " " << &b << std::endl;
-    f(b); // const LValue => Const LValue Reference:
+    // f(b); // const LValue => Const LValue Reference:
 
     std::cout << "c main: " << c << " " << &c << std::endl;
     f(c); // LValue reference => LValue Reference
 
-    f(3); // RValue => Const LValue Reference
+    // f(3); // RValue => Const LValue Reference
 
     return 0;
 }

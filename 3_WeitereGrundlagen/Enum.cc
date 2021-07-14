@@ -1,38 +1,21 @@
 #include <iostream>
 
-// Enum: Enumeration
+// Enum values are integers
+// Enum values in UPPERCASE
+// Enum values are constant
+
 enum PermissionLevel
 {
     STUDENT = 1,
     TUTOR = 2,
-    DOZENT = 3,
-    ADMIN = 4,
-};
-
-struct User
-{
-    int id;
-    PermissionLevel permission;
+    INSTRUCTOR = 3,
+    ADMIN = 4
 };
 
 int main()
 {
-    User jan{102402402, PermissionLevel::ADMIN};
-    switch (jan.permission)
-    {
-    case PermissionLevel::STUDENT:
-        std::cout << "Ich bin ein Student!" << std::endl;
-        break;
-    case PermissionLevel::TUTOR:
-        std::cout << "Ich bin ein Tutor!" << std::endl;
-        break;
-    case PermissionLevel::DOZENT:
-        std::cout << "Ich bin ein Dozent!" << std::endl;
-        break;
-    case PermissionLevel::ADMIN:
-        std::cout << "Ich bin ein Admin!" << std::endl;
-        break;
-    }
+    PermissionLevel permission_level_jan = PermissionLevel::INSTRUCTOR;
+    PermissionLevel permission_level_peter = PermissionLevel::STUDENT;
 
     return 0;
 }
