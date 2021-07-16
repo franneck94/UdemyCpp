@@ -10,13 +10,9 @@ int main()
         my_vector.push_back(i);
     }
 
-    std::cout
-        << my_vector.size()
-        << std::
-               endl; // The currently used size of the underlying pointer array,
-                     // size <= capacity
-    std::cout << my_vector.capacity()
-              << std::endl; // The real size of the underlying pointer array
+    std::cout << my_vector.size() << std::endl;     // The currently used size of the underlying pointer array,
+                                                    // size <= capacity
+    std::cout << my_vector.capacity() << std::endl; // The real size of the underlying pointer array
 
     return 0;
 }

@@ -14,8 +14,7 @@ int main()
     {
         for (int j = 0; j < 2; j++)
         {
-            std::cout << "i = " << i << ", j = " << j
-                      << " value = " << my_matrix[i][j] << std::endl;
+            std::cout << "i = " << i << ", j = " << j << " value = " << my_matrix[i][j] << std::endl;
         }
     }
 

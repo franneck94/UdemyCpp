@@ -44,9 +44,7 @@ int main()
 
     // sort: generic lambda
 
-    auto sorting2 = [](const auto val1, const auto val2) {
-        return val1 < val2;
-    };
+    auto sorting2 = [](const auto val1, const auto val2) { return val1 < val2; };
 
     std::sort(my_vector.begin(), my_vector.end(), sorting2);
 

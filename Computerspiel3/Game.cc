@@ -6,19 +6,24 @@ ConsoleInput map_user_input(char user_input)
 {
     switch (user_input)
     {
-    case 'a': {
+    case 'a':
+    {
         return ConsoleInput::LEFT;
     }
-    case 'd': {
+    case 'd':
+    {
         return ConsoleInput::RIGHT;
     }
-    case 'w': {
+    case 'w':
+    {
         return ConsoleInput::UP;
     }
-    case 's': {
+    case 's':
+    {
         return ConsoleInput::DOWN;
     }
-    default: {
+    default:
+    {
         return ConsoleInput::INVALID;
     }
     }
@@ -47,7 +52,8 @@ Position execute_move(Position player, ConsoleInput move)
 {
     switch (move)
     {
-    case ConsoleInput::LEFT: {
+    case ConsoleInput::LEFT:
+    {
         if (player.second > START.second)
         {
             player.second--;
@@ -61,7 +67,8 @@ Position execute_move(Position player, ConsoleInput move)
 
         break;
     }
-    case ConsoleInput::RIGHT: {
+    case ConsoleInput::RIGHT:
+    {
         if (player.second < GOAL.second)
         {
             player.second++;
@@ -75,7 +82,8 @@ Position execute_move(Position player, ConsoleInput move)
 
         break;
     }
-    case ConsoleInput::UP: {
+    case ConsoleInput::UP:
+    {
         if (player.first > START.first)
         {
             player.first--;
@@ -89,7 +97,8 @@ Position execute_move(Position player, ConsoleInput move)
 
         break;
     }
-    case ConsoleInput::DOWN: {
+    case ConsoleInput::DOWN:
+    {
         if (player.first < GOAL.first)
         {
             player.first++;
@@ -104,7 +113,8 @@ Position execute_move(Position player, ConsoleInput move)
         break;
     }
     case ConsoleInput::INVALID:
-    default: {
+    default:
+    {
         std::cout << "Unrecognized move!" << std::endl;
 
         break;

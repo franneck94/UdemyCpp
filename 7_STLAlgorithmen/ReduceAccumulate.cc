@@ -38,15 +38,11 @@ int main()
     int sum_vector_b = std::accumulate(vector_b.begin(), vector_b.end(), 0);
     std::cout << "sum_vector_b = " << sum_vector_b << std::endl;
 
-    int sum_vector_b_plus2 =
-        std::accumulate(vector_b.begin(), vector_b.end(), 2);
+    int sum_vector_b_plus2 = std::accumulate(vector_b.begin(), vector_b.end(), 2);
     std::cout << "sum_vector_b + 2 = " << sum_vector_b_plus2 << std::endl;
 
     // ACCUMULATE with Multiplies<int>
-    int product_vector_b = std::accumulate(vector_b.begin(),
-                                           vector_b.end(),
-                                           1,
-                                           std::multiplies<int>());
+    int product_vector_b = std::accumulate(vector_b.begin(), vector_b.end(), 1, std::multiplies<int>());
     std::cout << "product_vector_b = " << product_vector_b << std::endl;
 
     return 0;

@@ -177,8 +177,7 @@ int main()
             total_time += t.elapsed_time<cpptiming::millisecs, double>();
         }
 
-        std::cout << "Random Index: " << total_time / NUM_RUNS << " ms"
-                  << std::endl;
+        std::cout << "Random Index: " << total_time / NUM_RUNS << " ms" << std::endl;
     }
 
     return 0;

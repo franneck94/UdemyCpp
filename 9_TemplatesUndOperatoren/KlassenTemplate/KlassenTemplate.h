@@ -26,9 +26,7 @@ template <typename T> class Statistic
     std::vector<T> m_samples;
 };
 
-template <typename T>
-Statistic<T>::Statistic()
-    : m_min(0), m_max(0), m_num_samples(0), m_mean(0.0), m_samples(0, 0)
+template <typename T> Statistic<T>::Statistic() : m_min(0), m_max(0), m_num_samples(0), m_mean(0.0), m_samples(0, 0)
 {
 }
 
@@ -79,6 +77,5 @@ template <typename T> void Statistic<T>::print_data()
     std::cout << "Max: " << m_max << std::endl;
     std::cout << "Min: " << m_min << std::endl;
     std::cout << "Mean: " << m_mean << std::endl;
-    std::cout << "------------------------------------------------"
-              << std::endl;
+    std::cout << "------------------------------------------------" << std::endl;
 }

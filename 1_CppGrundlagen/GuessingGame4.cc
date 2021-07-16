@@ -31,8 +31,7 @@ int main()
         }
         else
         {
-            std::cout << "You must enter a number between [0, 10]."
-                      << std::endl;
+            std::cout << "You must enter a number between [0, 10]." << std::endl;
         }
     }
 

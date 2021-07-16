@@ -71,11 +71,7 @@ template <typename T> Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &rhs)
 {
     for (std::size_t i = 0; i != m_rows; ++i)
     {
-        std::transform(m_data[i].begin(),
-                       m_data[i].end(),
-                       rhs.m_data[i].begin(),
-                       m_data[i].begin(),
-                       std::plus<T>());
+        std::transform(m_data[i].begin(), m_data[i].end(), rhs.m_data[i].begin(), m_data[i].begin(), std::plus<T>());
     }
 
     return *this;
@@ -101,11 +97,7 @@ template <typename T> Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &rhs)
 {
     for (std::size_t i = 0; i != m_rows; ++i)
     {
-        std::transform(m_data[i].begin(),
-                       m_data[i].end(),
-                       rhs.m_data[i].begin(),
-                       m_data[i].begin(),
-                       std::minus<T>());
+        std::transform(m_data[i].begin(), m_data[i].end(), rhs.m_data[i].begin(), m_data[i].begin(), std::minus<T>());
     }
 
     return *this;

@@ -15,13 +15,9 @@ int main()
     std::vector<int> my_vector3;
 
     // Inserter (Container needs the insert method)
-    std::copy(my_vector.begin(),
-              my_vector.end(),
-              std::inserter(my_vector3, my_vector3.end()));
+    std::copy(my_vector.begin(), my_vector.end(), std::inserter(my_vector3, my_vector3.end()));
 
-    std::copy(my_vector2.begin(),
-              my_vector2.end(),
-              std::inserter(my_vector3, my_vector3.begin() + 1));
+    std::copy(my_vector2.begin(), my_vector2.end(), std::inserter(my_vector3, my_vector3.begin() + 1));
 
     std::cout << "Inserter: " << std::endl;
     for (const auto &val : my_vector3)
@@ -33,13 +29,9 @@ int main()
     std::vector<int> my_vector4;
 
     // Back Inserter (Container needs the push_back method)
-    std::copy(my_vector.begin(),
-              my_vector.end(),
-              std::back_inserter(my_vector4));
+    std::copy(my_vector.begin(), my_vector.end(), std::back_inserter(my_vector4));
 
-    std::copy(my_vector2.begin(),
-              my_vector2.end(),
-              std::back_inserter(my_vector4));
+    std::copy(my_vector2.begin(), my_vector2.end(), std::back_inserter(my_vector4));
 
     std::cout << "Back Inserter: " << std::endl;
     for (const auto &val : my_vector4)

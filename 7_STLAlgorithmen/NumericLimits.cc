@@ -5,9 +5,8 @@
 
 template <typename T> void print_min_max()
 {
-    std::cout << "min: " << std::dec << std::numeric_limits<T>::min()
-              << " max: " << std::dec << std::numeric_limits<T>::max()
-              << std::endl;
+    std::cout << "min: " << std::dec << std::numeric_limits<T>::min() << " max: " << std::dec
+              << std::numeric_limits<T>::max() << std::endl;
 }
 
 bool equal(double x, double y)
@@ -40,10 +39,8 @@ int main()
 
     std::cout << "d1 == d2? " << std::boolalpha << equal(d1, d2) << std::endl;
 
-    std::cout << "epsilon = " << std::numeric_limits<double>::epsilon()
-              << std::endl;
-    std::cout << "d1 ~= d2? " << std::boolalpha << almost_equal(d1, d2)
-              << std::endl;
+    std::cout << "epsilon = " << std::numeric_limits<double>::epsilon() << std::endl;
+    std::cout << "d1 ~= d2? " << std::boolalpha << almost_equal(d1, d2) << std::endl;
 
     return 0;
 }

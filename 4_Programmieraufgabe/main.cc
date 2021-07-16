@@ -21,9 +21,7 @@ int main()
     {
         for (unsigned int j = 0; j != matrix[i].size(); ++j)
         {
-            std::cout << std::endl
-                      << "i = " << i << " , j = " << j
-                      << ", matrix = " << matrix[i][j];
+            std::cout << std::endl << "i = " << i << " , j = " << j << ", matrix = " << matrix[i][j];
         }
     }
     std::cout << std::endl;
@@ -33,8 +31,7 @@ int main()
 
     for (unsigned int i = 0; i != row_max_vec.size(); ++i)
     {
-        std::cout << "Maximum of row " << i << " = " << row_max_vec[i]
-                  << std::endl;
+        std::cout << "Maximum of row " << i << " = " << row_max_vec[i] << std::endl;
     }
 
     // Exercise 3
@@ -51,8 +48,7 @@ int main()
 
     for (unsigned int i = 0; i != row_max_vec.size(); ++i)
     {
-        std::cout << "Sorted vector[" << i << "] = " << row_max_vec[i]
-                  << std::endl;
+        std::cout << "Sorted vector[" << i << "] = " << row_max_vec[i] << std::endl;
     }
 
     std::cout << "Vector max: " << max << std::endl;

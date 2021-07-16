@@ -19,13 +19,10 @@ class Timer
     {
     }
 
-    template <typename Units = nanosecs, typename Rep = double>
-    Rep elapsed_time() const
+    template <typename Units = nanosecs, typename Rep = double> Rep elapsed_time() const
     {
         std::atomic_thread_fence(std::memory_order_relaxed);
-        auto counted_time =
-            std::chrono::duration_cast<Units>(Clock::now() - m_start_point)
-                .count();
+        auto counted_time = std::chrono::duration_cast<Units>(Clock::now() - m_start_point).count();
         std::atomic_thread_fence(std::memory_order_relaxed);
         return static_cast<Rep>(counted_time);
     }

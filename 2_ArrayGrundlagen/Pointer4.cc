@@ -2,14 +2,12 @@
 
 void print_int_pointer(int *&p)
 {
-    std::cout << "Deref: " << *p << " Ref: " << p << " Pointer Address: " << &p
-              << std::endl;
+    std::cout << "Deref: " << *p << " Ref: " << p << " Pointer Address: " << &p << std::endl;
 }
 
 void print_double_pointer(double *&p)
 {
-    std::cout << "Deref: " << *p << " Ref: " << p << " Pointer Address: " << &p
-              << std::endl;
+    std::cout << "Deref: " << *p << " Ref: " << p << " Pointer Address: " << &p << std::endl;
 }
 
 int main()

@@ -43,9 +43,7 @@ template <typename T> class Matrix
     Matrix &operator*=(const Matrix &rhs);
 
     void dot(const Matrix &matrixA, const Matrix &matrixB, Matrix &result);
-    void parallel_dot(const Matrix &matrixA,
-                      const Matrix &matrixB,
-                      Matrix &result);
+    void parallel_dot(const Matrix &matrixA, const Matrix &matrixB, Matrix &result);
 
     void print_matrix() const;
 
@@ -108,11 +106,7 @@ template <typename T> Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &rhs)
 
     for (std::size_t i = 0; i != m_rows; ++i)
     {
-        std::transform(m_data[i].begin(),
-                       m_data[i].end(),
-                       rhs.m_data[i].begin(),
-                       m_data[i].begin(),
-                       std::plus<T>());
+        std::transform(m_data[i].begin(), m_data[i].end(), rhs.m_data[i].begin(), m_data[i].begin(), std::plus<T>());
     }
 
     return *this;
@@ -156,11 +150,7 @@ template <typename T> Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &rhs)
 
     for (std::size_t i = 0; i != m_rows; ++i)
     {
-        std::transform(m_data[i].begin(),
-                       m_data[i].end(),
-                       rhs.m_data[i].begin(),
-                       m_data[i].begin(),
-                       std::minus<T>());
+        std::transform(m_data[i].begin(), m_data[i].end(), rhs.m_data[i].begin(), m_data[i].begin(), std::minus<T>());
     }
 
     return *this;
@@ -172,10 +162,9 @@ template <typename T> Matrix<T> Matrix<T>::operator*(const T &scalar)
 
     for (std::size_t i = 0; i != m_rows; ++i)
     {
-        std::transform(m_data[i].begin(),
-                       m_data[i].end(),
-                       result.m_data[i].begin(),
-                       [scalar](const T val) -> T { return val * scalar; });
+        std::transform(m_data[i].begin(), m_data[i].end(), result.m_data[i].begin(), [scalar](const T val) -> T {
+            return val * scalar;
+        });
     }
 
     return result;
@@ -185,10 +174,9 @@ template <typename T> Matrix<T> &Matrix<T>::operator*=(const T &scalar)
 {
     for (std::size_t i = 0; i != m_rows; ++i)
     {
-        std::transform(m_data[i].begin(),
-                       m_data[i].end(),
-                       m_data[i].begin(),
-                       [scalar](const T val) -> T { return val * scalar; });
+        std::transform(m_data[i].begin(), m_data[i].end(), m_data[i].begin(), [scalar](const T val) -> T {
+            return val * scalar;
+        });
     }
 
     return *this;
@@ -198,18 +186,16 @@ template <typename T> Matrix<T> Matrix<T>::operator/(const T &scalar)
 {
     if (scalar == 0)
     {
-        throw(std::overflow_error(
-            "You cannot divide by a scalar value of zero!"));
+        throw(std::overflow_error("You cannot divide by a scalar value of zero!"));
     }
 
     Matrix<T> result(m_rows, m_cols);
 
     for (std::size_t i = 0; i != m_rows; ++i)
     {
-        std::transform(m_data[i].begin(),
-                       m_data[i].end(),
-                       result.m_data[i].begin(),
-                       [scalar](const T val) -> T { return val / scalar; });
+        std::transform(m_data[i].begin(), m_data[i].end(), result.m_data[i].begin(), [scalar](const T val) -> T {
+            return val / scalar;
+        });
     }
 
     return result;
@@ -219,10 +205,9 @@ template <typename T> Matrix<T> &Matrix<T>::operator/=(const T &scalar)
 {
     for (std::size_t i = 0; i != m_rows; ++i)
     {
-        std::transform(m_data[i].begin(),
-                       m_data[i].end(),
-                       m_data[i].begin(),
-                       [scalar](const T val) -> T { return val / scalar; });
+        std::transform(m_data[i].begin(), m_data[i].end(), m_data[i].begin(), [scalar](const T val) -> T {
+            return val / scalar;
+        });
     }
 
     return *this;
@@ -261,10 +246,7 @@ template <typename T> Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &rhs)
     return *this;
 }
 
-template <typename T>
-void Matrix<T>::dot(const Matrix<T> &matrixA,
-                    const Matrix<T> &matrixB,
-                    Matrix<T> &result)
+template <typename T> void Matrix<T>::dot(const Matrix<T> &matrixA, const Matrix<T> &matrixB, Matrix<T> &result)
 {
     for (std::size_t i = 0; i != matrixA.m_rows; ++i)
     {
@@ -272,18 +254,14 @@ void Matrix<T>::dot(const Matrix<T> &matrixA,
         {
             for (std::size_t k = 0; k != matrixB.m_rows; ++k)
             {
-                result.m_data[i][j] =
-                    result.m_data[i][j] +
-                    matrixA.m_data[i][k] * matrixB.m_data[k][j];
+                result.m_data[i][j] = result.m_data[i][j] + matrixA.m_data[i][k] * matrixB.m_data[k][j];
             }
         }
     }
 }
 
 template <typename T>
-void Matrix<T>::parallel_dot(const Matrix<T> &matrixA,
-                             const Matrix<T> &matrixB,
-                             Matrix<T> &result)
+void Matrix<T>::parallel_dot(const Matrix<T> &matrixA, const Matrix<T> &matrixB, Matrix<T> &result)
 {
     std::size_t i = 0;
     std::size_t j = 0;
@@ -296,9 +274,7 @@ void Matrix<T>::parallel_dot(const Matrix<T> &matrixA,
         {
             for (k = 0; k != matrixB.m_rows; ++k)
             {
-                result.m_data[i][j] =
-                    result.m_data[i][j] +
-                    matrixA.m_data[i][k] * matrixB.m_data[k][j];
+                result.m_data[i][j] = result.m_data[i][j] + matrixA.m_data[i][k] * matrixB.m_data[k][j];
             }
         }
     }

@@ -24,8 +24,7 @@ template <typename T> class DynamicArray
  * @param length The length of the array.
  * @return DyanmicArray
  */
-template <typename T>
-DynamicArray<T>::DynamicArray(const T &value, const std::size_t &length)
+template <typename T> DynamicArray<T>::DynamicArray(const T &value, const std::size_t &length)
 {
     m_length = length;
     m_data = new T[length];

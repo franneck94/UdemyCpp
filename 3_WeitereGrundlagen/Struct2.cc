@@ -9,14 +9,14 @@ enum Lanes
     LEFT_LANE = -1,
 };
 
-typedef struct Vehicle
+struct Vehicle
 {
     int id;
     Lanes lane;
     float velocity;
-} TS_Vehicle;
+};
 
-void print_vehicle_data(TS_Vehicle &v)
+void print_vehicle_data(Vehicle &v)
 {
     std::cout << "Vehicle ID: " << v.id << std::endl;
     std::cout << "Vehicle Lane: " << v.lane << std::endl;
@@ -25,9 +25,7 @@ void print_vehicle_data(TS_Vehicle &v)
 
 int main()
 {
-    TS_Vehicle v1 = {.id = VEHICLE_ID,
-                     .lane = Lanes::CENTER_LANE,
-                     .velocity = 100.0f};
+    Vehicle v1 = {.id = VEHICLE_ID, .lane = Lanes::CENTER_LANE, .velocity = 100.0f};
     print_vehicle_data(v1);
 
     return 0;

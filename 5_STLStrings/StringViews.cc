@@ -25,8 +25,7 @@ void do_something2(const std::string_view &sv)
 
 int main()
 {
-    std::string s(
-        "Ich heisse Jan Schaffranek und bin Dozent auf der Plattform Udemy.");
+    std::string s("Ich heisse Jan Schaffranek und bin Dozent auf der Plattform Udemy.");
 
     std::string sub_s(s.substr(4, 16));
     do_something1(sub_s);

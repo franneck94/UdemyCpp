@@ -25,9 +25,7 @@ int main()
 
     auto end_time = std::chrono::high_resolution_clock::now();
 
-    auto elapsed =
-        std::chrono::duration_cast<time_interval>(end_time - start_time)
-            .count();
+    auto elapsed = std::chrono::duration_cast<time_interval>(end_time - start_time).count();
     std::cout << "The program took " << elapsed << " us" << std::endl;
 
     return 0;

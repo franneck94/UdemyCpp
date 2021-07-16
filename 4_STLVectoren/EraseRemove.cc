@@ -25,13 +25,11 @@ int main()
     std::iota(my_vector.begin(), my_vector.end(), 0.0);
     print_vector(my_vector);
 
-    std::vector<int>::iterator start_erasing_it =
-        std::remove(my_vector.begin(), my_vector.end(), 2);
+    std::vector<int>::iterator start_erasing_it = std::remove(my_vector.begin(), my_vector.end(), 2);
     my_vector.erase(start_erasing_it, my_vector.end());
     print_vector(my_vector);
 
-    my_vector.erase(std::remove_if(my_vector.begin(), my_vector.end(), is_odd),
-                    my_vector.end());
+    my_vector.erase(std::remove_if(my_vector.begin(), my_vector.end(), is_odd), my_vector.end());
     print_vector(my_vector);
 
     return 0;

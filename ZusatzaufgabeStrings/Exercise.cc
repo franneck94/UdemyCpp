@@ -40,8 +40,7 @@ bool is_in_string(const std::string &str, const std::string &sub_str)
 }
 
 // Exercise 3
-unsigned int str_concat_exponent(const std::string &str,
-                                 const std::string &base)
+unsigned int str_concat_exponent(const std::string &str, const std::string &base)
 {
     std::string cmp_str = str;
     unsigned int count = 0;

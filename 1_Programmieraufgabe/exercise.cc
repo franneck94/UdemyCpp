@@ -13,14 +13,12 @@ void mod_cross_sum(int I, int J)
             // Ungerader Fall
             if ((i + j) % 2)
             {
-                std::cout << "i: " << i << " , j: " << j << " := Ungerade!"
-                          << std::endl;
+                std::cout << "i: " << i << " , j: " << j << " := Ungerade!" << std::endl;
             }
             // Gerader Fall
             else
             {
-                std::cout << "i: " << i << " , j: " << j << " := Gerade!"
-                          << std::endl;
+                std::cout << "i: " << i << " , j: " << j << " := Gerade!" << std::endl;
             }
         }
     }

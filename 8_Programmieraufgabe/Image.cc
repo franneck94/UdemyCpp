@@ -5,21 +5,16 @@
 #pragma warning(disable : 4996)
 #include "Image.h"
 
-Image::Image()
-    : m_width(0), m_height(0),
-      m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
+Image::Image() : m_width(0), m_height(0), m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
 {
     std::cout << "Created empty image object!" << std::endl;
 }
 
 Image::Image(const unsigned int width, const unsigned int height)
-    : m_width(width), m_height(height),
-      m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
+    : m_width(width), m_height(height), m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
 {
-    std::cout << "Created image object with shape=(" << m_width << ","
-              << m_height << ")!" << std::endl;
-    std::cout << "Matrix size: (" << m_matrix.size() << ","
-              << m_matrix[0].size() << ")" << std::endl;
+    std::cout << "Created image object with shape=(" << m_width << "," << m_height << ")!" << std::endl;
+    std::cout << "Matrix size: (" << m_matrix.size() << "," << m_matrix[0].size() << ")" << std::endl;
 }
 
 Image::~Image()
@@ -46,16 +41,13 @@ void Image::clear_image()
 }
 
 // Exercise 2
-void Image::set_pixel(const unsigned int x,
-                      const unsigned int y,
-                      const uchar value)
+void Image::set_pixel(const unsigned int x, const unsigned int y, const uchar value)
 {
     m_matrix[x][y] = value;
 }
 
 // Exercise 3
-void Image::resize_image(const unsigned int new_width,
-                         const unsigned int new_height)
+void Image::resize_image(const unsigned int new_width, const unsigned int new_height)
 {
     // New width
     if (new_width != m_width)
@@ -94,12 +86,10 @@ void Image::draw_line(const unsigned int x1,
 {
     int length = 0;
 
-    if ((x1 < m_width) && (x2 < m_width) && (y1 < m_height) &&
-        (y2 < m_height) && ((x1 == x2) || (y1 == y2)))
+    if ((x1 < m_width) && (x2 < m_width) && (y1 < m_height) && (y2 < m_height) && ((x1 == x2) || (y1 == y2)))
     {
         std::cout << "Draw line!" << std::endl;
-        std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << " "
-                  << std::endl;
+        std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << std::endl;
 
         // Draw vertical line
         if (x1 == x2)
@@ -157,8 +147,7 @@ void Image::draw_line(const unsigned int x1,
     else
     {
         std::cout << "Line Error" << std::endl;
-        std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << " "
-                  << std::endl;
+        std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << std::endl;
     }
 }
 
@@ -183,8 +172,7 @@ void Image::save_image(const char *file_name) const
     }
 
     uchar bmpfileheader[14] = {'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0};
-    uchar bmpinfoheader[40] =
-        {40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0};
+    uchar bmpinfoheader[40] = {40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0};
     uchar bmppad[3] = {0, 0, 0};
 
     bmpfileheader[2] = (uchar)(filesize);
