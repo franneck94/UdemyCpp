@@ -1,22 +1,22 @@
 #include <iostream>
 
+// dType varName[numElements]
+
 int main()
 {
-    // Anlegen des Arrays mit 5 Plätzen
-    //                       0   1   2    3   4
-    int freunde_alter[5] = {23, 21, 25, 27, 31};
+    int array1[5] = {10, 11, 12, 13, 14};
 
-    // Auf die Werte zugreifen
-    std::cout << freunde_alter[0] << std::endl;
-    std::cout << freunde_alter[1] << std::endl;
-    std::cout << freunde_alter[2] << std::endl;
-    std::cout << freunde_alter[3] << std::endl;
-    std::cout << freunde_alter[4] << std::endl;
+    std::cout << "Index 0: " << array1[0] << std::endl;
+    std::cout << "Index 1: " << array1[1] << std::endl;
+    std::cout << "Index 2: " << array1[2] << std::endl;
+    std::cout << "Index 3: " << array1[3] << std::endl;
+    std::cout << "Index 4: " << array1[4] << std::endl;
 
-    for (int i = 0; i < 5; i++)
-    {
-        std::cout << freunde_alter[i] << std::endl;
-    }
+    int array2[] = {20, 21, 22};
+
+    std::cout << "Index 0: " << array2[0] << std::endl;
+    std::cout << "Index 1: " << array2[1] << std::endl;
+    std::cout << "Index 2: " << array2[2] << std::endl;
 
     return 0;
 }

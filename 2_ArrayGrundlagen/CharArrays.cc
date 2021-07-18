@@ -2,15 +2,17 @@
 
 int main()
 {
-    // C-style char arrays: \0 (null-terminating character)
-    std::cout << "Hello World!" << std::endl;
+    char fist_name[] = {'J', 'a', 'n', '\0'};
 
-    char str[] = "Jan Schaffranek";
-    std::cout << str << std::endl;
+    std::cout << fist_name << std::endl;
 
-    for (int i = 0; i < 15; i++)
+    char last_name[] = "Schaffranek";
+
+    std::cout << last_name << std::endl;
+
+    for (int i = 0; i < 11; i++)
     {
-        std::cout << str[i] << std::endl;
+        std::cout << "Last Name[i]: " << last_name[i] << std::endl;
     }
 
     return 0;
