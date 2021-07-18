@@ -1,17 +1,17 @@
 #include <iostream>
 
+// &: Reference
+// *p: De-reference
+
 int main()
 {
-    int number = 1337;
+    int number = 5;
     std::cout << "Value of number: " << number << std::endl;
-    std::cout << "Memory adress of number: " << &number << std::endl;
+    std::cout << "Address of number: " << &number << std::endl; // 3c
 
-    // Pointer muss auf eine Speicheradresse zeigen
-    // p: Memory Adress
-    // *p: Value of that memory adress
     int *p = &number;
-    std::cout << "The memory adress that the variable 'p' points to: " << p << std::endl;
-    std::cout << "The value that the variable 'p' points to: " << *p << std::endl;
+    std::cout << "Value of p: " << p << std::endl;                                   // 3c
+    std::cout << "Value of the memory adress that p points to: " << *p << std::endl; // 3c
 
     return 0;
 }
