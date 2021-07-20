@@ -19,8 +19,7 @@ int main()
     std::string sub_s(s.substr(4, 16));
     do_something1(sub_s);
 
-    std::string_view view_s(s.c_str() + 4, 16);
-    do_something2(view_s);
+    do_something2(s.substr(4, 16));
 
     return 0;
 }
