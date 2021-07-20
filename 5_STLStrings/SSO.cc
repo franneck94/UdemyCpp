@@ -1,4 +1,3 @@
-#include <cstdlib>
 #include <iostream>
 #include <string>
 
@@ -28,7 +27,6 @@ int main()
         std::cout << "sizeof  : " << size << std::endl;
         std::cout << "Capacity: " << capacity << std::endl;
     }
-
 
     return 0;
 }
