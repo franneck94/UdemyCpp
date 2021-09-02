@@ -15,7 +15,8 @@ performance-*,
 -cppcoreguidelines-avoid-magic-numbers,
 -cppcoreguidelines-init-variables,
 -cppcoreguidelines-owning-memory,
--modernize-use-trailing-return-type'
+-modernize-use-trailing-return-type,
+-modernize-use-auto'
 AnalyzeTemporaryDtors: false
 FormatStyle: Microsoft
 ...
