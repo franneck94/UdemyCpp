@@ -1,49 +1,23 @@
+################################
+###########  FILES  ############
+################################
 # Ignore all
 *
 # Unignore all with extensions
 !*.*
-!*.txt
-TODO.txt
 # Unignore all dirs
 !*/
-*.pdf
+!.gitkeep
 !Makefile
-!LICENSE
-c_cpp_properties.json
-
-test*
-build*
-Debug/
-Release/
-
-.vscode/c_cpp_properties.json
-*.zip
-*.vcxproj
-*.vcxproj.filters
-*.obj
-*.o
-*.exe
-*.out
-*.pro
-*.sln
-*.bmp
-*.ui
+*.pptx
 *.stackdump
-*.pcm
-!Makefile
+*.pdf
 
 ################################
 ########### FOLDERS ############
 ################################
-
-# directories
 build/
 html/
-latex/
-.vs/
-.vscode/VsCodeSettings/
-*.Debug
-*.Release
 
 ################################
 ############ C/C++ #############
@@ -55,6 +29,8 @@ latex/
 *.lo
 *.o
 *.obj
+*.ko
+*.elf
 # Precompiled Headers
 *.gch
 *.pch
@@ -75,13 +51,7 @@ latex/
 *.out
 *.app
 ##### C
-# Prerequisites
-*.d
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+
 # Linker output
 *.ilk
 *.map
@@ -115,9 +85,9 @@ latex/
 ################################
 ########### VS CODE ############
 ################################
+.vscode
 *.code-workspace
-.history/
-*.zip
+.history
 
 ################################
 ######## VISUAL STUDIO #########
@@ -135,50 +105,3 @@ latex/
 [Rr]eleases/
 x64/
 x86/
-# Files built by Visual Studio
-*_i.c
-*_p.c
-*_h.h
-*.ilk
-*.meta
-*.obj
-*.iobj
-*.pch
-*.pdb
-*.ipdb
-*.pgc
-*.pgd
-*.rsp
-*.sbr
-*.tlb
-*.tli
-*.tlh
-*.tmp
-*.tmp_proj
-*_wpftmp.csproj
-*.log
-*.vspscc
-*.vssscc
-.builds
-*.pidb
-*.svclog
-*.scc
-# Chutzpah Test files
-_Chutzpah*
-# Visual C++ cache files
-ipch/
-*.aps
-*.ncb
-*.opendb
-*.opensdf
-*.sdf
-*.cachefile
-*.VC.db
-*.VC.VC.opendb
-# Visual Studio profiler
-*.psess
-*.vsp
-*.vspx
-*.sap
-# Visual Studio Trace Files
-*.e2e

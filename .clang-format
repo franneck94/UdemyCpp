@@ -1,22 +1,24 @@
 ---
 BasedOnStyle: Microsoft
-
-TabWidth: 4
-UseTab: Never
-ColumnLimit: 120
-
+IndentWidth: 4
+Language: Cpp
+DerivePointerAlignment: false
 PointerAlignment: Right
+AccessModifierOffset: -4
 ReflowComments: false
-AccessModifierOffset: -2
+SortIncludes: true
+TabWidth: 4
+UseCRLF: false
+UseTab: Never
 
-BinPackParameters: false
-BinPackArguments: false
-AllowAllArgumentsOnNextLine: false
-AllowAllConstructorInitializersOnNextLine: false
-AllowAllParametersOfDeclarationOnNextLine: false
-
-BreakBeforeBinaryOperators: true
-BreakBeforeBraces: Custom
+BinPackArguments: true
+BinPackParameters: true
 BraceWrapping:
     AfterCaseLabel: true
-...
+ColumnLimit: 120
+IndentCaseLabels: false
+MaxEmptyLinesToKeep: 2
+NamespaceIndentation: None
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 1
+---

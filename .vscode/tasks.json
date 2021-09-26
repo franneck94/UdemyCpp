@@ -4,7 +4,9 @@
         {
             "label": "Makefile_Debug",
             "type": "shell",
-            "command": ["${config:make}"],
+            "command": [
+                "${config:make}"
+            ],
             "args": [
                 "build",
                 "--file=${workspaceFolder}/.vscode/Makefile",
@@ -13,12 +15,17 @@
                 "CPP_COMPILER=${config:compilerCpp}",
                 "LANGUAGE_MODE=Cpp",
                 "EXECUTABLE_NAME=${fileBasenameNoExtension}Debug"
+            ],
+            "problemMatcher": [
+                "$gcc"
             ]
         },
         {
             "label": "Makefile_Release",
             "type": "shell",
-            "command": ["${config:make}"],
+            "command": [
+                "${config:make}"
+            ],
             "args": [
                 "build",
                 "--file=${workspaceFolder}/.vscode/Makefile",
@@ -27,19 +34,24 @@
                 "CPP_COMPILER=${config:compilerCpp}",
                 "LANGUAGE_MODE=Cpp",
                 "EXECUTABLE_NAME=${fileBasenameNoExtension}Release"
+            ],
+            "problemMatcher": [
+                "$gcc"
             ]
         },
         {
             "label": "Cpp: Debug (Single File)",
             "type": "shell",
-            "command": ["${config:make}"],
+            "command": [
+                "${config:make}"
+            ],
             "args": [
                 "build_single",
                 "--file=${workspaceFolder}/.vscode/Makefile",
                 "--directory=${fileDirname}/",
                 "FILE_NAME=${file}",
                 "COMPILATION_MODE=Debug",
-                "CPP_COMPILER=${config:compilerCpp}",
+                "C_COMPILER=${config:compilerCpp}",
                 "LANGUAGE_MODE=Cpp",
                 "EXECUTABLE_NAME=${fileBasenameNoExtension}Debug"
             ],
@@ -47,19 +59,23 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": ["$gcc"]
+            "problemMatcher": [
+                "$gcc"
+            ]
         },
         {
             "label": "Cpp: Release (Single File)",
             "type": "shell",
-            "command": ["${config:make}"],
+            "command": [
+                "${config:make}"
+            ],
             "args": [
                 "build_single",
                 "--file=${workspaceFolder}/.vscode/Makefile",
                 "--directory=${fileDirname}/",
                 "FILE_NAME=${file}",
                 "COMPILATION_MODE=Release",
-                "CPP_COMPILER=${config:compilerCpp}",
+                "C_COMPILER=${config:compilerCpp}",
                 "LANGUAGE_MODE=Cpp",
                 "EXECUTABLE_NAME=${fileBasenameNoExtension}Release"
             ],
@@ -67,44 +83,60 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": ["$gcc"]
+            "problemMatcher": [
+                "$gcc"
+            ]
         },
         {
             "label": "Cpp: Debug (Folder)",
             "type": "shell",
-            "command": ["${config:make}"],
+            "command": [
+                "${config:make}"
+            ],
             "args": [
                 "clean",
                 "--file=${workspaceFolder}/.vscode/Makefile",
                 "--directory=${fileDirname}/"
             ],
-            "dependsOn": ["Makefile_Debug"],
+            "dependsOn": [
+                "Makefile_Debug"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": ["$gcc"]
+            "problemMatcher": [
+                "$gcc"
+            ]
         },
         {
             "label": "Cpp: Release (Folder)",
             "type": "shell",
-            "command": ["${config:make}"],
+            "command": [
+                "${config:make}"
+            ],
             "args": [
                 "clean",
                 "--file=${workspaceFolder}/.vscode/Makefile",
                 "--directory=${fileDirname}/"
             ],
-            "dependsOn": ["Makefile_Release"],
+            "dependsOn": [
+                "Makefile_Release"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": ["$gcc"]
+            "problemMatcher": [
+                "$gcc"
+            ]
         },
         {
             "label": "Execute: Debug Program",
             "type": "shell",
-            "command": ["${config:make}"],
+            "command": [
+                "${config:make}"
+            ],
             "args": [
                 "execute",
                 "--file=${workspaceFolder}/.vscode/Makefile",
@@ -116,12 +148,16 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": ["$gcc"]
+            "problemMatcher": [
+                "$gcc"
+            ]
         },
         {
             "label": "Execute: Release Program",
             "type": "shell",
-            "command": ["${config:make}"],
+            "command": [
+                "${config:make}"
+            ],
             "args": [
                 "execute",
                 "--file=${workspaceFolder}/.vscode/Makefile",
@@ -133,12 +169,16 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": ["$gcc"]
+            "problemMatcher": [
+                "$gcc"
+            ]
         },
         {
             "label": "Makefile Clean",
             "type": "shell",
-            "command": ["${config:make}"],
+            "command": [
+                "${config:make}"
+            ],
             "args": [
                 "clean",
                 "--file=${workspaceFolder}/.vscode/Makefile",
@@ -149,7 +189,9 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": ["$gcc"]
+            "problemMatcher": [
+                "$gcc"
+            ]
         }
     ]
 }
