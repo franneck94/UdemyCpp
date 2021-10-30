@@ -11,13 +11,13 @@
 
 template <const int n> class faculty
 {
-  public:
+public:
     static const int val = faculty<n - 1>::val * n;
 };
 
 template <> class faculty<1>
 {
-  public:
+public:
     static const int val = 1;
 };
 
@@ -26,13 +26,13 @@ template <> class faculty<1>
 // sum from 1 to n
 template <const int n> class sum
 {
-  public:
+public:
     static const int val = sum<n - 1>::val + n;
 };
 
 template <> class sum<1>
 {
-  public:
+public:
     static const int val = 1;
 };
 
