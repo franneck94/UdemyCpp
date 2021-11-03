@@ -5,8 +5,8 @@ using GrayscaleMatrix = std::vector<std::vector<uchar>>;
 
 class Image
 {
-  public:
-    // Konstruktor
+public:
+  // Konstruktor
     Image();
     Image(const unsigned int width, const unsigned int height);
 
@@ -23,7 +23,7 @@ class Image
 
     void save_image(const char *file_name) const;
 
-  private:
+private:
     unsigned int m_width;
     unsigned int m_height;
     GrayscaleMatrix m_matrix;

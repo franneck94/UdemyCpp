@@ -22,24 +22,24 @@ void print_vehicle_data(Vehicle &vehicle)
     switch (vehicle.lane)
     {
     case Lane::CENTER_LANE:
-    {
-        std::cout << "Vehicle Lane Association: Center Lane" << std::endl;
-        break;
-    }
+        {
+            std::cout << "Vehicle Lane Association: Center Lane" << std::endl;
+            break;
+        }
     case Lane::RIGHT_LANE:
-    {
-        std::cout << "Vehicle Lane Association: Right Lane" << std::endl;
-        break;
-    }
+        {
+            std::cout << "Vehicle Lane Association: Right Lane" << std::endl;
+            break;
+        }
     case Lane::LEFT_LANE:
-    {
-        std::cout << "Vehicle Lane Association: Left Lane" << std::endl;
-        break;
-    }
+        {
+            std::cout << "Vehicle Lane Association: Left Lane" << std::endl;
+            break;
+        }
     default:
-    {
-        break;
-    }
+        {
+            break;
+        }
     }
 }
 
@@ -51,30 +51,30 @@ void print_vehicle_data_pointer(Vehicle *vehicle)
     switch (vehicle->lane)
     {
     case Lane::CENTER_LANE:
-    {
-        std::cout << "Vehicle Lane Association: Center Lane" << std::endl;
-        break;
-    }
+        {
+            std::cout << "Vehicle Lane Association: Center Lane" << std::endl;
+            break;
+        }
     case Lane::RIGHT_LANE:
-    {
-        std::cout << "Vehicle Lane Association: Right Lane" << std::endl;
-        break;
-    }
+        {
+            std::cout << "Vehicle Lane Association: Right Lane" << std::endl;
+            break;
+        }
     case Lane::LEFT_LANE:
-    {
-        std::cout << "Vehicle Lane Association: Left Lane" << std::endl;
-        break;
-    }
+        {
+            std::cout << "Vehicle Lane Association: Left Lane" << std::endl;
+            break;
+        }
     default:
-    {
-        break;
-    }
+        {
+            break;
+        }
     }
 }
 
 int main()
 {
-    Vehicle v1 = {.id = 1, .velocity = 100.0f, .lane = Lane::CENTER_LANE};
+    Vehicle v1 = { .id = 1, .velocity = 100.0f, .lane = Lane::CENTER_LANE };
 
     print_vehicle_data(v1);
 
