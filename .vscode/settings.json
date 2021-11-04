@@ -83,7 +83,8 @@
     "cinttypes": "cpp",
     "typeinfo": "cpp",
     "charconv": "cpp",
-    "numbers": "cpp"
+    "numbers": "cpp",
+    "semaphore": "cpp"
   },
   "workbench.startupEditor": "newUntitledFile",
   "git.enableSmartCommit": true,
