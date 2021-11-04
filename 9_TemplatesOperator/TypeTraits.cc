@@ -7,9 +7,9 @@ struct is_numeric : public std::disjunction<std::is_integral<T>, std::is_floatin
 };
 
 template <typename T, typename U>
-std::enable_if_t<std::is_same<T, U>::value, T> max(T value_one, U value_two)
+T max(T value_one, U value_two)
 {
-    static_assert(std::conjunction<is_numeric<T>, is_numeric<U>>::value, "failed");
+    static_assert(std::conjunction<is_numeric<T>, is_numeric<U>>::value, "failed...");
 
     if (value_one < value_two)
     {
@@ -44,15 +44,17 @@ int main()
 
     std::cout << max(a, b) << std::endl;
 
-    float c = 4.5F;
-    float d = -1.0F;
+    float c = 4.5f;
+    float d = -1.0f;
 
     std::cout << max(c, d) << std::endl;
 
-    float e = 3.7F;
+    double e = 3.7;
     double f = -1337.0;
 
     std::cout << max(e, f) << std::endl;
+
+    // std::cout << max(a, f) << std::endl;
 
     return 0;
 }
