@@ -14,10 +14,10 @@ namespace cppmath
 template <typename T> class Matrix
 {
     static_assert(std::is_floating_point<T>::value,
-                  "An specialization of the matrix class has to be of a "
-                  "floating point type!");
+        "An specialization of the matrix class has to be of a "
+        "floating point type!");
 
-  public:
+public:
     using MatrixDataType = std::vector<std::vector<T>>;
 
     Matrix() = delete;
@@ -46,7 +46,7 @@ template <typename T> class Matrix
     std::size_t num_rows() const;
     std::size_t num_cols() const;
 
-  private:
+private:
     std::size_t m_rows;
     std::size_t m_cols;
     MatrixDataType m_data;
@@ -80,10 +80,10 @@ template <typename T> Matrix<T> Matrix<T>::operator+(const Matrix<T> &rhs)
     for (std::size_t i = 0; i != m_rows; ++i)
     {
         std::transform(m_data[i].begin(),
-                       m_data[i].end(),
-                       rhs.m_data[i].begin(),
-                       result.m_data[i].begin(),
-                       std::plus<T>());
+            m_data[i].end(),
+            rhs.m_data[i].begin(),
+            result.m_data[i].begin(),
+            std::plus<T>());
     }
 
     return result;
@@ -124,10 +124,10 @@ template <typename T> Matrix<T> Matrix<T>::operator-(const Matrix<T> &rhs)
     for (std::size_t i = 0; i != m_rows; ++i)
     {
         std::transform(m_data[i].begin(),
-                       m_data[i].end(),
-                       rhs.m_data[i].begin(),
-                       result.m_data[i].begin(),
-                       std::minus<T>());
+            m_data[i].end(),
+            rhs.m_data[i].begin(),
+            result.m_data[i].begin(),
+            std::minus<T>());
     }
 
     return result;
@@ -160,7 +160,7 @@ template <typename T> Matrix<T> Matrix<T>::operator*(const T &scalar)
     {
         std::transform(m_data[i].begin(), m_data[i].end(), result.m_data[i].begin(), [scalar](const T val) -> T {
             return val * scalar;
-        });
+            });
     }
 
     return result;
@@ -172,7 +172,7 @@ template <typename T> Matrix<T> &Matrix<T>::operator*=(const T &scalar)
     {
         std::transform(m_data[i].begin(), m_data[i].end(), m_data[i].begin(), [scalar](const T val) -> T {
             return val * scalar;
-        });
+            });
     }
 
     return *this;
@@ -191,7 +191,7 @@ template <typename T> Matrix<T> Matrix<T>::operator/(const T &scalar)
     {
         std::transform(m_data[i].begin(), m_data[i].end(), result.m_data[i].begin(), [scalar](const T val) -> T {
             return val / scalar;
-        });
+            });
     }
 
     return result;
@@ -203,7 +203,7 @@ template <typename T> Matrix<T> &Matrix<T>::operator/=(const T &scalar)
     {
         std::transform(m_data[i].begin(), m_data[i].end(), m_data[i].begin(), [scalar](const T val) -> T {
             return val / scalar;
-        });
+            });
     }
 
     return *this;

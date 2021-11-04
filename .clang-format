@@ -11,8 +11,11 @@ TabWidth: 4
 UseCRLF: false
 UseTab: Never
 
-BinPackArguments: true
-BinPackParameters: true
+BinPackArguments: false
+BinPackParameters: false
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AlwaysBreakTemplateDeclarations: true
 BraceWrapping:
     AfterCaseLabel: true
 ColumnLimit: 120
