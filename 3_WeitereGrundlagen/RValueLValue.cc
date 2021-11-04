@@ -1,24 +1,23 @@
 #include <iostream>
 
-// LValue reference
-void f(const int &z)
+void f(const int &v)
 {
-    std::cout << z << std::endl;
+    std::cout << v;
 }
 
-// LValue (Left): Variable mit einer bestimmten Speicher-Adresse
-// RValue (Right): "Variable" ohne eine bestimmte Speicher-Adresse
 int main()
 {
     int a = 3;        // LValue
     const int b = 3;  // const LValue
     int &c = a;       // LValue reference
-    const int &d = 3; // const LValue reference
+    const int &d = a; // const LValeu reference
 
-    f(a); // LValue
-    f(b); // const LValue
-    f(c); // LValue reference
-    f(3); // RValue
+    f(a);
+    f(b);
+    f(c);
+    f(d);
+
+    f(3);
 
     return 0;
 }
