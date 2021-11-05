@@ -5,7 +5,7 @@ using GrayscaleMatrix = std::vector<std::vector<uchar>>;
 
 class Image
 {
-  public:
+public:
     // Konstruktor
     Image();
     Image(const unsigned int &width, const unsigned int &height);
@@ -13,7 +13,7 @@ class Image
     // Destruktor
     ~Image();
 
-  private:
+private:
     unsigned int m_width;
     unsigned int m_height;
     GrayscaleMatrix m_matrix;

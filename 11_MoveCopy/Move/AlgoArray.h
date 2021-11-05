@@ -10,7 +10,8 @@
  * @param dynamic_array
  * @return T
  */
-template <typename T> T sum(DynamicArray<T> &dynamic_array)
+template <typename T>
+T sum(DynamicArray<T> &dynamic_array)
 {
     T sum_value = 0.0;
 
@@ -28,7 +29,8 @@ template <typename T> T sum(DynamicArray<T> &dynamic_array)
  * @param dynamic_array
  * @return double
  */
-template <typename T> double mean(DynamicArray<T> &dynamic_array)
+template <typename T>
+double mean(DynamicArray<T> &dynamic_array)
 {
     return sum(dynamic_array) / static_cast<double>(dynamic_array.get_length());
 }
@@ -39,7 +41,8 @@ template <typename T> double mean(DynamicArray<T> &dynamic_array)
  * @param dynamic_array
  * @return double
  */
-template <typename T> double median(DynamicArray<T> &dynamic_array)
+template <typename T>
+double median(DynamicArray<T> &dynamic_array)
 {
     double median_value = 0.0;
     bool has_odd_length = static_cast<bool>(dynamic_array.get_length() % 2);
@@ -65,7 +68,8 @@ template <typename T> double median(DynamicArray<T> &dynamic_array)
  * @param dynamic_array
  * @return double
  */
-template <typename T> double variance(DynamicArray<T> &dynamic_array)
+template <typename T>
+double variance(DynamicArray<T> &dynamic_array)
 {
     double mean_value = mean(dynamic_array);
     double variance_value = 0.0;
@@ -86,7 +90,8 @@ template <typename T> double variance(DynamicArray<T> &dynamic_array)
  * @param dynamic_array
  * @return double
  */
-template <typename T> double stddev(DynamicArray<T> &dynamic_array)
+template <typename T>
+double stddev(DynamicArray<T> &dynamic_array)
 {
     double variance_value = variance(dynamic_array);
     double stddev_value = sqrt(variance_value);

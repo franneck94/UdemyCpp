@@ -6,9 +6,10 @@
 #include <iterator>
 #include <vector>
 
-template <typename T> class Statistic
+template <typename T>
+class Statistic
 {
-  public:
+public:
     Statistic<T>();
     ~Statistic<T>();
 
@@ -18,7 +19,7 @@ template <typename T> class Statistic
     void push_next_sample(T value);
     void print_data();
 
-  private:
+private:
     T m_min;
     T m_max;
     double m_mean;
@@ -26,30 +27,36 @@ template <typename T> class Statistic
     std::vector<T> m_samples;
 };
 
-template <typename T> Statistic<T>::Statistic() : m_min(0), m_max(0), m_num_samples(0), m_mean(0.0), m_samples(0, 0)
+template <typename T>
+Statistic<T>::Statistic() : m_min(0), m_max(0), m_num_samples(0), m_mean(0.0), m_samples(0, 0)
 {
 }
 
-template <typename T> Statistic<T>::~Statistic()
+template <typename T>
+Statistic<T>::~Statistic()
 {
 }
 
-template <typename T> T Statistic<T>::get_min() const
+template <typename T>
+T Statistic<T>::get_min() const
 {
     return m_min;
 }
 
-template <typename T> T Statistic<T>::get_max() const
+template <typename T>
+T Statistic<T>::get_max() const
 {
     return m_max;
 }
 
-template <typename T> double Statistic<T>::get_mean() const
+template <typename T>
+double Statistic<T>::get_mean() const
 {
     return m_mean;
 }
 
-template <typename T> void Statistic<T>::push_next_sample(T value)
+template <typename T>
+void Statistic<T>::push_next_sample(T value)
 {
     m_num_samples++;
     m_samples.push_back(value);
@@ -72,7 +79,8 @@ template <typename T> void Statistic<T>::push_next_sample(T value)
     }
 }
 
-template <typename T> void Statistic<T>::print_data()
+template <typename T>
+void Statistic<T>::print_data()
 {
     std::cout << "Max: " << m_max << std::endl;
     std::cout << "Min: " << m_min << std::endl;

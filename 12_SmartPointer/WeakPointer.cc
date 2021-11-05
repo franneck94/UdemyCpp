@@ -4,7 +4,7 @@
 
 class ScopeTest
 {
-  public:
+public:
     ScopeTest(const std::string &name) : m_name(name)
     {
         std::cout << "Constructor: " << m_name << std::endl;
@@ -22,7 +22,7 @@ class ScopeTest
 
     std::weak_ptr<ScopeTest> m_partner;
 
-  private:
+private:
     std::string m_name;
 };
 

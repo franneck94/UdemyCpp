@@ -6,7 +6,7 @@ using GrayscaleMatrix = std::vector<std::vector<uchar>>;
 class Image
 {
 public:
-  // Konstruktor
+    // Konstruktor
     Image();
     Image(const unsigned int width, const unsigned int height);
 

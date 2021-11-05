@@ -143,9 +143,9 @@ void Game::move_obstacles()
     {
         Position offset = random_position(-1, 1, -1, 1);
 
-        if (obs.first + offset.first < LEN_X && obs.second + offset.second < LEN_Y
-            && obs.first + offset.first != m_player.first && obs.second + offset.second != m_player.second
-            && obs.first + offset.first != m_goal.first && obs.second + offset.second != m_goal.second)
+        if (obs.first + offset.first < LEN_X && obs.second + offset.second < LEN_Y &&
+            obs.first + offset.first != m_player.first && obs.second + offset.second != m_player.second &&
+            obs.first + offset.first != m_goal.first && obs.second + offset.second != m_goal.second)
         {
             obs.first += offset.first;
             obs.second += offset.second;

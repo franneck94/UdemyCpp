@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 
-template <typename T, typename... Args> T concat(Args... args)
+template <typename T, typename... Args>
+T concat(Args... args)
 {
     return (args + ...);
 }

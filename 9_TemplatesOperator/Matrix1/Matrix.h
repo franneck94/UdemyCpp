@@ -2,7 +2,7 @@
 
 class Matrix
 {
-  public:
+public:
     Matrix();
     Matrix(const double &A, const double &B, const double &C, const double &D);
 
@@ -18,7 +18,7 @@ class Matrix
     void set_C(const double &new_C);
     void set_D(const double &new_D);
 
-  private:
+private:
     double m_A;
     double m_B;
     double m_C;

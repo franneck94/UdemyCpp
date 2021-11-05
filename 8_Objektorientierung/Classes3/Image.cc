@@ -41,9 +41,9 @@ void Image::save_image(const char *file_name) const
         }
     }
 
-    uchar bmpfileheader[14]{ 'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0 };
-    uchar bmpinfoheader[40]{ 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0 };
-    uchar bmppad[3]{ 0, 0, 0 };
+    uchar bmpfileheader[14]{'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0};
+    uchar bmpinfoheader[40]{40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0};
+    uchar bmppad[3]{0, 0, 0};
 
     bmpfileheader[2] = static_cast<uchar>(filesize);
     bmpfileheader[3] = static_cast<uchar>(filesize >> 8);

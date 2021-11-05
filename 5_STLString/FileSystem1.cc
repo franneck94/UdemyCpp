@@ -1,5 +1,5 @@
-#include <iostream>
 #include <filesystem>
+#include <iostream>
 
 namespace fs = std::filesystem;
 
@@ -22,6 +22,8 @@ int main()
     std::cout << "extension " << currentfile_path.extension() << std::endl;
 
     std::cout << currentfile_path << " exists: " << std::boolalpha << fs::exists(currentfile_path) << std::endl;
-    std::cout << currentfile_path << " is file: " << std::boolalpha << fs::is_regular_file(currentfile_path) << std::endl;
-    std::cout << currentfile_path << " is directory: " << std::boolalpha << fs::is_directory(currentfile_path) << std::endl;
+    std::cout << currentfile_path << " is file: " << std::boolalpha << fs::is_regular_file(currentfile_path)
+              << std::endl;
+    std::cout << currentfile_path << " is directory: " << std::boolalpha << fs::is_directory(currentfile_path)
+              << std::endl;
 }

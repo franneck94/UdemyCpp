@@ -21,7 +21,7 @@ int main()
         int y;
     };
 
-    Data array[] = { {1,2}, {5,6}, {7,1} };
+    Data array[] = {{1, 2}, {5, 6}, {7, 1}};
 
     for (const auto &[x1, y1] : array)
     {

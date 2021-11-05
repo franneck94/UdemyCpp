@@ -4,13 +4,13 @@
 
 class A
 {
-  public: // In Base class and in Derived class and outside of the classes
+public: // In Base class and in Derived class and outside of the classes
     int x;
 
-  protected: // In Base class and in Derived class, not outside of the classes
+protected: // In Base class and in Derived class, not outside of the classes
     int y;
 
-  private: // Only in Base class, not in Derived class, not outside of the classes
+private: // Only in Base class, not in Derived class, not outside of the classes
     int z;
 };
 
