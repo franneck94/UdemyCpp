@@ -5,13 +5,13 @@
 
 int main()
 {
-    int matrix[2][4]{};
+    int matrix[2][3]{};
 
     for (const auto &row : matrix)
     {
-        for (const auto &element : row)
+        for (const auto &value : row)
         {
-            std::cout << element << "\n";
+            std::cout << value << std::endl;
         }
     }
 
@@ -21,11 +21,11 @@ int main()
         int y;
     };
 
-    Data array[] = {{1, 2}, {5, 6}, {7, 1}};
+    std::vector<Data> vec{{1, 2}, {4, 6}, {8, 9}};
 
-    for (const auto &[x1, y1] : array)
+    for (const auto &[x1, y1] : vec)
     {
-        std::cout << x1 << "," << y1 << "\n";
+        std::cout << x1 << y1 << std::endl;
     }
 
     return 0;
