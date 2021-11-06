@@ -62,8 +62,6 @@ void f3()
     std::cout << "Count t5: " << t5.use_count() << std::endl;
     t5->m_partner = t4;
     std::cout << "Count t4: " << t4.use_count() << std::endl;
-
-    f4(t5);
 }
 
 void f4(std::shared_ptr<ScopeTest> t5)

@@ -37,7 +37,7 @@ int main()
     std::cout << n << std::endl;
 
     int m = 0;
-    std::thread t3(print_text3, std::ref(m));
+    std::thread t3(print_text3, m);
 
     if (t3.joinable())
     {
