@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <iostream>
 #include <sstream>
 
@@ -5,8 +6,6 @@
 // Argv: Argument Values (array of char arrays)
 int main(int argc, char **argv)
 {
-    std::cout << "Argument count: " << argc << std::endl;
-
     for (int i = 0; i < argc; i++)
     {
         std::cout << argv[i] << std::endl;
@@ -14,13 +13,15 @@ int main(int argc, char **argv)
 
     if (argc > 1)
     {
-        std::stringstream sstrValue;
-        sstrValue << argv[1];
+        std::string arg1 = argv[1];
+        std::cout << arg1 << std::endl;
 
-        int my_int_argument = 0;
-        sstrValue >> my_int_argument;
-
-        std::cout << my_int_argument * 2 << std::endl;
+        int arg2 = std::atoi(argv[2]);
+        std::cout << arg2 << std::endl;
+    }
+    else
+    {
+        std::cout << "No arguments passed.\n";
     }
 
     return 0;
