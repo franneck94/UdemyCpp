@@ -84,7 +84,10 @@
     "typeinfo": "cpp",
     "charconv": "cpp",
     "numbers": "cpp",
-    "semaphore": "cpp"
+    "semaphore": "cpp",
+    "condition_variable": "cpp",
+    "future": "cpp",
+    "mutex": "cpp"
   },
   "workbench.startupEditor": "newUntitledFile",
   "git.enableSmartCommit": true,
