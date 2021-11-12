@@ -1,6 +1,6 @@
 #include <iostream>
 
-#define DEFAULT_VEHICLE_ID -1
+#define DEFAULT_VEHICLE_ID (-1)
 #define NUM_VEHICLES 3
 
 enum class Lane
@@ -17,7 +17,7 @@ struct Vehicle
     Lane lane;
 };
 
-void print_vehicle_data(Vehicle &vehicle)
+void print_vehicle_data(const Vehicle &vehicle)
 {
     std::cout << "Vehicle ID: " << vehicle.id << std::endl;
     std::cout << "Vehicle Velocity [kph]: " << vehicle.velocity << std::endl;

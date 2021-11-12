@@ -16,7 +16,7 @@ struct UserData
     PermissionLevel permission_level;
 };
 
-void greet_permission_level(PermissionLevel level)
+void greet_permission_level(const PermissionLevel level)
 {
     switch (level)
     {

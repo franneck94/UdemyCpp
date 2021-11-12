@@ -1,6 +1,6 @@
 #include <iostream>
 
-void f(int &v)
+void f(const int &v)
 {
     std::cout << v;
 }

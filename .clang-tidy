@@ -1,0 +1,18 @@
+---
+Checks: '
+bugprone-*,
+clang-analyzer-*,
+clang-cppcoreguidelines-*,
+clang-modernize-*,
+performance-*,
+-cppcoreguidelines-avoid-magic-numbers,
+-cppcoreguidelines-macro-usage,
+-cppcoreguidelines-owning-memory,
+-bugprone-exception-escape,
+-bugprone-branch-clone
+'
+WarningsAsErrors: '*'
+HeaderFilterRegex: '.*'
+AnalyzeTemporaryDtors: false
+FormatStyle:     none
+...

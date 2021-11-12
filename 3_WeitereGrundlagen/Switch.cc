@@ -13,7 +13,7 @@ enum PermissionLevel
     UNKNOWN = 5
 };
 
-void greet_permission_level_if(PermissionLevel level)
+void greet_permission_level_if(const PermissionLevel level)
 {
     if (level == PermissionLevel::STUDENT)
     {
@@ -37,7 +37,7 @@ void greet_permission_level_if(PermissionLevel level)
     }
 }
 
-void greet_permission_level_switch(PermissionLevel level)
+void greet_permission_level_switch(const PermissionLevel level)
 {
     switch (level)
     {
