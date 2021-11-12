@@ -58,22 +58,22 @@ Matrix<T>::Matrix(std::size_t rows, std::size_t cols, const T &value)
 {
 }
 
-// Copy Constructor
-template <typename T>
-Matrix<T>::Matrix(const Matrix<T> &other) : m_rows(other.m_rows), m_cols(other.m_cols), m_data(other.m_data)
-{
-}
+// // Copy Constructor
+// template <typename T>
+// Matrix<T>::Matrix(const Matrix<T> &other) : m_rows(other.m_rows), m_cols(other.m_cols), m_data(other.m_data)
+// {
+// }
 
-// Copy Assignment Operator
-template <typename T>
-Matrix<T> &Matrix<T>::operator=(const Matrix<T> &other)
-{
-    m_rows = other.m_rows;
-    m_cols = other.m_cols;
-    m_data = other.m_data;
+// // Copy Assignment Operator
+// template <typename T>
+// Matrix<T> &Matrix<T>::operator=(const Matrix<T> &other)
+// {
+//     m_rows = other.m_rows;
+//     m_cols = other.m_cols;
+//     m_data = other.m_data;
 
-    return *this;
-}
+//     return *this;
+// }
 
 template <typename T>
 Matrix<T> Matrix<T>::operator+(const Matrix<T> &rhs)
