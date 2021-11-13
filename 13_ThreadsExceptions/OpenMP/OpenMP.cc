@@ -11,7 +11,7 @@
 #include "omp.h"
 
 constexpr std::uint32_t NUM_THREADS = 8;
-constexpr std::uint32_t NUM_RUNS = 100;
+constexpr std::uint32_t NUM_RUNS = 200;
 
 template <typename T>
 void random_vector(std::vector<T> &vec)
@@ -61,11 +61,11 @@ T parallel_sum_omp(std::vector<T> &vec)
 }
 
 /*
-   Serial time in ms: 2.70182
-2: OpenMP time in ms: 1.75325
-4: OpenMP time in ms: 1.77568
-6: OpenMP time in ms: 1.55757
-8: OpenMP time in ms: 1.48456
+   Serial time in ms: 4.59
+2: OpenMP time in ms: 3.31
+4: OpenMP time in ms: 2.80
+6: OpenMP time in ms: 2.70
+8: OpenMP time in ms: 2.71
 */
 int main()
 {
@@ -83,15 +83,15 @@ int main()
     }
     std::cout << "Mean Serial: " << time1 / NUM_RUNS << "ms sum: " << sum1 << std::endl;
 
-    auto time3 = 0.0;
-    volatile auto sum3 = 0;
+    auto time2 = 0.0;
+    volatile auto sum2 = 0;
     for (std::uint32_t i = 0; i < NUM_RUNS; ++i)
     {
-        cpptiming::Timer t3;
-        sum3 = parallel_sum_omp(my_vector);
-        time3 += t3.elapsed_time<cpptiming::millisecs, double>();
+        cpptiming::Timer t2;
+        sum2 = parallel_sum_omp(my_vector);
+        time2 += t2.elapsed_time<cpptiming::millisecs, double>();
     }
-    std::cout << "Mean OpenMP: " << time3 / NUM_RUNS << "ms sum: " << sum3 << std::endl;
+    std::cout << "Mean OpenMP: " << time2 / NUM_RUNS << "ms sum: " << sum2 << std::endl;
 
     return 0;
 }
