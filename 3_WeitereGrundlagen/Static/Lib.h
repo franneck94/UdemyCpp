@@ -3,4 +3,6 @@
 
 void function();
 
+static void helper();
+
 #endif /* LIB_H */
