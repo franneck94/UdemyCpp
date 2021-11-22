@@ -32,15 +32,3 @@ sudo apt-get install cmake
 ```bash
 brew install cmake
 ```
-
-## Extra Settings
-
-```json
-  "clang-tidy.compilerArgsBefore": [
-    "-Iexternal/imgui",
-    "-D_CRT_SECURE_NO_WARNINGS"
-  ],
-  "clang-tidy.compilerArgs": [
-    "-std=c++17"
-  ]
-```
