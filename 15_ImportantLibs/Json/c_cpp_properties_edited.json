@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "cStandard": "c99",
+            "compilerArgs": [
+                "-Wall",
+                "-Wextra",
+                "-Wpedantic"
+            ],
+            "compilerPath": "C:/cygwin64/bin/gcc.exe",
+            "cppStandard": "c++11",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "intelliSenseMode": "linux-gcc-x64",
+            "name": "windows-cygwin-gcc-x64"
+        }
+    ],
+    "version": 4
+}
