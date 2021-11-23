@@ -13,7 +13,7 @@
             "internalConsoleOptions": "openOnSessionStart",
             "preLaunchTask": "Cpp: Debug (Single File)",
             "MIMode": "gdb",
-            "miDebuggerPath": "C:\\cygwin64\\bin\\gdb.exe",
+            "miDebuggerPath": "C:/cygwin64/bin/gdb.exe",
             "externalConsole": true,
             "setupCommands": [
                 {
@@ -35,7 +35,7 @@
             "internalConsoleOptions": "openOnSessionStart",
             "preLaunchTask": "Cpp: Debug (Folder)",
             "MIMode": "gdb",
-            "miDebuggerPath": "C:\\cygwin64\\bin\\gdb.exe",
+            "miDebuggerPath": "C:/cygwin64/bin/gdb.exe",
             "externalConsole": true,
             "setupCommands": [
                 {

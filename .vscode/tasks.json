@@ -5,14 +5,14 @@
             "label": "Makefile_Debug",
             "type": "shell",
             "command": [
-                "${config:make}"
+                "${config:C_Cpp_Config.makePath}"
             ],
             "args": [
                 "build",
                 "--file=${workspaceFolder}/.vscode/Makefile",
                 "--directory=${fileDirname}/",
                 "COMPILATION_MODE=Debug",
-                "CPP_COMPILER=${config:compilerCpp}",
+                "CPP_COMPILER=${config:C_Cpp_Config.cppCompilerPath}",
                 "LANGUAGE_MODE=Cpp",
                 "EXECUTABLE_NAME=${fileBasenameNoExtension}Debug"
             ],
@@ -24,14 +24,14 @@
             "label": "Makefile_Release",
             "type": "shell",
             "command": [
-                "${config:make}"
+                "${config:C_Cpp_Config.makePath}"
             ],
             "args": [
                 "build",
                 "--file=${workspaceFolder}/.vscode/Makefile",
                 "--directory=${fileDirname}/",
                 "COMPILATION_MODE=Release",
-                "CPP_COMPILER=${config:compilerCpp}",
+                "CPP_COMPILER=${config:C_Cpp_Config.cppCompilerPath}",
                 "LANGUAGE_MODE=Cpp",
                 "EXECUTABLE_NAME=${fileBasenameNoExtension}Release"
             ],
@@ -43,7 +43,7 @@
             "label": "Cpp: Debug (Single File)",
             "type": "shell",
             "command": [
-                "${config:make}"
+                "${config:C_Cpp_Config.makePath}"
             ],
             "args": [
                 "build_single",
@@ -51,7 +51,7 @@
                 "--directory=${fileDirname}/",
                 "FILE_NAME=${file}",
                 "COMPILATION_MODE=Debug",
-                "CPP_COMPILER=${config:compilerCpp}",
+                "CPP_COMPILER=${config:C_Cpp_Config.cppCompilerPath}",
                 "LANGUAGE_MODE=Cpp",
                 "EXECUTABLE_NAME=${fileBasenameNoExtension}Debug"
             ],
@@ -67,7 +67,7 @@
             "label": "Cpp: Release (Single File)",
             "type": "shell",
             "command": [
-                "${config:make}"
+                "${config:C_Cpp_Config.makePath}"
             ],
             "args": [
                 "build_single",
@@ -75,7 +75,7 @@
                 "--directory=${fileDirname}/",
                 "FILE_NAME=${file}",
                 "COMPILATION_MODE=Release",
-                "CPP_COMPILER=${config:compilerCpp}",
+                "CPP_COMPILER=${config:C_Cpp_Config.cppCompilerPath}",
                 "LANGUAGE_MODE=Cpp",
                 "EXECUTABLE_NAME=${fileBasenameNoExtension}Release"
             ],
@@ -91,7 +91,7 @@
             "label": "Cpp: Debug (Folder)",
             "type": "shell",
             "command": [
-                "${config:make}"
+                "${config:C_Cpp_Config.makePath}"
             ],
             "args": [
                 "clean",
@@ -113,7 +113,7 @@
             "label": "Cpp: Release (Folder)",
             "type": "shell",
             "command": [
-                "${config:make}"
+                "${config:C_Cpp_Config.makePath}"
             ],
             "args": [
                 "clean",
@@ -135,7 +135,7 @@
             "label": "Execute: Debug Program",
             "type": "shell",
             "command": [
-                "${config:make}"
+                "${config:C_Cpp_Config.makePath}"
             ],
             "args": [
                 "execute",
@@ -156,7 +156,7 @@
             "label": "Execute: Release Program",
             "type": "shell",
             "command": [
-                "${config:make}"
+                "${config:C_Cpp_Config.makePath}"
             ],
             "args": [
                 "execute",
@@ -177,7 +177,7 @@
             "label": "Makefile Clean",
             "type": "shell",
             "command": [
-                "${config:make}"
+                "${config:C_Cpp_Config.makePath}"
             ],
             "args": [
                 "clean",
