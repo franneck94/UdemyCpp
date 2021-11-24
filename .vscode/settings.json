@@ -89,7 +89,11 @@
         "thread": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "any": "cpp",
+        "complex": "cpp",
+        "typeindex": "cpp",
+        "variant": "cpp"
     },
     "workbench.startupEditor": "newUntitledFile",
     "git.enableSmartCommit": true,

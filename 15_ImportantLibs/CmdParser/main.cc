@@ -2,34 +2,33 @@
 
 #include "cxxopts.hpp"
 
+constexpr int MAJOR_VERSION = 1;
+constexpr int MINOR_VERSION = 0;
+constexpr int PATCH_VERSION = 0;
+
 int main(int argc, char **argv)
 {
-    cxxopts::Options options("test", "A brief description");
+    cxxopts::Options options("Name", "Description");
 
-    options.add_options()("b,bar", "Param bar", cxxopts::value<std::string>());
-    options.add_options()("d,debug", "Enable debugging", cxxopts::value<bool>()->default_value("false"));
-    options.add_options()("f,foo", "Param foo", cxxopts::value<int>()->default_value("10"));
-    options.add_options()("h,help", "Print usage");
+    options.add_options()("v,version", "Print version");
+    options.add_options()("h,help", "Print all commands");
+    options.add_options()("n,name", "Your name", cxxopts::value<std::string>()->default_value("Jan"));
 
     auto result = options.parse(argc, argv);
+
+    if (result.count("version"))
+    {
+        std::cout << MAJOR_VERSION << "." << MINOR_VERSION << "." << PATCH_VERSION << std::endl;
+    }
 
     if (result.count("help"))
     {
         std::cout << options.help() << std::endl;
-        exit(0);
     }
 
-    auto bar = result["bar"].as<std::string>();
-    auto debug = result["debug"].as<bool>();
-    auto foo = result["foo"].as<int>();
+    auto name = result["name"].as<std::string>();
 
-    std::cout << "bar count: " << result["bar"].count() << std::endl;
-    std::cout << "debug count: " << result["debug"].count() << std::endl;
-    std::cout << "foo count: " << result["foo"].count() << std::endl;
-
-    std::cout << bar << std::endl;
-    std::cout << debug << std::endl;
-    std::cout << foo << std::endl;
+    std::cout << name << std::endl;
 
     return 0;
 }

@@ -1,19 +1,22 @@
 #include <iostream>
 
-constexpr int fac(int n)
+constexpr int faculty(int n)
 {
     if (n > 1)
-        return n * fac(n - 1);
+    {
+        return n * faculty(n - 1);
+    }
     else
+    {
         return 1;
+    }
 }
 
 int main()
 {
-    int a[fac(3)] = {};
+    int l = faculty(3);
 
-    int b = 3;
-    fac(b);
+    int a[faculty(3)]{};
 
     return 0;
 }

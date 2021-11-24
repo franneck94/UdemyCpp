@@ -7,7 +7,6 @@
 
 int main()
 {
-
     std::ifstream ifs("c_cpp_properties.json");
     nlohmann::json data;
     ifs >> data;
@@ -20,8 +19,8 @@ int main()
     std::cout << data["configurations"][0]["intelliSenseMode"] << std::endl;
     std::cout << data["configurations"][0]["compilerArgs"] << std::endl;
 
-    const auto &test = data["configurations"][0]["includePath"];
-    auto includes = std::vector<std::string>(test.begin(), test.end());
+    const auto &include_path_data = data["configurations"][0]["includePath"];
+    auto includes_path_vec = std::vector<std::string>(include_path_data.begin(), include_path_data.end());
 
     data["configurations"][0]["cppStandard"] = "c++11";
 

@@ -12,5 +12,8 @@ int main()
     constexpr int b = 3;
     func(b);
 
+    const int c = 3;
+    func(c);
+
     return 0;
 }
