@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.17)
 
 set(PROJECT "AdasGui")
-project(${PROJECT} VERSION 0.1.0 LANGUAGES CXX)
+project(${PROJECT} VERSION 0.1.0 LANGUAGES CXX C)
 
 # Global CMake variables are set here
 set(CMAKE_CXX_STANDARD              17)
