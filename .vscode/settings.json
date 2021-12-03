@@ -4,10 +4,7 @@
     "C_Cpp_Config.debuggerPath": "C:/cygwin64/bin/gdb.exe",
     "C_Cpp_Config.makePath": "C:/cygwin64/bin/make.exe",
     "editor.tabSize": 4,
-    "editor.rulers": [
-        80,
-        120
-    ],
+    "editor.rulers": [80, 120],
     "editor.renderWhitespace": "trailing",
     "editor.suggestSelection": "first",
     "diffEditor.ignoreTrimWhitespace": false,
@@ -16,12 +13,21 @@
     "explorer.confirmDelete": false,
     "files.autoSave": "onFocusChange",
     "files.associations": {
-        ".clang*": "yaml"
+        "*.pyx": "python",
+        ".clang*": "yaml",
+        "*.gpj": "jsonc",
+        "*.gvw": "jsonc",
+        "random": "c",
+        "stdint.h": "c",
+        "stdint-gcc.h": "c",
+        "stdlib.h": "c"
     },
     "workbench.startupEditor": "newUntitledFile",
     "git.enableSmartCommit": true,
     "git.autofetch": true,
     "git.confirmSync": false,
+    // C/C++
+    "C_Cpp.updateChannel": "Insiders",
     "C_Cpp.clang_format_sortIncludes": true,
     "C_Cpp.vcFormat.indent.preserveComments": true,
     "C_Cpp.vcFormat.indent.namespaceContents": false,
@@ -31,7 +37,19 @@
     "C_Cpp.default.browse.limitSymbolsToIncludedHeaders": false,
     "C_Cpp.default.cppStandard": "c++17",
     "C_Cpp.default.cStandard": "c99",
-    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.formatting": "vcFormat",
+    "[c]": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "[cpp]": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "C_Cpp.codeAnalysis.clangTidy.args": [
+        "-D_CRT_SECURE_NO_WARNINGS"
+    ],
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
     "cmake.configureOnOpen": false,
     "cmake.autoSelectActiveFolder": false,
     "cmake.configureOnEdit": false,
@@ -46,13 +64,9 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "prettier.tabWidth": 4,
-    "[c]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "ms-vscode.cpptools"
+    "formatContextMenu.closeAfterSave": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook",
+        "*.md": "vscode.markdown.preview.editor"
     },
-    "[cpp]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "ms-vscode.cpptools"
-    },
-    "formatContextMenu.closeAfterSave": true
 }
