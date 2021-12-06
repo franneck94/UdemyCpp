@@ -5,7 +5,7 @@ WARNING_FLAGS = -Wall -Wpedantic -Wshadow
 FLAGS = $(DEBUG_FLAGS) $(WARNING_FLAGS)
 
 build:
-	gcc $(FLAGS) Main.c -o Main
+	g++ $(FLAGS) Main.c -o Main
 
 check:
 	valgrind --leak-check=full \
