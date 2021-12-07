@@ -6,7 +6,7 @@ SANITIZER_FLAGS = -fsanitize=address
 FLAGS = $(DEBUG_FLAGS) $(WARNING_FLAGS) $(SANITIZER_FLAGS)
 
 build:
-	g++ $(FLAGS) Main.c -o Main
+	g++ $(FLAGS) Main.cc -o Main
 
 run:
 	env ASAN_OPTIONS="detect_leaks=1" ./Main

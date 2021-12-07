@@ -4,16 +4,16 @@ RELEASE_FLAGS = -DNDEBUG -O3
 FLAGS = $(RELEASE_FLAGS)
 
 preprocess:
-	g++ $(FLAGS) -E IfStatement.c > Temp.c
+	g++ $(FLAGS) -E Functions2.cc > Temp.cc
 
 assemble:
-	g++ $(FLAGS) -S IfStatement.c
+	g++ $(FLAGS) -S Functions2.cc
 
 compile:
-	g++ $(FLAGS) -c IfStatement.c -o IfStatement.o
+	g++ $(FLAGS) -c Functions2.cc -o Functions2.o
 
 build:
-	g++ $(FLAGS) IfStatement.o -o IfStatement
+	g++ $(FLAGS) Functions2.o -o Functions2
 
 print_exe:
-	objdump -CS IfStatement
+	objdump -CS Functions2

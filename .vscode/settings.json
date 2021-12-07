@@ -89,7 +89,8 @@
         "thread": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "shared_mutex": "cpp"
     },
     "workbench.startupEditor": "newUntitledFile",
     "git.enableSmartCommit": true,
