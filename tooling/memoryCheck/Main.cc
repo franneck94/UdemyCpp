@@ -11,5 +11,5 @@ int main()
         std::cout << arr[i] << std::endl;
     }
 
-    // delete[] arr;
+    delete[] arr;
 }
