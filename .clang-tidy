@@ -1,15 +1,12 @@
 ---
 Checks: '
-bugprone-*,
 clang-analyzer-*,
 clang-cppcoreguidelines-*,
 clang-modernize-*,
 performance-*,
 -cppcoreguidelines-avoid-magic-numbers,
 -cppcoreguidelines-macro-usage,
--cppcoreguidelines-owning-memory,
--bugprone-exception-escape,
--bugprone-branch-clone
+-cppcoreguidelines-owning-memory
 '
 WarningsAsErrors: '*'
 HeaderFilterRegex: '.*'

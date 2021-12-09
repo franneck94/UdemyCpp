@@ -5,17 +5,28 @@ LANGUAGE_MODE ?= Cpp
 COMPILATION_MODE ?= Debug
 ENABLE_WARNINGS ?= 1
 WARNINGS_AS_ERRORS ?= 0
-WARNINGS ?= -Wall -Wextra -Wpedantic -Wshadow -Wconversion
+WARNINGS ?= -Wall  \
+			-Wextra  \
+			-Wpedantic  \
+			-Wshadow \
+			-Wunreachable-code \
+			-Wunused \
+			-Wformat=2 \
+			-Wfloat-equal \
+			-Wsign-conversion \
+			-Wswitch-enum \
+			-Wstrict-aliasing \
+			-Wcast-qual
 C_COMPILER ?= gcc
 C_STANDARD ?= c99
 CPP_COMPILER ?= g++
 CPP_STANDARD ?= c++17
 EXECUTABLE_NAME ?= main
 ARCHITECTURE ?= ""
-COMPILER_ARGS ?= ""
+COMPILER_ARGS ?= -fopenmp -pthread
 LINKER_ARGS ?= ""
 INCLUDE_PATHS ?= ""
-DEBUG_FLAGS ?= -g3 -O0
+DEBUG_FLAGS ?= -g3 -ggdb3 -O0
 RELEASE_FLAGS ?= -O3 -DNDEBUG
 CPP_COMPILER_FLAGS = ""
 C_COMPILER_FLAGS = ""
