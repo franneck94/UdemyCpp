@@ -1,4 +1,3 @@
-// Hier die benötigten Includes und using Befehle
 #include <iostream>
 
 #include "exercise.h"

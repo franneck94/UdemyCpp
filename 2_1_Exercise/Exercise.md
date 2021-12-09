@@ -8,7 +8,9 @@ Willkommen bei der nächsten Programmier-Übung in diesem Kurs.
 
 ### Aufgabe 1
 
-Erstellt zunächst ein Double Pointer Array mit 100 Elementen, deren Wert die Zahlen von 0 bis 99 abspeichert (Tipp: for-Schleife nutzen).Schreibt dann eine Funktion, 
+Erstellt zunächst ein Double Pointer Array mit 100 Elementen, deren Wert die Zahlen von 0 bis 99 abspeichert (Tipp: for-Schleife nutzen).  
+
+Schreibt dann eine Funktion, 
 
 ```cpp
 double array_sum(double *p_array, const unsigned int &length)
