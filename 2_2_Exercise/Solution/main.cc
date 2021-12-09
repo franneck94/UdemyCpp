@@ -5,9 +5,8 @@
 // int main()
 int main()
 {
-    int *my_data = nullptr;
     unsigned int size = 3;
-    my_data = new int[size];
+    int *my_data = new int[size];
 
     my_data[0] = 0;
     my_data[1] = 1;

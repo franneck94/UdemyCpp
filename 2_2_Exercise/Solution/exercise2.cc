@@ -5,8 +5,7 @@
 // Exercise 1
 void push_back(int *&input_array, const unsigned int &size, const int &value)
 {
-    int *temp = nullptr;
-    temp = new int[size + 1];
+    int *temp = new int[size + 1];
 
     for (unsigned int i = 0; i < size; i++)
     {
@@ -23,8 +22,7 @@ void push_back(int *&input_array, const unsigned int &size, const int &value)
 // Exercise 2
 void pop_back(int *&input_array, const unsigned int &size)
 {
-    int *temp = nullptr;
-    temp = new int[size - 1];
+    int *temp = new int[size - 1];
 
     for (int i = 0; i < size - 1; i++)
     {
