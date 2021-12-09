@@ -2,7 +2,6 @@
 #include <cstring>
 #include <iostream>
 
-#pragma warning(disable : 4996)
 #include "Image.h"
 
 Image::Image() : m_width(0), m_height(0), m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
@@ -45,13 +44,11 @@ void Image::set_pixel(const unsigned int x, const unsigned int y, const uchar va
 // Exercise 3
 void Image::resize_image(const unsigned int new_width, const unsigned int new_height)
 {
-
 }
 
 // Exercise 4
 void Image::fill_image(const uchar value)
 {
-
 }
 
 // Exercise 5
@@ -61,7 +58,6 @@ void Image::draw_line(const unsigned int x1,
                       const unsigned int y2,
                       const uchar value)
 {
-
 }
 
 void Image::save_image(const char *file_name) const

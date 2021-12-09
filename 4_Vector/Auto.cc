@@ -10,7 +10,7 @@ int main()
     std::vector<int>::iterator it = my_vector.begin();
     auto it2 = my_vector.begin();
 
-    (void)it; // Dummy
+    (void)it;  // Dummy
     (void)it2; // Dummy
 
     // [begin, end)
@@ -19,7 +19,7 @@ int main()
         std::cout << *it3 << std::endl;
     }
 
-     std::cout << std::endl;
+    std::cout << std::endl;
 
     // For-each based loop
     for (auto &val : my_vector)

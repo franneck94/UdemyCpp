@@ -16,5 +16,10 @@ int main()
 
     a1 = a2; // Copy assignment operator
 
+    (void)a3; // Dummy
+    (void)a4; // Dummy
+    (void)a5; // Dummy
+    (void)a6; // Dummy
+
     return 0;
 }

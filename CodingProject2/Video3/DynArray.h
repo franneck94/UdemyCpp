@@ -2,9 +2,10 @@
 
 #include <cstddef>
 
-template <typename T> class DynamicArray
+template <typename T>
+class DynamicArray
 {
-  public:
+public:
     // Constructors
     DynamicArray(const T &value, const std::size_t length);
 
@@ -19,7 +20,7 @@ template <typename T> class DynamicArray
     // Helper methods
     std::size_t get_length() const;
 
-  private:
+private:
     std::size_t m_length;
     std::size_t m_capacity;
     T *m_data;
@@ -48,7 +49,8 @@ DynamicArray<T>::DynamicArray(const T &value, const std::size_t length)
  * @param dynmaic_array The dynamic array.
  * @param value The value to append to the array.
  */
-template <typename T> void DynamicArray<T>::push_back(const T &value)
+template <typename T>
+void DynamicArray<T>::push_back(const T &value)
 {
     if (m_length == m_capacity)
     {
@@ -76,7 +78,8 @@ template <typename T> void DynamicArray<T>::push_back(const T &value)
  * @param input_array The dynamic array.
  * @param size The size of the array.
  */
-template <typename T> void DynamicArray<T>::pop_back()
+template <typename T>
+void DynamicArray<T>::pop_back()
 {
     if (m_length > 0)
     {
@@ -100,17 +103,20 @@ template <typename T> void DynamicArray<T>::pop_back()
     }
 }
 
-template <typename T> T &DynamicArray<T>::operator[](const std::size_t index)
+template <typename T>
+T &DynamicArray<T>::operator[](const std::size_t index)
 {
     return m_data[index];
 }
 
-template <typename T> const T &DynamicArray<T>::operator[](const std::size_t index) const
+template <typename T>
+const T &DynamicArray<T>::operator[](const std::size_t index) const
 {
     return m_data[index];
 }
 
-template <typename T> std::size_t DynamicArray<T>::get_length() const
+template <typename T>
+std::size_t DynamicArray<T>::get_length() const
 {
     return m_length;
 }

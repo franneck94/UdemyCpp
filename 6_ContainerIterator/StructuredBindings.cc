@@ -12,7 +12,7 @@ void get_data_old(int &a, std::string &b, double &c)
 
 std::tuple<int, std::string, double> get_data()
 {
-    return std ::make_tuple(1337, "data", 1337.0);
+    return std::make_tuple(1337, "data", 1337.0);
 }
 
 int main()

@@ -109,7 +109,7 @@
   "C_Cpp.default.browse.limitSymbolsToIncludedHeaders": false,
   "C_Cpp.default.cppStandard": "c++17",
   "C_Cpp.default.cStandard": "c99",
-  "C_Cpp.formatting": "vcFormat",
+  "C_Cpp.formatting": "clangFormat",
   "[c][cpp]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "ms-vscode.cpptools"

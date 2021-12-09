@@ -2,7 +2,6 @@
 #include <cstring>
 #include <iostream>
 
-#pragma warning(disable : 4996)
 #include "Image.h"
 
 Image::Image() : m_width(0), m_height(0), m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
@@ -49,7 +48,7 @@ void Image::save_image(const char *file_name) const
     auto num_bytes = 3 * m_width * m_height;
     auto *img = new uchar[num_bytes]{};
 
-    int filesize = 54 + 3 * m_width * m_height;
+    auto filesize = 54 + 3 * m_width * m_height;
 
     for (std::uint32_t x = 0; x < m_width; ++x)
     {

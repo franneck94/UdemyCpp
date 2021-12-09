@@ -20,5 +20,8 @@ int main()
     DynamicArray<int> a7 = std::move(a6); // Move constructor
     a7 = std::move(a5);                   // Move assignment operator
 
+    (void)a3; // Dummy
+    (void)a4; // Dummy
+
     return 0;
 }

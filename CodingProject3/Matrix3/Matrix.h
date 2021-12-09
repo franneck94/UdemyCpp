@@ -8,9 +8,10 @@
 namespace cppmath
 {
 
-template <typename T> class Matrix
+template <typename T>
+class Matrix
 {
-  public:
+public:
     using MatrixDataType = std::vector<std::vector<T>>;
 
     Matrix() = delete;
@@ -33,7 +34,7 @@ template <typename T> class Matrix
     std::size_t num_rows() const;
     std::size_t num_cols() const;
 
-  private:
+private:
     std::size_t m_rows;
     std::size_t m_cols;
     MatrixDataType m_data;
@@ -51,7 +52,8 @@ Matrix<T>::Matrix(std::size_t rows, std::size_t cols, const T &value)
 {
 }
 
-template <typename T> Matrix<T> Matrix<T>::operator+(const Matrix<T> &rhs)
+template <typename T>
+Matrix<T> Matrix<T>::operator+(const Matrix<T> &rhs)
 {
     Matrix<T> result(m_rows, m_cols);
 
@@ -67,7 +69,8 @@ template <typename T> Matrix<T> Matrix<T>::operator+(const Matrix<T> &rhs)
     return result;
 }
 
-template <typename T> Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &rhs)
+template <typename T>
+Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &rhs)
 {
     for (std::size_t i = 0; i != m_rows; ++i)
     {
@@ -77,7 +80,8 @@ template <typename T> Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &rhs)
     return *this;
 }
 
-template <typename T> Matrix<T> Matrix<T>::operator-(const Matrix<T> &rhs)
+template <typename T>
+Matrix<T> Matrix<T>::operator-(const Matrix<T> &rhs)
 {
     Matrix<T> result(m_rows, m_cols);
 
@@ -93,7 +97,8 @@ template <typename T> Matrix<T> Matrix<T>::operator-(const Matrix<T> &rhs)
     return result;
 }
 
-template <typename T> Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &rhs)
+template <typename T>
+Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &rhs)
 {
     for (std::size_t i = 0; i != m_rows; ++i)
     {
@@ -103,27 +108,31 @@ template <typename T> Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &rhs)
     return *this;
 }
 
-template <typename T> Matrix<T> Matrix<T>::operator*(const double &scalar)
+template <typename T>
+Matrix<T> Matrix<T>::operator*(const double &scalar)
 {
     Matrix<T> result(m_rows, m_cols);
 
     return result;
 }
 
-template <typename T> Matrix<T> &Matrix<T>::operator*=(const double &scalar)
+template <typename T>
+Matrix<T> &Matrix<T>::operator*=(const double &scalar)
 {
 
     return *this;
 }
 
-template <typename T> Matrix<T> Matrix<T>::operator/(const double &scalar)
+template <typename T>
+Matrix<T> Matrix<T>::operator/(const double &scalar)
 {
     Matrix<T> result(m_rows, m_cols);
 
     return result;
 }
 
-template <typename T> Matrix<T> &Matrix<T>::operator/=(const double &scalar)
+template <typename T>
+Matrix<T> &Matrix<T>::operator/=(const double &scalar)
 {
 
     return *this;
@@ -145,7 +154,8 @@ template <typename T> Matrix<T> &Matrix<T>::operator/=(const double &scalar)
 // 	return *this;
 // }
 
-template <typename T> void Matrix<T>::print_matrix() const
+template <typename T>
+void Matrix<T>::print_matrix() const
 {
     for (std::size_t i = 0; i < m_rows; ++i)
     {
@@ -160,12 +170,14 @@ template <typename T> void Matrix<T>::print_matrix() const
     std::cout << std::endl;
 }
 
-template <typename T> std::size_t Matrix<T>::num_rows() const
+template <typename T>
+std::size_t Matrix<T>::num_rows() const
 {
     return m_rows;
 }
 
-template <typename T> std::size_t Matrix<T>::num_cols() const
+template <typename T>
+std::size_t Matrix<T>::num_cols() const
 {
     return m_cols;
 }

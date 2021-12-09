@@ -12,7 +12,7 @@ template <typename T>
 concept NonNumeric = !std::integral<T> && !std::floating_point<T>;
 
 template <typename T>
-concept Concatenable = Addable<T> &&NonNumeric<T>;
+concept Concatenable = Addable<T> && NonNumeric<T>;
 
 template <typename T>
 requires Concatenable<T> T concat(T first, T second)

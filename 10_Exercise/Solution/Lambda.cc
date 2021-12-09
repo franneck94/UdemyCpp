@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cmath>
 #include <iostream>
 #include <random>
 #include <vector>
@@ -32,7 +33,7 @@ int main()
 
     // Exercise 2
     std::transform(my_vector.begin(), my_vector.end(), my_result.begin(), [](int val) -> int {
-        return static_cast<int>(pow(val, 2.0));
+        return static_cast<int>(std::pow(val, 2.0));
     });
 
     for (const auto &val : my_result)

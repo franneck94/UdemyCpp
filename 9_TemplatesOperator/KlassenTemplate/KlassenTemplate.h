@@ -22,8 +22,8 @@ public:
 private:
     T m_min;
     T m_max;
-    double m_mean;
     int m_num_samples;
+    double m_mean;
     std::vector<T> m_samples;
 };
 

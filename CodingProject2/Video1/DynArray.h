@@ -2,9 +2,10 @@
 
 #include <cstddef>
 
-template <typename T> class DynamicArray
+template <typename T>
+class DynamicArray
 {
-  public:
+public:
     DynamicArray(const T &value, const std::size_t &length);
 
     const std::size_t get_length() const;
@@ -12,7 +13,7 @@ template <typename T> class DynamicArray
     void push_back(const T &value);
     void pop_back();
 
-  private:
+private:
     T *m_data;
     std::size_t m_length;
 };
@@ -24,7 +25,8 @@ template <typename T> class DynamicArray
  * @param length The length of the array.
  * @return DyanmicArray
  */
-template <typename T> DynamicArray<T>::DynamicArray(const T &value, const std::size_t &length)
+template <typename T>
+DynamicArray<T>::DynamicArray(const T &value, const std::size_t &length)
 {
     m_length = length;
     m_data = new T[length];
@@ -41,7 +43,8 @@ template <typename T> DynamicArray<T>::DynamicArray(const T &value, const std::s
  * @param dynmaic_array The dynamic array.
  * @param value The value to append to the array.
  */
-template <typename T> void DynamicArray<T>::push_back(const T &value)
+template <typename T>
+void DynamicArray<T>::push_back(const T &value)
 {
     T *temp = nullptr;
     temp = new T[m_length + 1];
@@ -65,7 +68,8 @@ template <typename T> void DynamicArray<T>::push_back(const T &value)
  * @param input_array The dynamic array.
  * @param size The size of the array.
  */
-template <typename T> void DynamicArray<T>::pop_back()
+template <typename T>
+void DynamicArray<T>::pop_back()
 {
     T *temp = nullptr;
     temp = new T[m_length - 1];
