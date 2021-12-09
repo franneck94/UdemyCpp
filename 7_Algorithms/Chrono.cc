@@ -12,7 +12,7 @@ int main()
 {
     std::vector<int> my_vector(NUM_ELEMENTS, 0);
 
-    std::random_device seed_generator;
+    std::random_device seed_generator{};
     std::mt19937 random_generator(42);
     std::uniform_int_distribution<int> random_distribution(-10, 10);
 
