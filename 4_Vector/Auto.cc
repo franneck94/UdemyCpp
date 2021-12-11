@@ -1,28 +1,39 @@
 #include <iostream>
-#include <numeric>
 #include <vector>
+#include <numeric>
+
+void print_vector(const std::vector<double> &my_vector)
+{
+    for (std::size_t i = 0; i < my_vector.size(); i++)
+    {
+        std::cout << "Vec[" << i << "] = " << my_vector[i] << std::endl;
+    }
+    std::cout << std::endl;
+}
+
+void print_vector_info(const std::vector<double> &my_vector)
+{
+    std::cout << "Size: " << my_vector.size() << std::endl;
+    std::cout << "Capacity: " << my_vector.capacity() << std::endl;
+    std::cout << "Empty?: " << std::boolalpha << my_vector.empty() << std::endl << std::endl;
+}
 
 int main()
 {
-    std::vector<int> my_vector(10, 0);
+    std::vector<double> my_vector(10, 5);
     std::iota(my_vector.begin(), my_vector.end(), 0);
 
-    std::vector<int>::iterator it = my_vector.begin();
-    auto it2 = my_vector.begin();
-
-    (void)it;  // Dummy
-    (void)it2; // Dummy
+    print_vector(my_vector);
+    print_vector_info(my_vector);
 
     // [begin, end)
-    for (auto it3 = my_vector.begin(); it3 != my_vector.end(); ++it3)
+    for (auto it = my_vector.begin(); it != my_vector.end(); ++it)
     {
-        std::cout << *it3 << std::endl;
+        std::cout << *it << std::endl;
     }
 
-    std::cout << std::endl;
-
-    // For-each based loop
-    for (auto &val : my_vector)
+    // For-each loop
+    for (const auto &val : my_vector)
     {
         std::cout << val << std::endl;
     }
