@@ -1,33 +1,53 @@
 #include <iostream>
-#include <numeric>
 #include <vector>
+#include <numeric>
 
-void print_double_vector(const std::vector<double> &vec)
+void print_vector(const std::vector<int> &my_vector)
 {
-    for (std::size_t i = 0; i < vec.size(); ++i)
+    for (std::size_t i = 0; i < my_vector.size(); i++)
     {
-        std::cout << "Vec[" << i << "] = " << vec[i] << std::endl;
+        std::cout << "Vec[" << i << "] = " << my_vector[i] << std::endl;
     }
-
     std::cout << std::endl;
+}
+
+void print_vector_info(const std::vector<int> &my_vector)
+{
+    std::cout << "Size: " << my_vector.size() << std::endl;
+    std::cout << "Capacity: " << my_vector.capacity() << std::endl;
+    std::cout << "Empty?: " << std::boolalpha << my_vector.empty() << std::endl << std::endl;
 }
 
 int main()
 {
-    std::vector<double> my_vector(10, 5.0);
-    print_double_vector(my_vector);
+    std::vector<int> my_vector(10, 5);
+    std::iota(my_vector.begin(), my_vector.end(), 0);
 
-    std::fill(my_vector.begin(), my_vector.end(), 4.5);
-    print_double_vector(my_vector);
+    print_vector(my_vector);
+    print_vector_info(my_vector);
 
-    std::iota(my_vector.begin(), my_vector.end(), 2.0);
-    print_double_vector(my_vector);
+    int first = my_vector.front();
+    int first2 = my_vector[0];
+    std::cout << first << " " << first2 << std::endl;
 
-    std::vector<double>::iterator it = my_vector.begin();
-    std::cout << *it << std::endl;
-    ++it;
-    *it = -(*it);
-    std::cout << *it << std::endl;
+    int last = my_vector.back();
+    int last2 = my_vector[my_vector.size() - 1];
+    std::cout << last << " " << last2 << std::endl;
+
+    int *array = my_vector.data();
+    std::cout << *array << std::endl;
+
+    std::vector<int>::iterator begin = my_vector.begin();
+    std::vector<int>::iterator end = my_vector.end();
+
+    std::cout << *begin << std::endl;
+    std::cout << *end << std::endl;
+
+    begin++;
+    end--;
+
+    std::cout << *begin << std::endl;
+    std::cout << *end << std::endl;
 
     return 0;
 }

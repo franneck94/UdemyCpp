@@ -1,22 +1,18 @@
-#include <algorithm>
 #include <iostream>
-#include <numeric>
 #include <vector>
 
-// typedef Type ALIAS NAME;
-typedef std::vector<int> IntVector;
-typedef std::vector<std::vector<double>> DoubleMatrix;
+// typedef Type AliasName
+// typedef std::vector<int> Vector;
+// typedef std::vector<std::vector<int>> Matrix;
 
-// using Alias Name = Type;
-using IntMatrix = std::vector<std::vector<int>>;
+// using AliasName = Type;
+using Vector = std::vector<int>;
+using Matrix = std::vector<std::vector<int>>;
 
 int main()
 {
-    IntVector my_vector1;
-    std::vector<int> my_vector2;
-
-    DoubleMatrix my_matrix1;
-    IntMatrix my_matrix2;
+    Vector v1;
+    Matrix m1;
 
     return 0;
 }
