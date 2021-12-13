@@ -13,12 +13,9 @@ void print_vector(const std::vector<int> &my_vector)
     std::cout << std::endl;
 }
 
-bool replace_even(int i)
+bool replace_even(const int i)
 {
-    if (i % 2 == 0)
-        return true;
-    else
-        return false;
+    return (i % 2 == 0);
 }
 
 int main()
@@ -30,18 +27,11 @@ int main()
     std::iota(my_vector1.begin(), my_vector1.end(), 1);
     print_vector(my_vector1);
 
-    // REPLACE
-    for (const auto &val : my_vector1)
-    {
-        std::cout << val << std::endl;
-    }
+    std::replace(my_vector1.begin(), my_vector1.end(), 2, 1337);
+    print_vector(my_vector1);
 
-    std::replace_if(my_vector1.begin(), my_vector1.end(), replace_even, 1);
-
-    for (const auto &val : my_vector1)
-    {
-        std::cout << val << std::endl;
-    }
+    std::replace_if(my_vector1.begin(), my_vector1.end(), replace_even, -1);
+    print_vector(my_vector1);
 
     return 0;
 }

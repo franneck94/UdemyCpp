@@ -6,7 +6,7 @@
 namespace cpptiming
 {
 
-using Clock = std::chrono::high_resolution_clock;
+using Clock = std::chrono::steady_clock;
 using nanosecs = std::chrono::nanoseconds;
 using microsecs = std::chrono::microseconds;
 using millisecs = std::chrono::milliseconds;

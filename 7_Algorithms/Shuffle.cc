@@ -13,14 +13,6 @@ void print_vector(const std::vector<int> &my_vector)
     std::cout << std::endl;
 }
 
-bool replace_even(int i)
-{
-    if (i % 2 == 0)
-        return true;
-    else
-        return false;
-}
-
 int main()
 {
     std::vector<int> my_vector1(10, 0);
@@ -30,19 +22,11 @@ int main()
     std::iota(my_vector1.begin(), my_vector1.end(), 1);
     print_vector(my_vector1);
 
-    for (const auto &val : my_vector1)
-    {
-        std::cout << val << std::endl;
-    }
+    std::random_device seed_generator{};
+    std::mt19937_64 random_generator{seed_generator()};
 
-    std::random_device seed_generator;
-    std::mt19937 random_generator(seed_generator());
     std::shuffle(my_vector1.begin(), my_vector1.end(), random_generator);
-
-    for (const auto &val : my_vector1)
-    {
-        std::cout << val << std::endl;
-    }
+    print_vector(my_vector1);
 
     return 0;
 }
