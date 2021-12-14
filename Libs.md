@@ -1,7 +1,6 @@
 # Important C++ Libraries
 
-
-## Already shown
+## Shown in this course
 
 GUI
 
@@ -12,17 +11,15 @@ Cocurrency
 
 - [OpenMP](https://www.openmp.org/)
 
-## Topics of the chapter
-
-Command Line
-
-- [cxxopts](https://github.com/jarro2783/cxxopts)
-
 Text
 
 - [nlohman/json](https://github.com/nlohmann/json)
 
 ## Suggestion to explore
+
+Command Line
+
+- [cxxopts](https://github.com/jarro2783/cxxopts)
 
 General
 
