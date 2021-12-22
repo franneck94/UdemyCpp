@@ -133,7 +133,7 @@
   "clang-tidy.compilerArgs": [
     "-std=c++17"
   ],
-  "C_Cpp_Runner.cCompilerPath": "gcc",
+  "C_Cpp_Runner.cCompilerPath": "C:/cygwin64/bin/gcc.exe",
   "C_Cpp_Runner.cppCompilerPath": "C:/cygwin64/bin/g++.exe",
   "C_Cpp_Runner.debuggerPath": "gdb",
   "C_Cpp_Runner.warnings": [

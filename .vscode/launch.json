@@ -53,9 +53,9 @@
         ""
       ],
       "stopAtEntry": false,
-      "cwd": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/4_Vector",
+      "cwd": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/CodingProject4",
       "environment": [],
-      "program": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/4_Vector/build/Debug/outDebug",
+      "program": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/CodingProject4/build/Release/outRelease",
       "internalConsoleOptions": "openOnSessionStart",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
