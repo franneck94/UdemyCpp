@@ -53,12 +53,12 @@
         ""
       ],
       "stopAtEntry": false,
-      "cwd": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/CodingProject4",
+      "cwd": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/13_ThreadsExceptions/OpenMP",
       "environment": [],
-      "program": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/CodingProject4/build/Release/outRelease",
+      "program": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/13_ThreadsExceptions/OpenMP/build/Release/outRelease",
       "internalConsoleOptions": "openOnSessionStart",
       "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
+      "miDebuggerPath": "C:/cygwin64/bin/gdb.exe",
       "externalConsole": true,
       "setupCommands": [
         {

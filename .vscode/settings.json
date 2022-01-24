@@ -8,8 +8,6 @@
     80,
     120
   ],
-  "editor.fontSize": 22,
-  "markdown.preview.fontSize": 26,
   "editor.renderWhitespace": "trailing",
   "editor.suggestSelection": "first",
   "diffEditor.ignoreTrimWhitespace": false,
@@ -18,26 +16,19 @@
   "explorer.confirmDelete": false,
   "files.autoSave": "onFocusChange",
   "files.associations": {
-    "*.pyx": "python",
+    "*.pyd": "Cython",
+    "*.pyx": "Cython",
     ".clang*": "yaml",
     "*.gpj": "jsonc",
     "*.gvw": "jsonc",
-    "random": "c",
-    "stdint.h": "c",
-    "stdint-gcc.h": "c",
-    "stdlib.h": "c",
-    "string_view": "c",
-    "regex": "c",
     "array": "cpp",
     "atomic": "cpp",
     "bit": "cpp",
     "*.tcc": "cpp",
-    "bitset": "cpp",
     "cctype": "cpp",
     "chrono": "cpp",
     "clocale": "cpp",
     "cmath": "cpp",
-    "codecvt": "cpp",
     "compare": "cpp",
     "concepts": "cpp",
     "condition_variable": "cpp",
@@ -46,18 +37,13 @@
     "cstdint": "cpp",
     "cstdio": "cpp",
     "cstdlib": "cpp",
-    "cstring": "cpp",
     "ctime": "cpp",
     "cwchar": "cpp",
     "cwctype": "cpp",
     "deque": "cpp",
-    "forward_list": "cpp",
-    "list": "cpp",
     "map": "cpp",
-    "set": "cpp",
     "string": "cpp",
     "unordered_map": "cpp",
-    "unordered_set": "cpp",
     "vector": "cpp",
     "exception": "cpp",
     "algorithm": "cpp",
@@ -66,16 +52,15 @@
     "memory": "cpp",
     "memory_resource": "cpp",
     "numeric": "cpp",
-    "optional": "cpp",
+    "random": "cpp",
     "ratio": "cpp",
+    "string_view": "cpp",
     "system_error": "cpp",
     "tuple": "cpp",
     "type_traits": "cpp",
     "utility": "cpp",
-    "fstream": "cpp",
     "future": "cpp",
     "initializer_list": "cpp",
-    "iomanip": "cpp",
     "iosfwd": "cpp",
     "iostream": "cpp",
     "istream": "cpp",
@@ -84,36 +69,27 @@
     "new": "cpp",
     "numbers": "cpp",
     "ostream": "cpp",
-    "ranges": "cpp",
     "semaphore": "cpp",
-    "span": "cpp",
-    "sstream": "cpp",
     "stdexcept": "cpp",
     "stop_token": "cpp",
     "streambuf": "cpp",
     "thread": "cpp",
-    "cinttypes": "cpp",
-    "typeinfo": "cpp",
-    "valarray": "cpp",
-    "shared_mutex": "cpp"
+    "typeinfo": "cpp"
+  },
+  "workbench.editorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
   },
   "workbench.startupEditor": "newUntitledFile",
   "git.enableSmartCommit": true,
   "git.autofetch": true,
   "git.confirmSync": false,
   "C_Cpp.clang_format_sortIncludes": true,
-  "C_Cpp.vcFormat.indent.preserveComments": true,
-  "C_Cpp.vcFormat.indent.namespaceContents": false,
-  "C_Cpp.vcFormat.indent.caseContentsWhenBlock": true,
-  "C_Cpp.vcFormat.space.pointerReferenceAlignment": "right",
-  "C_Cpp.default.browse.limitSymbolsToIncludedHeaders": false,
   "C_Cpp.default.cppStandard": "c++17",
   "C_Cpp.default.cStandard": "c99",
   "C_Cpp.formatting": "clangFormat",
-  "[c][cpp]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "ms-vscode.cpptools"
-  },
+  "cmake.configureOnOpen": false,
+  "cmake.autoSelectActiveFolder": false,
+  "cmake.configureOnEdit": false,
   "doxdocgen.file.fileTemplate": "@file {name}",
   "doxdocgen.cpp.tparamTemplate": "@tparam {param} ",
   "doxdocgen.generic.briefTemplate": "@brief {text}",
@@ -125,30 +101,52 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.tabWidth": 4,
-  "formatContextMenu.closeAfterSave": true,
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook",
-    "*.md": "vscode.markdown.preview.editor"
+  "[c]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-vscode.cpptools"
   },
-  "clang-tidy.compilerArgs": [
-    "-std=c++17"
+  "[cpp]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "Workspace_Formatter.includePattern": [
+    "*.c",
+    "*.h",
+    "*.cc",
+    "*.hh",
+    "*.hpp"
   ],
   "C_Cpp_Runner.cCompilerPath": "C:/cygwin64/bin/gcc.exe",
   "C_Cpp_Runner.cppCompilerPath": "C:/cygwin64/bin/g++.exe",
-  "C_Cpp_Runner.debuggerPath": "gdb",
+  "C_Cpp_Runner.debuggerPath": "C:/cygwin64/bin/gdb.exe",
+  "C_Cpp_Runner.cStandard": "",
+  "C_Cpp_Runner.cppStandard": "",
+  "C_Cpp_Runner.msvcBatchPath": "",
   "C_Cpp_Runner.warnings": [
     "-Wall",
     "-Wextra",
     "-Wpedantic"
   ],
-  "C_Cpp_Runner.compilerArgs": [],
-  "C_Cpp_Runner.includePaths": [
-    "C:/"
-  ],
-  "C_Cpp_Runner.linkerArgs": [],
-  "C_Cpp_Runner.cStandard": "",
-  "C_Cpp_Runner.cppStandard": "",
-  "C_Cpp_Runner.excludeSearch": [],
   "C_Cpp_Runner.enableWarnings": true,
-  "C_Cpp_Runner.warningsAsError": false
+  "C_Cpp_Runner.warningsAsError": false,
+  "C_Cpp_Runner.compilerArgs": [
+    "-fopenmp"
+  ],
+  "C_Cpp_Runner.linkerArgs": [
+    "-fopenmp",
+    "-pthread"
+  ],
+  "C_Cpp_Runner.includePaths": [],
+  "C_Cpp_Runner.includeSearch": [
+    "*",
+    "**/*"
+  ],
+  "C_Cpp_Runner.excludeSearch": [
+    "**/build",
+    "**/build/**",
+    "**/.*",
+    "**/.*/**",
+    "**/.vscode",
+    "**/.vscode/**"
+  ]
 }

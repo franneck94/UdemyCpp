@@ -3,7 +3,6 @@ Checks: '
 clang-analyzer-*,
 clang-cppcoreguidelines-*,
 clang-modernize-*,
-performance-*,
 -cppcoreguidelines-avoid-magic-numbers,
 -cppcoreguidelines-macro-usage,
 -cppcoreguidelines-owning-memory
