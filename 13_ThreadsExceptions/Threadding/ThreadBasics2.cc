@@ -1,55 +1,55 @@
 #include <iostream>
 #include <thread>
 
-void print_text1()
+void function1()
 {
     auto id = std::this_thread::get_id();
 
-    std::cout << "Thread is executing! ID: " << id << std::endl;
+    std::cout << "ID from *function*: " << id << '\n';
 }
 
-void print_text2(int number)
+void function2(int number)
 {
-    auto id = std::this_thread::get_id();
+    number *= 2;
 
-    number++;
-    std::cout << "Thread is executing! ID: " << id << " n: " << number << std::endl;
+    std::cout << "Input to *function2* multiplied by 2: " << number << '\n';
 }
 
-void print_text3(int &number)
+void function3(int &number)
 {
-    auto id = std::this_thread::get_id();
+    number *= 2;
 
-    number++;
-    std::cout << "Thread is executing! ID: " << id << " n: " << number << std::endl;
+    std::cout << "Input to *function3* multiplied by 2: " << number << '\n';
 }
 
 int main()
 {
-    std::thread t1(print_text1);
+    std::thread t1(function1);
 
     if (t1.joinable())
     {
         t1.join();
     }
 
-    int n = 0;
-    std::thread t2(print_text2, n);
+    int number2 = 1;
+    std::thread t2(function2, number2);
 
     if (t2.joinable())
     {
         t2.join();
     }
-    std::cout << n << std::endl;
 
-    int m = 0;
-    std::thread t3(print_text3, m);
+    std::cout << "number2 in main: " << number2 << '\n';
+
+    int number3 = 1;
+    std::thread t3(function3, std::ref(number3));
 
     if (t3.joinable())
     {
         t3.join();
     }
-    std::cout << m << std::endl;
+
+    std::cout << "number3 in main: " << number3 << '\n';
 
     return 0;
 }

@@ -1,35 +1,32 @@
+#include <array>
 #include <cstdint>
 #include <iostream>
+#include <numeric>
 #include <thread>
 
 #include "Timer.h"
 
 constexpr std::uint32_t NUM_THREADS = 3;
 
-void function(const int input, int &output)
+void function(const std::int32_t input, std::int32_t &output)
 {
-    printf("Argument: %d\n", input);
-
     output = input * 2;
 }
 
 int main()
 {
-    std::thread threads[NUM_THREADS];
-    std::int32_t inputs[NUM_THREADS]{};
-    std::int32_t outputs[NUM_THREADS]{};
+    std::array<std::thread, NUM_THREADS> threads;
+    std::array<std::int32_t, NUM_THREADS> inputs{};
+    std::array<std::int32_t, NUM_THREADS> outputs{};
 
-    for (std::uint32_t i = 0; i < NUM_THREADS; ++i)
-    {
-        inputs[i] = i;
-        outputs[i] = 0;
-    }
+    std::iota(inputs.begin(), inputs.end(), 0);
+    std::fill(outputs.begin(), outputs.end(), 0);
 
     cpptiming::Timer timer;
 
     for (std::uint32_t i = 0; i < NUM_THREADS; ++i)
     {
-        threads[i] = std::thread{function, inputs[i], std::ref(outputs[i])};
+        threads[i] = std::thread(function, inputs[i], std::ref(outputs[i]));
     }
 
     // ...
@@ -39,12 +36,12 @@ int main()
         threads[i].join();
     }
 
-    auto time_ms = timer.elapsed_time<cpptiming::microsecs, double>();
-    std::cout << "Time: " << time_ms << "ms." << std::endl;
+    auto time_us = timer.elapsed_time<cpptiming::microsecs, double>();
+    std::cout << "Time in us: " << time_us << '\n';
 
     for (std::uint32_t i = 0; i < NUM_THREADS; ++i)
     {
-        printf("Result: %d\n", outputs[i]);
+        std::cout << "Outputs[" << i << "] = " << outputs[i] << '\n';
     }
 
     return 0;

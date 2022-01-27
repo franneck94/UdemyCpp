@@ -14,6 +14,8 @@ int main()
     int input = 1;
     auto handle = std::async(std::launch::async, function, input);
 
+    // ...
+
     auto result = handle.get();
     std::cout << result << '\n';
 

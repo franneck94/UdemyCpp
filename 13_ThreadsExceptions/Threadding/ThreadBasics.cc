@@ -1,14 +1,21 @@
 #include <iostream>
 #include <thread>
 
-void print_text1()
+void function()
 {
-    std::cout << "Thread is executing! ID: " << std::this_thread::get_id() << std::endl;
+    auto id = std::this_thread::get_id();
+
+    std::cout << "ID from *function*: " << id << '\n';
 }
 
 int main()
 {
-    std::thread t1(print_text1);
+    auto id = std::this_thread::get_id();
+    std::cout << "ID from *main*: " << id << '\n';
+
+    std::thread t1(function);
+
+    // ...
 
     if (t1.joinable())
     {
