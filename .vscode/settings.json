@@ -10,6 +10,7 @@
   ],
   "editor.renderWhitespace": "trailing",
   "editor.suggestSelection": "first",
+  "editor.fontSize": 24,
   "diffEditor.ignoreTrimWhitespace": false,
   "terminal.integrated.defaultProfile.windows": "Command Prompt",
   "explorer.confirmDragAndDrop": false,

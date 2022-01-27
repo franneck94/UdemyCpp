@@ -3,19 +3,25 @@
 
 void print_text1()
 {
-    std::cout << "Thread is executing! ID: " << std::this_thread::get_id() << std::endl;
+    auto id = std::this_thread::get_id();
+
+    std::cout << "Thread is executing! ID: " << id << std::endl;
 }
 
 void print_text2(int number)
 {
+    auto id = std::this_thread::get_id();
+
     number++;
-    std::cout << "Thread is executing! ID: " << std::this_thread::get_id() << " n: " << number << std::endl;
+    std::cout << "Thread is executing! ID: " << id << " n: " << number << std::endl;
 }
 
 void print_text3(int &number)
 {
+    auto id = std::this_thread::get_id();
+
     number++;
-    std::cout << "Thread is executing! ID: " << std::this_thread::get_id() << " n: " << number << std::endl;
+    std::cout << "Thread is executing! ID: " << id << " n: " << number << std::endl;
 }
 
 int main()

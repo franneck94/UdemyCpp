@@ -54,7 +54,8 @@ int main()
         threads[i].join();
     }
 
-    std::cout << "Time: " << timer.elapsed_time<cpptiming::microsecs, double>() << "ms." << std::endl;
+    auto time_ms = timer.elapsed_time<cpptiming::microsecs, double>();
+    std::cout << "Time: " << time_ms << "ms." << std::endl;
 
     for (std::uint32_t i = 0; i < NUM_THREADS; ++i)
     {
