@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <array>
-#include <cassert>
 #include <chrono>
 #include <cstdint>
 #include <iostream>
@@ -24,13 +23,17 @@ Serial time:      x
 8: OpenMP time:   x
 */
 constexpr std::uint32_t NUM_THREADS = 2;
-constexpr std::uint32_t NUM_RUNS = 1000;
+constexpr std::uint32_t NUM_RUNS = 1'000;
 
 template <typename T>
 void random_vector(std::vector<T> &vec)
 {
-    std::mt19937 random_generator(22);
-    std::uniform_int_distribution<T> random_distribution(-10, 10);
+    constexpr std::int32_t seed = 42;
+    constexpr std::int32_t lower_bound = -10;
+    constexpr std::int32_t upper_bound = 10;
+
+    std::mt19937 random_generator(seed);
+    std::uniform_int_distribution<T> random_distribution(lower_bound, upper_bound);
 
     for (auto &val : vec)
     {
@@ -42,9 +45,9 @@ template <typename T>
 T serial_sum(std::vector<T> &vec)
 {
     T local_sum = 0;
-    T n = static_cast<T>(vec.size());
+    const auto n = static_cast<std::uint32_t>(vec.size());
 
-    for (T i = 0; i != n; ++i)
+    for (std::uint32_t i = 0; i != n; ++i)
     {
         local_sum = local_sum + vec[i];
     }
@@ -57,8 +60,9 @@ T parallel_sum_omp(std::vector<T> &vec)
 {
     T final_sum = 0;
     T local_sum = 0;
-    T i = 0;
-    T n = static_cast<T>(vec.size());
+
+    std::uint32_t i = 0;
+    const auto n = static_cast<std::uint32_t>(vec.size());
 
 #pragma omp parallel for reduction(+ : local_sum) num_threads(NUM_THREADS)
     for (i = 0; i < n; ++i)
@@ -107,14 +111,14 @@ T parallel_sum(std::vector<T> &vec)
         prev_last = prev_last + slice_size;
     }
 
-    for (std::uint32_t i = 0; i < NUM_THREADS; ++i)
+    for (auto &thread : threads)
     {
-        threads[i].join();
+        thread.join();
     }
 
-    for (std::uint32_t i = 0; i < NUM_THREADS; ++i)
+    for (const auto local_sum : local_sums)
     {
-        final_sum += local_sums[i];
+        final_sum += local_sum;
     }
 
     return final_sum;
@@ -122,18 +126,18 @@ T parallel_sum(std::vector<T> &vec)
 
 int main()
 {
-    std::vector<std::int32_t> my_vector(30'000'001, 0);
+    std::vector<std::int32_t> my_vector(30'000'000, 0);
     random_vector(my_vector);
 
     auto time1 = 0.0;
     volatile std::int32_t sum1 = 0;
-    for (std::uint32_t i = 0; i < NUM_RUNS / 10; ++i)
+    for (std::uint32_t i = 0; i < NUM_RUNS; ++i)
     {
         cpptiming::Timer t1;
         sum1 = serial_sum(my_vector);
         time1 += t1.elapsed_time<cpptiming::millisecs, double>();
     }
-    std::cout << "Mean Serial: " << time1 / (NUM_RUNS / 10) << "ms sum: " << sum1 << std::endl;
+    std::cout << "Mean Serial: " << time1 / NUM_RUNS << "ms sum: " << sum1 << std::endl;
 
     auto time2 = 0.0;
     volatile auto sum2 = 0;
