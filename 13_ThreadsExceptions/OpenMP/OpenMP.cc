@@ -12,17 +12,17 @@
 #include "omp.h"
 
 /*
-Serial time:      x
-2: Own time:      x
-4: Own time:      x
-6: Own time:      x
-8: Own time:      x
-2: OpenMP time:   x
-4: OpenMP time:   x
-6: OpenMP time:   x
-8: OpenMP time:   x
+Serial time:      4.569ms
+2: Own time:      3.336ms
+4: Own time:      3.071ms
+6: Own time:      3.008ms
+8: Own time:      2.975ms
+2: OpenMP time:   2.98ms
+4: OpenMP time:   2.599ms
+6: OpenMP time:   2.473ms
+8: OpenMP time:   2.506ms
 */
-constexpr std::uint32_t NUM_THREADS = 2;
+constexpr std::uint32_t NUM_THREADS = 8;
 constexpr std::uint32_t NUM_RUNS = 1'000;
 
 template <typename T>
@@ -129,15 +129,15 @@ int main()
     std::vector<std::int32_t> my_vector(30'000'000, 0);
     random_vector(my_vector);
 
-    auto time1 = 0.0;
-    volatile std::int32_t sum1 = 0;
-    for (std::uint32_t i = 0; i < NUM_RUNS; ++i)
-    {
-        cpptiming::Timer t1;
-        sum1 = serial_sum(my_vector);
-        time1 += t1.elapsed_time<cpptiming::millisecs, double>();
-    }
-    std::cout << "Mean Serial: " << time1 / NUM_RUNS << "ms sum: " << sum1 << std::endl;
+    // auto time1 = 0.0;
+    // volatile std::int32_t sum1 = 0;
+    // for (std::uint32_t i = 0; i < NUM_RUNS; ++i)
+    // {
+    //     cpptiming::Timer t1;
+    //     sum1 = serial_sum(my_vector);
+    //     time1 += t1.elapsed_time<cpptiming::millisecs, double>();
+    // }
+    // std::cout << "Mean Serial: " << time1 / NUM_RUNS << "ms sum: " << sum1 << std::endl;
 
     auto time2 = 0.0;
     volatile auto sum2 = 0;
@@ -149,15 +149,15 @@ int main()
     }
     std::cout << "Mean OpenMP: " << time2 / NUM_RUNS << "ms sum: " << sum2 << std::endl;
 
-    auto time3 = 0.0;
-    volatile auto sum3 = 0;
-    for (std::uint32_t i = 0; i < NUM_RUNS; ++i)
-    {
-        cpptiming::Timer t3;
-        sum3 = parallel_sum(my_vector);
-        time3 += t3.elapsed_time<cpptiming::millisecs, double>();
-    }
-    std::cout << "Own MT: " << time3 / NUM_RUNS << "ms sum: " << sum3 << std::endl;
+    // auto time3 = 0.0;
+    // volatile auto sum3 = 0;
+    // for (std::uint32_t i = 0; i < NUM_RUNS; ++i)
+    // {
+    //     cpptiming::Timer t3;
+    //     sum3 = parallel_sum(my_vector);
+    //     time3 += t3.elapsed_time<cpptiming::millisecs, double>();
+    // }
+    // std::cout << "Own MT: " << time3 / NUM_RUNS << "ms sum: " << sum3 << std::endl;
 
     return 0;
 }

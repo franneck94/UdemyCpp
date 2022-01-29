@@ -149,5 +149,6 @@
     "**/.*/**",
     "**/.vscode",
     "**/.vscode/**"
-  ]
+  ],
+  "clang-tidy.compilerArgsBefore": ["-std=c++17"]
 }

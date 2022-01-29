@@ -1,29 +1,33 @@
 #include <iostream>
 
-double div(double a, double b)
+double div(double x, double y)
 {
-    if (b == 0.0)
+    if (y == 0.0)
     {
-        throw "Division by zero!";
+        throw "Divison by zero!";
     }
 
-    return a / b;
+    return x / y;
 }
 
 int main()
 {
     double x = 10.0;
-    double y = 0.0;
+    double y;
+
+    std::cout << "We will compute (x/y)" << '\n';
+    std::cout << "Please enter a value for y=";
+    std::cin >> y;
+    std::cout << '\n';
 
     try
     {
         double z = div(x, y);
-        std::cout << z << std::endl;
+        std::cout << "x/y = " << z << '\n';
     }
     catch (const char *msg)
     {
-        std::cerr << msg << std::endl;
-        double z = 0;
+        std::cerr << msg << '\n';
     }
 
     return 0;

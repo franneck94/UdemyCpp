@@ -10,14 +10,15 @@
 #include <vector>
 
 #include "Timer.h"
+
 /*
-Serial time:      x
-2: Own time:      x
-4: Own time:      x
-6: Own time:      x
-8: Own time:      x
+Serial time:      4.569ms
+2: Own time:      3.336ms
+4: Own time:      3.071ms
+6: Own time:      3.008ms
+8: Own time:      2.975ms
 */
-constexpr std::uint32_t NUM_THREADS = 2;
+constexpr std::uint32_t NUM_THREADS = 8;
 constexpr std::uint32_t NUM_RUNS = 1'000;
 
 template <typename T>
