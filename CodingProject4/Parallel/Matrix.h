@@ -4,10 +4,10 @@
 #include <exception>
 #include <functional>
 #include <iostream>
-#include <omp.h>
 #include <stdexcept>
-#include <type_traits>
 #include <vector>
+
+#include "omp.h"
 
 namespace cppmath
 {
@@ -15,9 +15,6 @@ namespace cppmath
 template <typename T>
 class Matrix
 {
-    static_assert(std::is_floating_point_v<T>,
-                  "An specilization of the matrix class has be of a floating point type!");
-
 public:
     using MatrixDataType = std::vector<std::vector<T>>;
 
@@ -56,7 +53,7 @@ private:
     MatrixDataType m_data;
 
 public:
-    const uint32_t NUM_THREADS = 1;
+    const std::uint32_t NUM_THREADS = 2;
 };
 
 template <typename T>
@@ -272,7 +269,7 @@ Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &rhs)
 }
 
 template <typename T>
-void Matrix<T>::dot(const Matrix<T> &matrixA, const Matrix<T> &matrixB, Matrix<T> &result)
+void Matrix<T>::dot(const Matrix &matrixA, const Matrix &matrixB, Matrix &result)
 {
     for (std::size_t i = 0; i != matrixA.m_rows; ++i)
     {
@@ -288,7 +285,7 @@ void Matrix<T>::dot(const Matrix<T> &matrixA, const Matrix<T> &matrixB, Matrix<T
 }
 
 template <typename T>
-void Matrix<T>::parallel_dot(const Matrix<T> &matrixA, const Matrix<T> &matrixB, Matrix<T> &result)
+void Matrix<T>::parallel_dot(const Matrix &matrixA, const Matrix &matrixB, Matrix &result)
 {
     std::size_t i = 0;
     std::size_t j = 0;
@@ -307,6 +304,7 @@ void Matrix<T>::parallel_dot(const Matrix<T> &matrixA, const Matrix<T> &matrixB,
         }
     }
 }
+
 
 template <typename T>
 void Matrix<T>::print_matrix() const
