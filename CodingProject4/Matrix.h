@@ -15,7 +15,8 @@ namespace cppmath
 template <typename T>
 class Matrix
 {
-    static_assert(std::is_floating_point_v<T>, "An specilization of the matrix class has be of a floating point type!");
+    static_assert(std::is_floating_point_v<T>,
+                  "An specilization of the matrix class has be of a floating point type!");
 
 public:
     using MatrixDataType = std::vector<std::vector<T>>;
@@ -107,7 +108,11 @@ Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &rhs)
 
     for (std::size_t i = 0; i != m_rows; ++i)
     {
-        std::transform(m_data[i].begin(), m_data[i].end(), rhs.m_data[i].begin(), m_data[i].begin(), std::plus<T>());
+        std::transform(m_data[i].begin(),
+                       m_data[i].end(),
+                       rhs.m_data[i].begin(),
+                       m_data[i].begin(),
+                       std::plus<T>());
     }
 
     return *this;
@@ -153,7 +158,11 @@ Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &rhs)
 
     for (std::size_t i = 0; i != m_rows; ++i)
     {
-        std::transform(m_data[i].begin(), m_data[i].end(), rhs.m_data[i].begin(), m_data[i].begin(), std::minus<T>());
+        std::transform(m_data[i].begin(),
+                       m_data[i].end(),
+                       rhs.m_data[i].begin(),
+                       m_data[i].begin(),
+                       std::minus<T>());
     }
 
     return *this;
@@ -166,9 +175,10 @@ Matrix<T> Matrix<T>::operator*(const T &scalar)
 
     for (std::size_t i = 0; i != m_rows; ++i)
     {
-        std::transform(m_data[i].begin(), m_data[i].end(), result.m_data[i].begin(), [scalar](const T val) -> T {
-            return val * scalar;
-        });
+        std::transform(m_data[i].begin(),
+                       m_data[i].end(),
+                       result.m_data[i].begin(),
+                       [scalar](const T val) -> T { return val * scalar; });
     }
 
     return result;
@@ -179,9 +189,10 @@ Matrix<T> &Matrix<T>::operator*=(const T &scalar)
 {
     for (std::size_t i = 0; i != m_rows; ++i)
     {
-        std::transform(m_data[i].begin(), m_data[i].end(), m_data[i].begin(), [scalar](const T val) -> T {
-            return val * scalar;
-        });
+        std::transform(m_data[i].begin(),
+                       m_data[i].end(),
+                       m_data[i].begin(),
+                       [scalar](const T val) -> T { return val * scalar; });
     }
 
     return *this;
@@ -199,9 +210,10 @@ Matrix<T> Matrix<T>::operator/(const T &scalar)
 
     for (std::size_t i = 0; i != m_rows; ++i)
     {
-        std::transform(m_data[i].begin(), m_data[i].end(), result.m_data[i].begin(), [scalar](const T val) -> T {
-            return val / scalar;
-        });
+        std::transform(m_data[i].begin(),
+                       m_data[i].end(),
+                       result.m_data[i].begin(),
+                       [scalar](const T val) -> T { return val / scalar; });
     }
 
     return result;
@@ -212,9 +224,10 @@ Matrix<T> &Matrix<T>::operator/=(const T &scalar)
 {
     for (std::size_t i = 0; i != m_rows; ++i)
     {
-        std::transform(m_data[i].begin(), m_data[i].end(), m_data[i].begin(), [scalar](const T val) -> T {
-            return val / scalar;
-        });
+        std::transform(m_data[i].begin(),
+                       m_data[i].end(),
+                       m_data[i].begin(),
+                       [scalar](const T val) -> T { return val / scalar; });
     }
 
     return *this;
@@ -264,7 +277,8 @@ void Matrix<T>::dot(const Matrix<T> &matrixA, const Matrix<T> &matrixB, Matrix<T
         {
             for (std::size_t k = 0; k != matrixB.m_rows; ++k)
             {
-                result.m_data[i][j] = result.m_data[i][j] + matrixA.m_data[i][k] * matrixB.m_data[k][j];
+                result.m_data[i][j] =
+                    result.m_data[i][j] + matrixA.m_data[i][k] * matrixB.m_data[k][j];
             }
         }
     }
@@ -284,7 +298,8 @@ void Matrix<T>::parallel_dot(const Matrix<T> &matrixA, const Matrix<T> &matrixB,
         {
             for (k = 0; k != matrixB.m_rows; ++k)
             {
-                result.m_data[i][j] = result.m_data[i][j] + matrixA.m_data[i][k] * matrixB.m_data[k][j];
+                result.m_data[i][j] =
+                    result.m_data[i][j] + matrixA.m_data[i][k] * matrixB.m_data[k][j];
             }
         }
     }

@@ -1,27 +1,33 @@
-#include <chrono>
 #include <iostream>
 
 #include "Matrix.h"
+#include "Timer.h"
 
+/**
+ * Serial: 3521.650 us
+ *      2: 1880.130 us
+ *      4: 1050.950 us
+ *      6:  842.778 us
+ *      8:  851.907 us
+ *     10:  737.070 us
+ *     12:  668.312 us
+ */
 int main()
 {
-    cppmath::Matrix<double> m1(250, 250, -1.3);
-    cppmath::Matrix<double> m2(250, 250, -1.3);
+    cppmath::Matrix<double> m1(250, 250, -1.0);
+    cppmath::Matrix<double> m2(250, 250, -1.0);
 
-    auto start = std::chrono::high_resolution_clock::now();
-    cppmath::Matrix<double> m3 = m1 * m2;
-    auto end = std::chrono::high_resolution_clock::now();
+    uint32_t num_runs = 1'000U;
+    double total_time = 0.0;
 
-    std::chrono::duration<double, std::milli> ms = end - start;
-    std::cout << std::endl << "Time in ms: " << ms.count();
+    for (uint32_t i = 0; i < num_runs; ++i)
+    {
+        cpptiming::Timer t;
+        cppmath::Matrix<double> m3 = m1 * m2;
+        total_time += t.elapsed_time<cpptiming::microsecs, double>();
+    }
 
-    // 1: Time in ms: 14.6428
-    // 2: Time in ms: 8.4694
-    // 4: Time in ms: 7.0167
-    // 6: Time in ms: 5.6923
-    // 8: Time in ms: 4.1401
-    // 10: Time in ms: 3.9459
-    // 12: Time in ms: 4.6522
+    std::cout << "Mean time: " << total_time / num_runs << " us" << std::endl;
 
     return 0;
 }

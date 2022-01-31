@@ -75,7 +75,18 @@
     "stop_token": "cpp",
     "streambuf": "cpp",
     "thread": "cpp",
-    "typeinfo": "cpp"
+    "typeinfo": "cpp",
+    "bitset": "cpp",
+    "codecvt": "cpp",
+    "forward_list": "cpp",
+    "list": "cpp",
+    "set": "cpp",
+    "optional": "cpp",
+    "fstream": "cpp",
+    "iomanip": "cpp",
+    "ranges": "cpp",
+    "span": "cpp",
+    "sstream": "cpp"
   },
   "workbench.editorAssociations": {
     "*.md": "vscode.markdown.preview.editor"
