@@ -70,7 +70,7 @@ int main()
 
 Resultiert in folgender Ausgabe:
 
-![alt](./../media/Exercise9.png)
+![alt](./../../media/Exercise9.png)
 
 ## Hinweise
 

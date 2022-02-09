@@ -34,7 +34,7 @@ Wenn eine Dimension (Höhe oder Breite) des Bildes größer wird, soll die Matri
 
 ### Konsolen-Output
 
-![alt](./../media/Exercise8_1.png)
+![alt](./../../media/Exercise8_1.png)
 
 ### Aufgabe 4
 
@@ -56,7 +56,7 @@ void draw_line(const unsigned int x1, const unsigned int y1,
 
 ### Beispiel-Bild
 
-![alt](./../media/Exercise8_2.bmp)
+![alt](./../../media/Exercise8_2.bmp)
 
 ## Hinweise
 

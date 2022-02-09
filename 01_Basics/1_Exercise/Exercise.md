@@ -22,7 +22,7 @@ Die Funktion soll in der exercise.h Datei deklariert und in der exercise.cc (ode
 
 ## Beispiel
 
-![alt](./../media/Exercise1.png)
+![alt](./../../media/Exercise1.png)
 
 ## Hinweise
 

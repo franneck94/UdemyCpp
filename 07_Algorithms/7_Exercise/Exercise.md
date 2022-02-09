@@ -22,7 +22,7 @@ std::bernoulli_distribution
 
 Beispiel für den erzeugten Target Vector und den "ge-shuffelten" Input Vektor.
 
-![alt](./../media/Exercise7_1.png)
+![alt](./../../media/Exercise7_1.png)
 
 ### Aufgabe 2
 
@@ -36,7 +36,7 @@ Die einen Binären Vektor "target" und einen Binären Vektor "input" entgegennim
 
 ### Beispiel Aufgabe 2
 
-![alt](./../media/Exercise7_2.png)
+![alt](./../../media/Exercise7_2.png)
 
 ### Aufgabe 3
 
@@ -50,7 +50,7 @@ Diese soll nicht immer den kompletten Vector Shuffeln, sondern nur ab dem Index
 
 ### Beispiel Aufgabe 3
 
-![alt](./../media/Exercise7_3.png)
+![alt](./../../media/Exercise7_3.png)
 
 ## Hinweise
 

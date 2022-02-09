@@ -13,7 +13,7 @@ Initialisiert eine 3x3 Matrix in der Main Funktion, mit den Wert (i + j) an dem 
 
 ### Beispiel Aufgabe 1
 
-![alt](./../media/Exercise4_1.png)
+![alt](./../../media/Exercise4_1.png)
 
 ## Aufgabe 2
 
@@ -27,7 +27,7 @@ die eine Matrix entgegennimmt und die Zeilenmaxima der Matrix berechnet und di
 
 ### Beispiel Aufgabe 2
 
-![alt](./../media/Exercise4_2.png)
+![alt](./../../media/Exercise4_2.png)
 
 ## Aufgabe 3
 
@@ -41,7 +41,7 @@ die einen Double-Vector entgegennimmt und diesen aufstiegend sortiert und zusät
 
 ### Beispiel Aufgabe 3
 
-![alt](./../media/Exercise4_3.png)
+![alt](./../../media/Exercise4_3.png)
 
 ## Hinweise
 
