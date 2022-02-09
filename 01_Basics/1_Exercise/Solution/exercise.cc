@@ -8,7 +8,7 @@ void mod_cross_sum(int I, int J)
     {
         for (int j = 0; j < J; j++)
         {
-            if ((i + j) % 2)
+            if (((i + j) % 2) == 1)
             {
                 std::cout << "i: " << i << " , j: " << j << " := Ungerade!" << std::endl;
             }
