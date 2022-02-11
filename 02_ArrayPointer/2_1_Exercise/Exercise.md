@@ -49,8 +49,3 @@ int* array = array_constructor(5, 3)
 ```
 
 Das heißt wenn ihr sagt, dass Array soll 3 Elemente haben und der Wert ist 5, resultiert ein Array mit 3 Indizes, bei denen überall der Wert 5 ist.
-
-## Hinweise
-
-Der Udemy Compiler überprüft nur, ob ihr eine Lösung abgegeben habt.  
-Meine Musterlösung werde ich im folgenden Video vorstellen.

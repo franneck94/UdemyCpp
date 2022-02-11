@@ -51,8 +51,3 @@ Diese soll nicht immer den kompletten Vector Shuffeln, sondern nur ab dem Index
 ### Beispiel Aufgabe 3
 
 ![alt](./../../media/Exercise7_3.png)
-
-## Hinweise
-
-Der Udemy Compiler überprüft nur, ob ihr eine Lösung abgegeben habt.  
-Meine Musterlösung werde ich im folgenden Video vorstellen.

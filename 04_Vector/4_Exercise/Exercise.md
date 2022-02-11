@@ -42,8 +42,3 @@ die einen Double-Vector entgegennimmt und diesen aufstiegend sortiert und zusät
 ### Beispiel Aufgabe 3
 
 ![alt](./../../media/Exercise4_3.png)
-
-## Hinweise
-
-Der Udemy Compiler überprüft nur, ob ihr eine Lösung abgegeben habt.  
-Meine Musterlösung werde ich im folgenden Video vorstellen.

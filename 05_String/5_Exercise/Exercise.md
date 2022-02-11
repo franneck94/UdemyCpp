@@ -37,8 +37,3 @@ ByteArray hex_vector_xor(ByteArray &vec1, ByteArray &vec2);
 ```
 
 die zwei ByteArrays entgegennimmt und die einzelnen Werte der Arrays XORed. Das Ergebnis soll in einen neuen Vector (ByteArray) abgespeichert werden.
-
-## Hinweise
-
-Der Udemy Compiler überprüft nur, ob ihr eine Lösung abgegeben habt.  
-Meine Musterlösung werde ich im folgenden Video vorstellen.

@@ -40,8 +40,3 @@ for (const auto &val : my_result)
     std::cout << val << std::endl;
 }
 ```
-
-## Hinweise
-
-Der Udemy Compiler überprüft nur, ob ihr eine Lösung abgegeben habt.  
-Meine Musterlösung werde ich im folgenden Video vorstellen.

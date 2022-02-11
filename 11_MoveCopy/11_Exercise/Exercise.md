@@ -25,8 +25,3 @@ Erstelle den Copy-Assignment Operator für die Matirx Klasse.
 ```cpp
 Matrix& operator=(const Matrix &other);
 ```
-
-## Hinweise
-
-Der Udemy Compiler überprüft nur, ob ihr eine Lösung abgegeben habt.  
-Meine Musterlösung werde ich im folgenden Video vorstellen.

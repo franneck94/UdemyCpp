@@ -17,8 +17,3 @@ Finde den Fehler beim Erstellen des unique_ptr in der Main Funktion.
 ### Aufgabe 2
 
 Was ist der use_count in Zeile 21 und 35 (ohne den Code auszuführen)?
-
-## Hinweise
-
-Der Udemy Compiler überprüft nur, ob ihr eine Lösung abgegeben habt.  
-Meine Musterlösung werde ich im folgenden Video vorstellen.

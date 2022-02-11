@@ -52,8 +52,3 @@ struct Dataset
 ```
 
 Die Definition der Struktur soll ebenfalls im Namespace "computation" in der Datei "exercise.h" geschehen.Legt dann in der Main Funktion eine Variable dieser Struktur an und speichert die Mittelwerte von Aufgabe 1 ab.
-
-## Hinweise
-
-Der Udemy Compiler überprüft nur, ob ihr eine Lösung abgegeben habt.  
-Meine Musterlösung werde ich im folgenden Video vorstellen.

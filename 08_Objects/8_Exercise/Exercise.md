@@ -57,8 +57,3 @@ void draw_line(const unsigned int x1, const unsigned int y1,
 ### Beispiel-Bild
 
 ![alt](./../../media/Exercise8_2.bmp)
-
-## Hinweise
-
-Der Udemy Compiler überprüft nur, ob ihr eine Lösung abgegeben habt.  
-Meine Musterlösung werde ich im folgenden Video vorstellen.
