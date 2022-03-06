@@ -1,15 +1,17 @@
 #include <iostream>
 
-// Single Character
-// Okay: ''
-// Forbidden: ""
 
 int main()
 {
-    char my_character1 = 'A';
-    char offset = 2;
+    char letter_a = 'A';
 
-    std::cout << my_character1 + offset << std::endl;
+    std::cout << letter_a << std::endl;
+    std::cout << (int)letter_a << std::endl;
+
+    char letter_a2 = letter_a + 3;
+
+    std::cout << letter_a2 << std::endl;
+    std::cout << (int)letter_a2 << std::endl;
 
     return 0;
 }
