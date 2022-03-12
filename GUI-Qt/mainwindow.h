@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstdint>
 #include <string>
 #include <utility>
 #include <vector>
@@ -10,16 +11,16 @@
 #include <QMainWindow>
 #include <QPushButton>
 
-using Position = std::pair<unsigned int, unsigned int>;
+using Position = std::pair<std::uint32_t, std::uint32_t>;
 using GameState = std::vector<std::vector<QLabel *>>;
 using Obstacles = std::vector<Position>;
 
-constexpr unsigned int NUM_OBSTACLES = 3;
-constexpr unsigned int LEN_X = 5;
-constexpr unsigned int LEN_Y = 5;
-constexpr Position START = {0, 0};
+constexpr auto NUM_OBSTACLES = std::uint32_t{3};
+constexpr auto LEN_X = std::uint32_t{5};
+constexpr auto LEN_Y = std::uint32_t{5};
+constexpr auto START = Position{0, 0};
 
-enum class ConsoleInput : int
+enum class ConsoleInput
 {
     LEFT = 0,
     RIGHT = 1,
@@ -39,7 +40,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-  public:
+public:
     MainWindow(QWidget *parent = nullptr);
 
     ~MainWindow();
@@ -56,22 +57,21 @@ class MainWindow : public QMainWindow
 
     bool is_finished();
 
-    unsigned int random_uint(const unsigned int lower,
-                             const unsigned int upper);
+    std::uint32_t random_uint(const std::uint32_t lower, const std::uint32_t upper);
 
-    Position random_position(const unsigned int lower_x,
-                             const unsigned int upper_x,
-                             const unsigned int lower_y,
-                             const unsigned int upper_y);
+    Position random_position(const std::uint32_t lower_x,
+                             const std::uint32_t upper_x,
+                             const std::uint32_t lower_y,
+                             const std::uint32_t upper_y);
 
-  private slots:
+private slots:
     void start_game();
     void keyPressEvent(QKeyEvent *event);
 
-  private:
+private:
     ConsoleInput m_move = ConsoleInput::INVALID;
     bool m_in_game = false;
-    unsigned int m_points = 0;
+    std::uint32_t m_points = 0;
 
     Ui::MainWindow *ui;
 
@@ -84,8 +84,9 @@ class MainWindow : public QMainWindow
     QGridLayout *m_field_grid_layout;
     QLabel *m_points_label;
 
-    const QString m_ressources_path =
-        "C:/Users/Jan/Dropbox/_Coding/UdemyCpp/GUI-Computerspiel/ressources/";
+    const QString m_current_path =
+        QString::fromStdString("C:/Users/Jan/Dropbox/_Coding/UdemyCpp/GUI-Qt/");
+    const QString m_ressources_path = m_current_path + "ressources/";
     const QString m_field_icon_path = m_ressources_path + "FieldIcon.png";
     const QString m_player_icon_path = m_ressources_path + "PlayerIcon.png";
     const QString m_obstacle_icon_path = m_ressources_path + "ObstacleIcon.png";

@@ -30,23 +30,28 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     {
         switch (event->key())
         {
-        case Qt::Key_A: {
+        case Qt::Key_A:
+        {
             m_move = ConsoleInput::LEFT;
             break;
         }
-        case Qt::Key_D: {
+        case Qt::Key_D:
+        {
             m_move = ConsoleInput::RIGHT;
             break;
         }
-        case Qt::Key_W: {
+        case Qt::Key_W:
+        {
             m_move = ConsoleInput::UP;
             break;
         }
-        case Qt::Key_S: {
+        case Qt::Key_S:
+        {
             m_move = ConsoleInput::DOWN;
             break;
         }
-        default: {
+        default:
+        {
             m_move = ConsoleInput::INVALID;
             break;
         }
@@ -60,42 +65,29 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             move_obstacles();
             update_game_state();
 
-            if (is_dead())
-            {
-                m_in_game = false;
-
-                std::cout << "You died!" << std::endl;
-            }
-            else if (is_finished())
-            {
-                m_in_game = false;
-
-                std::cout << "You won the game!" << std::endl;
-            }
+            m_in_game = !is_dead();
+            m_in_game = !is_finished();
         }
     }
 }
 
 void MainWindow::update_game_state()
 {
-    for (unsigned int i = 0; i < LEN_X; ++i)
+    for (std::uint32_t i = 0; i < LEN_X; ++i)
     {
-        for (unsigned int j = 0; j < LEN_Y; ++j)
+        for (std::uint32_t j = 0; j < LEN_Y; ++j)
         {
             m_game_state[i][j]->setPixmap(QPixmap(m_field_icon_path));
         }
     }
 
-    for (auto &obs : m_obstacles)
+    for (const auto &obs : m_obstacles)
     {
-        m_game_state[obs.first][obs.second]->setPixmap(
-            QPixmap(m_obstacle_icon_path));
+        m_game_state[obs.first][obs.second]->setPixmap(QPixmap(m_obstacle_icon_path));
     }
 
-    m_game_state[m_player.first][m_player.second]->setPixmap(
-        QPixmap(m_player_icon_path));
-    m_game_state[m_goal.first][m_goal.second]->setPixmap(
-        QPixmap(m_goal_icon_path));
+    m_game_state[m_player.first][m_player.second]->setPixmap(QPixmap(m_player_icon_path));
+    m_game_state[m_goal.first][m_goal.second]->setPixmap(QPixmap(m_goal_icon_path));
     m_points_label->setText(QString::number(m_points));
 }
 
@@ -103,66 +95,41 @@ void MainWindow::move_player()
 {
     switch (m_move)
     {
-    case ConsoleInput::LEFT: {
+    case ConsoleInput::LEFT:
+    {
         if (m_player.second > START.second)
         {
             m_player.second--;
-
-            std::cout << "You moved to the left!" << std::endl;
         }
-        else
-        {
-            std::cout << "You bounced!" << std::endl;
-        }
-
         break;
     }
-    case ConsoleInput::RIGHT: {
+    case ConsoleInput::RIGHT:
+    {
         if (m_player.second < LEN_Y)
         {
             m_player.second++;
-
-            std::cout << "You moved to the right!" << std::endl;
         }
-        else
-        {
-            std::cout << "You bounced!" << std::endl;
-        }
-
         break;
     }
-    case ConsoleInput::UP: {
+    case ConsoleInput::UP:
+    {
         if (m_player.first > START.first)
         {
             m_player.first--;
-
-            std::cout << "You moved upwards!" << std::endl;
         }
-        else
-        {
-            std::cout << "You bounced!" << std::endl;
-        }
-
         break;
     }
-    case ConsoleInput::DOWN: {
+    case ConsoleInput::DOWN:
+    {
         if (m_player.first < LEN_X)
         {
             m_player.first++;
-
-            std::cout << "You moved downwards!" << std::endl;
         }
-        else
-        {
-            std::cout << "You bounced!" << std::endl;
-        }
-
         break;
     }
     case ConsoleInput::INVALID:
-    default: {
-        std::cout << "Unrecognized move!" << std::endl;
-
+    default:
+    {
         break;
     }
     }
@@ -174,12 +141,11 @@ void MainWindow::move_obstacles()
     {
         Position offset = random_position(-1, 1, -1, 1);
 
-        if (obs.first + offset.first < LEN_X &&
-            obs.second + offset.second < LEN_Y &&
-            obs.first + offset.first != m_player.first &&
-            obs.second + offset.second != m_player.second &&
-            obs.first + offset.first != m_goal.first &&
-            obs.second + offset.second != m_goal.second)
+        if ((obs.first + offset.first < LEN_X) && (obs.second + offset.second < LEN_Y) &&
+            (obs.first + offset.first != m_player.first) &&
+            (obs.second + offset.second != m_player.second) &&
+            (obs.first + offset.first != m_goal.first) &&
+            (obs.second + offset.second != m_goal.second))
         {
             obs.first += offset.first;
             obs.second += offset.second;
@@ -210,28 +176,20 @@ bool MainWindow::is_dead()
 
 bool MainWindow::is_finished()
 {
-    bool finished = false;
-
-    if (m_goal == m_player)
-    {
-        finished = true;
-    }
-
-    return finished;
+    return (m_goal == m_player);
 }
 
-unsigned int MainWindow::random_uint(const unsigned int lower,
-                                     const unsigned int upper)
+std::uint32_t MainWindow::random_uint(const std::uint32_t lower, const std::uint32_t upper)
 {
-    std::uniform_int_distribution<unsigned int> dist(lower, upper);
+    std::uniform_int_distribution<std::uint32_t> dist(lower, upper);
 
     return dist(*QRandomGenerator::global());
 }
 
-Position MainWindow::random_position(const unsigned int lower_x,
-                                     const unsigned int upper_x,
-                                     const unsigned int lower_y,
-                                     const unsigned int upper_y)
+Position MainWindow::random_position(const std::uint32_t lower_x,
+                                     const std::uint32_t upper_x,
+                                     const std::uint32_t lower_y,
+                                     const std::uint32_t upper_y)
 {
     Position pos(random_uint(lower_x, upper_x), random_uint(lower_y, upper_y));
 
@@ -248,12 +206,11 @@ void MainWindow::start_game()
     m_goal = random_position(2, LEN_X - 1, 2, LEN_Y - 1);
     generate_random_obstacles();
 
-    for (unsigned int i = 0; i < LEN_X; ++i)
+    for (std::uint32_t i = 0; i < LEN_X; ++i)
     {
-        for (unsigned int j = 0; j < LEN_Y; ++j)
+        for (std::uint32_t j = 0; j < LEN_Y; ++j)
         {
-            QString field_name =
-                "Field" + QString::number(i) + "_" + QString::number(j);
+            const QString field_name = "Field" + QString::number(i) + "_" + QString::number(j);
             m_game_state[i][j] = MainWindow::findChild<QLabel *>(field_name);
         }
     }

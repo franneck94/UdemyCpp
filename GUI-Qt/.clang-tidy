@@ -1,0 +1,14 @@
+---
+Checks: '
+clang-analyzer-*,
+clang-cppcoreguidelines-*,
+clang-modernize-*,
+-cppcoreguidelines-avoid-magic-numbers,
+-cppcoreguidelines-macro-usage,
+-cppcoreguidelines-owning-memory
+'
+WarningsAsErrors: '*'
+HeaderFilterRegex: '.*'
+AnalyzeTemporaryDtors: false
+FormatStyle:     none
+...

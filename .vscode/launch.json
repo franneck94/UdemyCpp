@@ -53,9 +53,9 @@
         ""
       ],
       "stopAtEntry": false,
-      "cwd": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/13_ThreadsExceptions/OpenMP",
+      "cwd": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/01_Basics/GuessingGame",
       "environment": [],
-      "program": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/13_ThreadsExceptions/OpenMP/build/Release/outRelease",
+      "program": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/01_Basics/GuessingGame/build/Debug/outDebug",
       "internalConsoleOptions": "openOnSessionStart",
       "MIMode": "gdb",
       "miDebuggerPath": "C:/cygwin64/bin/gdb.exe",
