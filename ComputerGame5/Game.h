@@ -1,16 +1,17 @@
 #pragma once
 
+#include <cstdint>
 #include <string>
 #include <utility>
 #include <vector>
 
-using Position = std::pair<unsigned int, unsigned int>;
+using Position = std::pair<std::uint32_t, std::uint32_t>;
 using GameState = std::vector<std::string>;
 using Obstacles = std::vector<Position>;
 
-constexpr unsigned int NUM_OBSTACLES = 3;
-constexpr unsigned int LEN_X = 5;
-constexpr unsigned int LEN_Y = 5;
+constexpr std::uint32_t NUM_OBSTACLES = 3;
+constexpr std::uint32_t LEN_X = 5;
+constexpr std::uint32_t LEN_Y = 5;
 constexpr Position START = {0, 0};
 
 enum class ConsoleInput : int
@@ -43,12 +44,12 @@ public:
 
     bool is_finished();
 
-    unsigned int random_uint(const unsigned int lower, const unsigned int upper);
+    std::uint32_t random_uint(const std::uint32_t lower, const std::uint32_t upper);
 
-    Position random_position(const unsigned int lower_x,
-                             const unsigned int upper_x,
-                             const unsigned int lower_y,
-                             const unsigned int upper_y);
+    Position random_position(const std::uint32_t lower_x,
+                             const std::uint32_t upper_x,
+                             const std::uint32_t lower_y,
+                             const std::uint32_t upper_y);
 
     void start_game();
 
