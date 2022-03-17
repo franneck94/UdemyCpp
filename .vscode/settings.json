@@ -161,5 +161,5 @@
     "**/.vscode",
     "**/.vscode/**"
   ],
-  "clang-tidy.compilerArgsBefore": ["-std=c++17"]
+  "C_Cpp.codeAnalysis.clangTidy.enabled": true
 }
