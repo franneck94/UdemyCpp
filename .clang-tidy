@@ -5,10 +5,7 @@ clang-cppcoreguidelines-*,
 clang-modernize-*,
 bugprone-*,
 readability-*,
-performance-*,
-portability-*,
-cert-*,
-hicpp-*'
+performance-*''
 WarningsAsErrors: '*'
 HeaderFilterRegex: '.*'
 AnalyzeTemporaryDtors: false
