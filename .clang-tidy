@@ -3,9 +3,10 @@ Checks: '
 clang-analyzer-*,
 clang-cppcoreguidelines-*,
 clang-modernize-*,
-bugprone-*,
-readability-*,
-performance-*''
+-cppcoreguidelines-avoid-magic-numbers,
+-cppcoreguidelines-macro-usage,
+-cppcoreguidelines-owning-memory
+'
 WarningsAsErrors: '*'
 HeaderFilterRegex: '.*'
 AnalyzeTemporaryDtors: false
