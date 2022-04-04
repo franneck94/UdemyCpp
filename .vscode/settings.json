@@ -1,61 +1,89 @@
 {
-    "C_Cpp_Config.cCompilerPath": "C:/cygwin64/bin/gcc.exe",
-    "C_Cpp_Config.cppCompilerPath": "C:/cygwin64/bin/g++.exe",
-    "C_Cpp_Config.debuggerPath": "C:/cygwin64/bin/gdb.exe",
-    "C_Cpp_Config.makePath": "C:/cygwin64/bin/make.exe",
-    "editor.tabSize": 4,
-    "editor.rulers": [
-        80,
-        120
-    ],
-    "editor.renderWhitespace": "trailing",
-    "editor.suggestSelection": "first",
-    "diffEditor.ignoreTrimWhitespace": false,
-    "terminal.integrated.defaultProfile.windows": "Command Prompt",
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-    "files.autoSave": "onFocusChange",
-    "files.associations": {
-        ".clang*": "yaml"
-    },
-    "workbench.editorAssociations": {
-        "*.md": "vscode.markdown.preview.editor"
-    },
-    "workbench.startupEditor": "newUntitledFile",
-    "git.enableSmartCommit": true,
-    "git.autofetch": true,
-    "git.confirmSync": false,
-    "C_Cpp.clang_format_sortIncludes": true,
-    "C_Cpp.default.cppStandard": "c++17",
-    "C_Cpp.default.cStandard": "c99",
-    "C_Cpp.formatting": "clangFormat",
-    "cmake.configureOnOpen": false,
-    "cmake.autoSelectActiveFolder": false,
-    "cmake.configureOnEdit": false,
-    "doxdocgen.file.fileTemplate": "@file {name}",
-    "doxdocgen.cpp.tparamTemplate": "@tparam {param} ",
-    "doxdocgen.generic.briefTemplate": "@brief {text}",
-    "doxdocgen.generic.boolReturnsTrueFalse": false,
-    "doxdocgen.generic.paramTemplate": "@param {param} ",
-    "doxdocgen.generic.returnTemplate": "@return",
-    "doxdocgen.generic.includeTypeAtReturn": false,
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "C_Cpp_Config.cCompilerPath": "C:/cygwin64/bin/gcc.exe",
+  "C_Cpp_Config.cppCompilerPath": "C:/cygwin64/bin/g++.exe",
+  "C_Cpp_Config.debuggerPath": "C:/cygwin64/bin/gdb.exe",
+  "C_Cpp_Config.makePath": "C:/cygwin64/bin/make.exe",
+  "editor.tabSize": 4,
+  "editor.rulers": [
+    80,
+    120
+  ],
+  "editor.renderWhitespace": "trailing",
+  "editor.suggestSelection": "first",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "files.autoSave": "onFocusChange",
+  "files.associations": {
+    ".clang*": "yaml"
+  },
+  "workbench.editorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
+  },
+  "workbench.startupEditor": "newUntitledFile",
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "C_Cpp.clang_format_sortIncludes": true,
+  "C_Cpp.default.cppStandard": "c++17",
+  "C_Cpp.default.cStandard": "c99",
+  "C_Cpp.formatting": "clangFormat",
+  "cmake.configureOnOpen": false,
+  "cmake.autoSelectActiveFolder": false,
+  "cmake.configureOnEdit": false,
+  "doxdocgen.file.fileTemplate": "@file {name}",
+  "doxdocgen.cpp.tparamTemplate": "@tparam {param} ",
+  "doxdocgen.generic.briefTemplate": "@brief {text}",
+  "doxdocgen.generic.boolReturnsTrueFalse": false,
+  "doxdocgen.generic.paramTemplate": "@param {param} ",
+  "doxdocgen.generic.returnTemplate": "@return",
+  "doxdocgen.generic.includeTypeAtReturn": false,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.tabWidth": 4,
+  "[c]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "prettier.tabWidth": 4,
-    "[c]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "ms-vscode.cpptools"
-    },
-    "[cpp]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "ms-vscode.cpptools"
-    },
-    "Workspace_Formatter.includePattern": [
-        "*.c",
-        "*.h",
-        "*.cc",
-        "*.hh",
-        "*.hpp"
-    ]
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "[cpp]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "Workspace_Formatter.includePattern": [
+    "*.c",
+    "*.h",
+    "*.cc",
+    "*.hh",
+    "*.hpp"
+  ],
+  "C_Cpp_Runner.cCompilerPath": "C:/cygwin64/bin/gcc.exe",
+  "C_Cpp_Runner.cppCompilerPath": "C:/cygwin64/bin/g++.exe",
+  "C_Cpp_Runner.debuggerPath": "gdb",
+  "C_Cpp_Runner.cStandard": "",
+  "C_Cpp_Runner.cppStandard": "",
+  "C_Cpp_Runner.msvcBatchPath": "",
+  "C_Cpp_Runner.warnings": [
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic"
+  ],
+  "C_Cpp_Runner.enableWarnings": true,
+  "C_Cpp_Runner.warningsAsError": false,
+  "C_Cpp_Runner.compilerArgs": [],
+  "C_Cpp_Runner.linkerArgs": [],
+  "C_Cpp_Runner.includePaths": [],
+  "C_Cpp_Runner.includeSearch": [
+    "*",
+    "**/*"
+  ],
+  "C_Cpp_Runner.excludeSearch": [
+    "**/build",
+    "**/build/**",
+    "**/.*",
+    "**/.*/**",
+    "**/.vscode",
+    "**/.vscode/**"
+  ]
 }

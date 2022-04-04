@@ -1,49 +1,72 @@
 {
-    "version": "0.2.0",
-    "configurations": [
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Cpp: Debug (Single File)",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "program": "${fileDirname}/${fileBasenameNoExtension}Debug",
+      "internalConsoleOptions": "openOnSessionStart",
+      "preLaunchTask": "Cpp: Debug (Single File)",
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:/cygwin64/bin/gdb.exe",
+      "externalConsole": true,
+      "setupCommands": [
         {
-            "name": "Cpp: Debug (Single File)",
-            "type": "cppdbg",
-            "request": "launch",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "program": "${fileDirname}/${fileBasenameNoExtension}Debug",
-            "internalConsoleOptions": "openOnSessionStart",
-            "preLaunchTask": "Cpp: Debug (Single File)",
-            "MIMode": "gdb",
-            "miDebuggerPath": "C:/cygwin64/bin/gdb.exe",
-            "externalConsole": true,
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ]
-        },
-        {
-            "name": "Cpp: Debug (Folder)",
-            "type": "cppdbg",
-            "request": "launch",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "program": "${fileDirname}/${fileBasenameNoExtension}Debug",
-            "internalConsoleOptions": "openOnSessionStart",
-            "preLaunchTask": "Cpp: Debug (Folder)",
-            "MIMode": "gdb",
-            "miDebuggerPath": "C:/cygwin64/bin/gdb.exe",
-            "externalConsole": true,
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ]
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
         }
-    ]
+      ]
+    },
+    {
+      "name": "Cpp: Debug (Folder)",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "program": "${fileDirname}/${fileBasenameNoExtension}Debug",
+      "internalConsoleOptions": "openOnSessionStart",
+      "preLaunchTask": "Cpp: Debug (Folder)",
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:/cygwin64/bin/gdb.exe",
+      "externalConsole": true,
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [
+        ""
+      ],
+      "stopAtEntry": false,
+      "cwd": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/01_Basics/Test",
+      "environment": [],
+      "program": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/01_Basics/Test/build/Debug/outDebug",
+      "internalConsoleOptions": "openOnSessionStart",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "externalConsole": true,
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
 }
