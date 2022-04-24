@@ -16,7 +16,12 @@
   "explorer.confirmDelete": false,
   "files.autoSave": "onFocusChange",
   "files.associations": {
-    ".clang*": "yaml"
+    "*.pyd": "Cython",
+    "*.pyx": "Cython",
+    ".clang*": "yaml",
+    "*.gpj": "jsonc",
+    "*.gvw": "jsonc",
+    "cstdint": "cpp"
   },
   "workbench.editorAssociations": {
     "*.md": "vscode.markdown.preview.editor"
