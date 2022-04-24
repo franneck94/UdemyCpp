@@ -1,6 +1,6 @@
 #pragma once
 
-#include <cstddef>
+#include <cstdlib>
 
 template <typename T>
 class DynamicArray

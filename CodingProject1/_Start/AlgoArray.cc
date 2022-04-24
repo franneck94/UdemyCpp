@@ -1,5 +1,5 @@
 #include <cmath>
-#include <cstdint>
+#include <cstdlib>
 
 #include "AlgoArray.h"
 #include "DynArray.h"

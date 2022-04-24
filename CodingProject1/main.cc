@@ -1,10 +1,9 @@
-#include <cstddef>
+#include <cstdlib>
 #include <iostream>
 
 #include "AlgoArray.h"
 #include "DynArray.h"
 
-// int main()
 int main()
 {
     double fill_value = 1.0;
