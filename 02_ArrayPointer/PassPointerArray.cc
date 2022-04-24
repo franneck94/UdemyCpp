@@ -1,44 +1,39 @@
 #include <iostream>
 
-// int* input_array <=> int input_array[]
-int array_maximum(int *input_array, unsigned int length)
+int array_maximum(int *array, unsigned int length)
 {
-    int current_max_value = 0;
+    int max_val = array[0];
 
-    for (int i = 0; i < length; i++)
+    for (unsigned int i = 1; i < length; ++i)
     {
-        if (i == 0)
+        if (array[i] > max_val)
         {
-            current_max_value = input_array[i];
-        }
-        else if (input_array[i] > current_max_value)
-        {
-            current_max_value = input_array[i];
+            max_val = array[i];
         }
     }
 
-    return current_max_value;
+    return max_val;
 }
+
 
 int main()
 {
     unsigned int array_size = 10;
 
-    // Heap Allocation
+    // Heap allocation
     int *p = new int[array_size];
 
-    for (int i = 0; i < array_size; i++)
+    for (unsigned int i = 0; i < array_size; ++i)
     {
         p[i] = i;
     }
 
-    std::cout << array_maximum(p, array_size) << std::endl;
+    int maximum = array_maximum(p, array_size);
 
-    // Heap De-Allocation
+    std::cout << maximum << std::endl;
+
+    // Heap de-allocation
     delete[] p;
-
-    int a[5] = {4, 5, 6, 7, 8};
-    std::cout << array_maximum(a, 5) << std::endl;
 
     return 0;
 }
