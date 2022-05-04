@@ -49,17 +49,15 @@
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
-      "args": [
-        ""
-      ],
+      "args": [],
       "stopAtEntry": false,
-      "cwd": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/01_Basics/Test",
+      "cwd": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/06_ContainerIterator",
       "environment": [],
-      "program": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/01_Basics/Test/build/Debug/outDebug",
+      "program": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/06_ContainerIterator/build/Debug/outDebug",
       "internalConsoleOptions": "openOnSessionStart",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
-      "externalConsole": true,
+      "console": "integratedTerminal",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
