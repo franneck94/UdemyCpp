@@ -5,7 +5,7 @@ namespace fs = std::filesystem;
 
 int main()
 {
-    fs::path workspace_path = "C:/Users/Jan/Dropbox/_Coding/UdemyCpp";
+    fs::path workspace_path = "C:/Users/Jan/OneDrive/_Coding/UdemyCpp";
     fs::path chapter_path;
     chapter_path = workspace_path;
     chapter_path /= "5_STLString";
