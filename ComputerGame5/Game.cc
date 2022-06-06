@@ -54,6 +54,50 @@ Game::Game()
     }
 }
 
+void Game::execute_move(Position &player, const ConsoleInput move)
+{
+    switch (move)
+    {
+    case ConsoleInput::LEFT:
+    {
+        if (player.second > 0)
+        {
+            player.second--;
+        }
+        break;
+    }
+    case ConsoleInput::RIGHT:
+    {
+        if (player.second < LEN_Y - 1)
+        {
+            player.second++;
+        }
+        break;
+    }
+    case ConsoleInput::UP:
+    {
+        if (player.first > 0)
+        {
+            player.first--;
+        }
+        break;
+    }
+    case ConsoleInput::DOWN:
+    {
+        if (player.first < LEN_X - 1)
+        {
+            player.first++;
+        }
+        break;
+    }
+    case ConsoleInput::INVALID:
+    default:
+    {
+        break;
+    }
+    }
+}
+
 void Game::print_game_state(const Position &player, const Obstacles &obstacles)
 {
     GameState game_state(LEN_X, std::string(LEN_Y, '.'));
