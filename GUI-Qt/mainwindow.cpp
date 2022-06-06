@@ -7,10 +7,7 @@
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow), m_player(Position(0, 0)),
-      m_goal(random_position(2, LEN_X - 1, 2, LEN_Y - 1)),
-      m_game_state(GameState(LEN_X, std::vector<QLabel *>(LEN_Y))),
-      m_obstacles(Obstacles(NUM_OBSTACLES, Position(0, 0)))
+    : QMainWindow(parent), ui(new Ui::MainWindow), m_game_state(GameState(LEN_X, std::vector<QLabel *>(LEN_Y)))
 {
     ui->setupUi(this);
     m_play_button = ui->playButton;
@@ -22,6 +19,21 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+uint32_t MainWindow::random_uint(const uint32_t lower, const uint32_t upper)
+{
+    std::uniform_int_distribution<std::uint32_t> dist(lower, upper);
+
+    return dist(*QRandomGenerator::global());
+}
+
+Position MainWindow::random_position(const uint32_t lower_x,
+                                     const uint32_t upper_x,
+                                     const uint32_t lower_y,
+                                     const uint32_t upper_y)
+{
+    return Position{random_uint(lower_x, upper_x), random_uint(lower_y, upper_y)};
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
@@ -97,7 +109,7 @@ void MainWindow::move_player()
     {
     case ConsoleInput::LEFT:
     {
-        if (m_player.second > START.second)
+        if (m_player.second > 0)
         {
             m_player.second--;
         }
@@ -105,7 +117,7 @@ void MainWindow::move_player()
     }
     case ConsoleInput::RIGHT:
     {
-        if (m_player.second < LEN_Y)
+        if (m_player.second < LEN_Y - 1)
         {
             m_player.second++;
         }
@@ -113,7 +125,7 @@ void MainWindow::move_player()
     }
     case ConsoleInput::UP:
     {
-        if (m_player.first > START.first)
+        if (m_player.first > 0)
         {
             m_player.first--;
         }
@@ -121,7 +133,7 @@ void MainWindow::move_player()
     }
     case ConsoleInput::DOWN:
     {
-        if (m_player.first < LEN_X)
+        if (m_player.first < LEN_X - 1)
         {
             m_player.first++;
         }
@@ -142,10 +154,8 @@ void MainWindow::move_obstacles()
         Position offset = random_position(-1, 1, -1, 1);
 
         if ((obs.first + offset.first < LEN_X) && (obs.second + offset.second < LEN_Y) &&
-            (obs.first + offset.first != m_player.first) &&
-            (obs.second + offset.second != m_player.second) &&
-            (obs.first + offset.first != m_goal.first) &&
-            (obs.second + offset.second != m_goal.second))
+            (obs.first + offset.first != m_player.first) && (obs.second + offset.second != m_player.second) &&
+            (obs.first + offset.first != m_goal.first) && (obs.second + offset.second != m_goal.second))
         {
             obs.first += offset.first;
             obs.second += offset.second;
@@ -166,9 +176,7 @@ bool MainWindow::is_dead()
     for (const auto &obs : m_obstacles)
     {
         if (m_player == obs)
-        {
             return true;
-        }
     }
 
     return false;
@@ -176,24 +184,7 @@ bool MainWindow::is_dead()
 
 bool MainWindow::is_finished()
 {
-    return (m_goal == m_player);
-}
-
-std::uint32_t MainWindow::random_uint(const std::uint32_t lower, const std::uint32_t upper)
-{
-    std::uniform_int_distribution<std::uint32_t> dist(lower, upper);
-
-    return dist(*QRandomGenerator::global());
-}
-
-Position MainWindow::random_position(const std::uint32_t lower_x,
-                                     const std::uint32_t upper_x,
-                                     const std::uint32_t lower_y,
-                                     const std::uint32_t upper_y)
-{
-    Position pos(random_uint(lower_x, upper_x), random_uint(lower_y, upper_y));
-
-    return pos;
+    return m_player == m_goal;
 }
 
 void MainWindow::start_game()
@@ -203,7 +194,6 @@ void MainWindow::start_game()
     m_in_game = true;
 
     m_player = Position(0, 0);
-    m_goal = random_position(2, LEN_X - 1, 2, LEN_Y - 1);
     generate_random_obstacles();
 
     for (std::uint32_t i = 0; i < LEN_X; ++i)

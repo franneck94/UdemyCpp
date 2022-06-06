@@ -6,26 +6,26 @@ ConsoleInput map_user_input(char user_input)
 {
     switch (user_input)
     {
-        case 'a':
-        {
-            return ConsoleInput::LEFT;
-        }
-        case 'd':
-        {
-            return ConsoleInput::RIGHT;
-        }
-        case 'w':
-        {
-            return ConsoleInput::UP;
-        }
-        case 's':
-        {
-            return ConsoleInput::DOWN;
-        }
-        default:
-        {
-            return ConsoleInput::INVALID;
-        }
+    case 'w':
+    {
+        return ConsoleInput::UP;
+    }
+    case 'a':
+    {
+        return ConsoleInput::LEFT;
+    }
+    case 's':
+    {
+        return ConsoleInput::DOWN;
+    }
+    case 'd':
+    {
+        return ConsoleInput::RIGHT;
+    }
+    default:
+    {
+        return ConsoleInput::INVALID;
+    }
     }
 }
 
@@ -48,110 +48,69 @@ void print_game_state(Position player)
     }
 }
 
-Position execute_move(Position player, ConsoleInput move)
+void execute_move(Position &player, ConsoleInput move)
 {
     switch (move)
     {
-        case ConsoleInput::LEFT:
+    case ConsoleInput::LEFT:
+    {
+        if (player.second > 0)
         {
-            if (player.second > START.second)
-            {
-                player.second--;
-
-                std::cout << "You moved to the left!" << std::endl;
-            }
-            else
-            {
-                std::cout << "You bounced!" << std::endl;
-            }
-
-            break;
+            player.second--;
         }
-        case ConsoleInput::RIGHT:
-        {
-            if (player.second < GOAL.second)
-            {
-                player.second++;
-
-                std::cout << "You moved to the right!" << std::endl;
-            }
-            else
-            {
-                std::cout << "You bounced!" << std::endl;
-            }
-
-            break;
-        }
-        case ConsoleInput::UP:
-        {
-            if (player.first > START.first)
-            {
-                player.first--;
-
-                std::cout << "You moved upwards!" << std::endl;
-            }
-            else
-            {
-                std::cout << "You bounced!" << std::endl;
-            }
-
-            break;
-        }
-        case ConsoleInput::DOWN:
-        {
-            if (player.first < GOAL.first)
-            {
-                player.first++;
-
-                std::cout << "You moved downwards!" << std::endl;
-            }
-            else
-            {
-                std::cout << "You bounced!" << std::endl;
-            }
-
-            break;
-        }
-        case ConsoleInput::INVALID:
-        default:
-        {
-            std::cout << "Unrecognized move!" << std::endl;
-
-            break;
-        }
+        break;
     }
-
-    return player;
+    case ConsoleInput::RIGHT:
+    {
+        if (player.second < LEN_Y - 1)
+        {
+            player.second++;
+        }
+        break;
+    }
+    case ConsoleInput::UP:
+    {
+        if (player.first > 0)
+        {
+            player.first--;
+        }
+        break;
+    }
+    case ConsoleInput::DOWN:
+    {
+        if (player.first < LEN_X - 1)
+        {
+            player.first++;
+        }
+        break;
+    }
+    default:
+    {
+        break;
+    }
+    }
 }
 
 bool is_finished(Position player)
 {
-    bool finished = false;
-
-    if (GOAL == player)
-    {
-        finished = true;
-
-        std::cout << "You won the game!" << std::endl;
-    }
-
-    return finished;
+    return player == GOAL;
 }
 
 void game()
 {
-    Position player = {0, 0};
+    Position player = std::make_pair(0, 0);
     char user_input = 0;
-    ConsoleInput move = ConsoleInput::INVALID;
-    bool finished = false;
 
-    while (!finished)
+    while (true)
     {
+        if (is_finished(player))
+        {
+            break;
+        }
+
         print_game_state(player);
         std::cin >> user_input;
-        move = map_user_input(user_input);
-        system("clear");
-        player = execute_move(player, move);
-        finished = is_finished(player);
+        ConsoleInput console_input = map_user_input(user_input);
+        execute_move(player, console_input);
     }
 }

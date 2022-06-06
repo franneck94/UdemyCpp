@@ -1,44 +1,45 @@
 #pragma once
 
+#include <cstdint>
 #include <string>
 #include <utility>
 #include <vector>
 
-using Position = std::pair<unsigned int, unsigned int>;
+constexpr uint32_t LEN_X = 5;
+constexpr uint32_t LEN_Y = 5;
+
+enum class ConsoleInput
+{
+    INVALID,
+    LEFT,
+    RIGHT,
+    UP,
+    DOWN
+};
+
+using Position = std::pair<uint32_t, uint32_t>;
 using GameState = std::vector<std::string>;
 using Obstacles = std::vector<Position>;
 
-constexpr unsigned int LEN_X = 5;
-constexpr unsigned int LEN_Y = 5;
-constexpr Position START = {0, 0};
-constexpr Position GOAL = {LEN_X - 1, LEN_Y - 1};
+constexpr Position START = std::make_pair(0U, 0U);
+constexpr Position GOAL = std::make_pair(4U, 4U);
+constexpr uint32_t NUM_OBSTACLES = 3U;
 
-enum class ConsoleInput : int
-{
-    LEFT = 0,
-    RIGHT = 1,
-    UP = 2,
-    DOWN = 3,
-    INVALID = 4
-};
+uint32_t random_uint(const uint32_t lower, const uint32_t upper);
 
-ConsoleInput map_user_input(char user_input);
+Position random_position(const uint32_t lower_x,
+                         const uint32_t upper_x,
+                         const uint32_t lower_y,
+                         const uint32_t upper_y);
 
-GameState update_game_state(const Position &player, const Obstacles &obstacles);
+ConsoleInput map_user_input(const char user_input);
 
-void print_game_state(const GameState &game_state);
+void print_game_state(const Position &player, const Obstacles &obstacles);
 
-Position execute_move(Position player, ConsoleInput move);
+void execute_move(Position &player, const ConsoleInput move);
 
 bool is_dead(const Position &player, const Obstacles &obstacles);
 
-bool is_finished(Position player);
-
-unsigned int random_uint(const unsigned int lower, const unsigned int upper);
-
-Position random_position(const unsigned int lower_x,
-                         const unsigned int upper_x,
-                         const unsigned int lower_y,
-                         const unsigned int upper_y);
+bool is_finished(const Position &player);
 
 void game();
