@@ -32,3 +32,23 @@ void pop_back(int* &input_array, const unsigned int &size);
 ```
 
 die das letzte Element des dynamischen Arrays entfernt. Beachte dabei, dass sich somit die Länge des Arrays um Eins reduziert.
+
+### Beispiel
+
+```cpp
+unsigned int size = 3;
+int *my_data = new int[size];
+my_data[0] = 0;
+my_data[1] = 1;
+my_data[2] = 2; 
+
+// Vorher: 0, 1, 2, Länge = 3
+push_back(my_data, size, 12);
+size++;
+// Nachher: 0, 1, 2, 12, Länge = 4
+
+// Vorher: 0, 1, 2, 12, Länge = 4
+pop_back(my_data, size);
+size--;
+// Nachher: 0, 1, 2, Länge = 3
+```
