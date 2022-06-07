@@ -7,7 +7,8 @@ Willkommen bei der nächsten Programmier-Übung in diesem Kurs.
 ## Vorwort
 
 In dieser Programmierübung wollen wir uns überlegen, wie wir "Dynamische Arrays" implementieren können.  
-Diese beschreiben Heap-Arrays, bei denen man während der Laufzeit des Programms die Größe ändern kann, indem man entweder neuen Speicher auf dem Heap reserviert, oder Speicher wieder freigibt. (Stichwort: new und delete)  
+Diese beschreiben Heap-Arrays, bei denen man die Größe ändern kann.  
+Indem man entweder neuen Speicher auf dem Heap reserviert, oder Speicher wieder freigibt. (Stichwort: new und delete)  
 Diese Dynamischen Arrays werden später in der Standard-Bibliothek "Vector" (Vektoren) genannt.
 
 ## Aufgaben der Programmierübung

@@ -25,25 +25,26 @@ Das heißt bei dem Array mit 100 Elementen würde folgende Summe heraus kommen:
 ```cpp
 double *d;
 d = new double[100];
-....
+// Hier Array-Werte init.
 double sum = array_sum(d, 100);
 std::cout << sum << std::endl; // Ergebnis ist: 4950
 ```
 
 ## Aufgabe 2
 
-Schreibt eine Funktion 
+Schreibt eine Funktion
 
 ```cpp
 int* array_constructor(const int &value, const unsigned int &length)
 ```
 
-die ein Pointer Array vom Typ int erstellt und zurückgibt. Dabei ist zu beachten, dass die Länge des Arrays und welcher Wert an jedem Index des Arrays abgespeichert werden soll, übergeben wird.
+die ein Pointer Array vom Typ int erstellt und zurückgibt.  
+Dabei ist zu beachten, dass die Länge des Arrays und welcher Wert an jedem Index des Arrays abgespeichert werden soll, übergeben wird.
 
 ### Beispiel
 
 ```cpp
-// length: 3, value: 5
+// value: 5, length: 3
 int* array = array_constructor(5, 3)
 // array = { 5, 5, 5}
 ```
