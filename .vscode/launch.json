@@ -51,13 +51,11 @@
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-      "cwd": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/06_ContainerIterator",
-      "environment": [],
-      "program": "c:/Users/Jan/Dropbox/_Coding/UdemyCpp/06_ContainerIterator/build/Debug/outDebug",
-      "internalConsoleOptions": "openOnSessionStart",
+      "externalConsole": false,
+      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/11_MoveCopy/Copy",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/11_MoveCopy/Copy/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
-      "console": "integratedTerminal",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",

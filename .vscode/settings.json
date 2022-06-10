@@ -157,5 +157,6 @@
     "**/.vscode",
     "**/.vscode/**"
   ],
-  "C_Cpp.codeAnalysis.clangTidy.enabled": false
+  "C_Cpp.codeAnalysis.clangTidy.enabled": false,
+  "C_Cpp_Runner.useMsvc": false
 }
