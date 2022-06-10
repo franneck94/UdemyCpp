@@ -16,7 +16,8 @@ Position Game::random_position(const uint32_t lower_x,
                                const uint32_t lower_y,
                                const uint32_t upper_y)
 {
-    return Position{random_uint(lower_x, upper_x), random_uint(lower_y, upper_y)};
+    return Position{random_uint(lower_x, upper_x),
+                    random_uint(lower_y, upper_y)};
 }
 
 ConsoleInput Game::map_user_input(const char user_input)
@@ -129,7 +130,8 @@ void Game::move_obstacles()
     {
         Position offset = random_position(-1, 1, -1, 1);
 
-        if (obs.first + offset.first < LEN_X && obs.second + offset.second < LEN_Y)
+        if (obs.first + offset.first < LEN_X &&
+            obs.second + offset.second < LEN_Y)
         {
             obs.first += offset.first;
             obs.second += offset.second;

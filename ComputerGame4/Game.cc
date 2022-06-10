@@ -11,9 +11,13 @@ uint32_t random_uint(const uint32_t lower, const uint32_t upper)
     return dist(gen);
 }
 
-Position random_position(const uint32_t lower_x, const uint32_t upper_x, const uint32_t lower_y, const uint32_t upper_y)
+Position random_position(const uint32_t lower_x,
+                         const uint32_t upper_x,
+                         const uint32_t lower_y,
+                         const uint32_t upper_y)
 {
-    return Position{random_uint(lower_x, upper_x), random_uint(lower_y, upper_y)};
+    return Position{random_uint(lower_x, upper_x),
+                    random_uint(lower_y, upper_y)};
 }
 
 ConsoleInput map_user_input(const char user_input)
