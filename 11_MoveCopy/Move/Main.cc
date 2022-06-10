@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 
-#include "AlgoArray.h"
 #include "DynArray.h"
 
 int main()
