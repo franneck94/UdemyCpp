@@ -61,6 +61,8 @@ DynamicArray<T>::DynamicArray(const T &value, const std::size_t length)
     {
         m_data[i] = value;
     }
+
+    std::cout << "Called constructor\n";
 }
 
 /**
@@ -74,6 +76,8 @@ DynamicArray<T>::~DynamicArray() noexcept
         delete[] m_data;
         m_data = nullptr;
     }
+
+    std::cout << "Called destructor\n";
 }
 
 /**
