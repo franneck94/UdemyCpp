@@ -36,7 +36,8 @@ private:
  * @brief Create a dynamic array object
  */
 template <typename T>
-DynamicArray<T>::DynamicArray() : m_length(0), m_capacity(1), m_data(new T[m_capacity])
+DynamicArray<T>::DynamicArray()
+    : m_length(0), m_capacity(1), m_data(new T[m_capacity])
 {
 }
 
@@ -48,7 +49,8 @@ DynamicArray<T>::DynamicArray() : m_length(0), m_capacity(1), m_data(new T[m_cap
  */
 template <typename T>
 DynamicArray<T>::DynamicArray(const T &value, const std::size_t length)
-    : m_length(length), m_capacity(length > 0 ? length : 1), m_data(new T[m_capacity])
+    : m_length(length), m_capacity(length > 0 ? length : 1),
+      m_data(new T[m_capacity])
 {
     for (std::size_t i = 0; i < length; i++)
     {
@@ -84,8 +86,8 @@ DynamicArray<T>::DynamicArray(const DynamicArray<T> &other)
         m_data[i] = other.m_data[i];
     }
 
-    std::cout << "Copy constructor - other.m_length = " << other.m_length << " - this.m_length = " << m_length
-              << std::endl;
+    std::cout << "Copy constructor - other.m_length = " << other.m_length
+              << " - this.m_length = " << m_length << std::endl;
 }
 
 /**
@@ -122,7 +124,8 @@ DynamicArray<T> &DynamicArray<T>::operator=(const DynamicArray<T> &other)
         }
     }
 
-    std::cout << "Copy assignment operator - other.m_length = " << other.m_length << " - this.m_length = " << m_length
+    std::cout << "Copy assignment operator - other.m_length = "
+              << other.m_length << " - this.m_length = " << m_length
               << std::endl;
 
     return *this;
