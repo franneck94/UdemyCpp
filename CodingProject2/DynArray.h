@@ -6,20 +6,16 @@ template <typename T>
 class DynamicArray
 {
 public:
-    // Constructor/Destructor
     DynamicArray();
     DynamicArray(const T &value, const std::size_t length);
     ~DynamicArray();
 
-    // Data-manipulation methods
     void push_back(const T &value);
     void pop_back();
 
-    // Operator overloading
     T &operator[](const std::size_t index);
     const T &operator[](const std::size_t index) const;
 
-    // Helper methods
     std::size_t get_length() const;
 
 private:
@@ -28,23 +24,16 @@ private:
     T *m_data;
 };
 
-/**
- * @brief Create a dynamic array object
- */
 template <typename T>
-DynamicArray<T>::DynamicArray() : m_length(0), m_capacity(1), m_data(new T[m_capacity])
+DynamicArray<T>::DynamicArray()
+    : m_length(0), m_capacity(1), m_data(new T[m_capacity])
 {
 }
 
-/**
- * @brief Create a dynamic array object
- *
- * @param value The fill value for the array.
- * @param length The length of the array.
- */
 template <typename T>
 DynamicArray<T>::DynamicArray(const T &value, const std::size_t length)
-    : m_length(length), m_capacity(length > 0 ? length : 1), m_data(new T[m_capacity])
+    : m_length(length), m_capacity(length > 0 ? length : 1),
+      m_data(new T[m_capacity])
 {
     for (std::size_t i = 0; i < length; i++)
     {
@@ -52,9 +41,6 @@ DynamicArray<T>::DynamicArray(const T &value, const std::size_t length)
     }
 }
 
-/**
- * @brief Destroys a dynamic array object
- */
 template <typename T>
 DynamicArray<T>::~DynamicArray()
 {
@@ -65,12 +51,6 @@ DynamicArray<T>::~DynamicArray()
     }
 }
 
-/**
- * @brief Push backs the *value* at the end of the array.
- *
- * @param dynmaic_array The dynamic array.
- * @param value The value to append to the array.
- */
 template <typename T>
 void DynamicArray<T>::push_back(const T &value)
 {
@@ -78,8 +58,7 @@ void DynamicArray<T>::push_back(const T &value)
     {
         m_capacity *= 2;
 
-        T *temp = nullptr;
-        temp = new T[m_capacity];
+        T *temp = new T[m_capacity];
 
         for (std::size_t i = 0; i < m_length; i++)
         {
@@ -94,9 +73,6 @@ void DynamicArray<T>::push_back(const T &value)
     m_length++;
 }
 
-/**
- * @brief Pop backs the value at the end of the vector.
- */
 template <typename T>
 void DynamicArray<T>::pop_back()
 {
@@ -108,8 +84,7 @@ void DynamicArray<T>::pop_back()
         {
             m_capacity /= 2;
 
-            T *temp = nullptr;
-            temp = new T[m_capacity];
+            T *temp = new T[m_capacity];
 
             for (std::size_t i = 0; i < m_length; i++)
             {

@@ -18,8 +18,6 @@ int main()
 
     std::cout << "Mean = " << mean(my_array) << std::endl;
     std::cout << "Median = " << median(my_array) << std::endl;
-    std::cout << "Variance = " << variance(my_array) << std::endl;
-    std::cout << "Stddev = " << stddev(my_array) << std::endl;
 
     return 0;
 }
