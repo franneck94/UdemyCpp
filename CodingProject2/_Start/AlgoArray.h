@@ -26,16 +26,15 @@ double mean(DynamicArray<T> &dynamic_array)
 template <typename T>
 double median(DynamicArray<T> &dynamic_array)
 {
-    const bool has_even_length = dynamic_array.m_length % 2 == 0;
+    const bool has_even_length = dynamic_array.get_length() % 2 == 0;
 
     if (has_even_length)
     {
-        const std::size_t index1 = dynamic_array.m_length / 2;
-        const std::size_t index2 = (dynamic_array.m_length / 2) - 1;
-        return (dynamic_array.m_data[index1] + dynamic_array.m_data[index2]) /
-               2.0;
+        const std::size_t index1 = dynamic_array.get_length() / 2;
+        const std::size_t index2 = (dynamic_array.get_length() / 2) - 1;
+        return (dynamic_array[index1] + dynamic_array[index2]) / 2.0;
     }
 
-    const std::size_t index = dynamic_array.m_length / 2;
-    return dynamic_array.m_data[index];
+    const std::size_t index = dynamic_array.get_length() / 2;
+    return dynamic_array[index];
 }

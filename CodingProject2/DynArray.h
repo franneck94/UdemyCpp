@@ -35,7 +35,7 @@ DynamicArray<T>::DynamicArray(const T &value, const std::size_t length)
     : m_length(length), m_capacity(length > 0 ? length : 1),
       m_data(new T[m_capacity])
 {
-    for (std::size_t i = 0; i < length; i++)
+    for (std::size_t i = 0; i < length; ++i)
     {
         m_data[i] = value;
     }
@@ -54,47 +54,35 @@ DynamicArray<T>::~DynamicArray()
 template <typename T>
 void DynamicArray<T>::push_back(const T &value)
 {
-    if (m_length == m_capacity)
+    auto temp = new T[m_length + 1];
+
+    for (std::size_t i = 0; i < m_length; i++)
     {
-        m_capacity *= 2;
-
-        T *temp = new T[m_capacity];
-
-        for (std::size_t i = 0; i < m_length; i++)
-        {
-            temp[i] = m_data[i];
-        }
-
-        delete[] m_data;
-        m_data = temp;
+        temp[i] = m_data[i];
     }
 
-    m_data[m_length] = value;
+    temp[m_length] = value;
+
+    delete[] m_data;
+
+    m_data = temp;
     m_length++;
 }
 
 template <typename T>
 void DynamicArray<T>::pop_back()
 {
-    if (m_length > 0)
+    auto temp = new T[m_length - 1];
+
+    for (std::size_t i = 0; i < m_length - 1; i++)
     {
-        m_length--;
-
-        if (m_length < (m_capacity / 2))
-        {
-            m_capacity /= 2;
-
-            T *temp = new T[m_capacity];
-
-            for (std::size_t i = 0; i < m_length; i++)
-            {
-                temp[i] = m_data[i];
-            }
-
-            delete[] m_data;
-            m_data = temp;
-        }
+        temp[i] = m_data[i];
     }
+
+    delete[] m_data;
+
+    m_data = temp;
+    m_length--;
 }
 
 template <typename T>

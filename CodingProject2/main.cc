@@ -23,8 +23,8 @@ int main()
     }
     std::cout << std::endl;
 
-    my_array.pop_back();
-    my_array.pop_back();
+    // my_array.pop_back();
+    // my_array.pop_back();
 
     for (std::size_t i = 0; i < my_array.get_length(); ++i)
     {
