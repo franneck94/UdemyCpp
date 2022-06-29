@@ -18,7 +18,9 @@ void print_vector(const std::vector<double> &vec)
 double magnitude(std::vector<double> &vec)
 {
     // 1.) Map: sqaure all values
-    std::transform(vec.begin(), vec.end(), vec.begin(), [](const double val) { return std::pow(val, 2.0); });
+    std::transform(vec.begin(), vec.end(), vec.begin(), [](const double val) {
+        return std::pow(val, 2.0);
+    });
 
     // 2.) Reduce
     const double sum = std::accumulate(vec.begin(), vec.end(), 0.0);

@@ -29,8 +29,7 @@ double median(const DynamicArray &dynamic_array)
     {
         const std::size_t index1 = dynamic_array.m_length / 2;
         const std::size_t index2 = (dynamic_array.m_length / 2) - 1;
-        return (dynamic_array.m_data[index1] + dynamic_array.m_data[index2]) /
-               2.0;
+        return (dynamic_array.m_data[index1] + dynamic_array.m_data[index2]) / 2.0;
     }
 
     const std::size_t index = dynamic_array.m_length / 2;

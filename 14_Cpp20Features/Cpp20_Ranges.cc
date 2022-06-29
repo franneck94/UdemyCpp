@@ -14,7 +14,8 @@ int main()
 {
     // Drop, Take, Transform,
     std::vector numbers1{1, 2, 3, 4, 5, 6};
-    auto results1 = std::views::reverse(numbers1) | std::views::drop(2) | std::views::take(2) |
+    auto results1 = std::views::reverse(numbers1) | std::views::drop(2) |
+                    std::views::take(2) |
                     std::views::transform([](const int n) { return n * 2; }) |
                     std::views::filter([](int n) { return n % 2 == 0; });
 

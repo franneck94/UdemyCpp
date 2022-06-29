@@ -4,16 +4,21 @@
 
 #include "Image.h"
 
-Image::Image() : m_width(0), m_height(0), m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
+Image::Image()
+    : m_width(0), m_height(0),
+      m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
 {
     std::cout << "Created empty image object!" << std::endl;
 }
 
 Image::Image(const unsigned int width, const unsigned int height)
-    : m_width(width), m_height(height), m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
+    : m_width(width), m_height(height),
+      m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
 {
-    std::cout << "Created image object with shape=(" << m_width << "," << m_height << ")!" << std::endl;
-    std::cout << "Matrix size: (" << m_matrix.size() << "," << m_matrix[0].size() << ")" << std::endl;
+    std::cout << "Created image object with shape=(" << m_width << "," << m_height << ")!"
+              << std::endl;
+    std::cout << "Matrix size: (" << m_matrix.size() << "," << m_matrix[0].size() << ")"
+              << std::endl;
 }
 
 Image::~Image()
@@ -85,7 +90,8 @@ void Image::draw_line(const unsigned int x1,
 {
     int length = 0;
 
-    if ((x1 < m_width) && (x2 < m_width) && (y1 < m_height) && (y2 < m_height) && ((x1 == x2) || (y1 == y2)))
+    if ((x1 < m_width) && (x2 < m_width) && (y1 < m_height) && (y2 < m_height) &&
+        ((x1 == x2) || (y1 == y2)))
     {
         std::cout << "Draw line!" << std::endl;
         std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << std::endl;

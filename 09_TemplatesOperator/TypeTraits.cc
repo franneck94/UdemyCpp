@@ -2,7 +2,8 @@
 #include <type_traits>
 
 template <typename T>
-struct is_numeric : public std::disjunction<std::is_integral<T>, std::is_floating_point<T>>
+struct is_numeric
+    : public std::disjunction<std::is_integral<T>, std::is_floating_point<T>>
 {
 };
 
@@ -22,7 +23,9 @@ T max(T value_one, U value_two)
 }
 
 template <typename T, typename U>
-std::enable_if_t<!std::is_same<T, U>::value, typename std::common_type<T, U>::type> max(T value_one, U value_two)
+std::enable_if_t<!std::is_same<T, U>::value, typename std::common_type<T, U>::type> max(
+    T value_one,
+    U value_two)
 {
     static_assert(std::conjunction<is_numeric<T>, is_numeric<U>>::value, "failed");
 

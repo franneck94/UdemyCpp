@@ -19,7 +19,7 @@ DynamicArray create_dynamic_array(const double &value, const std::size_t &length
 
 void push_back(DynamicArray &dynmaic_array, const int &value)
 {
-    double *temp =  new double[dynmaic_array.m_length + 1];
+    double *temp = new double[dynmaic_array.m_length + 1];
 
     for (std::size_t i = 0; i < dynmaic_array.m_length; i++)
     {

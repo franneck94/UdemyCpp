@@ -45,11 +45,12 @@ int main()
     // Set Intersection
     std::cout << "Intersection: " << std::endl;
     std::set<std::string> students_intersection;
-    std::set_intersection(math_course.begin(),
-                          math_course.end(),
-                          coding_course.begin(),
-                          coding_course.end(),
-                          std::inserter(students_intersection, students_intersection.end()));
+    std::set_intersection(
+        math_course.begin(),
+        math_course.end(),
+        coding_course.begin(),
+        coding_course.end(),
+        std::inserter(students_intersection, students_intersection.end()));
     print_set(students_intersection);
 
     // Set Difference
@@ -65,11 +66,12 @@ int main()
     // Set SymmetricDifference
     std::cout << "Symmetric Difference: " << std::endl;
     std::set<std::string> students_symmetric;
-    std::set_symmetric_difference(math_course.begin(),
-                                  math_course.end(),
-                                  coding_course.begin(),
-                                  coding_course.end(),
-                                  std::inserter(students_symmetric, students_symmetric.end()));
+    std::set_symmetric_difference(
+        math_course.begin(),
+        math_course.end(),
+        coding_course.begin(),
+        coding_course.end(),
+        std::inserter(students_symmetric, students_symmetric.end()));
     print_set(students_symmetric);
 
     return 0;

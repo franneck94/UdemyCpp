@@ -22,7 +22,10 @@ int main()
     std::cout << "stem: " << current_file_path.stem() << std::endl;
     std::cout << "extension: " << current_file_path.extension() << std::endl;
 
-    std::cout << "exists: " << std::boolalpha << fs::exists(current_file_path) << std::endl;
-    std::cout << "is_regular_file: " << std::boolalpha << fs::is_regular_file(current_file_path) << std::endl;
-    std::cout << "is_directory: " << std::boolalpha << fs::is_directory(current_file_path) << std::endl;
+    std::cout << "exists: " << std::boolalpha << fs::exists(current_file_path)
+              << std::endl;
+    std::cout << "is_regular_file: " << std::boolalpha
+              << fs::is_regular_file(current_file_path) << std::endl;
+    std::cout << "is_directory: " << std::boolalpha << fs::is_directory(current_file_path)
+              << std::endl;
 }

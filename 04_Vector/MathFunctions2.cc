@@ -27,7 +27,7 @@ void print_double_vector(const std::vector<double> &vec)
 
 void exp_double_vector(std::vector<double> &vec)
 {
-    for (auto & value : vec)
+    for (auto &value : vec)
     {
         value = std::exp(value);
     }
@@ -35,7 +35,7 @@ void exp_double_vector(std::vector<double> &vec)
 
 void log_double_vector(std::vector<double> &vec)
 {
-    for (auto & value : vec)
+    for (auto &value : vec)
     {
         value = std::log(value);
     }

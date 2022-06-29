@@ -16,7 +16,8 @@ void print_vector_info(const std::vector<int> &my_vector)
 {
     std::cout << "Size: " << my_vector.size() << std::endl;
     std::cout << "Capacity: " << my_vector.capacity() << std::endl;
-    std::cout << "Empty?: " << std::boolalpha << my_vector.empty() << std::endl << std::endl;
+    std::cout << "Empty?: " << std::boolalpha << my_vector.empty() << std::endl
+              << std::endl;
 }
 
 bool is_odd(const int i)
@@ -37,7 +38,8 @@ int main()
     my_vector.erase(std::remove(my_vector.begin(), my_vector.end(), 2), my_vector.end());
     print_vector(my_vector);
 
-    my_vector.erase(std::remove_if(my_vector.begin(), my_vector.end(), is_odd), my_vector.end());
+    my_vector.erase(std::remove_if(my_vector.begin(), my_vector.end(), is_odd),
+                    my_vector.end());
     print_vector(my_vector);
 
     return 0;

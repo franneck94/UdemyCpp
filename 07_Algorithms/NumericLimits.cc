@@ -6,8 +6,8 @@
 template <typename T>
 void print_min_max()
 {
-    std::cout << "min: " << std::dec << std::numeric_limits<T>::min() << " max: " << std::dec
-              << std::numeric_limits<T>::max() << std::endl;
+    std::cout << "min: " << std::dec << std::numeric_limits<T>::min()
+              << " max: " << std::dec << std::numeric_limits<T>::max() << std::endl;
 }
 
 bool equal(double x, double y)

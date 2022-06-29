@@ -20,7 +20,9 @@ int main()
     std::cout << std::endl;
 
     // Exercise 1
-    bool has_no_even = std::none_of(my_vector.begin(), my_vector.end(), [](int val) -> bool { return (val % 2 == 0); });
+    bool has_no_even = std::none_of(my_vector.begin(),
+                                    my_vector.end(),
+                                    [](int val) -> bool { return (val % 2 == 0); });
 
     if (has_no_even)
     {
@@ -32,9 +34,10 @@ int main()
     }
 
     // Exercise 2
-    std::transform(my_vector.begin(), my_vector.end(), my_result.begin(), [](int val) -> int {
-        return static_cast<int>(std::pow(val, 2.0));
-    });
+    std::transform(my_vector.begin(),
+                   my_vector.end(),
+                   my_result.begin(),
+                   [](int val) -> int { return static_cast<int>(std::pow(val, 2.0)); });
 
     for (const auto &val : my_result)
     {

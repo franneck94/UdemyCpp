@@ -5,7 +5,8 @@ void print_vector_info(const std::vector<int> &my_vector)
 {
     std::cout << "Size: " << my_vector.size() << std::endl;
     std::cout << "Capacity: " << my_vector.capacity() << std::endl;
-    std::cout << "Empty?: " << std::boolalpha << my_vector.empty() << std::endl << std::endl;
+    std::cout << "Empty?: " << std::boolalpha << my_vector.empty() << std::endl
+              << std::endl;
 }
 
 int main()

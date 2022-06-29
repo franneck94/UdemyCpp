@@ -1,8 +1,8 @@
+#include <algorithm>
 #include <iostream>
+#include <numeric>
 #include <random>
 #include <vector>
-#include <algorithm>
-#include <numeric>
 
 void print_vector(const std::vector<int> &my_vector)
 {

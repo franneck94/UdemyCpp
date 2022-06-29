@@ -22,7 +22,8 @@ int main()
     {
         for (std::size_t j = 0; j != matrix[i].size(); ++j)
         {
-            std::cout << "i = " << i << " , j = " << j << ", matrix = " << matrix[i][j] << std::endl;
+            std::cout << "i = " << i << " , j = " << j << ", matrix = " << matrix[i][j]
+                      << std::endl;
         }
     }
     std::cout << std::endl;

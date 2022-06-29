@@ -15,7 +15,8 @@ template <typename T>
 class Matrix
 {
     static_assert(std::is_floating_point_v<T>,
-                  "An specilization of the matrix class has be of a floating point type!");
+                  "An specilization of the matrix class has be of a floating "
+                  "point type!");
 
 public:
     using MatrixDataType = std::vector<std::vector<T>>;
@@ -245,7 +246,8 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &rhs)
         {
             for (std::size_t k = 0; k != rhs.m_rows; ++k)
             {
-                result.m_data[i][j] = result.m_data[i][j] + m_data[i][k] * rhs.m_data[k][j];
+                result.m_data[i][j] =
+                    result.m_data[i][j] + m_data[i][k] * rhs.m_data[k][j];
             }
         }
     }

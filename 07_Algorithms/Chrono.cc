@@ -1,7 +1,7 @@
+#include <chrono>
 #include <iostream>
 #include <random>
 #include <vector>
-#include <chrono>
 
 using ClockType = std::chrono::steady_clock;
 using ClockRes = std::chrono::microseconds;
@@ -25,9 +25,15 @@ int main()
 
     auto end_time = ClockType::now();
 
-    auto elapsed_time_ms = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
-    auto elapsed_time_us = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time).count();
-    auto elapsed_time_ns = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time).count();
+    auto elapsed_time_ms =
+        std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time)
+            .count();
+    auto elapsed_time_us =
+        std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time)
+            .count();
+    auto elapsed_time_ns =
+        std::chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time)
+            .count();
 
     std::cout << "Elapsed time ms: " << elapsed_time_ms << std::endl;
     std::cout << "Elapsed time us: " << elapsed_time_us << std::endl;

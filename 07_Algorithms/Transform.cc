@@ -1,8 +1,8 @@
+#include <algorithm>
 #include <iostream>
+#include <numeric>
 #include <random>
 #include <vector>
-#include <algorithm>
-#include <numeric>
 
 int increment(int i)
 {
@@ -35,7 +35,11 @@ int main()
     std::transform(my_vector1.begin(), my_vector1.end(), my_vector2.begin(), increment);
     print_vector(my_vector2);
 
-    std::transform(my_vector1.begin(), my_vector1.end(), my_vector2.begin(), my_vector3.begin(), add);
+    std::transform(my_vector1.begin(),
+                   my_vector1.end(),
+                   my_vector2.begin(),
+                   my_vector3.begin(),
+                   add);
     print_vector(my_vector3);
 
     return 0;
