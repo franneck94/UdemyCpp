@@ -52,8 +52,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/11_MoveCopy/Move",
-      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/11_MoveCopy/Move/build/Debug/outDebug",
+      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/01_Basics",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/01_Basics/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

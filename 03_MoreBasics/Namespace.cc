@@ -26,25 +26,25 @@ void print_vehicle_data(const Vehicle &vehicle)
 
     switch (vehicle.lane)
     {
-        case Lane::CENTER_LANE:
-        {
-            std::cout << "Vehicle Lane Association: Center Lane" << std::endl;
-            break;
-        }
-        case Lane::RIGHT_LANE:
-        {
-            std::cout << "Vehicle Lane Association: Right Lane" << std::endl;
-            break;
-        }
-        case Lane::LEFT_LANE:
-        {
-            std::cout << "Vehicle Lane Association: Left Lane" << std::endl;
-            break;
-        }
-        default:
-        {
-            break;
-        }
+    case Lane::CENTER_LANE:
+    {
+        std::cout << "Vehicle Lane Association: Center Lane" << std::endl;
+        break;
+    }
+    case Lane::RIGHT_LANE:
+    {
+        std::cout << "Vehicle Lane Association: Right Lane" << std::endl;
+        break;
+    }
+    case Lane::LEFT_LANE:
+    {
+        std::cout << "Vehicle Lane Association: Left Lane" << std::endl;
+        break;
+    }
+    default:
+    {
+        break;
+    }
     }
 }
 } // namespace ad

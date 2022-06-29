@@ -41,31 +41,31 @@ void greet_permission_level_switch(const PermissionLevel level)
 {
     switch (level)
     {
-        case PermissionLevel::STUDENT:
-        {
-            std::cout << "Hello STUDENT" << std::endl;
-            break;
-        }
-        case PermissionLevel::TUTOR:
-        {
-            std::cout << "Hello TUTOR" << std::endl;
-            break;
-        }
-        case PermissionLevel::INSTRUCTOR:
-        {
-            std::cout << "Hello INSTRUCTOR" << std::endl;
-            break;
-        }
-        case PermissionLevel::ADMIN:
-        {
-            std::cout << "Hello ADMIN" << std::endl;
-            break;
-        }
-        default:
-        {
-            std::cout << "UNKNOWN! Error!" << std::endl;
-            break;
-        }
+    case PermissionLevel::STUDENT:
+    {
+        std::cout << "Hello STUDENT" << std::endl;
+        break;
+    }
+    case PermissionLevel::TUTOR:
+    {
+        std::cout << "Hello TUTOR" << std::endl;
+        break;
+    }
+    case PermissionLevel::INSTRUCTOR:
+    {
+        std::cout << "Hello INSTRUCTOR" << std::endl;
+        break;
+    }
+    case PermissionLevel::ADMIN:
+    {
+        std::cout << "Hello ADMIN" << std::endl;
+        break;
+    }
+    default:
+    {
+        std::cout << "UNKNOWN! Error!" << std::endl;
+        break;
+    }
     }
 }
 
