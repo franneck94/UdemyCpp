@@ -6,17 +6,17 @@ class ScopeTest
 public:
     ScopeTest(int val) : m_val(val)
     {
-        std::cout << "Constructor: " << m_val << std::endl;
+        std::cout << "Constructor: " << m_val << '\n';
     }
 
     ~ScopeTest()
     {
-        std::cout << "Destructor!" << std::endl;
+        std::cout << "Destructor!\n";
     }
 
     void test()
     {
-        std::cout << "Test!" << std::endl;
+        std::cout << "Test!\n";
     }
 
 private:
@@ -31,7 +31,7 @@ void f1()
 
 void f2()
 {
-    ScopeTest *t2 = new ScopeTest(10);
+    auto *t2 = new ScopeTest(10);
     t2->test();
     delete t2;
 }
@@ -39,7 +39,7 @@ void f2()
 int main()
 {
     f1();
-    std::cout << std::endl;
+    std::cout << '\n';
     f2();
 
     return 0;
