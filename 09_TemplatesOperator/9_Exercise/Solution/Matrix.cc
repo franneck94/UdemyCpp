@@ -101,3 +101,66 @@ void Matrix::set_D(const double &new_D)
 {
     m_D = new_D;
 }
+
+Matrix Matrix::operator*(const double &scalar)
+{
+    Matrix result;
+
+    result.set_A(get_A() * scalar);
+    result.set_B(get_B() * scalar);
+    result.set_C(get_C() * scalar);
+    result.set_D(get_D() * scalar);
+
+    return result;
+}
+
+Matrix &Matrix::operator*=(const double &scalar)
+{
+    set_A(get_A() * scalar);
+    set_B(get_B() * scalar);
+    set_C(get_C() * scalar);
+    set_D(get_D() * scalar);
+
+    return *this;
+}
+
+Matrix Matrix::operator/(const double &scalar)
+{
+    Matrix result;
+
+    result.set_A(get_A() / scalar);
+    result.set_B(get_B() / scalar);
+    result.set_C(get_C() / scalar);
+    result.set_D(get_D() / scalar);
+
+    return result;
+}
+
+Matrix &Matrix::operator/=(const double &scalar)
+{
+    set_A(get_A() / scalar);
+    set_B(get_B() / scalar);
+    set_C(get_C() / scalar);
+    set_D(get_D() / scalar);
+
+    return *this;
+}
+
+Matrix Matrix::operator*(const Matrix &rhs)
+{
+    Matrix result;
+
+    result.set_A(get_A() * rhs.get_A() + get_B() * rhs.get_C());
+    result.set_B(get_A() * rhs.get_B() + get_B() * rhs.get_D());
+    result.set_C(get_C() * rhs.get_A() + get_D() * rhs.get_C());
+    result.set_D(get_C() * rhs.get_B() + get_D() * rhs.get_D());
+
+    return result;
+}
+
+Matrix &Matrix::operator*=(const Matrix &rhs)
+{
+    *this = (*this) * rhs;
+
+    return *this;
+}

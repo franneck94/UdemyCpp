@@ -11,6 +11,16 @@ public:
     Matrix operator-(const Matrix &rhs);
     Matrix &operator-=(const Matrix &rhs);
 
+    // Exercise 1
+    Matrix operator*(const double &scalar);
+    Matrix &operator*=(const double &scalar);
+    // Exercise 2
+    Matrix operator/(const double &scalar);
+    Matrix &operator/=(const double &scalar);
+    // Excercise 3
+    Matrix operator*(const Matrix &rhs);
+    Matrix &operator*=(const Matrix &rhs);
+
     void print_matrix() const;
 
     double get_A() const;
