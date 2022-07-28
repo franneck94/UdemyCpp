@@ -1,6 +1,5 @@
-#ifndef LIB_H
-#define LIB_H
+#pragma once
+
+#include "Types.h"
 
 void function();
-
-#endif /* LIB_H */
