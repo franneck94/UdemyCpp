@@ -9,22 +9,18 @@
 
 int main()
 {
-    int value;
-    std::cout << "Please enter the value: ";
-    std::cin >> value;
+    double x = 0.0F;
+    std::cout << "Please enter the value of x: ";
+    std::cin >> x;
 
-    double absolute;
+    double abs_x = x;
 
-    if (value < 0)
+    if (x < 0)
     {
-        absolute = (-1) * value;
-    }
-    else
-    {
-        absolute = value;
+        abs_x = -1.0 * x;
     }
 
-    std::cout << "The absolute value is: " << absolute << std::endl;
+    std::cout << "Abs(" << x << ") = " << abs_x << std::endl;
 
     return 0;
 }
