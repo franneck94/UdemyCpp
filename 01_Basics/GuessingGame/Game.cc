@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include "Game.h"
+
 void game()
 {
     bool has_won = false;
