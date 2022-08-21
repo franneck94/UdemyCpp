@@ -1,5 +1,5 @@
-DEBUG_FLAGS = -g3 -O0
-RELEASE_FLAGS = -DNDEBUG -O3
+DEBUG_FLAGS = -O0 -g3
+RELEASE_FLAGS = -O3
 
 FLAGS = $(RELEASE_FLAGS)
 
@@ -14,6 +14,3 @@ compile:
 
 build:
 	g++ $(FLAGS) Functions2.o -o Functions2
-
-print_exe:
-	objdump -CS Functions2
