@@ -15,9 +15,9 @@ bool equal(double x, double y)
     return x == y;
 }
 
-bool almost_equal(double x, double y)
+bool almost_equal(float x, float y)
 {
-    return std::abs(x - y) <= std::numeric_limits<double>::epsilon();
+    return std::abs(x - y) <= std::numeric_limits<float>::epsilon();
 }
 
 int main()
