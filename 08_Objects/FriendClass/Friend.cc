@@ -60,7 +60,7 @@ int main()
     Stack my_stack(1);
     Graph g(my_stack); // G (V, E), V = {1};
 
-    std::cout << "Graph ruft Attribut von Stack auf: " << std::endl;
+    std::cout << "Graph ruft Attribute von Stack auf: " << std::endl;
     g.print_nodes();
 
     return 0;

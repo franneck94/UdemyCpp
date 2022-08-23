@@ -8,12 +8,12 @@ int main()
     // Heap de-allocation
     delete p_zahl;
 
-    // The memory adress of the heap variable, where the pointer the points to
+    // The memory address of the heap variable, where the pointer the points to
     std::cout << p_zahl << std::endl;
 
     p_zahl = nullptr;
 
-    // The memory adress of the heap variable, where the pointer the points to
+    // The memory address of the heap variable, where the pointer the points to
     std::cout << p_zahl << std::endl;
 
     if (p_zahl != nullptr)

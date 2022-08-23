@@ -1,7 +1,7 @@
 #include <iostream>
 
 // 1.) Two Enums cannot share the same names
-// 2.) No varaible can have a name which already reserved by an enum
+// 2.) No variable can have a name which already reserved by an enum
 // 3.) Enums are not type safe
 
 enum class PermissionLevel

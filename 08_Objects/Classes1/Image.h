@@ -5,7 +5,7 @@ public:
     Image();
     Image(const unsigned int &width, const unsigned int &height);
 
-    // Destruktor
+    // Destructor
     ~Image();
 
 private:

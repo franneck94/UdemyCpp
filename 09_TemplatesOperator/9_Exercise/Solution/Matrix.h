@@ -17,7 +17,7 @@ public:
     // Exercise 2
     Matrix operator/(const double &scalar);
     Matrix &operator/=(const double &scalar);
-    // Excercise 3
+    // Exercise 3
     Matrix operator*(const Matrix &rhs);
     Matrix &operator*=(const Matrix &rhs);
 

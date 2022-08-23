@@ -10,7 +10,7 @@ public:
     Image();
     Image(const unsigned int &width, const unsigned int &height);
 
-    // Destruktor
+    // Destructor
     ~Image();
 
     void save_image(const char *file_name) const;

@@ -4,7 +4,7 @@ double div(double x, double y)
 {
     if (y == 0.0)
     {
-        throw "Divison by zero!";
+        throw "Division by zero!";
     }
 
     return x / y;

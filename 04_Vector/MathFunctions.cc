@@ -36,10 +36,10 @@ void log_double_vector(std::vector<double> &vec)
 }
 
 // Exercise:
-// 1.) Schreibe eine Funktion, die einen double-Vector mit aufsteigenden double-Werten befüllt
+// 1.) Schreibe eine Function, die einen double-Vector mit aufsteigenden double-Werten befüllt
 // => z.b. [0.0, 1.0, 2.0, 3.0, 4.0, 5.0] bei einem Input Vector der Länge 6
 //      void fill_double_vector(std::vector<double> &vec)
-// 2.) Schreibe eine Funktion, die die Werte eines double-Vectors in der Konsole ausgibt
+// 2.) Schreibe eine Function, die die Werte eines double-Vectors in der Konsole ausgibt
 //      void print_double_vector(const std::vector<double> &vec)
 // 3.) Schreibe Funktionen, die die:
 // - Exponential
