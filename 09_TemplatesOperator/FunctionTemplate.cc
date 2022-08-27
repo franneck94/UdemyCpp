@@ -19,9 +19,7 @@ int main()
     std::cout << max(10.0F, 11.0F) << std::endl;
     std::cout << max(10.0, 11.0) << std::endl;
 
-    std::cout << max<int>(10, 11) << std::endl;
-    std::cout << max<float>(10, 11) << std::endl;
-    std::cout << max<double>(10, 11) << std::endl;
+    std::cout << max<short>(10, 11) << std::endl;
 
     return 0;
 }
