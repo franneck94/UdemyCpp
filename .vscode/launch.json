@@ -52,8 +52,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/09_TemplatesOperator",
-      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/09_TemplatesOperator/build/Debug/outDebug",
+      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/08_Objects/UML",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/08_Objects/UML/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
