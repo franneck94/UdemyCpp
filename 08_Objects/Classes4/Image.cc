@@ -76,3 +76,25 @@ void Image::save_image(const char *file_name) const
     delete[] img;
     img = nullptr;
 }
+
+std::uint32_t Image::get_width() const
+{
+    return m_width;
+}
+
+std::uint32_t Image::get_height() const
+{
+    return m_height;
+}
+
+GrayscaleMatrix Image::get_matrix() const
+{
+    return m_matrix;
+}
+
+void Image::set_pixel(const std::uint32_t x,
+                      const std::uint32_t y,
+                      const std::uint8_t value)
+{
+    m_matrix[x][y] = value;
+}

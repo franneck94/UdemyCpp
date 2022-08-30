@@ -19,7 +19,7 @@ void clear_image();
 Schreibe eine Funktion, die einen Pixel Wert an der Stelle (x,y) setzt.
 
 ```cpp
-void set_pixel(const unsigned int x, const unsigned int y, const uchar value);
+void set_pixel(const unsigned int x, const unsigned int y, const std::uint8_t value);
 ```
 
 ### Aufgabe 3
@@ -27,7 +27,7 @@ void set_pixel(const unsigned int x, const unsigned int y, const uchar
 Schreibe eine Funktion, die die Größe des Bildes verändert, d.h. die Höhe oder Breite des Bildes wird verändert.
 
 ```cpp
-void resize_image(const unsigned int new_width, const unsigned int new_height);
+void resize_image(const std::uint32_t new_width, const std::uint32_t new_height);
 ```
 
 Wenn eine Dimension (Höhe oder Breite) des Bildes größer wird, soll die Matrix des Bildes mit 0 aufgefüllt werden.
@@ -41,7 +41,7 @@ Wenn eine Dimension (Höhe oder Breite) des Bildes größer wird, soll die Matri
 Schreibe eine Funktion, die das Bild komplett mit einer Farbe füllt.
 
 ```cpp
-void fill_image(const uchar value);
+void fill_image(const std::uint8_t value);
 ```
 
 Die Füll-Farbe ist durch die Variable value gegeben.
@@ -49,9 +49,9 @@ Die Füll-Farbe ist durch die Variable value gegeben.
 Aufgabe 5 (Zusatzaufgabe):Schreibe eine Funktion, die eine horizontale bzw. vertikale Gerade auf das Bild malt.
 
 ```cpp
-void draw_line(const unsigned int x1, const unsigned int y1, 
-	           const unsigned int x2, const unsigned int y2, 
-	           const uchar value);
+void draw_line(const std::uint32_t x1, const std::uint32_t y1, 
+	           const std::uint32_t x2, const std::uint32_t y2, 
+	           const std::uint8_t value);
 ```
 
 ### Beispiel-Bild

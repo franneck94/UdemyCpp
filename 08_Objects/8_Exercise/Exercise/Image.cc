@@ -4,65 +4,17 @@
 
 #include "Image.h"
 
-Image::Image()
-    : m_width(0), m_height(0),
-      m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
-{
-    std::cout << "Created empty image object!" << std::endl;
-}
-
-Image::Image(const unsigned int width, const unsigned int height)
+Image::Image(const std::uint32_t width, const std::uint32_t height)
     : m_width(width), m_height(height),
-      m_matrix(GrayscaleMatrix(m_width, std::vector<uchar>(m_height, 0)))
+      m_matrix(m_width, std::vector<std::uint8_t>(m_height, 0))
 {
-    std::cout << "Created image object with shape=(" << m_width << "," << m_height
-              << ")!" << std::endl;
-    std::cout << "Matrix size: (" << m_matrix.size() << "," << m_matrix[0].size()
-              << ")" << std::endl;
+    std::cout << "Image object created with shape=(" << width << "," << height
+              << ")!\n";
 }
 
 Image::~Image()
 {
-    std::cout << "Image object destroyed!" << std::endl;
-}
-
-unsigned int Image::get_width() const
-{
-    return m_width;
-}
-
-unsigned int Image::get_height() const
-{
-    return m_height;
-}
-
-// Exercise 1
-void Image::clear_image()
-{
-}
-
-// Exercise 2
-void Image::set_pixel(const unsigned int x, const unsigned int y, const uchar value)
-{
-}
-
-// Exercise 3
-void Image::resize_image(const unsigned int new_width, const unsigned int new_height)
-{
-}
-
-// Exercise 4
-void Image::fill_image(const uchar value)
-{
-}
-
-// Exercise 5
-void Image::draw_line(const unsigned int x1,
-                      const unsigned int y1,
-                      const unsigned int x2,
-                      const unsigned int y2,
-                      const uchar value)
-{
+    std::cout << "Image object destroyed!\n";
 }
 
 void Image::save_image(const char *file_name) const
@@ -70,9 +22,9 @@ void Image::save_image(const char *file_name) const
     FILE *f = nullptr;
 
     auto num_bytes = 3 * m_width * m_height;
-    auto *img = new uchar[num_bytes]{};
+    auto *img = new std::uint8_t[num_bytes]{};
 
-    int filesize = 54 + 3 * m_width * m_height;
+    auto filesize = 54 + 3 * m_width * m_height;
 
     for (std::uint32_t x = 0; x < m_width; ++x)
     {
@@ -84,23 +36,23 @@ void Image::save_image(const char *file_name) const
         }
     }
 
-    uchar bmpfileheader[14]{'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0};
-    uchar bmpinfoheader[40]{40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0};
-    uchar bmppad[3]{0, 0, 0};
+    std::uint8_t bmpfileheader[14]{'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0};
+    std::uint8_t bmpinfoheader[40]{40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0};
+    std::uint8_t bmppad[3]{0, 0, 0};
 
-    bmpfileheader[2] = static_cast<uchar>(filesize);
-    bmpfileheader[3] = static_cast<uchar>(filesize >> 8);
-    bmpfileheader[4] = static_cast<uchar>(filesize >> 16);
-    bmpfileheader[5] = static_cast<uchar>(filesize >> 24);
+    bmpfileheader[2] = static_cast<std::uint8_t>(filesize);
+    bmpfileheader[3] = static_cast<std::uint8_t>(filesize >> 8);
+    bmpfileheader[4] = static_cast<std::uint8_t>(filesize >> 16);
+    bmpfileheader[5] = static_cast<std::uint8_t>(filesize >> 24);
 
-    bmpinfoheader[4] = static_cast<uchar>(m_width);
-    bmpinfoheader[5] = static_cast<uchar>(m_width >> 8);
-    bmpinfoheader[6] = static_cast<uchar>(m_width >> 16);
-    bmpinfoheader[7] = static_cast<uchar>(m_width >> 24);
-    bmpinfoheader[8] = static_cast<uchar>(m_height);
-    bmpinfoheader[9] = static_cast<uchar>(m_height >> 8);
-    bmpinfoheader[10] = static_cast<uchar>(m_height >> 16);
-    bmpinfoheader[11] = static_cast<uchar>(m_height >> 24);
+    bmpinfoheader[4] = static_cast<std::uint8_t>(m_width);
+    bmpinfoheader[5] = static_cast<std::uint8_t>(m_width >> 8);
+    bmpinfoheader[6] = static_cast<std::uint8_t>(m_width >> 16);
+    bmpinfoheader[7] = static_cast<std::uint8_t>(m_width >> 24);
+    bmpinfoheader[8] = static_cast<std::uint8_t>(m_height);
+    bmpinfoheader[9] = static_cast<std::uint8_t>(m_height >> 8);
+    bmpinfoheader[10] = static_cast<std::uint8_t>(m_height >> 16);
+    bmpinfoheader[11] = static_cast<std::uint8_t>(m_height >> 24);
 
     f = fopen(file_name, "wb");
     if (f == nullptr)
@@ -125,4 +77,51 @@ void Image::save_image(const char *file_name) const
 
     delete[] img;
     img = nullptr;
+}
+
+std::uint32_t Image::get_width() const
+{
+    return m_width;
+}
+
+std::uint32_t Image::get_height() const
+{
+    return m_height;
+}
+
+GrayscaleMatrix Image::get_matrix() const
+{
+    return m_matrix;
+}
+
+void Image::set_pixel(const std::uint32_t x,
+                      const std::uint32_t y,
+                      const std::uint8_t value)
+{
+    m_matrix[x][y] = value;
+}
+
+// Exercise 1
+void Image::clear_image()
+{
+}
+
+// Exercise 2
+void Image::resize_image(const std::uint32_t new_width,
+                         const std::uint32_t new_height)
+{
+}
+
+// Exercise 3
+void Image::fill_image(const std::uint8_t value)
+{
+}
+
+// Exercise 4
+void Image::draw_line(const std::uint32_t x1,
+                      const std::uint32_t y1,
+                      const std::uint32_t x2,
+                      const std::uint32_t y2,
+                      const std::uint8_t value)
+{
 }

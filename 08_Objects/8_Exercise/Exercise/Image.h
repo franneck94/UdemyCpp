@@ -1,44 +1,41 @@
 #pragma once
 
+#include <cstdint>
 #include <vector>
 
-using uchar = unsigned char;
-using GrayscaleMatrix = std::vector<std::vector<uchar>>;
+using GrayscaleMatrix = std::vector<std::vector<std::uint8_t>>;
 
 class Image
 {
 public:
-    // Konstruktor
-    Image();
-    Image(const unsigned int width, const unsigned int height);
-
-    // Destructor
+    Image(const std::uint32_t width, const std::uint32_t height);
     ~Image();
 
-    // Getter
-    unsigned int get_width() const;
-    unsigned int get_height() const;
-
-    // Helper
     void save_image(const char *file_name) const;
+
+    std::uint32_t get_width() const;
+    std::uint32_t get_height() const;
+    GrayscaleMatrix get_matrix() const;
+
+    void set_pixel(const std::uint32_t x,
+                   const std::uint32_t y,
+                   const std::uint8_t value);
 
     // Exercise 1
     void clear_image();
     // Exercise 2
-    void set_pixel(const unsigned int x, const unsigned int y, const uchar value);
+    void resize_image(const std::uint32_t new_width, const std::uint32_t new_height);
     // Exercise 3
-    void resize_image(const unsigned int new_width, const unsigned int new_height);
+    void fill_image(const std::uint8_t value);
     // Exercise 4
-    void fill_image(const uchar value);
-    // Exercise 5
-    void draw_line(const unsigned int x1,
-                   const unsigned int y1,
-                   const unsigned int x2,
-                   const unsigned int y2,
-                   const uchar value);
+    void draw_line(const std::uint32_t x1,
+                   const std::uint32_t y1,
+                   const std::uint32_t x2,
+                   const std::uint32_t y2,
+                   const std::uint8_t value);
 
 private:
-    unsigned int m_width;
-    unsigned int m_height;
+    std::uint32_t m_width;
+    std::uint32_t m_height;
     GrayscaleMatrix m_matrix;
 };
