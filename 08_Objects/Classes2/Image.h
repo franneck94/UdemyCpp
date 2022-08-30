@@ -1,4 +1,7 @@
 #include <cstdint>
+#include <vector>
+
+using GrayscaleMatrix = std::vector<std::vector<std::uint8_t>>;
 
 class Image
 {
@@ -12,4 +15,5 @@ public:
 private:
     std::uint32_t m_width;
     std::uint32_t m_height;
+    GrayscaleMatrix m_matrix;
 };
