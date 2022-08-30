@@ -34,6 +34,11 @@ public:
     {
         std::cout << "Player Destructor!\n";
     }
+
+    void print_id()
+    {
+        std::cout << m_id << '\n';
+    }
 };
 
 class NPC : public Agent
