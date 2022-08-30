@@ -1,14 +1,15 @@
+#include <cstdint>
+
 class Image
 {
 public:
     // Konstruktor
-    Image();
-    Image(const unsigned int &width, const unsigned int &height);
+    Image(const std::uint32_t width, const std::uint32_t height);
 
     // Destructor
     ~Image();
 
 private:
-    unsigned int m_width;
-    unsigned int m_height;
+    std::uint32_t m_width;
+    std::uint32_t m_height;
 };

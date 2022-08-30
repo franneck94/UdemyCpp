@@ -2,21 +2,13 @@
 
 #include "Image.h"
 
-Image::Image()
-{
-    m_width = 0;
-    m_height = 0;
-
-    std::cout << "Created empty image object!" << std::endl;
-}
-
-Image::Image(const unsigned int &width, const unsigned int &height)
+Image::Image(const std::uint32_t width, const std::uint32_t height)
 {
     m_width = width;
     m_height = height;
 
-    std::cout << "Created image object with shape=(" << m_width << "," << m_height << ")!"
-              << std::endl;
+    std::cout << "Created image object with shape=(" << m_width << "," << m_height
+              << ")!" << std::endl;
 }
 
 Image::~Image()
