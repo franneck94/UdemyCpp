@@ -1,25 +1,22 @@
 #include <iostream>
-#include <string>
 
 #include "Agent.h"
 
 int main()
 {
+    std::cout << "Line 7\n";
     {
-        Agent agent1("A1", 0, 100, 25);
+        auto agent1 = Agent{"A1", 0U};
     }
-
-    std::cout << '\n';
-
+    std::cout << "Line 11\n";
     {
-        Player player1("P1", 1, 250, 55);
+        auto player1 = Player{"P1", 1U};
     }
-
-    std::cout << '\n';
-
+    std::cout << "Line 15\n";
     {
-        NPC npc1("N1", 2, 235, 41);
+        auto npc1 = NPC{"N1", 2U};
     }
+    std::cout << "Line 19\n";
 
     return 0;
 }
