@@ -52,8 +52,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/08_Objects/8_Exercise/Solution",
-      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/08_Objects/8_Exercise/Solution/build/Debug/outDebug",
+      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/08_Objects/Polymorphism",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/08_Objects/Polymorphism/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -3,19 +3,19 @@
 #include <iostream>
 #include <string>
 
-class Animal
+class Agent
 {
 public:
-    Animal() = default;
+    Agent() = default;
 
-    Animal(const std::string &name) : m_name(name)
+    Agent(const std::string &name) : m_name(name)
     {
-        std::cout << "Animal Constructor!" << std::endl;
+        std::cout << "Agent Constructor!" << std::endl;
     }
 
-    virtual ~Animal()
+    virtual ~Agent()
     {
-        std::cout << "Animal Destructor!" << std::endl;
+        std::cout << "Agent Destructor!" << std::endl;
     }
 
     virtual void my_favourite_food()
@@ -29,17 +29,17 @@ private:
     const std::string m_name;
 };
 
-class Dog : public Animal
+class Player : public Agent
 {
 public:
-    Dog(const std::string &name) : Animal(name)
+    Player(const std::string &name) : Agent(name)
     {
-        std::cout << "Dog Constructor!" << std::endl;
+        std::cout << "Player Constructor!" << std::endl;
     }
 
-    ~Dog()
+    ~Player()
     {
-        std::cout << "Dog Destructor!" << std::endl;
+        std::cout << "Player Destructor!" << std::endl;
     }
 
     void my_favourite_food() final

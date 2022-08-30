@@ -1,11 +1,9 @@
-#include <algorithm>
-#include <functional>
 #include <iostream>
-#include <iterator>
-#include <random>
 #include <vector>
 
-// Friendships are not symmetric Friendships are not transitive Friendships are not inherited
+// - Friendships are not symmetric
+// - Friendships are not transitive
+// - Friendships are not inherited
 class Stack
 {
 public:

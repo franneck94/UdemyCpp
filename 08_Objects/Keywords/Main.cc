@@ -1,31 +1,31 @@
 #include <iostream>
 #include <string>
 
-#include "Animal.h"
+#include "Agent.h"
 
-void polyFavouriteFood(Animal *&animal)
+void polyFavouriteFood(Agent *&agent)
 {
-    animal->my_favourite_food();
+    agent->my_favourite_food();
 }
 
 int main()
 {
-    Animal a1;
+    Agent a1;
 
     {
-        std::string animal_name = "Tatze";
-        Animal *animal1 = new Animal(animal_name);
-        polyFavouriteFood(animal1);
-        delete animal1;
+        std::string agent_name = "Tatze";
+        Agent *agent1 = new Agent(agent_name);
+        polyFavouriteFood(agent1);
+        delete agent1;
     }
 
     std::cout << std::endl;
 
     {
-        std::string dog_name = "Bello";
-        Animal *dog1 = new Dog(dog_name);
-        polyFavouriteFood(dog1);
-        delete dog1;
+        std::string player_name = "Bello";
+        Agent *player1 = new Player(player_name);
+        polyFavouriteFood(player1);
+        delete player1;
     }
 
     return 0;

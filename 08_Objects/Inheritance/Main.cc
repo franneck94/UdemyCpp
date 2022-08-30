@@ -1,20 +1,24 @@
 #include <iostream>
 #include <string>
 
-#include "Animal.h"
+#include "Agent.h"
 
 int main()
 {
     {
-        std::string animal_name = "Tatze";
-        Animal animal1(animal_name);
+        Agent agent1("A1", 0, 100, 25);
     }
 
     std::cout << std::endl;
 
     {
-        std::string dog_name = "Bello";
-        Dog dog1(dog_name);
+        Player player1("P1", 1, 250, 55);
+    }
+
+    std::cout << std::endl;
+
+    {
+        NPC npc1("N1", 2, 235, 41);
     }
 
     return 0;
