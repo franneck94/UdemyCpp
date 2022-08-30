@@ -21,7 +21,7 @@ class B : public A
     // z is not accessible from B
     void foo()
     {
-        std::cout << x << std::endl;
+        std::cout << x << '\n';
     }
 };
 
@@ -33,7 +33,7 @@ class C : protected A
 
     void foo()
     {
-        std::cout << x << std::endl;
+        std::cout << x << '\n';
     }
 };
 
@@ -41,7 +41,7 @@ class C_Derived : protected C
 {
     void foo()
     {
-        std::cout << y << std::endl;
+        std::cout << y << '\n';
     }
 };
 
@@ -53,7 +53,7 @@ class D : private A // 'private' is default for classes
 
     void foo()
     {
-        std::cout << y << std::endl;
+        std::cout << y << '\n';
     }
 };
 
@@ -61,7 +61,7 @@ class D_Derived : public D
 {
     void foo()
     {
-        // std::cout << x << std::endl;
+        // std::cout << x << '\n';
     }
 };
 

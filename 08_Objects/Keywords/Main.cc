@@ -19,7 +19,7 @@ int main()
         delete agent1;
     }
 
-    std::cout << std::endl;
+    std::cout << '\n';
 
     {
         std::string player_name = "Bello";

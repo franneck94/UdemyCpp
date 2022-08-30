@@ -8,7 +8,7 @@ class Agent
 public:
     Agent(const std::string &name, const std::uint32_t id) : m_name(name), m_id(id)
     {
-        std::cout << "Agent Constructor!" << std::endl;
+        std::cout << "Agent Constructor!" << '\n';
     }
 
     Agent(const std::string &name,
@@ -17,12 +17,12 @@ public:
           const std::uint32_t energy)
         : m_name(name), m_id(id), m_hp(hp), m_energy(energy)
     {
-        std::cout << "Agent Constructor!" << std::endl;
+        std::cout << "Agent Constructor!" << '\n';
     }
 
     ~Agent()
     {
-        std::cout << "Agent Destructor!" << std::endl;
+        std::cout << "Agent Destructor!" << '\n';
     }
 
 protected:
@@ -37,7 +37,7 @@ class Player : public Agent
 public:
     Player(const std::string &name, const std::uint32_t id) : Agent(name, id)
     {
-        std::cout << "Player Constructor!" << std::endl;
+        std::cout << "Player Constructor!" << '\n';
     }
 
     Player(const std::string &name,
@@ -46,12 +46,12 @@ public:
            const std::uint32_t energy)
         : Agent(name, id, hp, energy)
     {
-        std::cout << "Player Constructor!" << std::endl;
+        std::cout << "Player Constructor!" << '\n';
     }
 
     ~Player()
     {
-        std::cout << "Player Destructor!" << std::endl;
+        std::cout << "Player Destructor!" << '\n';
     }
 };
 
@@ -60,7 +60,7 @@ class NPC : public Agent
 public:
     NPC(const std::string &name, const std::uint32_t id) : Agent(name, id)
     {
-        std::cout << "NPC Constructor!" << std::endl;
+        std::cout << "NPC Constructor!" << '\n';
     }
 
     NPC(const std::string &name,
@@ -69,11 +69,11 @@ public:
         const std::uint32_t energy)
         : Agent(name, id, hp, energy)
     {
-        std::cout << "NPC Constructor!" << std::endl;
+        std::cout << "NPC Constructor!" << '\n';
     }
 
     ~NPC()
     {
-        std::cout << "NPC Destructor!" << std::endl;
+        std::cout << "NPC Destructor!" << '\n';
     }
 };

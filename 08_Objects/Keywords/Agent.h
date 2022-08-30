@@ -10,17 +10,17 @@ public:
 
     Agent(const std::string &name) : m_name(name)
     {
-        std::cout << "Agent Constructor!" << std::endl;
+        std::cout << "Agent Constructor!" << '\n';
     }
 
     virtual ~Agent()
     {
-        std::cout << "Agent Destructor!" << std::endl;
+        std::cout << "Agent Destructor!" << '\n';
     }
 
     virtual void my_favourite_food()
     {
-        std::cout << "Salad" << std::endl;
+        std::cout << "Salad" << '\n';
     }
 
     // virtual void make_a_sound() = 0;
@@ -34,21 +34,21 @@ class Player : public Agent
 public:
     Player(const std::string &name) : Agent(name)
     {
-        std::cout << "Player Constructor!" << std::endl;
+        std::cout << "Player Constructor!" << '\n';
     }
 
     ~Player()
     {
-        std::cout << "Player Destructor!" << std::endl;
+        std::cout << "Player Destructor!" << '\n';
     }
 
     void my_favourite_food() final
     {
-        std::cout << "Meat" << std::endl;
+        std::cout << "Meat" << '\n';
     }
 
     // void make_a_sound() final
     // {
-    //     std::cout << "bark!" << std::endl;
+    //     std::cout << "bark!" << '\n';
     // }
 };
