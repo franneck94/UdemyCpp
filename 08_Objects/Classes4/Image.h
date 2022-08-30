@@ -1,30 +1,18 @@
+#include <cstdint>
 #include <vector>
 
-using uchar = unsigned char;
-using GrayscaleMatrix = std::vector<std::vector<uchar>>;
+using GrayscaleMatrix = std::vector<std::vector<std::uint8_t>>;
 
 class Image
 {
 public:
-    // Konstruktor
-    Image();
-    Image(const unsigned int width, const unsigned int height);
-
-    // Destructor
+    Image(const std::uint32_t width, const std::uint32_t height);
     ~Image();
-
-    // Getter
-    unsigned int get_width() const;
-    unsigned int get_height() const;
-
-    // Setter
-    void set_width(unsigned int new_width);
-    void set_height(unsigned int new_height);
 
     void save_image(const char *file_name) const;
 
 private:
-    unsigned int m_width;
-    unsigned int m_height;
+    std::uint32_t m_width;
+    std::uint32_t m_height;
     GrayscaleMatrix m_matrix;
 };
