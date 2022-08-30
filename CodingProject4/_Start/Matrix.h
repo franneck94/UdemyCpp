@@ -1,6 +1,7 @@
 #pragma once
 
 #include <algorithm>
+#include <exception>
 #include <functional>
 #include <iostream>
 #include <vector>
@@ -80,6 +81,15 @@ std::size_t Matrix<T>::num_cols() const
 template <typename T>
 Matrix<T> Matrix<T>::operator+(const Matrix &rhs)
 {
+    if (m_rows != rhs.m_rows)
+    {
+        throw(std::invalid_argument("Number of rows are not equal!"));
+    }
+    if (m_cols != rhs.m_cols)
+    {
+        throw(std::invalid_argument("Number of columns are not equal!"));
+    }
+
     Matrix<T> result(m_rows, m_cols);
 
     for (std::size_t i = 0; i != m_rows; ++i)
@@ -97,6 +107,15 @@ Matrix<T> Matrix<T>::operator+(const Matrix &rhs)
 template <typename T>
 Matrix<T> &Matrix<T>::operator+=(const Matrix &rhs)
 {
+    if (m_rows != rhs.m_rows)
+    {
+        throw(std::invalid_argument("Number of rows are not equal!"));
+    }
+    if (m_cols != rhs.m_cols)
+    {
+        throw(std::invalid_argument("Number of columns are not equal!"));
+    }
+
     for (std::size_t i = 0; i != m_rows; ++i)
     {
         std::transform(m_data[i].begin(),
@@ -112,6 +131,15 @@ Matrix<T> &Matrix<T>::operator+=(const Matrix &rhs)
 template <typename T>
 Matrix<T> Matrix<T>::operator-(const Matrix &rhs)
 {
+    if (m_rows != rhs.m_rows)
+    {
+        throw(std::invalid_argument("Number of rows are not equal!"));
+    }
+    if (m_cols != rhs.m_cols)
+    {
+        throw(std::invalid_argument("Number of columns are not equal!"));
+    }
+
     Matrix<T> result(m_rows, m_cols);
 
     for (std::size_t i = 0; i != m_rows; ++i)
@@ -129,6 +157,15 @@ Matrix<T> Matrix<T>::operator-(const Matrix &rhs)
 template <typename T>
 Matrix<T> &Matrix<T>::operator-=(const Matrix &rhs)
 {
+    if (m_rows != rhs.m_rows)
+    {
+        throw(std::invalid_argument("Number of rows are not equal!"));
+    }
+    if (m_cols != rhs.m_cols)
+    {
+        throw(std::invalid_argument("Number of columns are not equal!"));
+    }
+
     for (std::size_t i = 0; i != m_rows; ++i)
     {
         std::transform(m_data[i].begin(),
@@ -174,6 +211,11 @@ Matrix<T> &Matrix<T>::operator*=(const T &scalar)
 template <typename T>
 Matrix<T> Matrix<T>::operator/(const T &scalar)
 {
+    if (scalar == T{})
+    {
+        throw(std::overflow_error("Division by zero occured!"));
+    }
+
     Matrix<T> result(m_rows, m_cols);
 
     for (std::size_t i = 0; i != m_rows; ++i)
@@ -190,6 +232,11 @@ Matrix<T> Matrix<T>::operator/(const T &scalar)
 template <typename T>
 Matrix<T> &Matrix<T>::operator/=(const T &scalar)
 {
+    if (scalar == T{})
+    {
+        throw(std::overflow_error("Division by zero occured!"));
+    }
+
     for (std::size_t i = 0; i != m_rows; ++i)
     {
         std::transform(m_data[i].begin(),
@@ -204,6 +251,11 @@ Matrix<T> &Matrix<T>::operator/=(const T &scalar)
 template <typename T>
 Matrix<T> Matrix<T>::operator*(const Matrix &rhs)
 {
+    if (m_cols != rhs.m_rows)
+    {
+        throw(std::invalid_argument("Matrix dimensions does not match!"));
+    }
+
     Matrix<T> result(m_rows, m_cols);
 
     for (std::size_t i = 0; i != m_rows; ++i)
@@ -224,6 +276,11 @@ Matrix<T> Matrix<T>::operator*(const Matrix &rhs)
 template <typename T>
 Matrix<T> &Matrix<T>::operator*=(const Matrix &rhs)
 {
+    if (m_cols != rhs.m_rows)
+    {
+        throw(std::invalid_argument("Matrix dimensions does not match!"));
+    }
+
     *this = (*this) * rhs;
 
     return *this;

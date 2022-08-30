@@ -235,7 +235,7 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &rhs)
 {
     if (m_cols != rhs.m_rows)
     {
-        throw(std::invalid_argument("Number of cols are not equal!"));
+        throw(std::invalid_argument("Matrix dimensions does not match!"));
     }
 
     Matrix<T> result(m_rows, rhs.m_cols);
@@ -260,7 +260,7 @@ Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &rhs)
 {
     if (m_cols != rhs.m_rows)
     {
-        throw(std::invalid_argument("Number of cols are not equal!"));
+        throw(std::invalid_argument("Matrix dimensions does not match!"));
     }
 
     *this = (*this) * rhs;
