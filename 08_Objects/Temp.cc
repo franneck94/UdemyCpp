@@ -3,7 +3,7 @@ void Image::save_image(const char *file_name) const
     FILE *f = nullptr;
 
     auto num_bytes = 3 * m_width * m_height;
-    auto *img = new uchar[num_bytes]{};
+    auto *img = new std::uint8_t[num_bytes]{};
 
     auto filesize = 54 + 3 * m_width * m_height;
 
@@ -17,23 +17,23 @@ void Image::save_image(const char *file_name) const
         }
     }
 
-    uchar bmpfileheader[14]{'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0};
-    uchar bmpinfoheader[40]{40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0};
-    uchar bmppad[3]{0, 0, 0};
+    std::uint8_t bmpfileheader[14]{'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0};
+    std::uint8_t bmpinfoheader[40]{40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0};
+    std::uint8_t bmppad[3]{0, 0, 0};
 
-    bmpfileheader[2] = static_cast<uchar>(filesize);
-    bmpfileheader[3] = static_cast<uchar>(filesize >> 8);
-    bmpfileheader[4] = static_cast<uchar>(filesize >> 16);
-    bmpfileheader[5] = static_cast<uchar>(filesize >> 24);
+    bmpfileheader[2] = static_cast<std::uint8_t>(filesize);
+    bmpfileheader[3] = static_cast<std::uint8_t>(filesize >> 8);
+    bmpfileheader[4] = static_cast<std::uint8_t>(filesize >> 16);
+    bmpfileheader[5] = static_cast<std::uint8_t>(filesize >> 24);
 
-    bmpinfoheader[4] = static_cast<uchar>(m_width);
-    bmpinfoheader[5] = static_cast<uchar>(m_width >> 8);
-    bmpinfoheader[6] = static_cast<uchar>(m_width >> 16);
-    bmpinfoheader[7] = static_cast<uchar>(m_width >> 24);
-    bmpinfoheader[8] = static_cast<uchar>(m_height);
-    bmpinfoheader[9] = static_cast<uchar>(m_height >> 8);
-    bmpinfoheader[10] = static_cast<uchar>(m_height >> 16);
-    bmpinfoheader[11] = static_cast<uchar>(m_height >> 24);
+    bmpinfoheader[4] = static_cast<std::uint8_t>(m_width);
+    bmpinfoheader[5] = static_cast<std::uint8_t>(m_width >> 8);
+    bmpinfoheader[6] = static_cast<std::uint8_t>(m_width >> 16);
+    bmpinfoheader[7] = static_cast<std::uint8_t>(m_width >> 24);
+    bmpinfoheader[8] = static_cast<std::uint8_t>(m_height);
+    bmpinfoheader[9] = static_cast<std::uint8_t>(m_height >> 8);
+    bmpinfoheader[10] = static_cast<std::uint8_t>(m_height >> 16);
+    bmpinfoheader[11] = static_cast<std::uint8_t>(m_height >> 24);
 
     f = fopen(file_name, "wb");
     if (f == nullptr)

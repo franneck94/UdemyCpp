@@ -6,11 +6,10 @@ using GrayscaleMatrix = std::vector<std::vector<std::uint8_t>>;
 class Image
 {
 public:
-    // Constructor
     Image(const std::uint32_t width, const std::uint32_t height);
-
-    // Destructor
     ~Image();
+
+    void save_image(const char *file_name) const;
 
 private:
     std::uint32_t m_width;
