@@ -17,6 +17,50 @@ void Matrix::print_matrix() const
     std::cout << m_C << " " << m_D << "\n\n";
 }
 
+Matrix Matrix::operator+(const Matrix &rhs)
+{
+    auto result = Matrix{};
+
+    result.set_A(get_A() + rhs.get_A());
+    result.set_B(get_B() + rhs.get_B());
+    result.set_C(get_C() + rhs.get_C());
+    result.set_D(get_D() + rhs.get_D());
+
+    return result;
+}
+
+Matrix &Matrix::operator+=(const Matrix &rhs)
+{
+    set_A(get_A() + rhs.get_A());
+    set_B(get_B() + rhs.get_B());
+    set_C(get_C() + rhs.get_C());
+    set_D(get_D() + rhs.get_D());
+
+    return *this;
+}
+
+Matrix Matrix::operator-(const Matrix &rhs)
+{
+    auto result = Matrix{};
+
+    result.set_A(get_A() - rhs.get_A());
+    result.set_B(get_B() - rhs.get_B());
+    result.set_C(get_C() - rhs.get_C());
+    result.set_D(get_D() - rhs.get_D());
+
+    return result;
+}
+
+Matrix &Matrix::operator-=(const Matrix &rhs)
+{
+    set_A(get_A() - rhs.get_A());
+    set_B(get_B() - rhs.get_B());
+    set_C(get_C() - rhs.get_C());
+    set_D(get_D() - rhs.get_D());
+
+    return *this;
+}
+
 double Matrix::get_A() const
 {
     return m_A;

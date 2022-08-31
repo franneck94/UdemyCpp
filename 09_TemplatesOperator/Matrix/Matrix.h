@@ -9,6 +9,11 @@ public:
 
     void print_matrix() const;
 
+    Matrix operator+(const Matrix &rhs);
+    Matrix &operator+=(const Matrix &rhs);
+    Matrix operator-(const Matrix &rhs);
+    Matrix &operator-=(const Matrix &rhs);
+
     double get_A() const;
     double get_B() const;
     double get_C() const;

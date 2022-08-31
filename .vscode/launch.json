@@ -52,8 +52,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/08_Objects/Matrix",
-      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/08_Objects/Matrix/build/Debug/outDebug",
+      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/09_TemplatesOperator/Matrix",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/09_TemplatesOperator/Matrix/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
