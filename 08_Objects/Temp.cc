@@ -1,3 +1,6 @@
+#include <cstdint>
+#include <cstdio>
+
 void Image::save_image(const char *file_name) const
 {
     FILE *f = nullptr;
