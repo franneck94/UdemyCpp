@@ -52,8 +52,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/08_Objects/VirtualDestructor",
-      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/08_Objects/VirtualDestructor/build/Debug/outDebug",
+      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/08_Objects/Abstract",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/08_Objects/Abstract/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

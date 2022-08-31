@@ -24,10 +24,7 @@ public:
 
     virtual ~Agent() = default;
 
-    virtual void print_agent_data() const
-    {
-        std::cout << "Agent hp: " << m_hp << ", energy: " << m_energy << '\n';
-    }
+    virtual void print_agent_data() const = 0;
 
 protected:
     const std::string m_name;
