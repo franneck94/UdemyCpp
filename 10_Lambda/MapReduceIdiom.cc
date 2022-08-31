@@ -9,10 +9,10 @@ void print_vector(const std::vector<double> &vec)
 {
     for (const auto &val : vec)
     {
-        std::cout << val << std::endl;
+        std::cout << val << '\n';
     }
 
-    std::cout << std::endl;
+    std::cout << '\n';
 }
 
 double magnitude(std::vector<double> &vec)
@@ -31,9 +31,8 @@ double magnitude(std::vector<double> &vec)
 
 int main()
 {
-    std::vector<double> my_vector(10, 0.0);
-    std::iota(my_vector.begin(), my_vector.end(), 0.0);
-
+    auto my_vector = std::vector<double>(10, 0);
+    std::iota(my_vector.begin(), my_vector.end(), 0);
     print_vector(my_vector);
 
     std::cout << magnitude(my_vector) << std::endl;
