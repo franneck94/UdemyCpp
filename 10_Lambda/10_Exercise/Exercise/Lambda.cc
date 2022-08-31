@@ -11,7 +11,9 @@ int main()
 
     std::vector<int> my_vector(10, 0);
     std::vector<int> my_result(10, 0);
-    std::generate(my_vector.begin(), my_vector.end(), [&]() -> int { return dist(gen); });
+    std::generate(my_vector.begin(), my_vector.end(), [&]() -> int {
+        return dist(gen);
+    });
 
     for (const auto &val : my_vector)
     {

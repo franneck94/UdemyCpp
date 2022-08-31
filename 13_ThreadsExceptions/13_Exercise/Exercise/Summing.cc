@@ -56,7 +56,7 @@ int main()
         sum1 = serial_sum(my_vector);
         time1 += t1.elapsed_time<cpptiming::millisecs, double>();
     }
-    std::cout << "Mean Serial: " << time1 / NUM_RUNS << "ms sum: " << sum1 << std::endl;
+    std::cout << "Mean Serial: " << time1 / NUM_RUNS << "ms sum: " << sum1 << '\n';
 
     return 0;
 }

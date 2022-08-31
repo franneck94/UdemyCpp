@@ -36,7 +36,10 @@ int main()
     // transform: element-wise operations with function object
     std::vector<int> my_result(10, 0);
 
-    std::transform(my_vector.begin(), my_vector.end(), my_result.begin(), check_even);
+    std::transform(my_vector.begin(),
+                   my_vector.end(),
+                   my_result.begin(),
+                   check_even);
 
     print_vector(my_result);
 

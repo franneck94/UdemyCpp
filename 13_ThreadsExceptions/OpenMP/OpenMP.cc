@@ -147,7 +147,7 @@ int main()
         sum2 = parallel_sum_omp(my_vector);
         time2 += t2.elapsed_time<cpptiming::millisecs, double>();
     }
-    std::cout << "Mean OpenMP: " << time2 / NUM_RUNS << "ms sum: " << sum2 << std::endl;
+    std::cout << "Mean OpenMP: " << time2 / NUM_RUNS << "ms sum: " << sum2 << '\n';
 
     // auto time3 = 0.0;
     // volatile auto sum3 = 0;

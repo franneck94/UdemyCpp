@@ -11,7 +11,9 @@ int main()
 
     std::vector<int> my_vector(10, 0);
     std::vector<int> my_result(10, 0);
-    std::generate(my_vector.begin(), my_vector.end(), [&]() -> int { return dist(gen); });
+    std::generate(my_vector.begin(), my_vector.end(), [&]() -> int {
+        return dist(gen);
+    });
 
     for (const auto &val : my_vector)
     {
@@ -34,10 +36,11 @@ int main()
     }
 
     // Exercise 2
-    std::transform(my_vector.begin(),
-                   my_vector.end(),
-                   my_result.begin(),
-                   [](int val) -> int { return static_cast<int>(std::pow(val, 2.0)); });
+    std::transform(
+        my_vector.begin(),
+        my_vector.end(),
+        my_result.begin(),
+        [](int val) -> int { return static_cast<int>(std::pow(val, 2.0)); });
 
     for (const auto &val : my_result)
     {

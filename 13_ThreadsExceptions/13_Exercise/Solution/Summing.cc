@@ -111,7 +111,7 @@ int main()
         sum1 = serial_sum(my_vector);
         time1 += t1.elapsed_time<cpptiming::millisecs, double>();
     }
-    std::cout << "Mean Serial: " << time1 / NUM_RUNS << "ms sum: " << sum1 << std::endl;
+    std::cout << "Mean Serial: " << time1 / NUM_RUNS << "ms sum: " << sum1 << '\n';
 
     auto time3 = 0.0;
     volatile auto sum3 = 0;
@@ -121,7 +121,7 @@ int main()
         sum3 = parallel_sum(my_vector);
         time3 += t3.elapsed_time<cpptiming::millisecs, double>();
     }
-    std::cout << "Own MT: " << time3 / NUM_RUNS << "ms sum: " << sum3 << std::endl;
+    std::cout << "Own MT: " << time3 / NUM_RUNS << "ms sum: " << sum3 << '\n';
 
     return 0;
 }

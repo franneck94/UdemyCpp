@@ -41,7 +41,8 @@ private:
  * @brief Create a dynamic array object
  */
 template <typename T>
-DynamicArray<T>::DynamicArray() : m_length(0), m_capacity(1), m_data(new T[m_capacity])
+DynamicArray<T>::DynamicArray()
+    : m_length(0), m_capacity(1), m_data(new T[m_capacity])
 {
 }
 
@@ -53,7 +54,8 @@ DynamicArray<T>::DynamicArray() : m_length(0), m_capacity(1), m_data(new T[m_cap
  */
 template <typename T>
 DynamicArray<T>::DynamicArray(const T &value, const std::size_t length)
-    : m_length(length), m_capacity(length > 0 ? length : 1), m_data(new T[m_capacity])
+    : m_length(length), m_capacity(length > 0 ? length : 1),
+      m_data(new T[m_capacity])
 {
     for (std::size_t i = 0; i < length; i++)
     {
