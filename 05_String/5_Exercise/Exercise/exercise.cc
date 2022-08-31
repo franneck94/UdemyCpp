@@ -1,9 +1,10 @@
+#include <cstdint>
 #include <iostream>
 
 #include "exercise.h"
 
 // Exercise 1
-uchar hex_xor(uchar &hex1, uchar &hex2)
+std::uint8_t hex_xor(std::uint8_t &hex1, std::uint8_t &hex2)
 {
 }
 

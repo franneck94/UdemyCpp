@@ -1,12 +1,12 @@
 #pragma once
 
+#include <cstdint>
 #include <vector>
 
-typedef unsigned char uchar;
-typedef std::vector<unsigned char> ByteArray;
+typedef std::vector<std::uint8_t> ByteArray;
 
 // Exercise 1
-uchar hex_xor(uchar &hex1, uchar &hex2);
+std::uint8_t hex_xor(std::uint8_t &hex1, std::uint8_t &hex2);
 
 // Exercise 2
 ByteArray hex_vector_xor(ByteArray &vec1, ByteArray &vec2);

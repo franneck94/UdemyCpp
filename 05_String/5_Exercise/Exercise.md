@@ -10,10 +10,9 @@ Wir werden in dieser Übung zwei typedefs verwenden:
 
 ```cpp
 #include <vector>
-using std::vector;
+#include <cstdint>
 
-typedef unsigned char uchar;
-typedef vector<uchar> ByteArray;
+typedef std::vector<std::uint8_t> ByteArray;
 ```
 
 ## Aufgaben der Programmierübung
@@ -23,10 +22,10 @@ typedef vector<uchar> ByteArray;
 Schreibt eine Funktion
 
 ```cpp
-uchar hex_xor(uchar &hex1, uchar &hex2);
+std::uint8_t hex_xor(std::uint8_t &hex1, std::uint8_t &hex2);
 ```
 
-die zwei uchar Werte entgegennimmt und das Ergebnis der logischen XOR-Verknüpfung returned.
+die zwei std::uint8_t Werte entgegennimmt und das Ergebnis der logischen XOR-Verknüpfung returned.
 
 ### Aufgabe 2
 
