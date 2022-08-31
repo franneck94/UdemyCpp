@@ -2,7 +2,7 @@
 
 #include "Matrix.h"
 
-Matrix::Matrix() : m_A(0), m_B(0), m_C(0), m_D(0)
+Matrix::Matrix() : m_A(0.0), m_B(0.0), m_C(0.0), m_D(0.0)
 {
 }
 
@@ -13,9 +13,8 @@ Matrix::Matrix(const double &A, const double &B, const double &C, const double &
 
 void Matrix::print_matrix() const
 {
-    std::cout << m_A << ", " << m_B << std::endl;
-    std::cout << m_C << ", " << m_D << std::endl;
-    std::cout << std::endl;
+    std::cout << m_A << " " << m_B << '\n';
+    std::cout << m_C << " " << m_D << "\n\n";
 }
 
 double Matrix::get_A() const

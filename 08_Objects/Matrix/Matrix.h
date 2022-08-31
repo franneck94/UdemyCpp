@@ -5,6 +5,7 @@ class Matrix
 public:
     Matrix();
     Matrix(const double &A, const double &B, const double &C, const double &D);
+    ~Matrix() = default;
 
     void print_matrix() const;
 
