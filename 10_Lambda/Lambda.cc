@@ -8,77 +8,46 @@ void print_vector(const std::vector<int> &vec)
 {
     for (const auto &val : vec)
     {
-        std::cout << val << std::endl;
+        std::cout << val << '\n';
     }
 
-    std::cout << std::endl;
+    std::cout << '\n';
 }
 
-int check_even(const int val)
+bool check_even(const int value)
 {
-    if (val % 2 == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return (value % 2) == 0;
 }
 
 int main()
 {
-    std::vector<int> my_vector(10, 0);
+    auto my_vector = std::vector<int>(10, 0);
     std::iota(my_vector.begin(), my_vector.end(), 0);
-
     print_vector(my_vector);
 
-    // transform: element-wise operations with function object
-    std::vector<int> my_result(10, 0);
-
+    // transform
+    auto my_result1 = std::vector<int>(10, 0);
     std::transform(my_vector.begin(),
                    my_vector.end(),
-                   my_result.begin(),
+                   my_result1.begin(),
                    check_even);
+    print_vector(my_result1);
 
-    print_vector(my_result);
+    auto filter_even = [](const auto value) { return (value % 2) == 0; };
 
-    // transform: element-wise operations with lambda function
-    std::vector<int> my_result2(10, 0);
-
+    auto my_result2 = std::vector<int>(10, 0);
     std::transform(my_vector.begin(),
                    my_vector.end(),
                    my_result2.begin(),
-                   [](const int val) -> int {
-                       if (val % 2 == 0)
-                       {
-                           return 1;
-                       }
-                       else
-                       {
-                           return 0;
-                       }
-                   });
-
+                   filter_even);
     print_vector(my_result2);
 
     // copy_if
-    std::vector<int> my_result3;
-
+    auto my_result3 = std::vector<int>{};
     std::copy_if(my_vector.begin(),
                  my_vector.end(),
                  std::back_inserter(my_result3),
-                 [](const int val) -> int {
-                     if (val % 2 == 0)
-                     {
-                         return true;
-                     }
-                     else
-                     {
-                         return false;
-                     }
-                 });
-
+                 filter_even);
     print_vector(my_result3);
 
     return 0;
