@@ -15,27 +15,25 @@ void print_vector(const std::vector<double> &vec)
     std::cout << '\n';
 }
 
-double magnitude(std::vector<double> &vec)
+double magnitude(std::vector<double> vec)
 {
-    // 1.) Map: square all values
-    std::transform(vec.begin(), vec.end(), vec.begin(), [](const double val) {
-        return std::pow(val, 2.0);
+    // 1.) Map: Square all values
+    std::transform(vec.begin(), vec.end(), vec.begin(), [](const auto value) {
+        return std::pow(value, 2.0);
     });
 
     // 2.) Reduce
-    const double sum = std::accumulate(vec.begin(), vec.end(), 0.0);
-    const double root = std::pow(sum, 0.5);
-
-    return root;
+    const auto sum = std::accumulate(vec.begin(), vec.end(), 0.0);
+    return std::sqrt(sum);
 }
 
 int main()
 {
-    auto my_vector = std::vector<double>(10, 0);
-    std::iota(my_vector.begin(), my_vector.end(), 0);
+    auto my_vector = std::vector<double>(3, 0);
+    std::iota(my_vector.begin(), my_vector.end(), 1);
     print_vector(my_vector);
 
-    std::cout << magnitude(my_vector) << std::endl;
+    std::cout << "Magnitude: " << magnitude(my_vector) << '\n';
 
     return 0;
 }
