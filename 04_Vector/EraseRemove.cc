@@ -35,7 +35,8 @@ int main()
     // std::cout << *it << std::endl;
     // print_vector(my_vector);
 
-    my_vector.erase(std::remove(my_vector.begin(), my_vector.end(), 2), my_vector.end());
+    my_vector.erase(std::remove(my_vector.begin(), my_vector.end(), 2),
+                    my_vector.end());
     print_vector(my_vector);
 
     my_vector.erase(std::remove_if(my_vector.begin(), my_vector.end(), is_odd),

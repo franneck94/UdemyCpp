@@ -158,5 +158,11 @@
     "**/.vscode/**"
   ],
   "C_Cpp.codeAnalysis.clangTidy.enabled": false,
-  "C_Cpp_Runner.useMsvc": false
+  "C_Cpp_Runner.useMsvc": false,
+  "Workspace_Formatter.excludePattern": [
+    "**/build",
+    "**/.*",
+    "**/.vscode",
+    "json.hpp"
+  ]
 }

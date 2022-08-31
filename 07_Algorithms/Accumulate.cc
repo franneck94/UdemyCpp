@@ -38,7 +38,8 @@ int main()
     auto result2 = std::accumulate(my_vector1.begin(), my_vector1.end(), 0, adder);
     std::cout << result2 << std::endl;
 
-    auto result3 = std::accumulate(my_vector1.begin(), my_vector1.end(), 1, multiplier);
+    auto result3 =
+        std::accumulate(my_vector1.begin(), my_vector1.end(), 1, multiplier);
     std::cout << result3 << std::endl;
 
     return 0;

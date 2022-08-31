@@ -26,6 +26,6 @@ int main()
               << std::endl;
     std::cout << "is_regular_file: " << std::boolalpha
               << fs::is_regular_file(current_file_path) << std::endl;
-    std::cout << "is_directory: " << std::boolalpha << fs::is_directory(current_file_path)
-              << std::endl;
+    std::cout << "is_directory: " << std::boolalpha
+              << fs::is_directory(current_file_path) << std::endl;
 }

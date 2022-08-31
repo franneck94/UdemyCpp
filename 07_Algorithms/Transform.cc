@@ -32,7 +32,10 @@ int main()
     std::iota(my_vector1.begin(), my_vector1.end(), 0);
     print_vector(my_vector1);
 
-    std::transform(my_vector1.begin(), my_vector1.end(), my_vector2.begin(), increment);
+    std::transform(my_vector1.begin(),
+                   my_vector1.end(),
+                   my_vector2.begin(),
+                   increment);
     print_vector(my_vector2);
 
     std::transform(my_vector1.begin(),

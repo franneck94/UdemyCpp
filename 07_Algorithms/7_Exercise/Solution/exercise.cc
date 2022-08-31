@@ -26,7 +26,9 @@ std::vector<bool> shuffle_till_equal(const BinaryArray &target, BinaryArray inpu
                              std::chrono::high_resolution_clock::now())
                              .time_since_epoch()
                              .count();
-        std::shuffle(input.begin(), input.end(), std::default_random_engine(timestamp));
+        std::shuffle(input.begin(),
+                     input.end(),
+                     std::default_random_engine(timestamp));
 
         if (std::equal(input.begin(), input.end(), target.begin()))
         {
@@ -38,7 +40,8 @@ std::vector<bool> shuffle_till_equal(const BinaryArray &target, BinaryArray inpu
 }
 
 // Exercise 3
-std::vector<bool> smart_shuffle_till_equal(const BinaryArray &target, BinaryArray input)
+std::vector<bool> smart_shuffle_till_equal(const BinaryArray &target,
+                                           BinaryArray input)
 {
     bool equal = false;
     std::vector<bool>::iterator first = input.begin();

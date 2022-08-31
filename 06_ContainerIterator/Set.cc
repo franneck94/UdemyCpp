@@ -56,11 +56,12 @@ int main()
     // Set Difference
     std::cout << "Difference: " << std::endl;
     std::set<std::string> students_difference;
-    std::set_difference(math_course.begin(),
-                        math_course.end(),
-                        coding_course.begin(),
-                        coding_course.end(),
-                        std::inserter(students_difference, students_difference.end()));
+    std::set_difference(
+        math_course.begin(),
+        math_course.end(),
+        coding_course.begin(),
+        coding_course.end(),
+        std::inserter(students_difference, students_difference.end()));
     print_set(students_difference);
 
     // Set SymmetricDifference

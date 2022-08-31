@@ -14,6 +14,7 @@ std::vector<bool> shuffle_till_equal(const BinaryArray &target, BinaryArray inpu
 }
 
 // Exercise 3
-std::vector<bool> smart_shuffle_till_equal(const BinaryArray &target, BinaryArray input)
+std::vector<bool> smart_shuffle_till_equal(const BinaryArray &target,
+                                           BinaryArray input)
 {
 }
