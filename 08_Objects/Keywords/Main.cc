@@ -1,32 +1,29 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "Agent.h"
 
-void polyFavouriteFood(Agent *&agent)
+void printAllAgents(const std::vector<Agent *> &agents)
 {
-    agent->my_favourite_food();
+    for (const auto agent : agents)
+    {
+        agent->print_agent_data();
+    }
 }
 
 int main()
 {
-    Agent a1;
+    auto agent1 = new Agent("A1", 0, 100, 25);
+    auto player1 = new Player("P1", 1, 250, 55);
+    auto npc1 = new NPC("N1", 2, 235, 41);
 
-    {
-        std::string agent_name = "Tatze";
-        Agent *agent1 = new Agent(agent_name);
-        polyFavouriteFood(agent1);
-        delete agent1;
-    }
+    const auto agents = std::vector<Agent *>{agent1, player1, npc1};
+    printAllAgents(agents);
 
-    std::cout << '\n';
-
-    {
-        std::string player_name = "Bello";
-        Agent *player1 = new Player(player_name);
-        polyFavouriteFood(player1);
-        delete player1;
-    }
+    delete npc1;
+    delete player1;
+    delete agent1;
 
     return 0;
 }
