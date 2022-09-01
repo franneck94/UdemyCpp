@@ -1,22 +1,22 @@
 #include <algorithm>
+#include <cstdint>
 #include <iostream>
 #include <list>
 #include <numeric>
 #include <random>
-#include <typeinfo>
 #include <vector>
 
 #include "Timer.h"
 
-constexpr std::size_t NUM_RUNS = 5;
-constexpr std::size_t ELEMENTS = 100'000;
+constexpr static auto NUM_RUNS = std::size_t{5};
+constexpr static auto ELEMENTS = std::size_t{100'000};
 
-#define lst
+#define USING_VEC
 
-#ifdef vec
-using container = std::vector<int>;
+#ifdef USING_VEC
+using Container_t = std::vector<std::int32_t>;
 #else
-using container = std::list<int>;
+using Container_t = std::list<std::int32_t>;
 #endif
 
 /*
@@ -26,32 +26,32 @@ using container = std::list<int>;
 4. Random Index
 
 Vector:
-Insert: 1316 ms
-Delete: 365 ms
-Sum: 80 ns
-Random Index: 27.8 ms
-= 1,710 ms
+Insert:
+Delete:
+Sum:
+Random Index:
+=
 
 List:
-Insert: 0.6 ms
-Delete: 0.8 ms
-Sum: 100 ns
-Random Index: 10816.4 ms
-= 10,800 ms
+Insert:
+Delete:
+Sum:
+Random Index:
+=
 */
 
-container generate_container()
+Container_t generate_container()
 {
-    std::mt19937 gen(0);
-    std::uniform_int_distribution<int> dist(-100, 100);
+    auto gen = std::mt19937{0};
+    auto dist = std::uniform_int_distribution<std::int32_t>{-100, 100};
 
-    container c(ELEMENTS);
+    auto c = Container_t(ELEMENTS, 0);
     std::generate(c.begin(), c.end(), [&]() { return dist(gen); });
 
     return c;
 }
 
-void insertion(container &c)
+void insertion(Container_t &c)
 {
     auto it = c.begin();
 
@@ -61,7 +61,7 @@ void insertion(container &c)
     }
 }
 
-void deletion(container &c)
+void deletion(Container_t &c)
 {
     for (std::size_t i = 0; i < ELEMENTS - 1; ++i)
     {
@@ -69,9 +69,9 @@ void deletion(container &c)
     }
 }
 
-void summing(container &c)
+void summing(Container_t &c)
 {
-    long long sum = 0;
+    volatile auto sum = std::uint64_t{0};
 
     for (const auto &val : c)
     {
@@ -79,53 +79,49 @@ void summing(container &c)
     }
 }
 
-void indexing_vec(std::vector<int> &c)
+#ifdef USING_VEC
+void indexing(std::vector<std::int32_t> &c)
 {
-    int index = 0;
-    std::random_device gen;
-    std::uniform_int_distribution<int> dist(0, ELEMENTS);
+    auto gen = std::mt19937{0};
+    auto dist = std::uniform_int_distribution<std::size_t>{0, ELEMENTS};
 
+    auto index = std::size_t{0};
     for (std::size_t i = 0; i < ELEMENTS; ++i)
     {
         index = dist(gen);
         c[index] = 42;
     }
 }
-
-void indexing_list(std::list<int> &c)
+#else
+void indexing(std::list<std::int32_t> &c)
 {
-    int index = 0;
     std::random_device gen;
-    std::uniform_int_distribution<int> dist(0, ELEMENTS);
+    std::uniform_int_distribution<std::size_t> dist(0, ELEMENTS);
 
+    auto index = std::size_t{0};
     for (std::size_t i = 0; i < ELEMENTS; ++i)
     {
         index = dist(gen);
         auto it = c.begin();
 
-        for (int j = 0; j < index; ++j)
+        for (std::size_t j = 0; j < index; ++j)
         {
-            it++;
+            ++it;
         }
 
         *it = 42;
     }
 }
-
-int main()
-{
-#ifdef vec
-    std::cout << "Vector: " << std::endl;
-#else
-    std::cout << "List: " << std::endl;
 #endif
 
+std::int32_t main()
+{
     {
-        double total_time = 0.0;
+        auto total_time = double{0.0};
 
         for (std::size_t run = 0; run < NUM_RUNS; run++)
         {
-            container c = generate_container();
+            Container_t c = generate_container();
             cpptiming::Timer t;
             insertion(c);
             total_time += t.elapsed_time<cpptiming::millisecs, double>();
@@ -135,11 +131,11 @@ int main()
     }
 
     {
-        double total_time = 0.0;
+        auto total_time = double{0.0};
 
         for (std::size_t run = 0; run < NUM_RUNS; run++)
         {
-            container c = generate_container();
+            Container_t c = generate_container();
             cpptiming::Timer t;
             deletion(c);
             total_time += t.elapsed_time<cpptiming::millisecs, double>();
@@ -149,11 +145,11 @@ int main()
     }
 
     {
-        double total_time = 0.0;
+        auto total_time = double{0.0};
 
         for (std::size_t run = 0; run < NUM_RUNS; run++)
         {
-            container c = generate_container();
+            Container_t c = generate_container();
             cpptiming::Timer t;
             summing(c);
             total_time += t.elapsed_time<cpptiming::nanosecs, double>();
@@ -163,18 +159,14 @@ int main()
     }
 
     {
-        double total_time = 0.0;
+        auto total_time = double{0.0};
 
         for (std::size_t run = 0; run < NUM_RUNS; run++)
         {
-            container c = generate_container();
+            Container_t c = generate_container();
             cpptiming::Timer t;
-#ifdef vec
-            indexing_vec(c);
-#else
-            indexing_list(c);
-#endif
-            total_time += t.elapsed_time<cpptiming::millisecs, double>();
+            indexing(c);
+            total_time += t.elapsed_time<cpptiming::microsecs, double>();
         }
 
         std::cout << "Random Index: " << total_time / NUM_RUNS << " ms" << std::endl;

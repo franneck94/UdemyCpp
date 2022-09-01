@@ -52,8 +52,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/09_TemplatesOperator",
-      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/09_TemplatesOperator/build/Debug/outDebug",
+      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/06_ContainerIterator",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/06_ContainerIterator/build/Release/outRelease",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

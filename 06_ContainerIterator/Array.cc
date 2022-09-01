@@ -2,28 +2,38 @@
 #include <iostream>
 #include <vector>
 
+constexpr static auto ARRAY_LEN = 3U;
+
 int main()
 {
-    const int l = 10;
+    const auto vec = std::vector<int>{1, 2, 3};
+    const auto arr = std::array<int, ARRAY_LEN>{1, 2, 3};
 
-    std::vector<int> my_vector(10, 0);
-    std::array<int, l> my_array;
+    std::cout << vec.size() << '\n';
+    std::cout << arr.size() << '\n';
 
-    for (std::size_t i = 0; i < 10; i++)
+    std::cout << vec.empty() << '\n';
+    std::cout << arr.empty() << '\n';
+
+    for (auto it = vec.begin(); it != vec.end(); ++it)
     {
-        my_array[i] = i;
-        my_vector[i] = i;
+        std::cout << *it << ' ';
     }
-
-    for (std::size_t i = 0; i < my_array.size(); i++)
+    std::cout << '\n';
+    for (auto it = arr.begin(); it != arr.end(); ++it)
     {
-        std::cout << my_array[i] << std::endl;
+        std::cout << *it << ' ';
     }
+    std::cout << '\n';
 
-    my_vector.push_back(10);
-    for (std::size_t i = 0; i < my_vector.size(); i++)
+    for (const auto val : vec)
     {
-        std::cout << my_vector[i] << std::endl;
+        std::cout << val << ' ';
+    }
+    std::cout << '\n';
+    for (const auto val : arr)
+    {
+        std::cout << val << ' ';
     }
 
     return 0;
