@@ -26,18 +26,18 @@ using Container_t = std::list<std::int32_t>;
 4. Random Index
 
 Vector:
-Insert:
-Delete:
-Sum:
-Random Index:
-=
+Insert: 2014.2 ms
+Delete: 643.2 ms
+Sum: 36 us
+Random Index: 522.4 us
+= 2.657ms
 
 List:
-Insert:
-Delete:
-Sum:
+Insert: 5.2ms
+Delete: 4.4ms
+Sum: 204.6 us
 Random Index:
-=
+= 5.818 ms
 */
 
 Container_t generate_container()
@@ -152,10 +152,10 @@ std::int32_t main()
             Container_t c = generate_container();
             cpptiming::Timer t;
             summing(c);
-            total_time += t.elapsed_time<cpptiming::nanosecs, double>();
+            total_time += t.elapsed_time<cpptiming::microsecs, double>();
         }
 
-        std::cout << "Sum: " << total_time / NUM_RUNS << " ns" << std::endl;
+        std::cout << "Sum: " << total_time / NUM_RUNS << " us" << std::endl;
     }
 
     {
@@ -169,7 +169,7 @@ std::int32_t main()
             total_time += t.elapsed_time<cpptiming::microsecs, double>();
         }
 
-        std::cout << "Random Index: " << total_time / NUM_RUNS << " ms" << std::endl;
+        std::cout << "Random Index: " << total_time / NUM_RUNS << " us" << std::endl;
     }
 
     return 0;

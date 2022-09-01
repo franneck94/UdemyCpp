@@ -1,4 +1,5 @@
-﻿#include <cstdlib>
+﻿#include <array>
+#include <cstdlib>
 #include <cstring>
 #include <iostream>
 
@@ -36,9 +37,12 @@ void Image::save_image(const char *file_name) const
         }
     }
 
-    std::uint8_t bmpfileheader[14]{'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0};
-    std::uint8_t bmpinfoheader[40]{40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0};
-    std::uint8_t bmppad[3]{0, 0, 0};
+    auto bmpfileheader =
+        std::array<std::uint8_t, 14>{'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0};
+    auto bmpinfoheader =
+        std::array<std::uint8_t,
+                   40>{40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 24, 0};
+    auto bmppad = std::array<std::uint8_t, 3>{0, 0, 0};
 
     bmpfileheader[2] = static_cast<std::uint8_t>(filesize);
     bmpfileheader[3] = static_cast<std::uint8_t>(filesize >> 8);
@@ -63,13 +67,13 @@ void Image::save_image(const char *file_name) const
         return;
     }
 
-    fwrite(bmpfileheader, 1, 14, f);
-    fwrite(bmpinfoheader, 1, 40, f);
+    fwrite(bmpfileheader.data(), 1, 14, f);
+    fwrite(bmpinfoheader.data(), 1, 40, f);
 
     for (std::uint32_t i = 0; i < m_height; i++)
     {
         fwrite(img + (m_width * (m_height - i - 1) * 3), 3, m_width, f);
-        fwrite(bmppad, 1, (4 - (m_width * 3) % 4) % 4, f);
+        fwrite(bmppad.data(), 1, (4 - (m_width * 3) % 4) % 4, f);
     }
 
     fclose(f);
