@@ -53,7 +53,7 @@
       "stopAtEntry": false,
       "externalConsole": true,
       "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/06_ContainerIterator",
-      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/06_ContainerIterator/build/Release/outRelease",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/06_ContainerIterator/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

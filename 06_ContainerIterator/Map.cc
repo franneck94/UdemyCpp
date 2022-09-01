@@ -1,29 +1,30 @@
+#include <cstdint>
 #include <iostream>
 #include <map>
 #include <string>
 
-void print_map(std::map<std::string, int> &map)
-{
-    for (const auto &val : map)
-    {
-        std::cout << val.first << " " << val.second << std::endl;
-    }
-}
-
 int main()
 {
-    std::map<std::string, int> my_map1;
+    auto my_map = std::map<std::string, std::uint32_t>{};
+    my_map["Jan"] = 28;
+    my_map["Dennis"] = 31;
+    my_map["Lisa"] = 33;
+    my_map["Jan"] = 29;
 
-    my_map1["Jan"] = 25;
-    my_map1["Dennis"] = 27;
-    my_map1["Jan"] = 26;
+    for (const auto &val : my_map)
+    {
+        std::cout << val.first << ' ' << val.second << '\n';
+    }
 
-    print_map(my_map1);
+    std::cout << my_map["Jan"] << '\n';
 
+    // C++17
     auto search_str = "Jan";
-    auto it = my_map1.find(search_str);
-    bool is_in = it != my_map1.end();
-    std::cout << search_str << " found? " << is_in << std::endl;
+    const auto search_it = my_map.find(search_str);
+    bool found_key = search_it != my_map.end();
+
+    // C++20
+    // bool foud_key2 = my_map.contains(search_str);
 
     return 0;
 }

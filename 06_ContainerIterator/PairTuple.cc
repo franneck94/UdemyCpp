@@ -4,49 +4,24 @@
 #include <utility>
 #include <vector>
 
-using tuple_user = std::tuple<int, std::string, bool>;
-using pair_user = std::pair<int, std::string>;
-
-void print_pair(pair_user &pair)
-{
-    std::cout << pair.first << std::endl;
-    std::cout << pair.second << std::endl;
-    std::cout << std::endl;
-}
-
-void print_tuple(tuple_user &tpl)
-{
-    std::cout << std::get<0>(tpl) << std::endl;
-    std::cout << std::get<1>(tpl) << std::endl;
-    std::cout << std::get<2>(tpl) << std::endl;
-    std::cout << std::endl;
-}
-
-void print_students(std::vector<tuple_user> &students)
-{
-    for (auto &stud : students)
-    {
-        print_tuple(stud);
-    }
-}
+using UserData = std::pair<int, float>;
 
 int main()
 {
-    tuple_user my_tpl1(23, "Jan", true);
-    print_tuple(my_tpl1);
+    auto my_pair = std::pair<int, float>{1337, -25.0F};
+    std::cout << my_pair.first << '\n';
+    std::cout << my_pair.second << '\n';
 
-    tuple_user my_tpl2 = std::make_tuple(25, "Dennis", false);
-    print_tuple(my_tpl2);
+    auto my_tuple = std::tuple<int, float, std::string>{1337, -25.0F, "Peter"};
+    std::cout << std::get<0>(my_tuple) << '\n';
+    std::cout << std::get<1>(my_tuple) << '\n';
+    std::cout << std::get<2>(my_tuple) << '\n';
 
-    std::vector<tuple_user> students;
-    students.push_back(my_tpl1);
-    students.push_back(my_tpl2);
-
-    std::pair<int, std::string> my_pair1(23, "Jan");
-    print_pair(my_pair1);
-
-    std::pair<int, std::string> my_pair2 = std::make_pair(25, "Dennis");
-    print_pair(my_pair2);
+    const auto data = std::vector<UserData>{{1337, -25.0F}, {10, 12.5F}};
+    for (const auto &d : data)
+    {
+        std::cout << d.first << ' ' << d.second << '\n';
+    }
 
     return 0;
 }
