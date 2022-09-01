@@ -6,35 +6,36 @@
 
 void print_set(const std::set<std::string> &set)
 {
+    std::cout << '\t';
     for (const auto &val : set)
     {
-        std::cout << val << std::endl;
+        std::cout << val << ' ';
     }
 
-    std::cout << std::endl;
+    std::cout << "\n\n";
 }
 
 int main()
 {
-    std::set<std::string> math_course;
+    auto math_course = std::set<std::string>{};
 
     math_course.insert("Jan");
     math_course.insert("Dennis");
     math_course.insert("Peter");
-
+    std::cout << "Math courses: \n";
     print_set(math_course);
 
-    std::set<std::string> coding_course;
+    auto coding_course = std::set<std::string>{};
 
     coding_course.insert("Jan");
     coding_course.insert("Nina");
     coding_course.insert("Mats");
-
+    std::cout << "Coding courses: \n";
     print_set(coding_course);
 
     // Set Union
-    std::cout << "Union: " << std::endl;
-    std::set<std::string> students_union;
+    std::cout << "Union: \n";
+    auto students_union = std::set<std::string>{};
     std::set_union(math_course.begin(),
                    math_course.end(),
                    coding_course.begin(),
@@ -43,8 +44,8 @@ int main()
     print_set(students_union);
 
     // Set Intersection
-    std::cout << "Intersection: " << std::endl;
-    std::set<std::string> students_intersection;
+    std::cout << "Intersection: \n";
+    auto students_intersection = std::set<std::string>{};
     std::set_intersection(
         math_course.begin(),
         math_course.end(),
@@ -54,8 +55,8 @@ int main()
     print_set(students_intersection);
 
     // Set Difference
-    std::cout << "Difference: " << std::endl;
-    std::set<std::string> students_difference;
+    std::cout << "Difference: \n";
+    auto students_difference = std::set<std::string>{};
     std::set_difference(
         math_course.begin(),
         math_course.end(),
@@ -65,8 +66,8 @@ int main()
     print_set(students_difference);
 
     // Set SymmetricDifference
-    std::cout << "Symmetric Difference: " << std::endl;
-    std::set<std::string> students_symmetric;
+    std::cout << "Symmetric Difference: \n";
+    auto students_symmetric = std::set<std::string>{};
     std::set_symmetric_difference(
         math_course.begin(),
         math_course.end(),

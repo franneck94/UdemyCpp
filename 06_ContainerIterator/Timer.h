@@ -23,7 +23,7 @@ public:
     Rep elapsed_time() const
     {
         std::atomic_thread_fence(std::memory_order_relaxed);
-        auto counted_time =
+        const auto counted_time =
             std::chrono::duration_cast<Units>(Clock::now() - m_start_point).count();
         std::atomic_thread_fence(std::memory_order_relaxed);
         return static_cast<Rep>(counted_time);

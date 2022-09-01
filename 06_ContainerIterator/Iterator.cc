@@ -5,11 +5,8 @@
 
 int main()
 {
-    std::vector<int> my_vector(5, 0);
+    auto my_vector = std::vector<int>(5, 0);
     std::iota(my_vector.begin(), my_vector.end(), 0);
-
-    std::list<int> my_list(5, 0);
-    std::iota(my_list.begin(), my_list.end(), 0);
 
     // ForwardIterator
     auto it1 = my_vector.begin();
@@ -33,8 +30,8 @@ int main()
     std::cout << std::endl;
 
     // BidirectionalIterator
-    auto it5 = my_list.rbegin();
-    auto it6 = my_list.rend();
+    auto it5 = my_vector.rbegin();
+    auto it6 = my_vector.rend();
 
     for (; it5 != it6; ++it5)
     {
@@ -43,8 +40,8 @@ int main()
     std::cout << std::endl;
 
     // Const BidirectionalIterator
-    auto it7 = my_list.crbegin();
-    auto it8 = my_list.crend();
+    auto it7 = my_vector.crbegin();
+    auto it8 = my_vector.crend();
 
     for (; it7 != it8; ++it7)
     {
