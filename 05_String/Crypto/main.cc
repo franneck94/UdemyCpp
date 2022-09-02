@@ -7,16 +7,16 @@
 
 int main()
 {
-    auto iffile = std::ifstream{};
+    std::ifstream iffile;
     iffile.open("text.txt", std::ios::in);
 
-    auto content = std::string{};
+    std::string content;
     iffile >> content;
     iffile.close();
 
-    auto data = ByteArray(8, 0xAA);
-    auto key = ByteArray(8, 0xFF);
-    const auto cipher_text = hex_vector_xor(data, key);
+    ByteArray plain_text(content.begin(), content.end());
+    ByteArray key(8, 0xFF);
+    ByteArray cipher_text = hex_vector_xor(plain_text, key);
 
     for (std::size_t i = 0; i < cipher_text.size(); ++i)
     {

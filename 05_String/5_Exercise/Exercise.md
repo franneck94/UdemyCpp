@@ -22,7 +22,7 @@ typedef std::vector<std::uint8_t> ByteArray;
 Schreibt eine Funktion
 
 ```cpp
-std::uint8_t hex_xor(std::uint8_t &hex1, std::uint8_t &hex2);
+std::uint8_t hex_xor(const std::uint8_t hex1, const std::uint8_t hex2);
 ```
 
 die zwei std::uint8_t Werte entgegennimmt und das Ergebnis der logischen XOR-Verknüpfung returned.
@@ -32,7 +32,7 @@ die zwei std::uint8_t Werte entgegennimmt und das Ergebnis der logischen XOR-Ver
 Schreibt eine Funktion
 
 ```cpp
-ByteArray hex_vector_xor(ByteArray &vec1, ByteArray &vec2);
+ByteArray hex_vector_xor(const ByteArray &vec1, const ByteArray &vec2);
 ```
 
 die zwei ByteArrays entgegennimmt und die einzelnen Werte der Arrays XORed. Das Ergebnis soll in einen neuen Vector (ByteArray) abgespeichert werden.
