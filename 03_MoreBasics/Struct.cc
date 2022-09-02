@@ -1,4 +1,6 @@
+#include <cstdint>
 #include <iostream>
+#include <string>
 
 enum PermissionLevel
 {
@@ -6,43 +8,44 @@ enum PermissionLevel
     TUTOR = 2,
     INSTRUCTOR = 3,
     ADMIN = 4,
-    UNKNOWN = 5
 };
 
 struct UserData
 {
-    const char *name;
-    unsigned int id;
+    std::string name;
+    std::uint32_t id;
     PermissionLevel permission_level;
 };
 
-void greet_permission_level(const PermissionLevel level)
+void greet_user(UserData &user)
 {
-    switch (level)
+    std::cout << user.name << " has the id " << user.id << " and is a ";
+
+    switch (user.permission_level)
     {
     case PermissionLevel::STUDENT:
     {
-        std::cout << "Hello STUDENT" << std::endl;
+        std::cout << "STUDENT!\n";
         break;
     }
     case PermissionLevel::TUTOR:
     {
-        std::cout << "Hello TUTOR" << std::endl;
+        std::cout << "TUTOR!\n";
         break;
     }
     case PermissionLevel::INSTRUCTOR:
     {
-        std::cout << "Hello INSTRUCTOR" << std::endl;
+        std::cout << "INSTRUCTOR!\n";
         break;
     }
     case PermissionLevel::ADMIN:
     {
-        std::cout << "Hello ADMIN" << std::endl;
+        std::cout << "ADMIN!\n";
         break;
     }
     default:
     {
-        std::cout << "UNKNOWN! Error!" << std::endl;
+        std::cout << "UNKOWN STATE!\n";
         break;
     }
     }
@@ -50,17 +53,14 @@ void greet_permission_level(const PermissionLevel level)
 
 int main()
 {
-    PermissionLevel permission_level_jan = PermissionLevel::INSTRUCTOR;
-    PermissionLevel permission_level_peter = PermissionLevel::STUDENT;
+    UserData jan = {"Jan", 24, INSTRUCTOR};
+    greet_user(jan);
 
-    UserData user_jan = {"Jan", 108014222, permission_level_jan};
-    greet_permission_level(user_jan.permission_level);
-
-    UserData user_peter;
-    user_peter.name = "Peter";
-    user_peter.id = 1080153456;
-    user_peter.permission_level = permission_level_peter;
-    greet_permission_level(user_peter.permission_level);
+    UserData peter;
+    peter.name = "Peter";
+    peter.id = 48;
+    peter.permission_level = STUDENT;
+    greet_user(peter);
 
     return 0;
 }

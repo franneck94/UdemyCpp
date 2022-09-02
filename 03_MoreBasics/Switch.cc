@@ -1,81 +1,46 @@
 #include <iostream>
 
-// Enum values are integers
-// Enum values in UPPERCASE
-// Enum values are constant
-
 enum PermissionLevel
 {
     STUDENT = 1,
     TUTOR = 2,
     INSTRUCTOR = 3,
     ADMIN = 4,
-    UNKNOWN = 5
 };
 
-void greet_permission_level_if(const PermissionLevel level)
+int main()
 {
-    if (level == PermissionLevel::STUDENT)
-    {
-        std::cout << "Hello STUDENT" << std::endl;
-    }
-    else if (level == PermissionLevel::TUTOR)
-    {
-        std::cout << "Hello TUTOR" << std::endl;
-    }
-    else if (level == PermissionLevel::INSTRUCTOR)
-    {
-        std::cout << "Hello INSTRUCTOR" << std::endl;
-    }
-    else if (level == PermissionLevel::ADMIN)
-    {
-        std::cout << "Hello ADMIN" << std::endl;
-    }
-    else
-    {
-        std::cout << "UNKNOWN! Error!" << std::endl;
-    }
-}
+    PermissionLevel permission_jan = INSTRUCTOR;
+    PermissionLevel permission_peter = STUDENT;
 
-void greet_permission_level_switch(const PermissionLevel level)
-{
-    switch (level)
+    switch (permission_jan)
     {
     case PermissionLevel::STUDENT:
     {
-        std::cout << "Hello STUDENT" << std::endl;
+        std::cout << "Hello STUDENT!\n";
         break;
     }
     case PermissionLevel::TUTOR:
     {
-        std::cout << "Hello TUTOR" << std::endl;
+        std::cout << "Hello TUTOR!\n";
         break;
     }
     case PermissionLevel::INSTRUCTOR:
     {
-        std::cout << "Hello INSTRUCTOR" << std::endl;
+        std::cout << "Hello INSTRUCTOR!\n";
         break;
     }
     case PermissionLevel::ADMIN:
     {
-        std::cout << "Hello ADMIN" << std::endl;
+        std::cout << "Hello ADMIN!\n";
         break;
     }
     default:
     {
-        std::cout << "UNKNOWN! Error!" << std::endl;
+        std::cout << "UNKOWN STATE!\n";
         break;
     }
     }
-}
-
-int main()
-{
-    PermissionLevel permission_level_jan = PermissionLevel::INSTRUCTOR;
-    greet_permission_level_switch(permission_level_jan);
-
-    PermissionLevel permission_level_peter = PermissionLevel::STUDENT;
-    greet_permission_level_if(permission_level_peter);
 
     return 0;
 }
