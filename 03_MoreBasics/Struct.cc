@@ -17,7 +17,7 @@ struct UserData
     PermissionLevel permission_level;
 };
 
-void greet_user(UserData &user)
+void print_user(UserData &user)
 {
     std::cout << user.name << " has the id " << user.id << " and is a ";
 
@@ -53,14 +53,13 @@ void greet_user(UserData &user)
 
 int main()
 {
-    UserData jan = {"Jan", 24, INSTRUCTOR};
-    greet_user(jan);
-
+    UserData jan = {"Jan", 10801328, INSTRUCTOR};
+    print_user(jan);
     UserData peter;
+    peter.id = 10801322;
     peter.name = "Peter";
-    peter.id = 48;
     peter.permission_level = STUDENT;
-    greet_user(peter);
+    print_user(peter);
 
     return 0;
 }
