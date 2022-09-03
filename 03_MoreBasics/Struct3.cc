@@ -1,3 +1,4 @@
+#include <cstdint>
 #include <iostream>
 
 enum class Lane
@@ -9,7 +10,7 @@ enum class Lane
 
 struct Vehicle
 {
-    int id;
+    std::uint32_t id;
     float velocity;
     Lane lane;
 };
@@ -74,8 +75,7 @@ void print_vehicle_data_pointer(Vehicle *vehicle)
 
 int main()
 {
-    Vehicle v1 = {.id = 1, .velocity = 100.0f, .lane = Lane::CENTER_LANE};
-
+    Vehicle v1 = {.id = 1, .velocity = 22.0F, .lane = Lane::LEFT_LANE};
     print_vehicle_data(v1);
 
     print_vehicle_data_pointer(&v1);

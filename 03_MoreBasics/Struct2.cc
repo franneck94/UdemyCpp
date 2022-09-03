@@ -1,3 +1,4 @@
+#include <cstdint>
 #include <iostream>
 
 enum class Lane
@@ -9,7 +10,7 @@ enum class Lane
 
 struct Vehicle
 {
-    int id;
+    std::uint32_t id;
     float velocity;
     Lane lane;
 };
