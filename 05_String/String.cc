@@ -3,18 +3,22 @@
 
 int main()
 {
-    std::string s = "Hallo das ist ein Text";
+    std::string s = "Hello people!";
+    std::cout << s << '\n';
 
-    std::size_t index = s.find("Hallo");
+    const auto index = s.find("Hallo");
 
     if (index != std::string::npos)
     {
-        std::cout << "Substring found at index " << index << std::endl;
+        std::cout << "Found substring!\n";
     }
     else
     {
-        std::cout << "Substring not found!" << std::endl;
+        std::cout << "Did not find substring!\n";
     }
+
+    std::cout << s.empty() << '\n';
+    std::cout << s.length() << '\n';
 
     return 0;
 }
