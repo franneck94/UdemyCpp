@@ -7,13 +7,13 @@
 // Exercise 2
 std::vector<double> max_row_values(Matrix &matrix)
 {
-    std::vector<double> row_max_vec(matrix.size(), 0.0);
+    auto row_max_vec = std::vector<double>(matrix.size(), 0.0);
 
     for (std::size_t i = 0; i != matrix.size(); ++i)
     {
-        double act_row_max = 0.0;
+        auto act_row_max = matrix[i][0];
 
-        for (std::size_t j = 0; j != matrix[i].size(); ++j)
+        for (std::size_t j = 1; j != matrix[i].size(); ++j)
         {
             if (matrix[i][j] > act_row_max)
             {
