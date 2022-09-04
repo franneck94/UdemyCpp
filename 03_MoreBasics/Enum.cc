@@ -1,5 +1,7 @@
 #include <iostream>
 
+// enum: enumeration
+
 enum PermissionLevel
 {
     STUDENT = 1,
@@ -10,8 +12,8 @@ enum PermissionLevel
 
 int main()
 {
-    PermissionLevel permission_jan = INSTRUCTOR;
-    PermissionLevel permission_peter = STUDENT;
+    PermissionLevel permission_level_jan = PermissionLevel::INSTRUCTOR;
+    PermissionLevel permission_level_peter = PermissionLevel::STUDENT;
 
     return 0;
 }
