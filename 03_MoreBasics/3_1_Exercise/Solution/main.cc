@@ -1,5 +1,6 @@
-#include "exercise.h"
 #include <iostream>
+
+#include "exercise.h"
 
 int main()
 {

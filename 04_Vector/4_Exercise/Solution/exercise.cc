@@ -8,6 +8,8 @@
 std::vector<double> max_row_values(Matrix &matrix)
 {
     auto row_max_vec = std::vector<double>(matrix.size(), 0.0);
+    if (!matrix.size() || !matrix[0].size())
+        return row_max_vec;
 
     for (std::size_t i = 0; i != matrix.size(); ++i)
     {
