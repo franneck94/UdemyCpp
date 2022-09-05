@@ -37,7 +37,7 @@ std::cout << "Mean Array A: " << mean_array_a << std::endl;
 std::cout << "Mean Array B: " << mean_array_b << std::endl;
 ```
 
-### Aufgabe Aufgabe 2
+### Aufgabe 2
 
 Erstellt eine Struktur "struct Dataset" mit den folgenden Attributen: mean_array_a und mean_array_b.
 
