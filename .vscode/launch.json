@@ -53,7 +53,7 @@
       "stopAtEntry": false,
       "externalConsole": true,
       "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/05_String",
-      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/05_String/build/Release/outRelease",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/05_String/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
