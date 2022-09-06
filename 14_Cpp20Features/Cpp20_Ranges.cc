@@ -15,15 +15,15 @@ int main()
     // Drop, Take, Transform,
     auto numbers1 = std::vector<int>{1, 2, 3, 4, 5, 6};
     auto results1 = std::views::reverse(numbers1) | std::views::drop(2) |
-                    std::views::take(2) |
-                    std::views::transform([](const int n) { return n * 2; }) |
-                    std::views::filter([](int n) { return n % 2 == 0; });
+                    std::views::take(3) |
+                    std::views::transform([](const auto n) { return n * 2; }) |
+                    std::views::filter([](const auto n) { return n % 2 == 0; });
 
-    for (auto v : results1)
+    for (auto v : numbers1)
         std::cout << v << " ";
     std::cout << std::endl;
 
-    for (auto v : numbers1)
+    for (auto v : results1)
         std::cout << v << " ";
     std::cout << std::endl;
 

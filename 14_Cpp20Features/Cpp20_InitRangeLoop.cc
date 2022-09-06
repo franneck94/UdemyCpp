@@ -8,5 +8,10 @@ int main()
         std::cout << c << " ";
     }
 
+    if (std::string text = "Jan."; text.size() > 2)
+    {
+        std::cout << "YES\n";
+    }
+
     return 0;
 }
