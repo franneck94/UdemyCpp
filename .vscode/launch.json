@@ -52,8 +52,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/14_Cpp20Features",
-      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/14_Cpp20Features/build/Debug/outDebug",
+      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/05_String",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/05_String/build/Release/outRelease",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

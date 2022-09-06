@@ -20,9 +20,9 @@ void do_something2(std::string_view sv)
 
 int main()
 {
-    std::string s("Hi, my name is Jan and i am your instructor.");
+    auto s = std::string("Hi, my name is Jan and i am your instructor.");
 
-    std::string sub_s(s.substr(4, 32));
+    auto sub_s = std::string(s.substr(4, 32));
     do_something1(sub_s);
 
     do_something1("Hi, my name is Jan and i am your instructor.");

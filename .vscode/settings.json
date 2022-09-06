@@ -87,7 +87,18 @@
     "streambuf": "cpp",
     "thread": "cpp",
     "typeinfo": "cpp",
-    "valarray": "cpp"
+    "valarray": "cpp",
+    "xstring": "cpp",
+    "ios": "cpp",
+    "xfacet": "cpp",
+    "xiosbase": "cpp",
+    "xlocale": "cpp",
+    "xlocinfo": "cpp",
+    "xlocnum": "cpp",
+    "xmemory": "cpp",
+    "xstddef": "cpp",
+    "xtr1common": "cpp",
+    "xutility": "cpp"
   },
   "workbench.editorAssociations": {
     "*.md": "vscode.markdown.preview.editor"
@@ -132,9 +143,9 @@
   "C_Cpp_Runner.cCompilerPath": "C:/cygwin64/bin/gcc.exe",
   "C_Cpp_Runner.cppCompilerPath": "C:/cygwin64/bin/g++.exe",
   "C_Cpp_Runner.debuggerPath": "gdb",
-  "C_Cpp_Runner.cStandard": "",
+  "C_Cpp_Runner.cStandard": "c17",
   "C_Cpp_Runner.cppStandard": "c++20",
-  "C_Cpp_Runner.msvcBatchPath": "",
+  "C_Cpp_Runner.msvcBatchPath": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Auxiliary/Build/vcvarsall.bat",
   "C_Cpp_Runner.warnings": [
     "-Wall",
     "-Wextra",
