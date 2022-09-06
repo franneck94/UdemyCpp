@@ -2,78 +2,44 @@
 #include <iostream>
 #include <string>
 
-std::string read_text(const std::string &path)
+void print_found_idx(const std::size_t idx, const std::string &func_name)
 {
-    std::string str;
-    std::string text;
-
-    std::ifstream iffile;
-    iffile.open(path);
-
-    if (iffile.is_open())
-    {
-        while (std::getline(iffile, str))
-        {
-            text += str + "\n";
-        }
-    }
-
-    iffile.close();
-    return text;
-}
-
-void write_text(const std::string &path, const std::string &text)
-{
-    std::ofstream offile;
-    offile.open(path);
-
-    if (offile.is_open())
-    {
-        offile << text;
-    }
-
-    offile.close();
+    std::cout << "Function: " << func_name << '\n';
+    if (idx != std::string::npos)
+        std::cout << "Found at idx: " << idx << "!\n\n";
+    else
+        std::cout << "Not Found!\n\n";
 }
 
 int main()
 {
-    /* eins\nzwei\ndrei */
-    std::string text = read_text("Text.txt");
-    std::cout << text << std::endl;
+    const auto text = std::string{"Eines\nZwei\nDrei\n"};
+    std::cout << text << '\n';
 
-    std::string search_str = "drei";
-    auto idx = text.find(search_str);
-    std::cout << idx << std::endl;
+    const auto search_str = "drei";
+    const auto idx = text.find(search_str);
+    print_found_idx(idx, "find");
 
-    if (idx != std::string::npos)
-    {
-        std::cout << "Found!" << std::endl;
-    }
-    else
-    {
-        std::cout << "Not Found!" << std::endl;
-    }
+    const auto text2 = std::string{"abab"};
+    const auto search_str2 = "ab";
 
-    std::string text2 = "abab";
-    std::string search_str2 = "ab";
+    const auto idx2 = text2.find(search_str2);
+    print_found_idx(idx2, "find");
 
-    auto idx2 = text2.find(search_str2);
-    std::cout << "find: " << idx2 << std::endl;
+    const auto idx3 = text2.rfind(search_str2);
+    print_found_idx(idx3, "rfind");
 
-    auto idx3 = text2.rfind(search_str2);
-    std::cout << "rfind: " << idx3 << std::endl;
+    const auto idx4 = text2.find_first_not_of(search_str2);
+    print_found_idx(idx4, "find_first_not_of");
 
-    auto idx4 = text2.find_first_not_of(search_str2);
-    std::cout << "find_first_not_of: " << idx4 << std::endl;
+    const auto idx5 = text2.find_last_not_of(search_str2);
+    print_found_idx(idx5, "find_last_not_of");
 
-    auto idx5 = text2.find_last_not_of(search_str2);
-    std::cout << "find_last_not_of: " << idx5 << std::endl;
+    const auto idx6 = text2.find_first_of(search_str2);
+    print_found_idx(idx6, "find_first_of");
 
-    auto idx6 = text2.find_first_of(search_str2);
-    std::cout << "find_first_of: " << idx6 << std::endl;
-
-    auto idx7 = text2.find_last_of(search_str2);
-    std::cout << "find_last_of: " << idx7 << std::endl;
+    const auto idx7 = text2.find_last_of(search_str2);
+    print_found_idx(idx7, "find_last_of");
 
     return 0;
 }
