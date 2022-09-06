@@ -22,12 +22,10 @@ requires Concatenable<T> T concat(T first, T second)
 
 int main()
 {
-    std::string s1 = "Ha";
-    std::string s2 = "ll";
-    std::string s3 = "o";
+    const auto s1 = std::string{"Hal"};
+    const auto s2 = std::string{"lo"};
 
     std::cout << concat(s1, s2) << std::endl;
-    // std::cout << concat(2, 3) << std::endl;
 
     return 0;
 }

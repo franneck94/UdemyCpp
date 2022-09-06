@@ -13,7 +13,7 @@ auto print = [](auto const &view) {
 int main()
 {
     // Drop, Take, Transform,
-    std::vector numbers1{1, 2, 3, 4, 5, 6};
+    auto numbers1 = std::vector<int>{1, 2, 3, 4, 5, 6};
     auto results1 = std::views::reverse(numbers1) | std::views::drop(2) |
                     std::views::take(2) |
                     std::views::transform([](const int n) { return n * 2; }) |
@@ -28,7 +28,7 @@ int main()
     std::cout << std::endl;
 
     // Filter, Transform
-    std::vector<int> numbers2{1, 2, 3, 4, 5, 6};
+    auto numbers2 = std::vector<int>{1, 2, 3, 4, 5, 6};
     auto results2 = numbers2 | std::views::filter([](int n) { return n % 2 == 0; }) |
                     std::views::transform([](int n) { return n * 2; });
 
@@ -37,7 +37,7 @@ int main()
     std::cout << std::endl;
 
     // Split
-    constexpr std::string_view hello{"Hello C++ 20 !"};
+    constexpr auto hello = std::string_view{"Hello C++ 20 !"};
     auto res = hello | std::ranges::views::split(' ');
     std::cout << "substrings: ";
     std::ranges::for_each(res, print);

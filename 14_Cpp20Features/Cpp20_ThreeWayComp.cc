@@ -1,23 +1,26 @@
 #include <compare>
 #include <iostream>
 
-struct Dummy
+class ValueType
 {
-    double value;
-    constexpr Dummy(double val) : value{val}
+public:
+    constexpr ValueType(const double val) : value{val}
     {
     }
-    auto operator<=>(const Dummy &) const = default;
+
+    auto operator<=>(const ValueType &) const = default;
+
+    double value;
 };
 
 int main()
 {
-    Dummy d1(2011);
-    Dummy d2(2014);
+    const auto d1 = ValueType(2011);
+    const auto d2 = ValueType(2014);
 
     std::cout << std::boolalpha;
-    std::cout << "d1 < d2:  " << (bool)(d1 < d2) << std::endl;
-    std::cout << "d1 > d2:  " << (bool)(d1 > d2) << std::endl;
-    std::cout << "d1 == d2: " << (bool)(d1 == d2) << std::endl;
-    std::cout << "d1 != d2: " << (bool)(d1 != d2) << std::endl;
+    std::cout << "d1 < d2:  " << std::boolalpha << (d1 < d2) << '\n';
+    std::cout << "d1 > d2:  " << std::boolalpha << (d1 > d2) << '\n';
+    std::cout << "d1 == d2: " << std::boolalpha << (d1 == d2) << '\n';
+    std::cout << "d1 != d2: " << std::boolalpha << (d1 != d2) << '\n';
 }

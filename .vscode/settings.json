@@ -97,7 +97,7 @@
   "git.autofetch": true,
   "git.confirmSync": false,
   "C_Cpp.clang_format_sortIncludes": true,
-  "C_Cpp.default.cppStandard": "c++17",
+  "C_Cpp.default.cppStandard": "c++20",
   "C_Cpp.default.cStandard": "c99",
   "C_Cpp.formatting": "clangFormat",
   "cmake.configureOnOpen": false,
@@ -133,7 +133,7 @@
   "C_Cpp_Runner.cppCompilerPath": "C:/cygwin64/bin/g++.exe",
   "C_Cpp_Runner.debuggerPath": "gdb",
   "C_Cpp_Runner.cStandard": "",
-  "C_Cpp_Runner.cppStandard": "",
+  "C_Cpp_Runner.cppStandard": "c++20",
   "C_Cpp_Runner.msvcBatchPath": "",
   "C_Cpp_Runner.warnings": [
     "-Wall",
