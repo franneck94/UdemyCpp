@@ -1,6 +1,22 @@
 #include <iostream>
 #include <type_traits>
 
+// template <typename T>
+// T max(const T &a, const T &b)
+// {
+//     static_assert(std::disjunction_v<std::is_integral<T>, std::is_floating_point<T>>,
+//                   "failed...");
+
+//     if (a < b)
+//     {
+//         return b;
+//     }
+//     else
+//     {
+//         return a;
+//     }
+// }
+
 template <typename T>
 struct is_numeric
     : public std::disjunction<std::is_integral<T>, std::is_floating_point<T>>
@@ -8,56 +24,27 @@ struct is_numeric
 };
 
 template <typename T, typename U>
-T max(T value_one, U value_two)
+T max(const T &a, const U &b)
 {
-    static_assert(std::conjunction<is_numeric<T>, is_numeric<U>>::value,
-                  "failed...");
+    static_assert(std::conjunction_v<is_numeric<T>, is_numeric<U>>, "failed...");
 
-    if (value_one < value_two)
+    if (a < b)
     {
-        return value_two;
+        return b;
     }
     else
     {
-        return value_one;
-    }
-}
-
-template <typename T, typename U>
-std::enable_if_t<!std::is_same<T, U>::value, typename std::common_type<T, U>::type>
-max(T value_one, U value_two)
-{
-    static_assert(std::conjunction<is_numeric<T>, is_numeric<U>>::value, "failed");
-
-    if (static_cast<typename std::common_type<T, U>::type>(value_one) <
-        static_cast<typename std::common_type<T, U>::type>(value_two))
-    {
-        return static_cast<typename std::common_type<T, U>::type>(value_two);
-    }
-    else
-    {
-        return static_cast<typename std::common_type<T, U>::type>(value_one);
+        return a;
     }
 }
 
 int main()
 {
-    int a = 2;
-    int b = 3;
-
-    std::cout << max(a, b) << std::endl;
-
-    float c = 4.5f;
-    float d = -1.0f;
-
-    std::cout << max(c, d) << std::endl;
-
-    double e = 3.7;
-    double f = -1337.0;
-
-    std::cout << max(e, f) << std::endl;
-
-    // std::cout << max(a, f) << std::endl;
+    std::cout << max(10, 11) << std::endl;
+    std::cout << max(10.0F, 11.0F) << std::endl;
+    std::cout << max(10.0, 11.0) << std::endl;
+    std::cout << max<short>(10, 11) << std::endl;
+    std::cout << max<short, short>(10, 11) << std::endl;
 
     return 0;
 }
