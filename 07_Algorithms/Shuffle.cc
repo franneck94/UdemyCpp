@@ -1,10 +1,11 @@
 #include <algorithm>
+#include <cstdint>
 #include <iostream>
 #include <numeric>
 #include <random>
 #include <vector>
 
-void print_vector(const std::vector<int> &my_vector)
+void print_vector(const std::vector<std::int32_t> &my_vector)
 {
     for (std::size_t i = 0; i < my_vector.size(); i++)
     {
@@ -15,15 +16,11 @@ void print_vector(const std::vector<int> &my_vector)
 
 int main()
 {
-    std::vector<int> my_vector1(10, 0);
-    std::vector<int> my_vector2(10, 0);
-    std::vector<int> my_vector3(10, 0);
-
-    std::iota(my_vector1.begin(), my_vector1.end(), 1);
+    auto my_vector1 = std::vector<std::int32_t>{1, 2, 3, 4};
     print_vector(my_vector1);
 
-    std::random_device seed_generator{};
-    std::mt19937_64 random_generator{seed_generator()};
+    auto seed_generator = std::random_device{};
+    auto random_generator = std::mt19937_64{seed_generator()};
 
     std::shuffle(my_vector1.begin(), my_vector1.end(), random_generator);
     print_vector(my_vector1);

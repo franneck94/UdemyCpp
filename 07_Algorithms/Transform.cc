@@ -4,17 +4,17 @@
 #include <random>
 #include <vector>
 
-int increment(int i)
+std::int32_t increment(const std::int32_t i)
 {
-    return ++i;
+    return i + 1;
 }
 
-int add(int i, int j)
+std::int32_t add(const std::int32_t i, const std::int32_t j)
 {
     return i + j;
 }
 
-void print_vector(const std::vector<int> &my_vector)
+void print_vector(const std::vector<std::int32_t> &my_vector)
 {
     for (std::size_t i = 0; i < my_vector.size(); i++)
     {
@@ -25,9 +25,9 @@ void print_vector(const std::vector<int> &my_vector)
 
 int main()
 {
-    std::vector<int> my_vector1(10, 0);
-    std::vector<int> my_vector2(10, 0);
-    std::vector<int> my_vector3(10, 0);
+    auto my_vector1 = std::vector<std::int32_t>{1, 2, 3, 4};
+    auto my_vector2 = std::vector<std::int32_t>{1, 2, 3, 4};
+    auto my_vector3 = std::vector<std::int32_t>{1, 2, 3, 4};
 
     std::iota(my_vector1.begin(), my_vector1.end(), 0);
     print_vector(my_vector1);

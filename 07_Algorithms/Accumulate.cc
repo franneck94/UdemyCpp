@@ -1,46 +1,46 @@
 #include <algorithm>
+#include <cstdint>
 #include <iostream>
 #include <numeric>
-#include <random>
 #include <vector>
 
-void print_vector(const std::vector<int> &my_vector)
+void print_vector(const std::vector<std::uint32_t> &my_vector)
 {
     for (std::size_t i = 0; i < my_vector.size(); i++)
     {
-        std::cout << "Vec[" << i << "] = " << my_vector[i] << std::endl;
+        std::cout << "Vec[" << i << "] = " << my_vector[i] << '\n';
     }
-    std::cout << std::endl;
+    std::cout << '\n';
 }
 
-int adder(int i, int j)
+std::uint32_t adder(const std::uint32_t i, const std::uint32_t j)
 {
     return i + j;
 }
 
-int multiplier(int i, int j)
+std::uint32_t multiplier(const std::uint32_t i, const std::uint32_t j)
 {
     return i * j;
 }
 
 int main()
 {
-    std::vector<int> my_vector1(10, 0);
-    std::vector<int> my_vector2(10, 0);
-    std::vector<int> my_vector3(10, 0);
+    const auto my_vector1 = std::vector<std::uint32_t>{1, 2, 3, 4};
+    auto my_vector2 = std::vector<std::uint32_t>(0, 4);
+    auto my_vector3 = std::vector<std::uint32_t>(0, 4);
 
-    std::iota(my_vector1.begin(), my_vector1.end(), 1);
     print_vector(my_vector1);
 
-    auto result1 = std::accumulate(my_vector1.begin(), my_vector1.end(), 0);
-    std::cout << result1 << std::endl;
+    const auto result1 = std::accumulate(my_vector1.begin(), my_vector1.end(), 0);
+    std::cout << result1 << '\n';
 
-    auto result2 = std::accumulate(my_vector1.begin(), my_vector1.end(), 0, adder);
-    std::cout << result2 << std::endl;
+    const auto result2 =
+        std::accumulate(my_vector1.begin(), my_vector1.end(), 0, adder);
+    std::cout << result2 << '\n';
 
-    auto result3 =
+    const auto result3 =
         std::accumulate(my_vector1.begin(), my_vector1.end(), 1, multiplier);
-    std::cout << result3 << std::endl;
+    std::cout << result3 << '\n';
 
     return 0;
 }
