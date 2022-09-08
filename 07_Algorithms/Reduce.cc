@@ -1,29 +1,63 @@
-#include <algorithm>
+#include <chrono>
 #include <cstdint>
+#include <execution>
 #include <iostream>
 #include <numeric>
 #include <random>
 #include <vector>
 
-void print_vector(const std::vector<std::int32_t> &my_vector)
+using ClockType = std::chrono::steady_clock;
+using ClockRes = std::chrono::microseconds;
+
+constexpr static auto NUM_ELEMENTS = 10'000'000U;
+
+std::int32_t gen()
 {
-    for (std::size_t i = 0; i < my_vector.size(); i++)
+    static auto seed = std::random_device{};
+    static auto gen = std::mt19937{seed()};
+    static auto dist = std::uniform_int_distribution<std::int32_t>{-10, 10};
+
+    return dist(gen);
+}
+
+void print_vector(const std::vector<std::int32_t> &vec)
+{
+    for (const auto v : vec)
     {
-        std::cout << "Vec[" << i << "] = " << my_vector[i] << std::endl;
+        std::cout << v << '\n';
     }
-    std::cout << std::endl;
+    std::cout << '\n';
+}
+
+std::int32_t func1(const std::int32_t val1, const std::int32_t val2)
+{
+    return val1 + val2;
 }
 
 int main()
 {
-    const auto my_vector1 = std::vector<std::int32_t>{1, 2, 3, 4};
-    print_vector(my_vector1);
+    auto my_vector = std::vector<std::int32_t>(NUM_ELEMENTS, 0U);
+    std::generate(my_vector.begin(), my_vector.end(), gen);
 
-    const auto result1 = std::reduce(my_vector1.begin(), my_vector1.end());
-    std::cout << result1 << std::endl;
+    const auto start_time1 = ClockType::now();
+    const auto sum1 = std::reduce(my_vector.begin(), my_vector.end(), 0, func1);
+    const auto end_time1 = ClockType::now();
+    const auto elapsed_time1 =
+        std::chrono::duration_cast<ClockRes>(end_time1 - start_time1).count();
+    std::cout << "Elapsed time: " << elapsed_time1 << '\n';
+    std::cout << "Sum: " << sum1 << '\n';
 
-    const auto result2 = std::reduce(my_vector1.begin(), my_vector1.end(), 2);
-    std::cout << result2 << std::endl;
+    const auto start_time2 = ClockType::now();
+    const auto sum2 = std::reduce(std::execution::par,
+                                  my_vector.begin(),
+                                  my_vector.end(),
+                                  0,
+                                  func1);
+    const auto end_time2 = ClockType::now();
+    const auto elapsed_time2 =
+        std::chrono::duration_cast<ClockRes>(end_time2 - start_time2).count();
+    std::cout << "Elapsed time: " << elapsed_time2 << '\n';
+    std::cout << "Sum: " << sum2 << '\n';
 
     return 0;
 }

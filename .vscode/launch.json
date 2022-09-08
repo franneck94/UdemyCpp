@@ -53,7 +53,7 @@
       "stopAtEntry": false,
       "externalConsole": true,
       "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/07_Algorithms",
-      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/07_Algorithms/build/Debug/outDebug",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/07_Algorithms/build/Release/outRelease",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

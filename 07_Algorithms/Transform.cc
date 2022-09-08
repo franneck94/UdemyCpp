@@ -1,49 +1,53 @@
-#include <algorithm>
+#include <chrono>
+#include <cstdint>
 #include <iostream>
-#include <numeric>
 #include <random>
 #include <vector>
 
-std::int32_t increment(const std::int32_t i)
+using ClockType = std::chrono::steady_clock;
+using ClockRes = std::chrono::microseconds;
+
+constexpr static auto NUM_ELEMENTS = 10U;
+
+std::int32_t gen()
 {
-    return i + 1;
+    static auto seed = std::random_device{};
+    static auto gen = std::mt19937{seed()};
+    static auto dist = std::uniform_int_distribution<std::int32_t>{-10, 10};
+
+    return dist(gen);
 }
 
-std::int32_t add(const std::int32_t i, const std::int32_t j)
+void print_vector(const std::vector<std::int32_t> &vec)
 {
-    return i + j;
-}
-
-void print_vector(const std::vector<std::int32_t> &my_vector)
-{
-    for (std::size_t i = 0; i < my_vector.size(); i++)
+    for (const auto v : vec)
     {
-        std::cout << "Vec[" << i << "] = " << my_vector[i] << std::endl;
+        std::cout << v << '\n';
     }
-    std::cout << std::endl;
+    std::cout << '\n';
+}
+
+std::int32_t func1(const std::int32_t val)
+{
+    return val * 2;
+}
+
+std::int32_t func2(const std::int32_t val)
+{
+    return val / 2;
 }
 
 int main()
 {
-    auto my_vector1 = std::vector<std::int32_t>{1, 2, 3, 4};
-    auto my_vector2 = std::vector<std::int32_t>{1, 2, 3, 4};
-    auto my_vector3 = std::vector<std::int32_t>{1, 2, 3, 4};
+    auto my_vector = std::vector<std::int32_t>(NUM_ELEMENTS, 0U);
+    std::generate(my_vector.begin(), my_vector.end(), gen);
+    print_vector(my_vector);
 
-    std::iota(my_vector1.begin(), my_vector1.end(), 0);
-    print_vector(my_vector1);
+    std::transform(my_vector.begin(), my_vector.end(), my_vector.begin(), func1);
+    print_vector(my_vector);
 
-    std::transform(my_vector1.begin(),
-                   my_vector1.end(),
-                   my_vector2.begin(),
-                   increment);
-    print_vector(my_vector2);
-
-    std::transform(my_vector1.begin(),
-                   my_vector1.end(),
-                   my_vector2.begin(),
-                   my_vector3.begin(),
-                   add);
-    print_vector(my_vector3);
+    std::transform(my_vector.begin(), my_vector.end(), my_vector.begin(), func2);
+    print_vector(my_vector);
 
     return 0;
 }

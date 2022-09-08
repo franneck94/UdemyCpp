@@ -27,17 +27,24 @@ void print_vector(const std::vector<std::int32_t> &vec)
     std::cout << '\n';
 }
 
+bool func1(const std::int32_t val)
+{
+    return (val > -5) && (val < 5);
+}
+
 int main()
 {
     auto my_vector = std::vector<std::int32_t>(NUM_ELEMENTS, 0U);
     std::generate(my_vector.begin(), my_vector.end(), gen);
     print_vector(my_vector);
 
-    auto seed = std::random_device{};
-    auto gen = std::mt19937{seed()};
+    const auto check1 = std::all_of(my_vector.begin(), my_vector.end(), func1);
+    const auto check2 = std::any_of(my_vector.begin(), my_vector.end(), func1);
+    const auto check3 = std::none_of(my_vector.begin(), my_vector.end(), func1);
 
-    std::shuffle(my_vector.begin(), my_vector.end(), gen);
-    print_vector(my_vector);
+    std::cout << std::boolalpha << check1 << '\n';
+    std::cout << std::boolalpha << check2 << '\n';
+    std::cout << std::boolalpha << check3 << '\n';
 
     return 0;
 }
