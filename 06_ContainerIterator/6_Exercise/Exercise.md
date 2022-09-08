@@ -29,8 +29,8 @@ Füge dieser Map min. 2 Personen hinzu.
 Erstelle die Funktionen
 
 ```cpp
-std::string get_oldest_friend(const Friends &friends);
-std::string get_heaviest_friend(const Friends &friends);
+std::string_view get_oldest_friend(const Friends &friends);
+std::string_view get_heaviest_friend(const Friends &friends);
 ```
 
 Um die älteste Person bzw. die schwerste Person aus deiner Map auszugeben.  

@@ -12,7 +12,7 @@ Wir werden in dieser Übung zwei typedefs verwenden:
 #include <vector>
 #include <cstdint>
 
-typedef std::vector<std::uint8_t> ByteArray;
+using ByteArray = std::vector<std::uint8_t>;
 ```
 
 ## Aufgaben der Programmierübung

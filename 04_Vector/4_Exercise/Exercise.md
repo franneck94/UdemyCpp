@@ -8,8 +8,8 @@ Willkommen bei der nächsten Programmier-Übung in diesem Kurs.
 
 ## Aufgabe 1
 
-Definiert (typedef) einen 2d-Vector mit dem Namen Matrix, der vom Datentyp double ist.  
-Initialisiert eine 3x3 Matrix in der Main Funktion, mit den Wert (i + j) an dem index matrix[i][j].
+Initialisiert eine 3x3 Matrix in der Main Funktion, mit den Wert (i + j) an dem index matrix[i][j].  
+Verwende dabei den vordefinierten Matrix Typ aus dem Header.
 
 ### Beispiel Aufgabe 1
 
@@ -20,7 +20,7 @@ Initialisiert eine 3x3 Matrix in der Main Funktion, mit den Wert (i + j) an dem 
 Schreibt eine Funktion
 
 ```cpp
-vector<double> max_row_values(Matrix &matrix);
+std::vector<double> max_row_values(Matrix &matrix);
 ```
 
 die eine Matrix entgegennimmt und die Zeilenmaxima der Matrix berechnet und diese Maximima in einen neuen Vector abspeichert.Diesen neuen erstellten Vector returned die Funktion dann.
@@ -34,7 +34,7 @@ die eine Matrix entgegennimmt und die Zeilenmaxima der Matrix berechnet und di
 Schreibt eine Funktion
 
 ```cpp
-double sort_and_max(vector<double> &vec);
+double sort_and_max(std::vector<double> &vec);
 ```
 
 die einen Double-Vector entgegennimmt und diesen aufstiegend sortiert und zusätzlich das Maximum des Vektors zurückgibt.
