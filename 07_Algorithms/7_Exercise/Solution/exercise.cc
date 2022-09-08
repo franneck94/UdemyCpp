@@ -11,8 +11,8 @@
 // Exercise 2
 std::vector<bool> shuffle_till_equal(const BinaryArray &target, BinaryArray input)
 {
-    bool equal = false;
-    int iteration = 1;
+    auto equal = false;
+    auto iteration = 1U;
 
     while (!equal)
     {
@@ -22,13 +22,7 @@ std::vector<bool> shuffle_till_equal(const BinaryArray &target, BinaryArray inpu
         }
         ++iteration;
 
-        auto timestamp = std::chrono::time_point_cast<std::chrono::milliseconds>(
-                             std::chrono::high_resolution_clock::now())
-                             .time_since_epoch()
-                             .count();
-        std::shuffle(input.begin(),
-                     input.end(),
-                     std::default_random_engine(timestamp));
+        std::shuffle(input.begin(), input.end(), std::default_random_engine(42));
 
         if (std::equal(input.begin(), input.end(), target.begin()))
         {
@@ -43,10 +37,11 @@ std::vector<bool> shuffle_till_equal(const BinaryArray &target, BinaryArray inpu
 std::vector<bool> smart_shuffle_till_equal(const BinaryArray &target,
                                            BinaryArray input)
 {
-    bool equal = false;
-    std::vector<bool>::iterator first = input.begin();
-    std::vector<bool>::iterator last = input.end();
-    int iteration = 1;
+    auto equal = false;
+    auto iteration = 1U;
+
+    auto first = input.begin();
+    auto last = input.end();
 
     while (!equal)
     {
@@ -56,13 +51,9 @@ std::vector<bool> smart_shuffle_till_equal(const BinaryArray &target,
         }
         ++iteration;
 
-        auto timestamp = std::chrono::time_point_cast<std::chrono::milliseconds>(
-                             std::chrono::high_resolution_clock::now())
-                             .time_since_epoch()
-                             .count();
-        std::shuffle(first, last, std::default_random_engine(timestamp));
+        std::shuffle(first, last, std::default_random_engine(42));
 
-        int index = std::distance(input.begin(), first);
+        const auto index = std::distance(input.begin(), first);
 
         if (*first == target[index])
             ++first;
