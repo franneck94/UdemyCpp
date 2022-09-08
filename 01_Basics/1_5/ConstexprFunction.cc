@@ -1,22 +1,31 @@
+#include <cstdint>
 #include <iostream>
 
-constexpr int faculty(int n)
+const std::uint32_t NUM_PLAYERS1 = 2U;
+constexpr std::uint32_t NUM_PLAYERS2 = 2U;
+
+constexpr unsigned int faculty(unsigned int n)
 {
     if (n > 1)
     {
         return n * faculty(n - 1);
     }
-    else
+    else if (n == 1)
     {
         return 1;
+    }
+    else
+    {
+        return 0;
     }
 }
 
 int main()
 {
-    int l = faculty(3);
+    constexpr std::uint32_t n = 5;
+    constexpr std::uint32_t result = faculty(n);
 
-    int a[faculty(3)]{};
+    std::cout << result << std::endl;
 
     return 0;
 }

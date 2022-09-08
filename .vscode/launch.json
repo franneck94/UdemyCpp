@@ -52,8 +52,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/06_ContainerIterator/6_Exercise/Solution",
-      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/06_ContainerIterator/6_Exercise/Solution/build/Debug/outDebug",
+      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/01_Basics/1_5",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/01_Basics/1_5/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
