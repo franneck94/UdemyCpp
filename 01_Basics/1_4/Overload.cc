@@ -1,39 +1,38 @@
 #include <iostream>
 
-int max(const int &a, const int &b)
+double max(double a, double b)
 {
-    if (a < b)
+    if (a > b)
     {
-        return b;
+        return a;
     }
     else
     {
-        return a;
+        return b;
     }
 }
 
-double max(const double &a, const double &b)
+int max(int a, int b)
 {
-    if (a < b)
-    {
-        return b;
-    }
-    else
+    if (a > b)
     {
         return a;
     }
+
+    return b;
 }
 
 int main()
 {
-    int num1 = 4;
-    int num2 = 0;
+    int a = 2;
+    int b = 3;
 
-    double num3 = 10.0;
-    double num4 = 10.5;
+    std::cout << max(a, b) << std::endl;
 
-    std::cout << max(num1, num2) << std::endl;
-    std::cout << max(num3, num4) << std::endl;
+    double c = 2;
+    double d = 3;
+
+    std::cout << max(c, d) << std::endl;
 
     return 0;
 }
