@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <vector>
 
-typedef std::vector<std::uint8_t> ByteArray;
+using ByteArray = std::vector<std::uint8_t>;
 
 // Exercise 1
 std::uint8_t hex_xor(const std::uint8_t hex1, const std::uint8_t hex2);

@@ -6,7 +6,7 @@ Willkommen bei der nächsten Programmier-Übung in diesem Kurs.
 
 ## Vorwort
 
-Wir werden in dieser Übung zwei typedefs verwenden:
+Wir werden in dieser Übung den folgenden Typ verwenden:
 
 ```cpp
 #include <vector>

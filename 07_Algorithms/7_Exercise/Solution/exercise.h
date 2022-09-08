@@ -2,7 +2,7 @@
 
 #include <vector>
 
-typedef std::vector<bool> BinaryArray;
+cstd::vector<bool>;
 
 // Exercise 2
 std::vector<bool> shuffle_till_equal(const BinaryArray &target, BinaryArray input);
