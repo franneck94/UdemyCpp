@@ -1,40 +1,38 @@
+#include <cstdint>
 #include <iostream>
+#include <string_view>
 
 #include "exercise.h"
 
 // Exercise 2
-std::string get_oldest_friend(const Friends &friends)
+std::string_view get_oldest_friend(const Friends &friends)
 {
-    std::string oldest_friend = "";
-    int oldest_age = 0;
+    auto oldest_friend = std::string_view{};
+    auto oldest_age = std::int32_t{};
 
-    for (const auto &val : friends)
+    for (const auto &[key, val] : friends)
     {
-        std::pair<int, int> p = val.second;
-
-        if (p.first > oldest_age)
+        if (val.first > oldest_age)
         {
-            oldest_age = p.first;
-            oldest_friend = val.first;
+            oldest_age = val.first;
+            oldest_friend = key;
         }
     }
 
     return oldest_friend;
 }
 
-std::string get_heaviest_friend(const Friends &friends)
+std::string_view get_heaviest_friend(const Friends &friends)
 {
-    std::string heaviest_friend = "";
-    int heaviest_weight = 0;
+    auto heaviest_friend = std::string_view{};
+    auto heaviest_weight = std::int32_t{};
 
-    for (const auto &val : friends)
+    for (const auto &[key, val] : friends)
     {
-        std::pair<int, int> p = val.second;
-
-        if (p.second > heaviest_weight)
+        if (val.second > heaviest_weight)
         {
-            heaviest_weight = p.second;
-            heaviest_friend = val.first;
+            heaviest_weight = val.second;
+            heaviest_friend = key;
         }
     }
 

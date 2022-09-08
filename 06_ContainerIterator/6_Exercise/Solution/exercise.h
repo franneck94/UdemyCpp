@@ -1,13 +1,13 @@
 #pragma once
 
+#include <cstdint>
 #include <map>
 #include <string>
+#include <string_view>
 #include <utility>
 
-// Exercise 1
-typedef std::map<std::string, std::pair<int, int>> Friends;
+typedef std::map<std::string, std::pair<std::int32_t, std::int32_t>> Friends;
 
-// Exercise  2
-std::string get_oldest_friend(const Friends &friends);
+std::string_view get_oldest_friend(const Friends &friends);
 
-std::string get_heaviest_friend(const Friends &friends);
+std::string_view get_heaviest_friend(const Friends &friends);
