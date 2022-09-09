@@ -18,7 +18,7 @@ Diese Dynamischen Arrays werden später in der Standard-Bibliothek "Vector" (Vek
 Schreibe eine Funktion
 
 ```cpp
-void push_back(int* &input_array, const unsigned int &size, const int &value);
+void push_back(int* &input_array, const std::uint32_t &size, const int &value);
 ```
 
 die ein Element am Ende des dynamischen Arrays hinzufügt. Beachte dabei, dass sich somit die Länge des Arrays um Eins erhöht.
@@ -28,7 +28,7 @@ die ein Element am Ende des dynamischen Arrays hinzufügt. Beachte dabei, dass s
 Schreibe eine Funktion
 
 ```cpp
-void pop_back(int* &input_array, const unsigned int &size);
+void pop_back(int* &input_array, const std::uint32_t &size);
 ```
 
 die das letzte Element des dynamischen Arrays entfernt. Beachte dabei, dass sich somit die Länge des Arrays um Eins reduziert.
@@ -36,7 +36,7 @@ die das letzte Element des dynamischen Arrays entfernt. Beachte dabei, dass sich
 ### Beispiel
 
 ```cpp
-unsigned int size = 3;
+std::uint32_t size = 3;
 int *my_data = new int[size];
 my_data[0] = 0;
 my_data[1] = 1;

@@ -1,16 +1,17 @@
+#include <cstdint>
 #include <iostream>
 
-void f(int *p, unsigned int l)
+void f(int *p, std::uint32_t l)
 {
-    for (unsigned int i = 0; i < l; ++i)
+    for (std::uint32_t i = 0; i < l; ++i)
     {
         std::cout << p[i] << std::endl;
     }
 }
 
-void h(int *p, unsigned int l)
+void h(int *p, std::uint32_t l)
 {
-    for (unsigned int i = 0; i < l; ++i)
+    for (std::uint32_t i = 0; i < l; ++i)
     {
         std::cout << *(p + i) << std::endl;
     }

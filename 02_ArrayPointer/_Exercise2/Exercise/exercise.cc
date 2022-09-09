@@ -1,13 +1,14 @@
+#include <cstdint>
 #include <iostream>
 
 #include "exercise.h"
 
 // Exercise 1
-void push_back(int *&input_array, const unsigned int &size, const int &value)
+void push_back(int *&input_array, const std::uint32_t &size, const int &value)
 {
 }
 
 // Exercise 2
-void pop_back(int *&input_array, const unsigned int &size)
+void pop_back(int *&input_array, const std::uint32_t &size)
 {
 }

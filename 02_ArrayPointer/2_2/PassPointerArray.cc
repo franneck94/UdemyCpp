@@ -1,10 +1,11 @@
+#include <cstdint>
 #include <iostream>
 
-int array_maximum(int *array, unsigned int length)
+int array_maximum(int *array, std::uint32_t length)
 {
     int max_val = array[0];
 
-    for (unsigned int i = 1; i < length; ++i)
+    for (std::uint32_t i = 1; i < length; ++i)
     {
         if (array[i] > max_val)
         {
@@ -18,12 +19,12 @@ int array_maximum(int *array, unsigned int length)
 
 int main()
 {
-    unsigned int array_size = 10;
+    std::uint32_t array_size = 10;
 
     // Heap allocation
     int *p = new int[array_size];
 
-    for (unsigned int i = 0; i < array_size; ++i)
+    for (std::uint32_t i = 0; i < array_size; ++i)
     {
         p[i] = i;
     }

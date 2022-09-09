@@ -10,15 +10,15 @@ Willkommen bei der nächsten Programmier-Übung in diesem Kurs.
 
 Erstellt zunächst ein Double Pointer Array mit 100 Elementen, deren Wert die Zahlen von 0 bis 99 abspeichert (Tipp: for-Schleife nutzen).  
 
-Schreibt dann eine Funktion, 
+Schreibt dann eine Funktion,
 
 ```cpp
-double array_sum(double *p_array, const unsigned int &length)
+double array_sum(double *p_array, const std::uint32_t &length)
 ```
 
 die ein Pointer Array vom Typ double entgegennimmt (1. Argument), die Länge des Arrays entgegennimmt (2. Argument) und die Summe des Arrays berechnet und zurückgibt.
 
-### Beispiel
+### Beispiel 1
 
 Das heißt bei dem Array mit 100 Elementen würde folgende Summe heraus kommen:
 
@@ -35,13 +35,13 @@ std::cout << sum << std::endl; // Ergebnis ist: 4950
 Schreibt eine Funktion
 
 ```cpp
-int* array_constructor(const int &value, const unsigned int &length)
+int* array_constructor(const int &value, const std::uint32_t &length)
 ```
 
 die ein Pointer Array vom Typ int erstellt und zurückgibt.  
 Dabei ist zu beachten, dass die Länge des Arrays und welcher Wert an jedem Index des Arrays abgespeichert werden soll, übergeben wird.
 
-### Beispiel
+### Beispiel 2
 
 ```cpp
 // value: 5, length: 3

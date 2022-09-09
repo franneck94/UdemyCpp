@@ -1,10 +1,11 @@
+#include <cstdint>
 #include <iostream>
 
-double array_sum(const double *p_array, const unsigned int &length)
+double array_sum(const double *p_array, const std::uint32_t &length)
 {
     double sum = 0.0;
 
-    for (unsigned int i = 0; i < length; i++)
+    for (std::uint32_t i = 0; i < length; i++)
     {
         sum += p_array[i];
     }
@@ -14,12 +15,12 @@ double array_sum(const double *p_array, const unsigned int &length)
 
 int main()
 {
-    unsigned int array_size = 10;
+    std::uint32_t array_size = 10;
 
     // Heap Allocation
     double *p = new double[array_size];
 
-    for (unsigned int i = 0; i < array_size; i++)
+    for (std::uint32_t i = 0; i < array_size; i++)
     {
         p[i] = i;
     }

@@ -1,7 +1,8 @@
+#include <cstdint>
 #include <iostream>
 
 // int* input_array <=> int input_array[]
-int array_maximum(int *input_array, unsigned int length)
+int array_maximum(int *input_array, std::uint32_t length)
 {
     int current_max_value = 0;
 
@@ -27,7 +28,7 @@ void print_name(char *name)
 
 int main()
 {
-    unsigned int array_size = 10;
+    std::uint32_t array_size = 10;
 
     // Heap Allocation
     int *p = new int[array_size];

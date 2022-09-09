@@ -1,3 +1,4 @@
+#include <cstdint>
 #include <iostream>
 
 #include "exercise2.h"
@@ -5,7 +6,7 @@
 // int main()
 int main()
 {
-    unsigned int size = 3;
+    std::uint32_t size = 3;
     int *my_data = new int[size];
 
     my_data[0] = 0;
@@ -13,7 +14,7 @@ int main()
     my_data[2] = 2; // int main()
 
     std::cout << "Start-values of the array: " << std::endl;
-    for (unsigned int i = 0; i < size; i++)
+    for (std::uint32_t i = 0; i < size; i++)
     {
         std::cout << my_data[i] << std::endl;
     }
@@ -24,7 +25,7 @@ int main()
     size++;
 
     std::cout << "Append value 12 at the end: " << std::endl;
-    for (unsigned int i = 0; i < size; i++)
+    for (std::uint32_t i = 0; i < size; i++)
     {
         std::cout << my_data[i] << std::endl;
     }
@@ -34,7 +35,7 @@ int main()
     size--;
 
     std::cout << "Remove the last value: " << std::endl;
-    for (unsigned int i = 0; i < size; i++)
+    for (std::uint32_t i = 0; i < size; i++)
     {
         std::cout << my_data[i] << std::endl;
     }

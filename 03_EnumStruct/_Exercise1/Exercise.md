@@ -11,8 +11,8 @@ Willkommen bei der nächsten Programmier-Übung in diesem Kurs.
 Implementiert folgende Funktionen:
 
 ```cpp
-double mean_array_value(int *array, const unsigned int &length);
-double mean_array_value(double *array, const unsigned int &length);
+double mean_array_value(int *array, const std::uint32_t &length);
+double mean_array_value(double *array, const std::uint32_t &length);
 ```
 
 Die erste Funktion soll den Mittelwert (Mean) des Int-Arrays berechnen.  
@@ -24,7 +24,7 @@ Die beiden Funktionen sollen innerhalb des Namespaces "computation" in der exerc
 ### Beispiel Aufgabe 1
 
 ```cpp
-const unsigned int array_elements = 5;
+const std::uint32_t array_elements = 5;
 int array_a[array_elements] = { 1, 2, 3, 4, 5 };
 double array_b[array_elements] = { 1.0, 2.5, 3.5, 4.5, 10.0 };
 

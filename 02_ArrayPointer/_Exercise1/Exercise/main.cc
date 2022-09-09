@@ -1,3 +1,4 @@
+#include <cstdint>
 #include <iostream>
 
 #include "exercise.h"
@@ -5,13 +6,13 @@
 int main()
 {
     // Exercise 1
-    const unsigned int array_length = 100;
+    const std::uint32_t array_length = 100;
     double sum = 0.0;
 
     double *p_array1 = nullptr;
     p_array1 = new double[array_length];
 
-    for (unsigned int i = 0; i < 100; i++)
+    for (std::uint32_t i = 0; i < 100; i++)
     {
         p_array1[i] = i;
     }
@@ -20,7 +21,7 @@ int main()
     std::cout << "(Exercise 1) Array Sum = " << sum << std::endl;
 
     // Exercise 2
-    unsigned int input_array_length = 0;
+    std::uint32_t input_array_length = 0;
     int input_array_value = 0;
 
     std::cout << std::endl << "Enter the array length: " << std::endl;
@@ -30,7 +31,7 @@ int main()
 
     int *p_array2 = array_constructor(input_array_value, input_array_length);
 
-    for (unsigned int i = 0; i < input_array_length; i++)
+    for (std::uint32_t i = 0; i < input_array_length; i++)
     {
         std::cout << p_array2[i] << std::endl;
     }
