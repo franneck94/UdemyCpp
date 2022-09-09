@@ -1,22 +1,24 @@
+#include <cstdint>
 #include <iostream>
 
-// dType varName[numElements]
+// dataType varName[numElements];
 
 int main()
 {
-    int array1[5] = {10, 11, 12, 13, 14};
+    // 0..(5-1)
+    //                        0   1    2   3   4
+    std::int32_t array1[5] = {10, 11, 12, 13, 14};
 
-    std::cout << "Index 0: " << array1[0] << std::endl;
-    std::cout << "Index 1: " << array1[1] << std::endl;
-    std::cout << "Index 2: " << array1[2] << std::endl;
-    std::cout << "Index 3: " << array1[3] << std::endl;
-    std::cout << "Index 4: " << array1[4] << std::endl;
+    std::cout << array1[0] << std::endl; // read
+    std::cout << array1[1] << std::endl; // read
+    std::cout << array1[2] << std::endl; // read
+    std::cout << array1[3] << std::endl; // read
+    std::cout << array1[4] << std::endl; // read
 
-    int array2[] = {20, 21, 22};
-
-    std::cout << "Index 0: " << array2[0] << std::endl;
-    std::cout << "Index 1: " << array2[1] << std::endl;
-    std::cout << "Index 2: " << array2[2] << std::endl;
+    std::int32_t array2[3];
+    array2[0] = 20; // write
+    array2[1] = 21; // write
+    array2[2] = 22; // write
 
     return 0;
 }
