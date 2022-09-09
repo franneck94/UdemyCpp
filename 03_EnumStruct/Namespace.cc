@@ -1,10 +1,8 @@
+#include <cstdint>
 #include <iostream>
 
-namespace ad
+namespace AD
 {
-constexpr int DEFAULT_VEHICLE_ID = -1;
-constexpr int NUM_VEHICLES = 3;
-
 enum class Lane
 {
     RIGHT_LANE,
@@ -14,7 +12,7 @@ enum class Lane
 
 struct Vehicle
 {
-    int id;
+    std::uint32_t id;
     float velocity;
     Lane lane;
 };
@@ -47,22 +45,46 @@ void print_vehicle_data(const Vehicle &vehicle)
     }
     }
 }
-} // namespace ad
 
-using namespace ad;
+void print_vehicle_data_pointer(const Vehicle *vehicle)
+{
+    std::cout << "Vehicle ID: " << vehicle->id << std::endl;
+    std::cout << "Vehicle Velocity [kph]: " << vehicle->velocity << std::endl;
+
+    switch (vehicle->lane)
+    {
+    case Lane::CENTER_LANE:
+    {
+        std::cout << "Vehicle Lane Association: Center Lane" << std::endl;
+        break;
+    }
+    case Lane::RIGHT_LANE:
+    {
+        std::cout << "Vehicle Lane Association: Right Lane" << std::endl;
+        break;
+    }
+    case Lane::LEFT_LANE:
+    {
+        std::cout << "Vehicle Lane Association: Left Lane" << std::endl;
+        break;
+    }
+    default:
+    {
+        break;
+    }
+    }
+}
+}; // namespace AD
+
+// using namespace AD;
 
 int main()
 {
-    Vehicle v1 = {1, 100.0f, Lane::CENTER_LANE};
-    Vehicle v2 = {2, 90.0f, Lane::RIGHT_LANE};
-    Vehicle v3 = {DEFAULT_VEHICLE_ID, 130.0f, Lane::LEFT_LANE};
+    const auto v1 =
+        AD::Vehicle{.id = 1, .velocity = 22.0F, .lane = AD::Lane::LEFT_LANE};
+    AD::print_vehicle_data(v1);
 
-    Vehicle vehicles_in_scene[NUM_VEHICLES] = {v1, v2, v3};
-
-    for (int i = 0; i < NUM_VEHICLES; i++)
-    {
-        print_vehicle_data(vehicles_in_scene[i]);
-    }
+    AD::print_vehicle_data_pointer(&v1);
 
     return 0;
 }
