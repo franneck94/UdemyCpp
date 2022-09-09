@@ -1,31 +1,25 @@
-#include <algorithm>
 #include <iostream>
-#include <numeric>
 #include <vector>
+
+struct Data
+{
+    float x;
+    float y;
+};
 
 int main()
 {
-    int matrix[2][3]{};
+    auto vec = std::vector<Data>{Data{1.0F, 2.0F}, Data{4.0F, 6.0F}};
 
-    for (const auto &row : matrix)
+    for (auto [x_, y_] : vec)
     {
-        for (const auto &value : row)
-        {
-            std::cout << value << std::endl;
-        }
+        x_ = -1.0F;
+        std::cout << x_ << " " << y_ << std::endl;
     }
 
-    struct Data
+    for (auto &[x_, y_] : vec)
     {
-        int x;
-        int y;
-    };
-
-    std::vector<Data> vec{{1, 2}, {4, 6}, {8, 9}};
-
-    for (const auto &[x1, y1] : vec)
-    {
-        std::cout << x1 << y1 << std::endl;
+        std::cout << x_ << " " << y_ << std::endl;
     }
 
     return 0;

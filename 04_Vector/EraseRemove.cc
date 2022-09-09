@@ -1,13 +1,12 @@
 #include <algorithm>
 #include <iostream>
-#include <numeric>
 #include <vector>
 
 void print_vector(const std::vector<int> &my_vector)
 {
-    for (std::size_t i = 0; i < my_vector.size(); i++)
+    for (std::size_t i = 0; i < my_vector.size(); ++i)
     {
-        std::cout << "Vec[" << i << "] = " << my_vector[i] << std::endl;
+        std::cout << my_vector[i] << std::endl;
     }
     std::cout << std::endl;
 }
@@ -20,27 +19,23 @@ void print_vector_info(const std::vector<int> &my_vector)
               << std::endl;
 }
 
-bool is_odd(const int i)
+bool is_negative(const int val)
 {
-    return i % 2;
+    return val < 0;
 }
 
 int main()
 {
-    std::vector<int> my_vector(10, 0);
-    std::iota(my_vector.begin(), my_vector.end(), 0);
+    auto my_vector = std::vector<int>{-1, 20, -33, 14, 35};
+    print_vector(my_vector);
+    print_vector_info(my_vector);
+
+    auto remove_it1 = std::remove(my_vector.begin(), my_vector.end(), -1);
+    my_vector.erase(remove_it1, my_vector.end());
     print_vector(my_vector);
 
-    // std::vector<int>::iterator it = std::remove(my_vector.begin(), my_vector.end(), 2);
-    // std::cout << *it << std::endl;
-    // print_vector(my_vector);
-
-    my_vector.erase(std::remove(my_vector.begin(), my_vector.end(), 2),
-                    my_vector.end());
-    print_vector(my_vector);
-
-    my_vector.erase(std::remove_if(my_vector.begin(), my_vector.end(), is_odd),
-                    my_vector.end());
+    auto remove_it2 = std::remove_if(my_vector.begin(), my_vector.end(), is_negative);
+    my_vector.erase(remove_it2, my_vector.end());
     print_vector(my_vector);
 
     return 0;
