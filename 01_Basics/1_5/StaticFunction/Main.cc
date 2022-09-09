@@ -6,7 +6,6 @@
 int main()
 {
     function();
-    // internal_function();
 
     return 0;
 }
