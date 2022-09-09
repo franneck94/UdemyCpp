@@ -2,17 +2,17 @@
 
 int main()
 {
-    char fist_name[] = {'J', 'a', 'n', '\0'};
-
-    std::cout << fist_name << std::endl;
+    const char first_name[] = {'J', 'a', 'n', '\0'};
+    std::cout << first_name << std::endl;
 
     char last_name[] = "Schaffranek";
-
     std::cout << last_name << std::endl;
 
-    for (int i = 0; i < 11; i++)
+    last_name[0] = 's';
+
+    for (std::uint32_t i = 0; i < sizeof(last_name) - 1U; ++i)
     {
-        std::cout << "Last Name[i]: " << last_name[i] << std::endl;
+        std::cout << "Char[i] = " << last_name[i] << std::endl;
     }
 
     return 0;
