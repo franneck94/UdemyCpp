@@ -1,12 +1,13 @@
+#include <cstdint>
 #include <iostream>
 #include <vector>
 
 int main()
 {
-    unsigned int length = 4;
+    std::uint32_t length = 4;
     int *arr = new int[length];
 
-    for (unsigned int i = 0; i < length; i++)
+    for (std::uint32_t i = 0; i < length; i++)
     {
         arr[i] = static_cast<int>(i);
         std::cout << arr[i] << std::endl;
@@ -16,7 +17,7 @@ int main()
 
     std::vector<int> vec{1, 2, 3};
 
-    for (unsigned int i = 0; i < 3; i++)
+    for (std::uint32_t i = 0; i < 3; i++)
     {
         std::cout << vec[i] << std::endl;
     }

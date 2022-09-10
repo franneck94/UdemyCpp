@@ -1,10 +1,11 @@
+#include <cstdint>
 #include <iostream>
 
 #include "Game.h"
 
-void print_game_state(unsigned int player)
+void print_game_state(std::uint32_t player)
 {
-    for (unsigned int i = START; i < LEN_X; i++)
+    for (std::uint32_t i = START; i < LEN_X; i++)
     {
         if (i == player)
         {
@@ -21,7 +22,7 @@ void print_game_state(unsigned int player)
     }
 }
 
-unsigned int execute_move(unsigned int player, char move)
+std::uint32_t execute_move(std::uint32_t player, char move)
 {
     if (LEFT == move && player > 0)
     {
@@ -37,14 +38,14 @@ unsigned int execute_move(unsigned int player, char move)
     }
 }
 
-bool is_finished(unsigned int player)
+bool is_finished(std::uint32_t player)
 {
     return player == GOAL;
 }
 
 void game()
 {
-    unsigned int player = 0;
+    std::uint32_t player = 0;
     char move = 0;
 
     while (true)

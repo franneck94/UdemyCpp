@@ -1,3 +1,4 @@
+#include <cstdint>
 #include <iostream>
 #include <random>
 
@@ -59,9 +60,9 @@ void print_game_state(const Position &player, const Obstacles &obstacles)
         game_state[obs.first][obs.second] = 'X';
     }
 
-    for (unsigned int i = 0; i < LEN_X; i++)
+    for (std::uint32_t i = 0; i < LEN_X; i++)
     {
-        for (unsigned int j = 0; j < LEN_Y; j++)
+        for (std::uint32_t j = 0; j < LEN_Y; j++)
         {
             std::cout << game_state[i][j] << " ";
         }

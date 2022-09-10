@@ -1,11 +1,12 @@
+#include <cstdint>
 #include <iostream>
 
 int main()
 {
-    unsigned int length = 4;
+    std::uint32_t length = 4;
     int *arr = new int[length];
 
-    for (unsigned int i = 0; i < length; i++)
+    for (std::uint32_t i = 0; i < length; i++)
     {
         arr[i] = static_cast<int>(i);
         std::cout << arr[i] << std::endl;
