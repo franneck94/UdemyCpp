@@ -1,59 +1,59 @@
 #pragma once
 
 #include <cstdint>
-#include <string>
-#include <utility>
 #include <vector>
 
-constexpr std::uint32_t LEN_X = 5;
-constexpr std::uint32_t LEN_Y = 5;
-constexpr std::uint32_t NUM_OBSTACLES = 3U;
+struct Coordinate
+{
+    std::uint32_t x;
+    std::uint32_t y;
+};
 
 enum class ConsoleInput
 {
     INVALID,
-    LEFT,
-    RIGHT,
-    UP,
-    DOWN
+    LEFT = 'a',
+    RIGHT = 'd',
+    UP = 'w',
+    DOWN = 's',
 };
-
-using Position = std::pair<std::uint32_t, std::uint32_t>;
-using GameState = std::vector<std::string>;
-using Obstacles = std::vector<Position>;
 
 class Game
 {
 public:
-    Game();
+    Game() : obstacles(std::vector<Coordinate>(NUM_OBSTACLES, Coordinate{})){};
+    ~Game() = default;
 
-    void execute();
+    void game();
 
 private:
+    static std::int32_t random_int(const std::int32_t lower,
+                                   const std::int32_t upper);
+
     static std::uint32_t random_uint(const std::uint32_t lower,
                                      const std::uint32_t upper);
 
-    static Position random_position(const std::uint32_t lower_x,
-                                    const std::uint32_t upper_x,
-                                    const std::uint32_t lower_y,
-                                    const std::uint32_t upper_y);
+    static Coordinate random_coord(const std::uint32_t lower_x,
+                                   const std::uint32_t upper_x,
+                                   const std::uint32_t lower_y,
+                                   const std::uint32_t upper_y);
 
-    static ConsoleInput map_user_input(const char user_input);
-
-    void print_game_state(const Position &player, const Obstacles &obstacles);
-
-    void execute_move(Position &player, const ConsoleInput move);
-
-    bool is_dead(const Position &player, const Obstacles &obstacles);
-
-    bool is_finished(const Position &player);
+    bool has_obstacle(const Coordinate &coord);
 
     void move_obstacles();
 
-private:
-    const Position m_goal = std::make_pair(4U, 4U);
-    const Position m_start = std::make_pair(0U, 0U);
+    bool is_finished();
 
-    Position m_player = std::make_pair(0U, 0U);
-    Obstacles m_obstacles = std::vector<Position>{NUM_OBSTACLES};
+    void print_game_state();
+
+    void execute_move(const ConsoleInput move);
+
+    constexpr static auto NUM_OBSTACLES = 3U;
+    constexpr static auto LEN_X = 5U;
+    constexpr static auto LEN_Y = 5U;
+    constexpr static auto START = Coordinate{.x = 0, .y = 0};
+    constexpr static auto GOAL = Coordinate{.x = LEN_X - 1, .y = LEN_Y - 1};
+
+    Coordinate player = {.x = 0, .y = 0};
+    std::vector<Coordinate> obstacles;
 };

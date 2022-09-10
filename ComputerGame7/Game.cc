@@ -1,5 +1,6 @@
 #include <cstdint>
 #include <iostream>
+#include <random>
 #include <vector>
 
 #include "Game.h"
@@ -12,6 +13,47 @@ constexpr static auto LEN_Y = 5U;
 constexpr static auto START = Coordinate{.x = 0, .y = 0};
 constexpr static auto GOAL = Coordinate{.x = LEN_X - 1, .y = LEN_Y - 1};
 }; // namespace
+
+std::int32_t random_int(const std::int32_t lower, const std::int32_t upper)
+{
+    static auto gen = std::random_device{};
+    static auto dist = std::uniform_int_distribution<std::int32_t>(lower, upper);
+
+    return dist(gen);
+}
+
+std::uint32_t random_uint(const std::uint32_t lower, const std::uint32_t upper)
+{
+    static auto gen = std::random_device{};
+    static auto dist = std::uniform_int_distribution<std::uint32_t>(lower, upper);
+
+    return dist(gen);
+}
+
+Coordinate random_coord(const std::uint32_t lower_x,
+                        const std::uint32_t upper_x,
+                        const std::uint32_t lower_y,
+                        const std::uint32_t upper_y)
+{
+    return Coordinate{.x = random_uint(lower_x, upper_x),
+                      .y = random_uint(lower_y, upper_y)};
+}
+
+void move_obstacles(std::vector<Coordinate> &obstacles)
+{
+    for (auto &obs : obstacles)
+    {
+        const auto move_x = random_int(-1, 1);
+        const auto move_y = random_int(-1, 1);
+
+        const auto move_coord = Coordinate{obs.x + move_x, obs.y + move_y};
+        if (move_coord.x < LEN_X && move_coord.y < LEN_Y)
+        {
+            obs.x += move_x;
+            obs.y += move_y;
+        }
+    }
+}
 
 bool is_finished(const Coordinate &player)
 {
@@ -103,11 +145,12 @@ void execute_move(Coordinate &player,
 
 void game()
 {
-    const auto obstacles = std::vector<Coordinate>{
-        Coordinate{.x = 1, .y = 1},
-        Coordinate{.x = 2, .y = 2},
-        Coordinate{.x = 3, .y = 3},
-    };
+    auto obstacles = std::vector<Coordinate>(3, Coordinate{});
+    for (auto &obs : obstacles)
+    {
+        obs = random_coord(1, LEN_X - 1, 1, LEN_Y - 1);
+    }
+
     auto player = START;
     auto move = ConsoleInput::INVALID;
     auto move_char = ' ';
@@ -123,5 +166,6 @@ void game()
         std::cin >> move_char;
         move = static_cast<ConsoleInput>(move_char);
         execute_move(player, move, obstacles);
+        move_obstacles(obstacles);
     }
 }
