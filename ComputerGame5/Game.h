@@ -2,10 +2,25 @@
 
 #include <cstdint>
 
-bool is_finished(const std::uint32_t player);
+struct Coordinate
+{
+    std::uint32_t x;
+    std::uint32_t y;
+};
 
-void print_game_state(const std::uint32_t player);
+enum class ConsoleInput
+{
+    INVALID,
+    LEFT = 'a',
+    RIGHT = 'd',
+    UP = 'w',
+    DOWN = 's',
+};
 
-void execute_move(std::uint32_t &player, const char move);
+bool is_finished(const Coordinate &player);
+
+void print_game_state(const Coordinate &player);
+
+void execute_move(Coordinate &player, const ConsoleInput move);
 
 void game();

@@ -5,57 +5,83 @@
 
 namespace
 {
-constexpr static std::uint32_t LEN_X = 10U;
-constexpr static std::uint32_t START = 0U;
-constexpr static std::uint32_t GOAL = 9U;
-constexpr static char LEFT = 'a';
-constexpr static char RIGHT = 'd';
+constexpr static auto LEN_X = 5U;
+constexpr static auto LEN_Y = 5U;
+constexpr static auto START = Coordinate{.x = 0, .y = 0};
+constexpr static auto GOAL = Coordinate{.x = LEN_X - 1, .y = LEN_Y - 1};
 }; // namespace
 
-bool is_finished(const std::uint32_t player)
+bool is_finished(const Coordinate &player)
 {
-    return player == GOAL;
+    return player.x == GOAL.x && player.y == GOAL.y;
 }
 
-void print_game_state(const std::uint32_t player)
+void print_game_state(const Coordinate &player)
 {
-    for (std::uint32_t i = START; i < LEN_X; i++)
+    for (std::uint32_t i = 0; i < LEN_X; i++)
     {
-        if (i == player)
+        for (std::uint32_t j = 0; j < LEN_Y; j++)
         {
-            std::cout << 'P';
+            if (i == player.x && j == player.y)
+            {
+                std::cout << 'P';
+            }
+            else if ((i == GOAL.x && j == GOAL.y) || (i == START.x && j == START.y))
+            {
+                std::cout << '|';
+            }
+            else
+            {
+                std::cout << '.';
+            }
         }
-        else if (i == GOAL || i == START)
-        {
-            std::cout << '|';
-        }
-        else
-        {
-            std::cout << '.';
-        }
+        std::cout << '\n';
     }
+    std::cout << '\n';
 }
 
-void execute_move(std::uint32_t &player, const char move)
+void execute_move(Coordinate &player, const ConsoleInput move)
 {
-    if (LEFT == move && player > 0)
+    switch (move)
     {
-        player--;
-    }
-    else if (RIGHT == move && player < (LEN_X - 1))
+    case ConsoleInput::LEFT:
     {
-        player++;
+        if (player.y > 0)
+            player.y--;
+        break;
     }
-    else
+    case ConsoleInput::RIGHT:
+    {
+        if (player.y < LEN_X - 1)
+            player.y++;
+        break;
+    }
+    case ConsoleInput::UP:
+    {
+        if (player.x > 0)
+            player.x--;
+        break;
+    }
+    case ConsoleInput::DOWN:
+    {
+        if (player.x < LEN_Y - 1)
+            player.x++;
+        break;
+    }
+    case ConsoleInput::INVALID:
+    default:
     {
         std::cout << "Unrecognized move!\n";
+        break;
+    }
     }
 }
 
 void game()
 {
-    std::uint32_t player = START;
-    char move;
+    auto player = START;
+    auto move = ConsoleInput::INVALID;
+    auto move_char = ' ';
 
     while (true)
     {
@@ -65,7 +91,8 @@ void game()
         }
 
         print_game_state(player);
-        std::cin >> move;
+        std::cin >> move_char;
+        move = static_cast<ConsoleInput>(move_char);
         execute_move(player, move);
     }
 }

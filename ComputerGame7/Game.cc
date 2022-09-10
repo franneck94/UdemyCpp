@@ -1,9 +1,10 @@
+#include <cstdint>
 #include <iostream>
 #include <random>
 
 #include "Game.h"
 
-std::uint32_t Game::random_uint(const std::uint32_t lower, const std::uint32_t upper)
+std::uint32_t random_uint(const std::uint32_t lower, const std::uint32_t upper)
 {
     auto gen = std::random_device{};
     auto dist = std::uniform_int_distribution<std::uint32_t>(lower, upper);
@@ -11,16 +12,15 @@ std::uint32_t Game::random_uint(const std::uint32_t lower, const std::uint32_t u
     return dist(gen);
 }
 
-Position Game::random_position(const std::uint32_t lower_x,
-                               const std::uint32_t upper_x,
-                               const std::uint32_t lower_y,
-                               const std::uint32_t upper_y)
+Position random_position(const std::uint32_t lower_x,
+                         const std::uint32_t upper_x,
+                         const std::uint32_t lower_y,
+                         const std::uint32_t upper_y)
 {
-    return std::make_pair(random_uint(lower_x, upper_x),
-                          random_uint(lower_y, upper_y));
+    return Position{random_uint(lower_x, upper_x), random_uint(lower_y, upper_y)};
 }
 
-ConsoleInput Game::map_user_input(const char user_input)
+ConsoleInput map_user_input(const char user_input)
 {
     switch (user_input)
     {
@@ -47,15 +47,31 @@ ConsoleInput Game::map_user_input(const char user_input)
     }
 }
 
-Game::Game()
+void print_game_state(const Position &player, const Obstacles &obstacles)
 {
-    for (auto &obs : m_obstacles)
+    GameState game_state(LEN_X, std::string(LEN_Y, '.'));
+
+    game_state[START.first][START.second] = '|';
+    game_state[GOAL.first][GOAL.second] = '|';
+    game_state[player.first][player.second] = 'P';
+
+    for (const auto &obs : obstacles)
     {
-        obs = random_position(1, LEN_X - 1, 1, LEN_Y - 1);
+        game_state[obs.first][obs.second] = 'X';
+    }
+
+    for (std::uint32_t i = 0; i < LEN_X; i++)
+    {
+        for (std::uint32_t j = 0; j < LEN_Y; j++)
+        {
+            std::cout << game_state[i][j] << " ";
+        }
+
+        std::cout << std::endl;
     }
 }
 
-void Game::execute_move(Position &player, const ConsoleInput move)
+void execute_move(Position &player, const ConsoleInput move)
 {
     switch (move)
     {
@@ -91,7 +107,6 @@ void Game::execute_move(Position &player, const ConsoleInput move)
         }
         break;
     }
-    case ConsoleInput::INVALID:
     default:
     {
         break;
@@ -99,46 +114,7 @@ void Game::execute_move(Position &player, const ConsoleInput move)
     }
 }
 
-void Game::print_game_state(const Position &player, const Obstacles &obstacles)
-{
-    auto game_state = GameState(LEN_X, std::string(LEN_Y, '.'));
-
-    game_state[m_start.first][m_start.second] = '|';
-    game_state[m_goal.first][m_goal.second] = '|';
-    game_state[player.first][player.second] = 'P';
-
-    for (const auto &obs : obstacles)
-    {
-        game_state[obs.first][obs.second] = 'X';
-    }
-
-    for (std::uint32_t i = 0; i < LEN_X; i++)
-    {
-        for (std::uint32_t j = 0; j < LEN_Y; j++)
-        {
-            std::cout << game_state[i][j] << " ";
-        }
-
-        std::cout << std::endl;
-    }
-}
-
-
-void Game::move_obstacles()
-{
-    for (auto &obs : m_obstacles)
-    {
-        const auto offset = random_position(-1, 1, -1, 1);
-
-        if (obs.first + offset.first < LEN_X && obs.second + offset.second < LEN_Y)
-        {
-            obs.first += offset.first;
-            obs.second += offset.second;
-        }
-    }
-}
-
-bool Game::is_dead(const Position &player, const Obstacles &obstacles)
+bool is_dead(const Position &player, const Obstacles &obstacles)
 {
     for (const auto &obs : obstacles)
     {
@@ -149,26 +125,32 @@ bool Game::is_dead(const Position &player, const Obstacles &obstacles)
     return false;
 }
 
-bool Game::is_finished(const Position &player)
+bool is_finished(const Position &player)
 {
-    return player == m_goal;
+    return player == GOAL;
 }
 
-void Game::execute()
+void game()
 {
+    Position player = std::make_pair(0, 0);
     char user_input = 0;
+
+    auto obstacles = Obstacles(NUM_OBSTACLES, Position{0, 0});
+    for (auto &obs : obstacles)
+    {
+        obs = random_position(1, LEN_X - 1, 1, LEN_Y - 1);
+    }
 
     while (true)
     {
-        if (is_finished(m_player) || is_dead(m_player, m_obstacles))
+        if (is_finished(player) || is_dead(player, obstacles))
         {
             break;
         }
 
-        print_game_state(m_player, m_obstacles);
+        print_game_state(player, obstacles);
         std::cin >> user_input;
         const auto console_input = map_user_input(user_input);
-        execute_move(m_player, console_input);
-        move_obstacles();
+        execute_move(player, console_input);
     }
 }
