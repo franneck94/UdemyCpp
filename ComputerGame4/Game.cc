@@ -3,6 +3,20 @@
 
 #include "Game.h"
 
+namespace
+{
+constexpr static std::uint32_t LEN_X = 10U;
+constexpr static std::uint32_t START = 0U;
+constexpr static std::uint32_t GOAL = 9U;
+constexpr static char LEFT = 'a';
+constexpr static char RIGHT = 'd';
+}; // namespace
+
+bool is_finished(const std::uint32_t player)
+{
+    return player == GOAL;
+}
+
 void print_game_state(const std::uint32_t player)
 {
     for (std::uint32_t i = START; i < LEN_X; i++)
@@ -28,25 +42,20 @@ void execute_move(std::uint32_t &player, const char move)
     {
         player--;
     }
-    else if (RIGHT == move && player < GOAL)
+    else if (RIGHT == move && player < (LEN_X - 1))
     {
         player++;
     }
     else
     {
-        std::cout << "Unrecognized move!" << std::endl;
+        std::cout << "Unrecognized move!\n";
     }
-}
-
-bool is_finished(const std::uint32_t player)
-{
-    return player == GOAL;
 }
 
 void game()
 {
-    std::uint32_t player = 0;
-    char move = 0;
+    std::uint32_t player = START;
+    char move;
 
     while (true)
     {
@@ -55,8 +64,8 @@ void game()
             break;
         }
 
+        print_game_state(player);
         std::cin >> move;
-
         execute_move(player, move);
     }
 }

@@ -1,105 +1,61 @@
+#include <cstdint>
 #include <iostream>
 
 #include "Game.h"
 
-ConsoleInput map_user_input(const char user_input)
+namespace
 {
-    switch (user_input)
-    {
-    case 'w':
-    {
-        return ConsoleInput::UP;
-    }
-    case 'a':
-    {
-        return ConsoleInput::LEFT;
-    }
-    case 's':
-    {
-        return ConsoleInput::DOWN;
-    }
-    case 'd':
-    {
-        return ConsoleInput::RIGHT;
-    }
-    default:
-    {
-        return ConsoleInput::INVALID;
-    }
-    }
-}
+constexpr static std::uint32_t LEN_X = 10U;
+constexpr static std::uint32_t START = 0U;
+constexpr static std::uint32_t GOAL = 9U;
+constexpr static char LEFT = 'a';
+constexpr static char RIGHT = 'd';
+}; // namespace
 
-void print_game_state(const Position player)
-{
-    auto game_state = GameState(LEN_X, std::string(LEN_Y, '.'));
-
-    game_state[START.first][START.second] = '|';
-    game_state[GOAL.first][GOAL.second] = '|';
-    game_state[player.first][player.second] = 'P';
-
-    for (std::uint32_t i = 0; i < LEN_X; i++)
-    {
-        for (std::uint32_t j = 0; j < LEN_Y; j++)
-        {
-            std::cout << game_state[i][j] << ' ';
-        }
-
-        std::cout << std::endl;
-    }
-}
-
-void execute_move(Position &player, const ConsoleInput move)
-{
-    switch (move)
-    {
-    case ConsoleInput::LEFT:
-    {
-        if (player.second > 0)
-        {
-            player.second--;
-        }
-        break;
-    }
-    case ConsoleInput::RIGHT:
-    {
-        if (player.second < LEN_Y - 1)
-        {
-            player.second++;
-        }
-        break;
-    }
-    case ConsoleInput::UP:
-    {
-        if (player.first > 0)
-        {
-            player.first--;
-        }
-        break;
-    }
-    case ConsoleInput::DOWN:
-    {
-        if (player.first < LEN_X - 1)
-        {
-            player.first++;
-        }
-        break;
-    }
-    default:
-    {
-        break;
-    }
-    }
-}
-
-bool is_finished(const Position player)
+bool is_finished(const std::uint32_t player)
 {
     return player == GOAL;
 }
 
+void print_game_state(const std::uint32_t player)
+{
+    for (std::uint32_t i = START; i < LEN_X; i++)
+    {
+        if (i == player)
+        {
+            std::cout << 'P';
+        }
+        else if (i == GOAL || i == START)
+        {
+            std::cout << '|';
+        }
+        else
+        {
+            std::cout << '.';
+        }
+    }
+}
+
+void execute_move(std::uint32_t &player, const char move)
+{
+    if (LEFT == move && player > 0)
+    {
+        player--;
+    }
+    else if (RIGHT == move && player < (LEN_X - 1))
+    {
+        player++;
+    }
+    else
+    {
+        std::cout << "Unrecognized move!\n";
+    }
+}
+
 void game()
 {
-    Position player = std::make_pair(0, 0);
-    char user_input = 0;
+    std::uint32_t player = START;
+    char move;
 
     while (true)
     {
@@ -109,8 +65,7 @@ void game()
         }
 
         print_game_state(player);
-        std::cin >> user_input;
-        const auto console_input = map_user_input(user_input);
-        execute_move(player, console_input);
+        std::cin >> move;
+        execute_move(player, move);
     }
 }
