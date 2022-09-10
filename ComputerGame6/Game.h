@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <vector>
 
 struct Coordinate
 {
@@ -19,8 +20,11 @@ enum class ConsoleInput
 
 bool is_finished(const Coordinate &player);
 
-void print_game_state(const Coordinate &player);
+void print_game_state(const Coordinate &player,
+                      const std::vector<Coordinate> &obstacles);
 
-void execute_move(Coordinate &player, const ConsoleInput move);
+void execute_move(Coordinate &player,
+                  const ConsoleInput move,
+                  const std::vector<Coordinate> &obstacles);
 
 void game();
