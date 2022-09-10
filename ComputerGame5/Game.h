@@ -5,9 +5,8 @@
 #include <utility>
 #include <vector>
 
-constexpr std::uint32_t LEN_X = 5;
-constexpr std::uint32_t LEN_Y = 5;
-constexpr std::uint32_t NUM_OBSTACLES = 3U;
+constexpr static auto LEN_X = std::uint32_t{5};
+constexpr static auto LEN_Y = std::uint32_t{5};
 
 enum class ConsoleInput
 {
@@ -20,40 +19,16 @@ enum class ConsoleInput
 
 using Position = std::pair<std::uint32_t, std::uint32_t>;
 using GameState = std::vector<std::string>;
-using Obstacles = std::vector<Position>;
 
-class Game
-{
-public:
-    Game();
+constexpr static Position START = std::make_pair(0U, 0U);
+constexpr static Position GOAL = std::make_pair(4U, 4U);
 
-    void execute();
+ConsoleInput map_user_input(const char user_input);
 
-private:
-    static std::uint32_t random_uint(const std::uint32_t lower,
-                                     const std::uint32_t upper);
+void print_game_state(const Position player);
 
-    static Position random_position(const std::uint32_t lower_x,
-                                    const std::uint32_t upper_x,
-                                    const std::uint32_t lower_y,
-                                    const std::uint32_t upper_y);
+void execute_move(Position &player, const ConsoleInput move);
 
-    static ConsoleInput map_user_input(const char user_input);
+bool is_finished(const Position player);
 
-    void print_game_state(const Position &player, const Obstacles &obstacles);
-
-    void execute_move(Position &player, const ConsoleInput move);
-
-    bool is_dead(const Position &player, const Obstacles &obstacles);
-
-    bool is_finished(const Position &player);
-
-    void move_obstacles();
-
-private:
-    const Position m_goal = std::make_pair(4U, 4U);
-    const Position m_start = std::make_pair(0U, 0U);
-
-    Position m_player = std::make_pair(0U, 0U);
-    Obstacles m_obstacles = std::vector<Position>{NUM_OBSTACLES};
-};
+void game();
