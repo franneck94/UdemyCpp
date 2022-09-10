@@ -5,8 +5,8 @@
 #include <utility>
 #include <vector>
 
-constexpr uint32_t LEN_X = 5;
-constexpr uint32_t LEN_Y = 5;
+constexpr static auto LEN_X = std::uint32_t{5};
+constexpr static auto LEN_Y = std::uint32_t{5};
 
 enum class ConsoleInput
 {
@@ -17,11 +17,11 @@ enum class ConsoleInput
     DOWN
 };
 
-using Position = std::pair<uint32_t, uint32_t>;
+using Position = std::pair<std::uint32_t, std::uint32_t>;
 using GameState = std::vector<std::string>;
 
-constexpr Position START = std::make_pair(0U, 0U);
-constexpr Position GOAL = std::make_pair(4U, 4U);
+constexpr static Position START = std::make_pair(0U, 0U);
+constexpr static Position GOAL = std::make_pair(4U, 4U);
 
 ConsoleInput map_user_input(char user_input);
 

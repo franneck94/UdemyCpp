@@ -1,15 +1,16 @@
+#include <cstdint>
 #include <iostream>
 
 int main()
 {
-    unsigned int LEN_X = 10;
-    unsigned int START = 0;
-    unsigned int GOAL = 9;
+    std::uint32_t LEN_X = 10;
+    std::uint32_t START = 0;
+    std::uint32_t GOAL = 9;
 
     char LEFT = 'a';
     char RIGHT = 'd';
 
-    unsigned int player = 0;
+    std::uint32_t player = 0;
     char move = 0;
 
     while (true)
@@ -19,7 +20,7 @@ int main()
             break;
         }
 
-        for (unsigned int i = START; i < LEN_X; i++)
+        for (std::uint32_t i = START; i < LEN_X; i++)
         {
             if (i == player)
             {

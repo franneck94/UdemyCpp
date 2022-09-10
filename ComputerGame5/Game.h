@@ -5,9 +5,9 @@
 #include <utility>
 #include <vector>
 
-constexpr uint32_t LEN_X = 5;
-constexpr uint32_t LEN_Y = 5;
-constexpr uint32_t NUM_OBSTACLES = 3U;
+constexpr std::uint32_t LEN_X = 5;
+constexpr std::uint32_t LEN_Y = 5;
+constexpr std::uint32_t NUM_OBSTACLES = 3U;
 
 enum class ConsoleInput
 {
@@ -18,7 +18,7 @@ enum class ConsoleInput
     DOWN
 };
 
-using Position = std::pair<uint32_t, uint32_t>;
+using Position = std::pair<std::uint32_t, std::uint32_t>;
 using GameState = std::vector<std::string>;
 using Obstacles = std::vector<Position>;
 
@@ -30,12 +30,13 @@ public:
     void execute();
 
 private:
-    static uint32_t random_uint(const uint32_t lower, const uint32_t upper);
+    static std::uint32_t random_uint(const std::uint32_t lower,
+                                     const std::uint32_t upper);
 
-    static Position random_position(const uint32_t lower_x,
-                                    const uint32_t upper_x,
-                                    const uint32_t lower_y,
-                                    const uint32_t upper_y);
+    static Position random_position(const std::uint32_t lower_x,
+                                    const std::uint32_t upper_x,
+                                    const std::uint32_t lower_y,
+                                    const std::uint32_t upper_y);
 
     static ConsoleInput map_user_input(const char user_input);
 

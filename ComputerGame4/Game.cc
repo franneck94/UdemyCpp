@@ -3,18 +3,18 @@
 
 #include "Game.h"
 
-uint32_t random_uint(const uint32_t lower, const uint32_t upper)
+std::uint32_t random_uint(const std::uint32_t lower, const std::uint32_t upper)
 {
-    std::random_device gen;
-    std::uniform_int_distribution<uint32_t> dist(lower, upper);
+    auto gen = std::random_device{};
+    auto dist = std::uniform_int_distribution<std::uint32_t>(lower, upper);
 
     return dist(gen);
 }
 
-Position random_position(const uint32_t lower_x,
-                         const uint32_t upper_x,
-                         const uint32_t lower_y,
-                         const uint32_t upper_y)
+Position random_position(const std::uint32_t lower_x,
+                         const std::uint32_t upper_x,
+                         const std::uint32_t lower_y,
+                         const std::uint32_t upper_y)
 {
     return Position{random_uint(lower_x, upper_x), random_uint(lower_y, upper_y)};
 }
@@ -134,7 +134,7 @@ void game()
     Position player = std::make_pair(0, 0);
     char user_input = 0;
 
-    Obstacles obstacles(NUM_OBSTACLES, Position{0, 0});
+    auto obstacles = Obstacles(NUM_OBSTACLES, Position{0, 0});
     for (auto &obs : obstacles)
     {
         obs = random_position(1, LEN_X - 1, 1, LEN_Y - 1);
@@ -149,7 +149,7 @@ void game()
 
         print_game_state(player, obstacles);
         std::cin >> user_input;
-        ConsoleInput console_input = map_user_input(user_input);
+        const auto console_input = map_user_input(user_input);
         execute_move(player, console_input);
     }
 }

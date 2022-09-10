@@ -31,17 +31,17 @@ ConsoleInput map_user_input(char user_input)
 
 void print_game_state(Position player)
 {
-    GameState game_state(LEN_X, std::string(LEN_Y, '.'));
+    auto game_state = GameState(LEN_X, std::string(LEN_Y, '.'));
 
     game_state[START.first][START.second] = '|';
     game_state[GOAL.first][GOAL.second] = '|';
     game_state[player.first][player.second] = 'P';
 
-    for (unsigned int i = 0; i < LEN_X; i++)
+    for (std::uint32_t i = 0; i < LEN_X; i++)
     {
-        for (unsigned int j = 0; j < LEN_Y; j++)
+        for (std::uint32_t j = 0; j < LEN_Y; j++)
         {
-            std::cout << game_state[i][j] << " ";
+            std::cout << game_state[i][j] << ' ';
         }
 
         std::cout << std::endl;
@@ -110,7 +110,7 @@ void game()
 
         print_game_state(player);
         std::cin >> user_input;
-        ConsoleInput console_input = map_user_input(user_input);
+        const auto console_input = map_user_input(user_input);
         execute_move(player, console_input);
     }
 }

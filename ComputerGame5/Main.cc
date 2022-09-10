@@ -4,8 +4,7 @@
 
 int main()
 {
-    Game game;
-
+    auto game = Game{};
     game.execute();
 
     return 0;
