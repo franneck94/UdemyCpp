@@ -3,26 +3,23 @@
 
 int main()
 {
-    std::uint32_t START = 0;
-    std::uint32_t GOAL = 9;
     char LEFT = 'a';
     char RIGHT = 'd';
 
-    std::uint32_t player = 0;
-    char move = 0;
+    char move;
     std::cin >> move;
 
-    if (LEFT == move && player > START)
+    if (LEFT == move)
     {
-        std::cout << "The player moved to the left!" << std::endl;
+        std::cout << "The player moved to the left!\n";
     }
-    else if (RIGHT == move && player < GOAL)
+    else if (RIGHT == move)
     {
-        std::cout << "The player moved to the right!" << std::endl;
+        std::cout << "The player moved to the right!\n";
     }
     else
     {
-        std::cout << "Unrecognized move!" << std::endl;
+        std::cout << "Unrecognized move!\n";
     }
 
     return 0;

@@ -5,8 +5,8 @@
 
 void game()
 {
-    std::uint32_t player = 0;
-    char move = 0;
+    std::uint32_t player = START;
+    char move;
 
     while (true)
     {
@@ -37,13 +37,13 @@ void game()
         {
             player--;
         }
-        else if (RIGHT == move && player < GOAL)
+        else if (RIGHT == move && player < (LEN_X - 1))
         {
             player++;
         }
         else
         {
-            std::cout << "Unrecognized move!" << std::endl;
+            std::cout << "Unrecognized move!\n";
         }
     }
 }
