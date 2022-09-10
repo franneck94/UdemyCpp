@@ -52,8 +52,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Jan/OneDrive/_CodingE/UdemyCpp/05_String/Json",
-      "program": "c:/Users/Jan/OneDrive/_CodingE/UdemyCpp/05_String/Json/build/Debug/outDebug",
+      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/05_String/Json",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/05_String/Json/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
