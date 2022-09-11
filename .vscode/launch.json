@@ -5,7 +5,9 @@
       "name": "Cpp: Debug (Single File)",
       "type": "cppdbg",
       "request": "launch",
-      "args": ["24"],
+      "args": [
+        "24"
+      ],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
       "environment": [],
@@ -49,11 +51,11 @@
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
-      "args": ["24"],
+      "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/02_ArrayPointer/2_2",
-      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/02_ArrayPointer/2_2/build/Debug/outDebug",
+      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/02_ArrayPointer/2_3",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/02_ArrayPointer/2_3/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
