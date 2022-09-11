@@ -1,23 +1,48 @@
 #include <iostream>
 
-void f(const int &v)
+// LValue: Left
+// RValue: Right
+
+void copy_by_value(int v)
 {
-    std::cout << v;
+    std::cout << v << std::endl;
+}
+
+void copy_by_value_const(const int v)
+{
+    std::cout << v << std::endl;
+}
+
+void reference(int &v)
+{
+    std::cout << v << std::endl;
+}
+
+void reference_const(const int &v)
+{
+    std::cout << v << std::endl;
 }
 
 int main()
 {
-    int a = 3;        // LValue
-    const int b = 3;  // const LValue
-    int &c = a;       // LValue reference
-    const int &d = a; // const LValeu reference
+    int lvalue = 2;
+    const int lvalue_const = 2;
 
-    f(a);
-    f(b);
-    f(c);
-    f(d);
+    copy_by_value(lvalue);
+    copy_by_value(lvalue_const);
+    copy_by_value(2);
 
-    f(3);
+    copy_by_value_const(lvalue);
+    copy_by_value_const(lvalue_const);
+    copy_by_value_const(2);
+
+    reference(lvalue);
+    // reference(lvalue_const);
+    // reference(2);
+
+    reference_const(lvalue);
+    reference_const(lvalue_const);
+    reference_const(2);
 
     return 0;
 }
