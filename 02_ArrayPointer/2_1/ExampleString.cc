@@ -6,7 +6,18 @@
 
 int main()
 {
-    char array1[] = "Hello World!";
+    char array1[] = {'A', 'B', 'C', '\0'};
+
+    std::uint32_t len = 0;
+    while (true)
+    {
+        if (array1[len] != '\0')
+            ++len;
+        else
+            break;
+    }
+
+    std::cout << "Length: " << len << '\n';
 
     return 0;
 }
