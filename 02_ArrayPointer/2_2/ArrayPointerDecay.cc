@@ -1,26 +1,23 @@
 #include <cstdint>
 #include <iostream>
 
-void f(int *p, std::uint32_t l)
+// array to pointer decay
+void print_array(int *array, const std::uint32_t length)
 {
-    for (std::uint32_t i = 0; i < l; ++i)
+    for (std::uint32_t i = 0; i < length; ++i)
     {
-        std::cout << p[i] << std::endl;
-    }
-}
-
-void h(int *p, std::uint32_t l)
-{
-    for (std::uint32_t i = 0; i < l; ++i)
-    {
-        std::cout << *(p + i) << std::endl;
+        std::cout << array[i] << std::endl;
     }
 }
 
 int main()
 {
-    int arr[3] = {1, 2, 3};
+    int arr1[]{1, 2, 3};
+    print_array(arr1, 3);
 
-    f(arr, 3);
-    h(arr, 3);
+    auto *arr2 = new int[3];
+    arr2[0] = 1;
+    arr2[1] = 2;
+    arr2[2] = 3;
+    print_array(arr2, 3);
 }

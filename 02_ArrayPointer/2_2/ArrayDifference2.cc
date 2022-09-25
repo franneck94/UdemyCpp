@@ -1,24 +1,22 @@
 #include <cstdint>
 #include <iostream>
 
-// int* input_array <=> int input_array[]
-int array_maximum(int *input_array, std::uint32_t length)
+int array_maximum(const int *array, const std::uint32_t length)
 {
-    int current_max_value = 0;
+    if (length == 0)
+        return INT32_MAX;
 
-    for (int i = 0; i < length; i++)
+    int result = array[0];
+
+    for (std::uint32_t i = 1; i < length; i++)
     {
-        if (i == 0)
+        if (array[i] > result)
         {
-            current_max_value = input_array[i];
-        }
-        else if (input_array[i] > current_max_value)
-        {
-            current_max_value = input_array[i];
+            result = array[i];
         }
     }
 
-    return current_max_value;
+    return result;
 }
 
 void print_name(char *name)
