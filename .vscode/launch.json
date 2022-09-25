@@ -54,8 +54,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/02_ArrayPointer/2_3",
-      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/02_ArrayPointer/2_3/build/Debug/outDebug",
+      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/08_Objects",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/08_Objects/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
