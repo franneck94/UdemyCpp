@@ -1,19 +1,5 @@
 #include <iostream>
 
-// Equal: ==
-// Not equal: !=
-// Greater: >
-// Less: <
-// Greater Equal: >=
-// Less Equal: <=
-
-// And: &&
-// Or: ||
-
-// If
-// Else If (0 times or more)
-// Else (0 times or once)
-
 // Game Rules:
 // Number in [0, 10]
 // Number == 4: Win
@@ -22,8 +8,8 @@
 
 int main()
 {
-    int number;
-    std::cout << "Please enter your number: ";
+    int number = 0;
+    std::cout << "Please enter your number [0, 10]: ";
     std::cin >> number;
 
     if (number >= 0 && number <= 10)
@@ -43,7 +29,7 @@ int main()
     }
     else
     {
-        std::cout << "You must enter a number between [0, 10]." << std::endl;
+        std::cout << "You must enter a number between [0, 10]" << std::endl;
     }
 
     return 0;
