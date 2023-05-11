@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "console": "externalTerminal",
+      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/09_Objects/9_1/Abstract",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/09_Objects/9_1/Abstract/build/Debug/outDebug"
+    }
+  ]
+}
