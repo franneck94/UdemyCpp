@@ -11,7 +11,7 @@ int main()
         return 1;
     }
 
-    for (std::size_t i = 0; i < length; i++)
+    for (std::size_t i = 0; i < length + 1; i++)
     {
         arr[i] = static_cast<std::int32_t>(i);
         std::cout << arr[i] << '\n';
