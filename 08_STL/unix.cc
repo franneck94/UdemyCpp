@@ -15,13 +15,18 @@ auto get_yyyy_mm_dd(std::chrono::system_clock::time_point tp)
 
 int main()
 {
-    // auto time = std::uint64_t{1669185762};
-    auto time = std::time(nullptr);
-    auto sysTime = std::chrono::system_clock::from_time_t(time);
+    auto time1 = std::uint64_t{1669185762};
+    auto sys_time1 = std::chrono::system_clock::from_time_t(time1);
+    const auto [yyyy1, mm1, dd1] = get_yyyy_mm_dd(sys_time1);
+    std::cout << "Current Year: " << yyyy1 << ", Month: " << mm1
+              << ", Day: " << dd1 << '\n';
 
-    const auto [yyyy, mm, dd] = get_yyyy_mm_dd(sysTime);
-    std::cout << "Current Year: " << yyyy << ", Month: " << mm
-              << ", Day: " << dd << '\n';
+    auto time2 =
+        std::chrono::floor<std::chrono::days>(std::chrono::system_clock::now());
+    auto sys_time2 = time2;
+    const auto [yyyy2, mm2, dd2] = get_yyyy_mm_dd(sys_time2);
+    std::cout << "Current Year: " << yyyy2 << ", Month: " << mm2
+              << ", Day: " << dd2 << '\n';
 
     return 0;
 }
