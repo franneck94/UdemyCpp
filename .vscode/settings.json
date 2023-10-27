@@ -1,7 +1,7 @@
 {
     "editor.tabSize": 4,
     "editor.rulers": [
-    80
+        80
     ],
     "editor.renderWhitespace": "trailing",
     "editor.suggestSelection": "first",
@@ -39,7 +39,6 @@
         "*.md": "vscode.markdown.preview.editor",
         "*.svg": "svgPreviewer.customEditor"
     },
-    "workbench.editor.untitled.hint": "hidden",
     "workbench.colorTheme": "Default Dark+",
     "git.enableSmartCommit": true,
     "git.autofetch": true,
