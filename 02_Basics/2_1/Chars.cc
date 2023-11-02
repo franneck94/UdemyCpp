@@ -1,6 +1,5 @@
 #include <iostream>
 
-
 int main()
 {
     char letter_a = 'A';
