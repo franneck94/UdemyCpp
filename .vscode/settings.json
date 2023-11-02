@@ -142,7 +142,7 @@
     "editor.formatOnSave": false,
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
-  "C_Cpp.codeAnalysis.clangTidy.enabled": false,
+  "C_Cpp.codeAnalysis.clangTidy.enabled": true,
   "C_Cpp.configurationWarnings": "disabled",
   "C_Cpp_Config.aggressiveSettings": false,
   "C_Cpp_Config.lineLength": 120,
