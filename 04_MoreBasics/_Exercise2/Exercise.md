@@ -19,5 +19,5 @@ Implementiert die folgende Struktur PlayerData:
 
 ### Aufgabe 2
 
-Schreibe eine Funktion, die die aktuelle Position des Spielers ausgibt.  
-Initialisiere zwei Spieler in der Main Funktion mit selber ausgedachten Positionen.  
+Schreibe eine Funktion, die die aktuelle Position des Spielers ausgibt.
+Initialisiere zwei Spieler in der Main Funktion mit selber ausgedachten Positionen.

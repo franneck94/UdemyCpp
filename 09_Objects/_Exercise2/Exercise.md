@@ -6,7 +6,7 @@ Willkommen bei der nächsten Programmier-Übung in diesem Kurs.
 
 ## Vorwort
 
-In dieser Programmierübung erweitern wir unsere Matrix Klasse.  
+In dieser Programmierübung erweitern wir unsere Matrix Klasse.
 
 ## Aufgaben der Programmierübung
 

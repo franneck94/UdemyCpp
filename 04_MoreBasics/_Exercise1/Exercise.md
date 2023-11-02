@@ -15,10 +15,10 @@ double mean_array_value(int *array, const std::size_t length);
 double mean_array_value(double *array, const std::size_t length);
 ```
 
-Die erste Funktion soll den Mittelwert (Mean) des Int-Arrays berechnen.  
-Die zweite Funktion soll denMittelwert (Mean) des Double-Arrays berechnen.  
+Die erste Funktion soll den Mittelwert (Mean) des Int-Arrays berechnen.
+Die zweite Funktion soll denMittelwert (Mean) des Double-Arrays berechnen.
 
-Das heißt wir haben hier eine Funktions-Überladung (Overloading), für verschiedene Datentypen.  
+Das heißt wir haben hier eine Funktions-Überladung (Overloading), für verschiedene Datentypen.
 Die beiden Funktionen sollen innerhalb des Namespaces "computation" in der exercise.h deklariert und in der exercise.cc definiert werden.
 
 ### Beispiel Aufgabe 1

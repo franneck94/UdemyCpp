@@ -8,7 +8,7 @@ Willkommen bei der nächsten Programmier-Übung in diesem Kurs.
 
 ### Beschreibung
 
-Wir haben einen binären Zufallsvektor "target" in der Main Funktion, mit einer Länge von 20 Elementen.  
+Wir haben einen binären Zufallsvektor "target" in der Main Funktion, mit einer Länge von 20 Elementen.
 Dessen Werte wurden bereits zufällig permutiert und in einem neuen Vektor "input" abgespeichert.
 
 ### Aufgabe 1
@@ -19,9 +19,9 @@ Schreibt eine Funktion
 vector<bool> shuffle_till_equal(const BinaryArray &target, BinaryArray input);
 ```
 
-Die einen Binären Vektor "target" und einen Binären Vektor "input" entgegennimmt.  
-Bei jeder Iteration muss überprüft werden, ob die beiden Vektoren die gleichen Werte haben.  
-Sofern das so ist, kann die Funktion terminieren.  
+Die einen Binären Vektor "target" und einen Binären Vektor "input" entgegennimmt.
+Bei jeder Iteration muss überprüft werden, ob die beiden Vektoren die gleichen Werte haben.
+Sofern das so ist, kann die Funktion terminieren.
 Sofern das nicht der Fall ist, soll das (ganze) Input Arrays erneut ge-shuffelt werden.
 
 ### Beispiel Aufgabe 1

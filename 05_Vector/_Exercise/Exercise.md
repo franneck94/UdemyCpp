@@ -8,7 +8,7 @@ Willkommen bei der nächsten Programmier-Übung in diesem Kurs.
 
 ## Aufgabe 1
 
-Initialisiert eine 3x3 Matrix in der Main Funktion, mit den Wert (i + j) an dem index matrix[i][j].  
+Initialisiert eine 3x3 Matrix in der Main Funktion, mit den Wert (i + j) an dem index matrix[i][j].
 Verwende dabei den vordefinierten Matrix Typ aus dem Header.
 
 ### Beispiel Aufgabe 1

@@ -6,8 +6,8 @@ Willkommen bei der nächsten Programmier-Übung in diesem Kurs.
 
 ## Vorwort
 
-In dieser Programmierübung sollen bei allen Aufgaben Lambda Ausdrücke verwendet werden.  
-Der ganze Code ist dieses mal in der Lambda.cc Datei (innerhalb der Main Funktion) gegeben.  
+In dieser Programmierübung sollen bei allen Aufgaben Lambda Ausdrücke verwendet werden.
+Der ganze Code ist dieses mal in der Lambda.cc Datei (innerhalb der Main Funktion) gegeben.
 Dabei werden wir mit dem Vector **my_vector** und **my_result** die kommenden Aufgaben ausführen.
 
 ## Aufgaben der Programmierübung

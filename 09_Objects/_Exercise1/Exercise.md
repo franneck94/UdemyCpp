@@ -43,8 +43,8 @@ Die Füll-Farbe ist durch die Variable value gegeben.
 Schreibe eine Funktion, die eine horizontale bzw. vertikale Gerade auf das Bild malt.
 
 ```cpp
-void draw_line(const std::uint32_t x1, const std::uint32_t y1, 
-	           const std::uint32_t x2, const std::uint32_t y2, 
+void draw_line(const std::uint32_t x1, const std::uint32_t y1,
+	           const std::uint32_t x2, const std::uint32_t y2,
 	           const std::uint8_t value);
 ```
 

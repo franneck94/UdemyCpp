@@ -8,7 +8,7 @@ Willkommen bei der nächsten Programmier-Übung in diesem Kurs.
 
 ### Aufgabe 1
 
-Erstellt zunächst ein Double Pointer Array mit 100 Elementen, deren Wert die Zahlen von 0 bis 99 abspeichert (Tipp: for-Schleife nutzen).  
+Erstellt zunächst ein Double Pointer Array mit 100 Elementen, deren Wert die Zahlen von 0 bis 99 abspeichert (Tipp: for-Schleife nutzen).
 
 Schreibt dann eine Funktion,
 
@@ -37,7 +37,7 @@ Schreibt eine Funktion
 std::int32_t* array_constructor(const std::int32_t value, const std::size_t length)
 ```
 
-die ein Pointer Array vom Typ int erstellt und zurückgibt.  
+die ein Pointer Array vom Typ int erstellt und zurückgibt.
 Dabei ist zu beachten, dass die Länge des Arrays und welcher Wert an jedem Index des Arrays abgespeichert werden soll, übergeben wird.
 
 ### Beispiel 2
