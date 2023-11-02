@@ -219,5 +219,6 @@
   "doxdocgen.generic.returnTemplate": "@return",
   "doxdocgen.generic.includeTypeAtReturn": false,
   "C_Cpp_Runner.msvcBatchPath": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Auxiliary/Build/vcvarsall.bat",
-  "C_Cpp_Runner.msvcSecureNoWarnings": false
+"C_Cpp_Runner.msvcSecureNoWarnings": true,
+"C_Cpp_Runner.msvcSecureNoWarnings'": false
 }
