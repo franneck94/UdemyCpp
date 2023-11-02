@@ -3,7 +3,7 @@
 
 constexpr int VALUE = 2;
 
-constexpr int func(const int val)
+int func(const int val)
 {
     const int temp = val * 2;
 
@@ -12,7 +12,8 @@ constexpr int func(const int val)
 
 int main()
 {
-    std::cout << func(VALUE) << '\n';
+    constexpr int v = 2 * 3 * 5;
+    std::cout << func(v) << '\n';
 
     return 0;
 }
