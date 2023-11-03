@@ -29,7 +29,7 @@ Parallel std:   2.111ms
 
 namespace
 {
-constexpr static auto NUM_THREADS = std::uint32_t{2};
+constexpr static auto NUM_THREADS = std::uint32_t{8};
 constexpr static auto NUM_RUNS = std::uint32_t{1'000};
 constexpr static auto NUM_ELEMENTS = std::uint32_t{30'000'000};
 } // namespace

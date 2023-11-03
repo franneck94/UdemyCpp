@@ -265,8 +265,12 @@
     "/w44265",
     "/w14928"
   ],
-  "C_Cpp_Runner.compilerArgs": [],
-  "C_Cpp_Runner.linkerArgs": [],
+  "C_Cpp_Runner.compilerArgs": [
+    "/openmp"
+  ],
+  "C_Cpp_Runner.linkerArgs": [
+    "/openmp"
+  ],
   "C_Cpp_Runner.includePaths": [],
   "C_Cpp_Runner.includeSearch": [
     "*",
