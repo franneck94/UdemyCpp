@@ -9,11 +9,12 @@ int main()
     fs::path chapter_path;
     chapter_path = workspace_path;
     chapter_path /= "5_STLString";
-    fs::path current_file_path = fs::current_path();
-    current_file_path /= "FileSystem1.cc";
 
     std::cout << workspace_path << '\n';
     std::cout << chapter_path << '\n';
+
+    fs::path current_file_path = fs::current_path();
+    current_file_path /= "FileSystem1.cc";
     std::cout << current_file_path << '\n';
 
     std::cout << "relative_path: " << current_file_path.relative_path() << '\n';
