@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "console": "externalTerminal",
-      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/11_Threads/OpenMP",
-      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/11_Threads/OpenMP/build/Release/outRelease"
+      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/03_ArrayPointer/3_2",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/03_ArrayPointer/3_2/build/Debug/outDebug"
     }
   ]
 }

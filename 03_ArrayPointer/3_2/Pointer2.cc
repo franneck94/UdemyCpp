@@ -2,21 +2,19 @@
 
 int main()
 {
-    // Heap allocation
     int *p = new int;
     *p = 4;
 
-    std::cout << "Memory address of p: " << &p << '\n';            // 0xc38
-    std::cout << "Memory address of pointed value: " << p << '\n'; // 0x440
-    std::cout << "Value of the memory address p points to: " << *p << '\n'; // 4
+    std::cout << "Address of p: " << &p << "\n";
+    std::cout << "P points to the address: " << p << "\n";
+    std::cout << "The value of the address where p points to: " << *p << "\n";
 
     *p = 1337;
 
-    std::cout << "Memory address of p: " << &p << '\n';            // 0xc38
-    std::cout << "Memory address of pointed value: " << p << '\n'; // 0x440
-    std::cout << "Value of the memory address p points to: " << *p << '\n'; // 4
+    std::cout << "Address of p: " << &p << "\n";
+    std::cout << "P points to the address: " << p << "\n";
+    std::cout << "The value of the address where p points to: " << *p << "\n";
 
-    // Heap de-allocation
     delete p;
 
     return 0;
