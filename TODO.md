@@ -7,3 +7,4 @@ Zum Beispiel bei Minute 6:38 oder 7:10 sieht man in der Konsolenausgabe, dass di
 
 - Lektion 85: neu aufnehmen
 - Lektion 87: neu aufnehmen
+- Lektion 112: neu aufnehmen
