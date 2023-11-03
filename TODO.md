@@ -8,3 +8,5 @@ Zum Beispiel bei Minute 6:38 oder 7:10 sieht man in der Konsolenausgabe, dass di
 - Lektion 85: neu aufnehmen
 - Lektion 87: neu aufnehmen
 - Lektion 112: neu aufnehmen
+- Lektion 126: neu aufnehmen
+- Lektion 127: am ende nochmal das sort erklären

@@ -6,36 +6,34 @@
 
 void fill_vector(std::vector<double> &vec)
 {
-    for (int i = 0; auto &value : vec)
+    for (std::size_t i = 0; i < vec.size(); i++)
     {
-        value = static_cast<double>(i);
-        i++;
+        vec[i] = static_cast<double>(i);
     }
 }
 
 void print_vector(const std::vector<double> &vec)
 {
-    for (int i = 0; const auto &value : vec)
+    for (std::size_t i = 0; i < vec.size(); i++)
     {
-        std::cout << "Vec[" << i << "] = " << value << '\n';
-        i++;
+        std::cout << "Vec[" << i << "] = " << vec[i] << '\n';
     }
     std::cout << '\n';
 }
 
 void exp_vector(std::vector<double> &vec)
 {
-    for (auto &value : vec)
+    for (std::size_t i = 0; i < vec.size(); i++)
     {
-        value = std::exp(value);
+        vec[i] = std::exp(vec[i]);
     }
 }
 
 void log_vector(std::vector<double> &vec)
 {
-    for (auto &value : vec)
+    for (std::size_t i = 0; i < vec.size(); i++)
     {
-        value = std::log(value);
+        vec[i] = std::log(vec[i]);
     }
 }
 
