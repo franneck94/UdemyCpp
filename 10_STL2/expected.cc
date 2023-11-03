@@ -1,23 +1,15 @@
 #include <expected>
 #include <iostream>
-#include <optional>
 #include <string>
 
 using namespace std::string_literals;
 
-std::optional<std::string> check(const bool flag)
-{
-    if (flag)
-        return "true"s;
-    return {}; // std::nullopt
-}
-
 enum class parse_error
 {
-    invalid_input,
+    invalid_input
 };
 
-std::expected<std::string, parse_error> check2(const bool flag)
+std::expected<std::string, parse_error> check(const bool flag)
 {
     if (flag)
         return "true"s;
@@ -26,15 +18,25 @@ std::expected<std::string, parse_error> check2(const bool flag)
 
 int main()
 {
-    auto v1 = std::optional<int>{42};
-    std::cout << *v1 << '\n'; // 42
+    auto result1 = check(false);
+    if (result1.has_value())
+    {
+        std::cout << "value: " << result1 << "\n";
+    }
+    else if (result1.error() == parse_error::invalid_input)
+    {
+        std::cout << "error!\n";
+    }
 
-    auto v2 = std::optional<std::string>{"text"s};
-    std::cout << v2.value() << '\n'; // text
-    auto v3 = std::optional<std::string>{};
-    std::cout << v3.value_or("default"s) << '\n'; // default
-
-    std::cout << std::boolalpha << v3.has_value() << '\n';
+    auto result2 = check(false);
+    if (result2.has_value())
+    {
+        std::cout << "value: " << result1 << "\n";
+    }
+    else if (result2.error() == parse_error::invalid_input)
+    {
+        std::cout << "error!\n";
+    }
 
     return 0;
 }
