@@ -1,21 +1,34 @@
 #include <iostream>
 
+void print_int_pointer(int *&p)
+{
+    std::cout << "Dref: " << *p << " Ref: " << p << " Ptr Addr: " << &p << '\n';
+}
+
+void print_double_pointer(double *&p)
+{
+    std::cout << "Dref: " << *p << " Ref: " << p << " Ptr Addr: " << &p << '\n';
+}
+
 int main()
 {
-    int *p = new int;
-    *p = 4;
+    int a = 1337;
+    double b = -13.37;
 
-    std::cout << "Address of p: " << &p << "\n";
-    std::cout << "P points to the address: " << p << "\n";
-    std::cout << "The value of the address where p points to: " << *p << "\n";
+    int *c = &a;
+    print_int_pointer(c);
 
-    *p = 1337;
+    *c -= 10;
+    print_int_pointer(c);
 
-    std::cout << "Address of p: " << &p << "\n";
-    std::cout << "P points to the address: " << p << "\n";
-    std::cout << "The value of the address where p points to: " << *p << "\n";
+    int *d = &a;
+    print_int_pointer(d);
 
-    delete p;
+    *c += 10;
+    print_int_pointer(d);
+
+    *c = b;
+    print_int_pointer(c);
 
     return 0;
 }

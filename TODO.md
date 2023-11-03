@@ -1,6 +1,5 @@
 # TODO
 
-- Lektion 85: neu aufnehmen
 - Lektion 87: neu aufnehmen
 - Lektion 112: neu aufnehmen
 - Lektion 126: neu aufnehmen
