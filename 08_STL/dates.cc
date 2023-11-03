@@ -5,11 +5,12 @@ using namespace std::chrono_literals;
 
 int main()
 {
-    std::chrono::weekday wd = std::chrono::Thursday + std::chrono::days{4};
-    std::cout << wd << '\n';
-
-    auto ymd = std::chrono::year_month_day{1994y, std::chrono::February, 2d};
-    std::cout << ymd << '\n';
+    auto half_day = std::chrono::hours(12);
+    auto minutes = std::chrono::minutes(60);
+    auto seconds = std::chrono::seconds(30);
+    auto milliseconds = std::chrono::milliseconds(500);
+    auto microseconds = std::chrono::microseconds(500);
+    auto nanoseconds = std::chrono::nanoseconds(500);
 
     // format: year / month /day
     auto d1 = 2020y / 1 / 15;
