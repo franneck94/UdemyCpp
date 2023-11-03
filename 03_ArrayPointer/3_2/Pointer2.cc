@@ -1,19 +1,13 @@
 #include <iostream>
 
-void print_int_pointer(int *&p)
+void print_int_pointer(int *p)
 {
-    std::cout << "Dref: " << *p << " Ref: " << p << " Ptr Addr: " << &p << '\n';
-}
-
-void print_double_pointer(double *&p)
-{
-    std::cout << "Dref: " << *p << " Ref: " << p << " Ptr Addr: " << &p << '\n';
+    std::cout << "Dref: " << *p << " Ref: " << p << '\n';
 }
 
 int main()
 {
     int a = 1337;
-    double b = -13.37;
 
     int *c = &a;
     print_int_pointer(c);
@@ -26,9 +20,6 @@ int main()
 
     *c += 10;
     print_int_pointer(d);
-
-    *c = b;
-    print_int_pointer(c);
 
     return 0;
 }

@@ -5,25 +5,32 @@ namespace fs = std::filesystem;
 
 int main()
 {
-    const fs::path current_path = fs::current_path();
-    fs::path current_file_path = fs::current_path();
-    current_file_path /= "FileSystem2.cc";
+    const auto current_path = fs::current_path();
 
     for (auto it = fs::directory_iterator(current_path);
          it != fs::directory_iterator{};
          ++it)
     {
-        std::cout << *it << '\n';
+        if (fs::is_regular_file(*it))
+        {
+            std::cout << "Is file: " << *it << "\n";
+        }
+        else
+        {
+            std::cout << "Is dir: " << *it << "\n";
+        }
     }
 
-    fs::path new_directory_path;
-    new_directory_path /= fs::current_path();
+    auto new_directory_path = fs::current_path();
     new_directory_path /= "test";
 
     if (!fs::exists(new_directory_path))
     {
         fs::create_directory(new_directory_path);
     }
+
+    auto current_file_path = fs::current_path();
+    current_file_path /= "FileSystem2.cc";
 
     fs::path new_file_path;
     new_file_path /= new_directory_path;

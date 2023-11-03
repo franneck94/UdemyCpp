@@ -15,7 +15,7 @@ struct Vehicle
     Lane lane;
 };
 
-void print_vehicle_data(Vehicle &vehicle)
+void print_vehicle_data(const Vehicle &vehicle)
 {
     std::cout << "Vehicle ID: " << vehicle.id << '\n';
     std::cout << "Vehicle Velocity [kph]: " << vehicle.velocity << '\n';
@@ -44,7 +44,7 @@ void print_vehicle_data(Vehicle &vehicle)
     }
 }
 
-void print_vehicle_data_pointer(Vehicle *vehicle)
+void print_vehicle_data_pointer(const Vehicle *vehicle)
 {
     std::cout << "Vehicle ID: " << vehicle->id << '\n';
     std::cout << "Vehicle Velocity [kph]: " << vehicle->velocity << '\n';
