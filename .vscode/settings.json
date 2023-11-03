@@ -123,7 +123,8 @@
     "xlocbuf": "cpp",
     "xlocmes": "cpp",
     "xlocmon": "cpp",
-    "xloctime": "cpp"
+    "xloctime": "cpp",
+    "expected": "cpp"
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -240,7 +241,7 @@
   "C_Cpp.configurationWarnings": "disabled",
   "C_Cpp_Config.aggressiveSettings": false,
   "C_Cpp_Config.lineLength": 120,
-  "C_Cpp_Runner.cppStandard": "c++20",
+  "C_Cpp_Runner.cppStandard": "c++23",
   "C_Cpp_Runner.cStandard": "c11",
   "C_Cpp_Runner.enableWarnings": true,
   "C_Cpp_Runner.warningsAsError": false,
