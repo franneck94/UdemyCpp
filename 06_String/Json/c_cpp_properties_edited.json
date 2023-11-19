@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "cStandard": "c17",
+            "compilerArgs": [],
+            "compilerPath": "C:/cygwin64/bin/gcc.exe",
+            "cppStandard": "c++23",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "intelliSenseMode": "linux-gcc-x64",
+            "name": "windows-cygwin-gcc-x64"
+        }
+    ],
+    "version": 4
+}
