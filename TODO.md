@@ -1,7 +1,8 @@
 # TODO
 
 - Lektion 45: schneiden
-- Lektion 125: neu aufnehmen
+- Lektion 107: schneiden
+- Lektion 119: schneiden
 
 ## TS
 
