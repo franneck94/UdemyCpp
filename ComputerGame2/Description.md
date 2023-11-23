@@ -23,4 +23,4 @@ Und so nachdem der Spieler sich mehrmals bewegt hat:
 - '|' ist der Startpunkt (links) und das Ziel (rechts)
 - '.' sind die restlichen Spielfelder
 
-Der Spieler hat das SPiel gewonnen, wenn er das ganz rechte Feld betritt.  
+Der Spieler hat das Spiel gewonnen, wenn er das ganz rechte Feld betritt.  

@@ -12,7 +12,7 @@ Den Code vom Computer Game 7 werden wir jetzt eine eine Game Klasse packen.
 ```cpp
 class Game
 {
-Private:
+private:
     constexpr static auto NUM_OBSTACLES = 3U;
     constexpr static auto LEN_X = 5U;
     constexpr static auto LEN_Y = 5U;

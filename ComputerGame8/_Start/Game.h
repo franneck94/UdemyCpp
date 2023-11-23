@@ -20,7 +20,7 @@ enum class ConsoleInput
 
 class Game
 {
-Private:
+private:
     constexpr static auto NUM_OBSTACLES = 3U;
     constexpr static auto LEN_X = 5U;
     constexpr static auto LEN_Y = 5U;

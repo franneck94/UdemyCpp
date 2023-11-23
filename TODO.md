@@ -1,9 +1,6 @@
 # TODO
 
-- Lektion 32: neu aufnehmen
-- Lektion 33: neu aufnehmen
-- Lektion 44: neu aufnehmen
-- Lektion 45: neu aufnehmen
+- Lektion 45: schneiden
 - Lektion 125: neu aufnehmen
 
 ## TS
