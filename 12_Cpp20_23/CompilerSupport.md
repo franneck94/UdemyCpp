@@ -16,7 +16,7 @@ see [here](https://en.cppreference.com/w/cpp/compiler_support).
 | constinit        | Yes  | Yes   | Yes  | Yes         |
 | Erase            | Yes  | Yes   | Yes  | Yes         |
 | Coroutines       | Yes  | Part  | Yes  | Part        |
-| Formatting       | Ye   | Yes   | Yes  | No          |
+| Formatting       | Yes  | Yes   | Yes  | Yes         |
 
 ## Important C++23 Features
 
@@ -26,16 +26,16 @@ see [here](https://en.cppreference.com/w/cpp/compiler_support).
 | if consteval        | Yes  | Yes   | No   | Yes         |
 | string contains     | Yes  | Yes   | Yes  | Yes         |
 | range *_with        | No   | Yes   | Yes  | No          |
-| view zip            | Yes  | Part  | Part | No          |
-| view join           | Yes  | No    | Yes  | No          |
+| view zip            | Yes  | Part  | Yes  | Part        |
+| view join           | Yes  | Yes   | Yes  | Yes         |
 | ranges to           | No   | Yes   | Yes  | No          |
 | format improve      | Yes  | Part  | Yes  | No          |
-| expected            | Yes  | Yes   | Yes  | No          |
-| Multi dim subscript | Yes  | Yes   | No   | Yes          |
+| expected            | Yes  | Yes   | Yes  | Yes         |
+| Multi dim subscript | Yes  | Yes   | No   | Yes         |
 
 ## Important C++26 Features
 
 | Feature                     | GCC  | Clang | MSVC | Apple Clang |
 | --------------------------- | ---- | ----- | ---- | ----------- |
-| Placeholder variables       | No   | Yes   | No   | No  
-| arith. overloads to_string  | Yes  | No    | No   | No  
+| Placeholder variables       | Yes  | Yes   | No   | No          |
+| Arith. overloads to_string  | Yes  | No    | No   | No          |
