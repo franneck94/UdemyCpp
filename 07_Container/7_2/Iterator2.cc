@@ -10,7 +10,7 @@ int main()
 
     auto vec_it = my_vector.begin();
     std::advance(vec_it, 2); // it += 2;
-    auto list_it = my_vector.begin();
+    auto list_it = my_list.begin();
     std::advance(list_it, 2); // it += 2;
 
     std::cout << "Vector[2] = " << *vec_it << '\n';
