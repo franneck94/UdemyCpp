@@ -5,41 +5,28 @@
 
 int main()
 {
+    constexpr auto array_length = std::size_t{100};
+
     // Exercise 1
-    auto array_length = std::size_t{100};
-    auto sum = 0.0;
-
-    auto *array1 = new double[array_length];
-
+    double array1[array_length] = {};
     for (std::size_t i = 0; i < array_length; i++)
     {
-        array1[i] = i;
+        array1[i] = static_cast<double>(i);
     }
-
-    sum = array_sum(array1, array_length);
-    std::cout << "(Exercise 1) Array Sum = " << sum << '\n';
-    delete[] array1;
-    array1 = nullptr;
 
     // Exercise 2
-    auto input_array_length = std::size_t{0};
-    auto input_array_value = std::int32_t{0};
+    const auto sum = array_sum(array1, array_length);
+    std::cout << "(Exercise 2) Array Sum = " << sum << '\n';
 
-    std::cout << '\n' << "Enter the array length: " << '\n';
-    std::cin >> input_array_length;
-    std::cout << '\n' << "Enter the array value: " << '\n';
-    std::cin >> input_array_value;
-    std::cout << '\n';
-
-    auto *array2 = array_constructor(input_array_value, input_array_length);
-
-    for (std::size_t i = 0; i < input_array_length; i++)
+    // Exercise 3
+    std::array<double, 100> array2;
+    for (std::size_t i = 0; i < array_length; i++)
     {
-        std::cout << array2[i] << '\n';
+        array2[i] = static_cast<double>(i);
     }
 
-    delete[] array2;
-    array2 = nullptr;
+    const auto sum2 = array_sum(array2);
+    std::cout << "(Exercise 3) Array Sum = " << sum2 << '\n';
 
     return 0;
 }

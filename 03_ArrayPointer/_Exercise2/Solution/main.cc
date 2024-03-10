@@ -1,47 +1,40 @@
 #include <cstdint>
 #include <iostream>
 
-#include "exercise2.h"
+std::int32_t *array_constructor(const std::int32_t &value,
+                                const std::size_t length)
+{
+    auto *constructed_array = new std::int32_t[length];
 
-// int main()
+    for (std::size_t i = 0; i < length; i++)
+    {
+        constructed_array[i] = value;
+    }
+
+    return constructed_array;
+}
+
 int main()
 {
-    auto size = std::size_t{3};
-    auto *my_data = new std::int32_t[size];
+    // Exercise
+    auto input_array_length = std::size_t{0};
+    auto input_array_value = std::int32_t{0};
 
-    my_data[0] = 0;
-    my_data[1] = 1;
-    my_data[2] = 2; // int main()
+    std::cout << '\n' << "Enter the array length: " << '\n';
+    std::cin >> input_array_length;
+    std::cout << '\n' << "Enter the array value: " << '\n';
+    std::cin >> input_array_value;
+    std::cout << '\n';
 
-    std::cout << "Start-values of the array: " << '\n';
-    for (std::size_t i = 0; i < size; i++)
+    auto *array2 = array_constructor(input_array_value, input_array_length);
+
+    for (std::size_t i = 0; i < input_array_length; i++)
     {
-        std::cout << my_data[i] << '\n';
+        std::cout << array2[i] << '\n';
     }
 
-    // Exercise 1
-    // 0 1 2 12
-    push_back(my_data, size, 12);
-    size++;
-
-    std::cout << "Append value 12 at the end: " << '\n';
-    for (std::size_t i = 0; i < size; i++)
-    {
-        std::cout << my_data[i] << '\n';
-    }
-
-    // Exercise 2
-    pop_back(my_data, size);
-    size--;
-
-    std::cout << "Remove the last value: " << '\n';
-    for (std::size_t i = 0; i < size; i++)
-    {
-        std::cout << my_data[i] << '\n';
-    }
-
-    delete[] my_data;
-    my_data = nullptr;
+    delete[] array2;
+    array2 = nullptr;
 
     return 0;
 }
