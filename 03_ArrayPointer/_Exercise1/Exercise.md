@@ -20,7 +20,7 @@ double array_sum(const double array[], const std::size_t length)
 
 Es soll die Summe des Arrays berechnet und zurückgegeben werden.
 
-### Beispiel 1
+### Beispiel 2
 
 Das heißt, bei dem Array mit 100 Elementen würde folgende Summe herauskommen:
 
