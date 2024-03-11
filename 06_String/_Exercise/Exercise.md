@@ -35,4 +35,5 @@ Schreibt eine Funktion
 ByteArray hex_vector_xor(const ByteArray &vec1, const ByteArray &vec2);
 ```
 
-die zwei ByteArrays entgegennimmt und die einzelnen Werte der Arrays XORed. Das Ergebnis soll in einen neuen Vector (ByteArray) abgespeichert werden.
+die zwei ByteArrays entgegennimmt und die einzelnen Werte der Arrays XORed.  
+Das Ergebnis soll in einen neuen Vector (ByteArray) abgespeichert werden.

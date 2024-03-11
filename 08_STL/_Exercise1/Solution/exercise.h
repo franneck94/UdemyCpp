@@ -5,9 +5,8 @@
 using BinaryArray = std::vector<bool>;
 
 // Exercise 2
-std::vector<bool> shuffle_till_equal(const BinaryArray &target,
-                                     BinaryArray input);
+BinaryArray shuffle_till_equal(const BinaryArray &target, BinaryArray input);
 
 // Exercise 3
-std::vector<bool> smart_shuffle_till_equal(const BinaryArray &target,
-                                           BinaryArray input);
+BinaryArray smart_shuffle_till_equal(const BinaryArray &target,
+                                     BinaryArray input);

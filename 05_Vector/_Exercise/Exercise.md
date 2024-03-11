@@ -37,7 +37,7 @@ Schreibt eine Funktion
 ValueT sort_and_max(VectorT &vec);
 ```
 
-die einen Double-Vector entgegennimmt und diesen aufstiegend sortiert und zusätzlich das Maximum des Vektors zurückgibt.
+die einen Double-Vector entgegennimmt und diesen aufsteigend sortiert und zusätzlich das Maximum des Vektors zurückgibt.
 
 ### Beispiel Aufgabe 3
 

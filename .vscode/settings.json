@@ -252,7 +252,7 @@
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",
   "C_Cpp_Runner.debuggerPath": "gdb",
-  "C_Cpp_Runner.useMsvc": false,
+  "C_Cpp_Runner.useMsvc": true,
   "C_Cpp_Runner.warnings": [
     "-Wall",
     "-Wextra",

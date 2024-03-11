@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/03_ArrayPointer/_Exercise2/Solution",
-      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/03_ArrayPointer/_Exercise2/Solution/build/Debug/outDebug",
+      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/04_MoreBasics/_Exercise1/Solution",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/04_MoreBasics/_Exercise1/Solution/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

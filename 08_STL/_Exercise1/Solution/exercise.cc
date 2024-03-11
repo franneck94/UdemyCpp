@@ -9,8 +9,7 @@
 #include "exercise.h"
 
 // Exercise 2
-std::vector<bool> shuffle_till_equal(const BinaryArray &target,
-                                     BinaryArray input)
+BinaryArray shuffle_till_equal(const BinaryArray &target, BinaryArray input)
 {
     auto equal = false;
     auto iteration = 1U;
@@ -37,8 +36,8 @@ std::vector<bool> shuffle_till_equal(const BinaryArray &target,
 }
 
 // Exercise 3
-std::vector<bool> smart_shuffle_till_equal(const BinaryArray &target,
-                                           BinaryArray input)
+BinaryArray smart_shuffle_till_equal(const BinaryArray &target,
+                                     BinaryArray input)
 {
     auto iteration = 1U;
 
