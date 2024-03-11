@@ -1,7 +1,7 @@
 #include <cstdint>
 #include <iostream>
 
-std::int32_t *array_constructor(const std::int32_t &value,
+std::int32_t *array_constructor(const std::int32_t value,
                                 const std::size_t length)
 {
     auto *constructed_array = new std::int32_t[length];

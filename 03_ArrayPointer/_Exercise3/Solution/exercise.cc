@@ -1,7 +1,7 @@
 #include <cstdint>
 #include <iostream>
 
-#include "exercise2.h"
+#include "exercise.h"
 
 // Exercise 1
 void push_back(std::int32_t *&input_array,
