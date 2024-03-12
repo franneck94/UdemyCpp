@@ -11,16 +11,16 @@
 // Exercise 2
 BinaryArray shuffle_till_equal(const BinaryArray &target, BinaryArray input)
 {
-    auto equal = false;
-    auto iteration = 1U;
+    auto is_equal = false;
+    auto iteration_idx = 1U;
 
-    while (!equal)
+    while (!is_equal)
     {
-        if (iteration % 250000 == 0)
+        if (iteration_idx % 250000 == 0)
         {
-            std::cout << '\n' << "Iteration: " << iteration;
+            std::cout << '\n' << "Iteration: " << iteration_idx;
         }
-        ++iteration;
+        ++iteration_idx;
 
         std::shuffle(input.begin(),
                      input.end(),
@@ -28,7 +28,7 @@ BinaryArray shuffle_till_equal(const BinaryArray &target, BinaryArray input)
 
         if (std::equal(input.begin(), input.end(), target.begin()))
         {
-            equal = true;
+            is_equal = true;
         }
     }
 
@@ -39,27 +39,31 @@ BinaryArray shuffle_till_equal(const BinaryArray &target, BinaryArray input)
 BinaryArray smart_shuffle_till_equal(const BinaryArray &target,
                                      BinaryArray input)
 {
-    auto iteration = 1U;
+    auto iteration_idx = 1U;
 
     auto first = input.begin();
     auto last = input.end();
 
     while (true)
     {
-        if (iteration % 100000 == 0)
+        if (iteration_idx % 100000 == 0)
         {
-            std::cout << '\n' << "Iteration: " << iteration;
+            std::cout << '\n' << "Iteration: " << iteration_idx;
         }
 
         while (first != last &&
                *first == target[std::distance(input.begin(), first)])
+        {
             ++first;
+        }
 
         if (first == last)
+        {
             break;
+        }
 
         std::shuffle(first, last, std::default_random_engine{42});
-        ++iteration;
+        ++iteration_idx;
     }
 
     return input;

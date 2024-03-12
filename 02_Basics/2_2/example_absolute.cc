@@ -1,7 +1,7 @@
 #include <iostream>
 
-// 1.) User-Input: integer number
-// 2.) Compute the absolute value of an integer value
+// 1.) User-Input: number
+// 2.) Compute the absolute value of the number
 // 3.) Print out the absolute value
 
 // x < 0: -x
@@ -9,7 +9,7 @@
 
 int main()
 {
-    double x = 0.0F;
+    double x = 0.0F; // Funktioniert auch für int, float, ...
     std::cout << "Please enter the value of x: ";
     std::cin >> x;
 
