@@ -8,7 +8,7 @@ see [here](https://en.cppreference.com/w/cpp/compiler_support).
 | Feature          | GCC  | Clang | MSVC | Apple Clang |
 | ---------------- | ---- | ----- | ---- | ----------- |
 | Concepts         | Yes  | Yes   | Yes  | Part        |
-| Ranges           | Part | Yes   | Yes  | Yes         |
+| Ranges           | Yes  | Yes   | Yes  | Yes         |
 | Modules          | Part | Part  | Yes  | Part        |
 | Span             | Yes  | Yes   | Yes  | Yes         |
 | Three-way Comp.  | Yes  | Yes   | Yes  | Yes         |
@@ -25,11 +25,11 @@ see [here](https://en.cppreference.com/w/cpp/compiler_support).
 | size_t suffix       | Yes  | Yes   | No   | Yes         |
 | if consteval        | Yes  | Yes   | No   | Yes         |
 | string contains     | Yes  | Yes   | Yes  | Yes         |
-| range *_with        | No   | Yes   | Yes  | No          |
+| range *_with        | Yes  | Yes   | Yes  | Yes         |
 | view zip            | Yes  | Part  | Yes  | Part        |
 | view join           | Yes  | Yes   | Yes  | Yes         |
-| ranges to           | No   | Yes   | Yes  | No          |
-| format improve      | Yes  | Part  | Yes  | No          |
+| ranges to           | Part | Yes   | Yes  | No          |
+| format improve      | Yes  | Yes   | Yes  | No          |
 | expected            | Yes  | Yes   | Yes  | Yes         |
 | Multi dim subscript | Yes  | Yes   | No   | Yes         |
 
@@ -39,3 +39,7 @@ see [here](https://en.cppreference.com/w/cpp/compiler_support).
 | --------------------------- | ---- | ----- | ---- | ----------- |
 | Placeholder variables       | Yes  | Yes   | No   | No          |
 | Arith. overloads to_string  | Yes  | No    | No   | No          |
+| = delete("reason");         | Yes  | Yes   | No   | No          |
+| constexpr stable sorting    | No   | No    | No   | No          |
+| \<linalg>                   | No   | No    | No   | No          |
+| views::concat               | Yes  | No    | No   | No          |
