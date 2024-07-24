@@ -1,30 +1,23 @@
 #include <cstdint>
 #include <iostream>
 
-constexpr static int VALUE = 2;
-
 int func(const int val)
 {
     static int counter = 0;
-    counter++;
 
-    if (counter <= 3)
-    {
-        const int temp = val * 2;
-        return temp / 3;
-    }
-    else
-    {
-        return 0;
-    }
+    const int temp = val * 2;
+
+    ++counter;
+    std::cout << "Counter: " << counter << "\n";
+
+    return temp / 3;
 }
 
 int main()
 {
-    std::cout << func(VALUE) << '\n';
-    std::cout << func(VALUE) << '\n';
-    std::cout << func(VALUE) << '\n';
-    std::cout << func(VALUE) << '\n';
+    std::cout << func(1) << '\n';
+    std::cout << func(2) << '\n';
+    std::cout << func(3) << '\n';
 
     return 0;
 }

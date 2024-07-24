@@ -1,6 +1,8 @@
 #include <cstdint>
 #include <iostream>
 
+constexpr int VALUE = 2;
+
 int func(const int val)
 {
     const int temp = val * 2;
@@ -10,7 +12,7 @@ int func(const int val)
 
 int main()
 {
-    int v = 2;
+    constexpr int v = 2 * 3 * 5;
     std::cout << func(v) << '\n';
 
     return 0;
