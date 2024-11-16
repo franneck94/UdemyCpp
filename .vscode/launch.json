@@ -3,22 +3,13 @@
   "configurations": [
     {
       "name": "C/C++ Runner: Debug Session",
-      "type": "cppdbg",
+      "type": "cppvsdbg",
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/02_Basics/2_2",
-      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/02_Basics/2_2/build/Debug/outDebug",
-      "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
-      "setupCommands": [
-        {
-          "description": "Enable pretty-printing for gdb",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        }
-      ]
+      "console": "externalTerminal",
+      "cwd": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/CodingProject1",
+      "program": "c:/Users/Jan/OneDrive/_Coding/UdemyCpp/CodingProject1/build/Debug/outDebug"
     }
   ]
 }

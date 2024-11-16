@@ -1,8 +1,11 @@
+#include <cassert>
 #include <cstddef>
 #include <iostream>
 
 #include "AlgoArray.h"
 #include "DynArray.h"
+
+void test_cases();
 
 int main()
 {
@@ -34,5 +37,26 @@ int main()
     std::cout << "Mean = " << mean(my_array) << '\n';
     std::cout << "Median = " << median(my_array) << '\n';
 
+    test_cases();
+
     return 0;
+}
+
+void test_cases()
+{
+    const std::size_t length = 2;
+    DynamicArray<double> my_array(2.0, length);
+
+    assert(my_array[0] == 2.0);
+    assert(my_array[1] == 2.0);
+    assert(my_array.get_length() == 2);
+
+    my_array.push_back(0);
+    my_array.push_back(1);
+
+    assert(my_array[0] == 2.0);
+    assert(my_array[1] == 2.0);
+    assert(my_array[2] == 0.0);
+    assert(my_array[3] == 1.0);
+    assert(my_array.get_length() == 4);
 }
