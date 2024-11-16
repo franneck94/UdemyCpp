@@ -67,6 +67,7 @@ void DynamicArray<T>::push_back(const T &value)
 
     m_data = temp;
     m_length++;
+    m_capacity++;
 }
 
 template <typename T>
