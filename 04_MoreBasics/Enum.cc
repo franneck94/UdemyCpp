@@ -12,6 +12,7 @@ enum PermissionLevel
 
 int main()
 {
+    // You can use the auto keyowrd here :=)
     PermissionLevel permission_level_jan = PermissionLevel::INSTRUCTOR;
     PermissionLevel permission_level_peter = PermissionLevel::STUDENT;
 
