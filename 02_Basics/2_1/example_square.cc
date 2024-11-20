@@ -6,15 +6,15 @@
 
 int main()
 {
-    double a = 0.0F;
+    double a = 0.0;
     std::cout << "Please enter the value of a: ";
     std::cin >> a;
 
     double perimeter = 4.0 * a;
     double area = a * a;
 
-    std::cout << "Perimeter: " << perimeter << std::endl;
-    std::cout << "Area: " << area << std::endl;
+    std::cout << "The perimeter is: " << perimeter << std::endl;
+    std::cout << "The area is: " << area << std::endl;
 
     return 0;
 }
