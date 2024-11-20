@@ -10,18 +10,6 @@
 
 int main()
 {
-    double x = 0.0; // Funktioniert auch für int, float, ...
-    std::cout << "Please enter the value of x: ";
-    std::cin >> x;
-
-    double abs_x = x;
-
-    if (x < 0)
-    {
-        abs_x = -1.0 * x;
-    }
-
-    std::cout << "Abs(" << x << ") = " << abs_x << std::endl;
 
     return 0;
 }
