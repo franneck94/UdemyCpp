@@ -3,12 +3,12 @@
 
 int main()
 {
-    std::int32_t sum = 0U;
+    std::int32_t sum = 0;
 
-    while (sum < 10U)
+    while (sum < 10)
     {
         std::cout << "\nCurrent Sum: " << sum << " Enter the next value: ";
-        std::int32_t input = 0U;
+        std::int32_t input = 0;
         std::cin >> input;
 
         sum += input;
